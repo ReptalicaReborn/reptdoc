@@ -7,7 +7,6 @@
         partNumber: "APL1V12 / T8150",
         releaseDate: "2025.09",
         process: "TSMC N3P (3nm)",
-        transistors: "17 billion",
         dieSize: "98.69 mm²",
         cpu: {
             specs: "2x 4.26 GHz (Everest V4) + 4x 2.59 GHz (Sawtooth V4)",
@@ -28,7 +27,6 @@
         partNumber: "APL1V12 / T8150",
         releaseDate: "2025.09",
         process: "TSMC N3P (3nm)",
-        transistors: "N/A",
         dieSize: "83 mm²",
         cpu: {
             specs: "2x 4.26 GHz (Everest V4) + 4x 2.59 GHz (Sawtooth V4)",
@@ -162,7 +160,6 @@
         partNumber: "APL1W85 / T8030",
         releaseDate: "2019.09",
         process: "TSMC N7P (7nm+)",
-        transistors: "8.5 billion",
         dieSize: "98.48 mm²",
         cpu: {
             specs: "2x 2.65 GHz (Lightning) + 4x 1.73 GHz (Thunder)",
@@ -576,7 +573,6 @@ const mSeriesData = [
         partNumber: "APL1201 / T8122",
         releaseDate: "2023.11",
         process: "TSMC N3B (3nm)",
-        transistors: "25.0 billion",
         dieSize: "152.53 mm²",
         cpu: {
             specs: "8-core (4x 4.05 GHz Everest + 4x 2.75 GHz Sawtooth)",
@@ -615,7 +611,6 @@ const mSeriesData = [
         partNumber: "T6021",
         releaseDate: "2023.01",
         process: "TSMC N5P (5nm)",
-        transistors: "67.0 billion",
         dieSize: "485.62 mm²",
         cpu: {
             specs: "12-core (8x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard)",
@@ -4168,21 +4163,21 @@ const helioAData = [
 const kirin9000Data = [
     {
         name: "HiSilicon Kirin 9030 Pro",
-        partNumber: "unknown",
+        partNumber: "Hi3D60 GFCV120",
         releaseDate: "2025.11",
         process: "SMIC N+3 (6nm+)",
         geekbench6: { single: "1856", multi: "6115" },
         wildlifeExtreme: "3263",
-        dieSize: "Unknown",
+        dieSize: "137mm²",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x 2.75GHz (Taishan Prime) + 4x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
-            l2Cache: "1 MB (TP) + 3x 1 MB (TL) + 1 MB (4x Little)",
-            l3Cache: "10 MB"
+            l2Cache: "2 MB (TP) + 4 MB (4x Little)",
+            l3Cache: "12 MB"
         },
-        slc: "8 MB",
-        gpu: "Huawei Maleoon 935 6CUs (933 MHz)",
-        npu: "Da Vinci",
+        slc: "12 MB",
+        gpu: "Huawei Maleoon 935 6CUs (933 MHz) 1MB GMEM",
+        npu: "Ascend NPU (4x Tensor + 2x Vector)",
         modem: "Balong 5G Integrated Modem",
         memory: "16-bit Quad-channel LPDDR5X 9600"
     },
@@ -4555,11 +4550,13 @@ const kirin800Data = [
         releaseDate: "2025.05",
         process: "SMIC N+2 (7nm)",
         dieSize: "unknown",
+        geekbench6: { single: "1284", multi: "4112" },
+        wildlifeExtreme: "956",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x Taishan Prime @ 2.29 GHz + 3x Taishan Large @ 2.05 GHz + 4x Taishan Little @ 1.3 GHz",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            l2Cache: "1MB (TP) + 1MB L2 (4x TLi)",
+            l3Cache: "4MB"
         },
         slc: "unknown",
         gpu: "Huawei Maleoon 920C 2CUs (840 MHz)",
@@ -4760,6 +4757,26 @@ const kirin600Data = [
 ];
 
 const kirinTabletData = [
+    {
+        name: "HiSilicon Kirin X90",
+        partNumber: "Hi9600 GFCV100",
+        releaseDate: "2025.5",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "208 mm²",
+        geekbench6: { single: "1241", multi: "3592" },
+        wildlifeExtreme: "1000",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "4x Taishan Prime @ 2.32 GHz + 4x Taishan Large @ 2.01 GHz + 1x Taishan Medium @ 2.05 GHz",
+            l2Cache: "4x 1MB (TP) + 4x 1MB (TL) + 2x 512KB (TM)",
+            l3Cache: "16MB"
+        },
+        slc: "8MB",
+        gpu: "Huawei Maleoon 916 6CUs (950 MHz)",
+        npu: "Ascend (4x Tensor)",
+        modem: "N/A",
+        memory: "16-bit Octa-channel LPDDR5X 8533"
+    },
     {
         name: "HiSilicon Kirin 9000W/9000WL/9000WE/T90/T90A",
         partNumber: "Hi36A0V120",
