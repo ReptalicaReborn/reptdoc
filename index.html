@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReptDoc</title>
+    <meta name="theme-color" content="#12100E" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FDFBFF" media="(prefers-color-scheme: light)">
+    <meta property="og:title" content="ReptDoc">
+    <meta property="og:description"
+        content="Chip'n shit. Created by a dude who hate having to search though 4 websites tryna find information.">
+    <meta property="og:image" content="https://reptdoc.netlify.app/chip_dip.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://reptdoc.netlify.app/chip_dip.jpg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Preconnect first so the connection is ready before font requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- All fonts in one request: Material Icons, Google Sans, Outfit, Share Tech Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=115">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-home-link">
+                <h2>ReptDoc</h2>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-group expanded">
+                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                        <h3>Apple Silicon</h3>
+                        <span class="material-icons-round expand-icon">expand_more</span>
+                    </div>
+                    <div class="nav-group-items">
+                        <div class="nav-group-items-inner">
+                            <a href="#" class="nav-item active" data-series="a-series">A Series</a>
+                            <a href="#" class="nav-item" data-series="m-series">M Series</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                        <h3>Qualcomm</h3>
+                        <span class="material-icons-round expand-icon">expand_more</span>
+                    </div>
+                    <div class="nav-group-items">
+                        <div class="nav-group-items-inner">
+                            <a href="#" class="nav-item" data-series="snapdragon-8">Snapdragon 8 Series</a>
+                            <a href="#" class="nav-item" data-series="snapdragon-7">Snapdragon 7 Series</a>
+                            <a href="#" class="nav-item" data-series="snapdragon-6">Snapdragon 6 Series</a>
+                            <a href="#" class="nav-item" data-series="snapdragon-4">Snapdragon 4 Series</a>
+                            <a href="#" class="nav-item" data-series="snapdragon-2">Snapdragon 2 Series</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                        <h3>MediaTek</h3>
+                        <span class="material-icons-round expand-icon">expand_more</span>
+                    </div>
+                    <div class="nav-group-items">
+                        <div class="nav-group-items-inner">
+                            <a href="#" class="nav-item" data-series="dimensity-9000">Dimensity 9000 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-8000">Dimensity 8000 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-7000">Dimensity 7000 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-6000">Dimensity 6000 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-1000">Dimensity 1000 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-900">Dimensity 900 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-800">Dimensity 800 series</a>
+                            <a href="#" class="nav-item" data-series="dimensity-700">Dimensity 700 series</a>
+                            <a href="#" class="nav-item" data-series="helio-g">Helio G series</a>
+                            <a href="#" class="nav-item" data-series="helio-x">Helio X series</a>
+                            <a href="#" class="nav-item" data-series="helio-p">Helio P series</a>
+                            <a href="#" class="nav-item" data-series="helio-a">Helio A series</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                        <h3>HiSilicon</h3>
+                        <span class="material-icons-round expand-icon">expand_more</span>
+                    </div>
+                    <div class="nav-group-items">
+                        <div class="nav-group-items-inner">
+                            <a href="#" class="nav-item" data-series="kirin-9000">Kirin 9 series</a>
+                            <a href="#" class="nav-item" data-series="kirin-800">Kirin 8 series</a>
+                            <a href="#" class="nav-item" data-series="kirin-700">Kirin 7 series</a>
+                            <a href="#" class="nav-item" data-series="kirin-600">Kirin 6 series</a>
+                            <a href="#" class="nav-item" data-series="kirin-tablet">Tablet-only SoCs</a>
+                            <a href="#" class="nav-item" data-series="kirin-past">pre-Kirins</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                        <h3>Exynos</h3>
+                        <span class="material-icons-round expand-icon">expand_more</span>
+                    </div>
+                    <div class="nav-group-items">
+                        <div class="nav-group-items-inner">
+                            <a href="#" class="nav-item" data-series="exynos-2000">Exynos 2000 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-1000">Exynos 1000 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-900">Exynos 900 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-800">Exynos 800 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-9">Exynos 9 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-8">Exynos 8 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-7">Exynos 7 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-5">Exynos 5 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-4">Exynos 4 series</a>
+                            <a href="#" class="nav-item" data-series="exynos-3">Exynos 3 series</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="nav-item nav-top-level" data-series="unisoc">Unisoc</a>
+
+                <a href="#" class="nav-item nav-top-level" data-series="xiaomi">Xiaomi</a>
+
+                <a href="#" class="nav-item nav-top-level" data-series="tensor">Google Tensors</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item" id="nav-changelog">
+                    <span class="material-icons-round">history</span>
+                    <span class="changelog-label">Changelog</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-settings">
+                    <span class="material-icons-round">settings</span>
+                    <span class="settings-label">Settings</span>
+                </a>
+            </div>
+        </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="btn-icon mobile-menu-btn" id="menu-toggle">
+                    <span class="material-icons-round">menu</span>
+                </button>
+                <div class="breadcrumbs">
+                    <span>Apple Silicon</span>
+                    <span class="material-icons-round separator">chevron_right</span>
+                    <span class="current">A Series</span>
+                </div>
+                <div class="actions">
+                    <div class="search-box">
+                        <span class="material-icons-round search-icon">search</span>
+                        <input type="text" id="chip-search" placeholder="Search chips...">
+                    </div>
+                    <button class="btn-contained" onclick="window.location.href='compare.html'">Compare</button>
+                    <button class="btn-text" id="theme-toggle">
+                        <span class="material-icons-round">dark_mode</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scroll-area">
+                <div class="table-container" id="soc-table-container">
+                    <!-- Javascript will render the table here -->
+                </div>
+            </div>
+            <!-- Floating Action Button for Specs Toggle -->
+            <button id="fab-specs-toggle" class="fab" onclick="toggleSpecs()" title="Toggle Labels">
+                <span class="material-icons-round">subtitles_off</span>
+            </button>
+        </main>
+    </div>
+
+    <script src="script.js?v=5" defer></script>
+</body>
+
+</html>

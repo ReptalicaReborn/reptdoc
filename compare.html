@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReptDoc - Compare</title>
+    <meta name="theme-color" content="#12100E" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FDFBFF" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Preconnect first so the connection is ready before font requests -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- All fonts in one request: Material Icons, Google Sans, Outfit, Share Tech Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=115">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar (Reused structure) -->
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-home-link">
+                <h2>ReptDoc</h2>
+            </div>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item nav-back-home">
+                    <span class="material-icons-round" style="font-size: 24px;">arrow_back</span>
+                    <span class="home-label">Back to home</span>
+                </a>
+                <div style="height: 1px; background: var(--md-sys-color-outline-variant); margin: 8px 16px;"></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item" id="nav-changelog">
+                    <span class="material-icons-round">history</span>
+                    <span class="changelog-label">Changelog</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-settings">
+                    <span class="material-icons-round">settings</span>
+                    <span class="settings-label">Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="btn-icon mobile-menu-btn" id="menu-toggle">
+                    <span class="material-icons-round">menu</span>
+                </button>
+                <div class="breadcrumbs">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">Home</a>
+                    <span class="material-icons-round separator">chevron_right</span>
+                    <span class="current">Compare</span>
+                </div>
+                <div class="actions">
+                    <button class="btn-text" id="theme-toggle">
+                        <span class="material-icons-round">dark_mode</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scroll-area">
+                <div class="compare-container" id="comparison-container">
+                    <div class="compare-header">
+                        <h1>Compare SoCs</h1>
+                        <p>Select two SoCs to see a side-by-side comparison.</p>
+                    </div>
+
+                    <div class="selectors-grid">
+                        <!-- Selector 1 -->
+                        <div class="selector-card" id="selector-1">
+                            <div class="selector-search-box">
+                                <span class="material-icons-round"
+                                    style="color: var(--md-sys-color-on-surface-variant); margin-right: 12px;">search</span>
+                                <input type="text" placeholder="Search first SoC..." id="input-chip-1"
+                                    autocomplete="off">
+                            </div>
+                            <div class="autocomplete-results" id="results-chip-1"></div>
+
+                            <div class="selected-chip-display" id="display-chip-1">
+                                <div class="selected-chip-icon" id="icon-chip-1"></div>
+                                <div class="selected-chip-name" id="name-chip-1"></div>
+                                <div class="selected-chip-detail" id="detail-chip-1"></div>
+                                <button class="remove-chip-btn" onclick="clearChip(1)">Remove</button>
+                            </div>
+                        </div>
+
+                        <!-- Selector 2 -->
+                        <div class="selector-card" id="selector-2">
+                            <div class="selector-search-box">
+                                <span class="material-icons-round"
+                                    style="color: var(--md-sys-color-on-surface-variant); margin-right: 12px;">search</span>
+                                <input type="text" placeholder="Search second SoC..." id="input-chip-2"
+                                    autocomplete="off">
+                            </div>
+                            <div class="autocomplete-results" id="results-chip-2"></div>
+
+                            <div class="selected-chip-display" id="display-chip-2">
+                                <div class="selected-chip-icon" id="icon-chip-2"></div>
+                                <div class="selected-chip-name" id="name-chip-2"></div>
+                                <div class="selected-chip-detail" id="detail-chip-2"></div>
+                                <button class="remove-chip-btn" onclick="clearChip(2)">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="comparison-table-wrapper">
+                        <!-- Table rendered here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="settings-title">Settings</h2>
+                <button class="modal-close-btn" onclick="closeSettingsModal()">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3 class="lang-label">Language</h3>
+                    </div>
+                    <div class="setting-control">
+                        <select id="language-select" onchange="changeLanguage(this.value)">
+                            <option value="en">English</option>
+                            <option value="vi">Tiếng Việt</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Changelog Modal -->
+    <div class="modal-overlay" id="changelog-modal">
+        <div class="modal-content changelog-content">
+            <div class="modal-header">
+                <h2 class="changelog-title">Changelog</h2>
+                <button class="modal-close-btn" onclick="closeChangelogModal()">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body" id="changelog-body">
+                <!-- Changelog entries will be rendered here by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
