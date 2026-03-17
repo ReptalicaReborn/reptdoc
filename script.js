@@ -1118,6 +1118,8 @@ const snapdragon8Data = [
         name: "Snapdragon 835",
         codename: "msmcobalt/apqcobalt",
         partNumber: "MSM8998",
+        geekbench6: { single: "388", multi: "1452" },
+        wildlifeExtreme: "364",
         releaseDate: "2016.11",
         process: "Samsung 10LPE (10nm)",
         dieSize: "72.3 mm²",
@@ -1398,7 +1400,7 @@ const snapdragon7Data = [
     },
     {
         name: "Snapdragon 7s Gen 2",
-        geekbench6: { single: "1010", multi: "2900" },
+        geekbench6: { single: "1010", multi: "2916" },
         wildlifeExtreme: "800",
         codename: "parrot",
         partNumber: "SM7435",
@@ -1420,8 +1422,8 @@ const snapdragon7Data = [
     },
     {
         name: "Snapdragon 7 Gen 1",
-        geekbench6: { single: "1100", multi: "3000" },
-        wildlifeExtreme: "850",
+        geekbench6: { single: "946", multi: "2744" },
+        wildlifeExtreme: "829",
         codename: "fillmore",
         partNumber: "SM7450",
         releaseDate: "2022.05",
@@ -1464,7 +1466,7 @@ const snapdragon7Data = [
     },
     {
         name: "Snapdragon 778G / 778G+",
-        geekbench6: { single: "1050", multi: "2800" },
+        geekbench6: { single: "1000", multi: "2897" },
         wildlifeExtreme: "692",
         codename: "kodiak",
         partNumber: "SM7325 / SM7325-AE",
@@ -1700,8 +1702,8 @@ const snapdragon6Data = [
     },
     {
         name: "Snapdragon 6 Gen 1",
-        geekbench6: { single: "940", multi: "2750" },
-        wildlifeExtreme: "620",
+        geekbench6: { single: "930", multi: "2750" },
+        wildlifeExtreme: "613",
         codename: "parrot",
         partNumber: "SM6450",
         releaseDate: "2022.09",
@@ -1766,8 +1768,8 @@ const snapdragon6Data = [
     },
     {
         name: "Snapdragon 695 5G",
-        geekbench6: { single: "900", multi: "2100" },
-        wildlifeExtreme: "360",
+        geekbench6: { single: "910", multi: "2149" },
+        wildlifeExtreme: "361",
         codename: "blair",
         partNumber: "SM6375",
         releaseDate: "2021.10",
@@ -1810,8 +1812,8 @@ const snapdragon6Data = [
     },
     {
         name: "Snapdragon 680 / 685",
-        geekbench6: { single: "450", multi: "1450" },
-        wildlifeExtreme: "127",
+        geekbench6: { single: "417", multi: "1454" },
+        wildlifeExtreme: "122",
         codename: "Bengal / Khaje",
         partNumber: "SM6225",
         releaseDate: "2021.10 / 2023.3",
@@ -1874,8 +1876,8 @@ const snapdragon6Data = [
     },
     {
         name: "Snapdragon 665 / 662",
-        geekbench6: { single: "310", multi: "1300" },
-        wildlifeExtreme: "111",
+        geekbench6: { single: "337", multi: "1190" },
+        wildlifeExtreme: "108",
         codename: "trinket",
         partNumber: "SM6125",
         releaseDate: "2019.04 / 2020.01",
@@ -2121,7 +2123,7 @@ const snapdragon4Data = [
     },
     {
         name: "Snapdragon 4 Gen 2",
-        geekbench6: { single: "1020", multi: "2128" },
+        geekbench6: { single: "927", multi: "2128" },
         wildlifeExtreme: "366",
         codename: "Clarence / Ravelin",
         partNumber: "SM4450",
@@ -2143,7 +2145,7 @@ const snapdragon4Data = [
     },
     {
         name: "Snapdragon 4 Gen 1",
-        geekbench6: { single: "840", multi: "2100" },
+        geekbench6: { single: "844", multi: "2087" },
         wildlifeExtreme: "350",
         codename: "Baikal",
         partNumber: "SM4375",
@@ -2910,9 +2912,9 @@ const dimensity8000Data = [
         memory: "LPDDR5 3200 MHz"
     },
     {
-        name: "MediaTek Dimensity 8050 / 1300",
-        geekbench6: { single: "1100", multi: "3500" },
-        wildlifeExtreme: "1300",
+        name: "MediaTek Dimensity 8050",
+        geekbench6: { single: "1105", multi: "3252" },
+        wildlifeExtreme: "1325",
         partNumber: "MT6983Z",
         releaseDate: "2023",
         process: "TSMC N6",
@@ -2930,9 +2932,9 @@ const dimensity8000Data = [
         memory: "LPDDR4X 2133 MHz"
     },
     {
-        name: "MediaTek Dimensity 8020 / 1100",
-        geekbench6: { single: "1000", multi: "3100" },
-        wildlifeExtreme: "1250",
+        name: "MediaTek Dimensity 8020",
+        geekbench6: { single: "1043", multi: "3103" },
+        wildlifeExtreme: "1228",
         partNumber: "MT6981Z",
         releaseDate: "2023",
         process: "TSMC N6",
@@ -2996,6 +2998,8 @@ const dimensity7000Data = [
         partNumber: "MT6878V/TZA / MT6878V/TFZA",
         releaseDate: "2024",
         process: "TSMC N4",
+        geekbench6: { single: "181", multi: "3071" },
+        wildlifeExtreme: "902",
         dieSize: "Unknown",
         architecture: "ARMv8.2-A",
         cpu: {
@@ -3035,6 +3039,8 @@ const dimensity7000Data = [
         releaseDate: "2024",
         process: "TSMC N4P",
         dieSize: "Unknown",
+        geekbench6: { single: "1041", multi: "3031" },
+        wildlifeExtreme: "892",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
@@ -3049,7 +3055,7 @@ const dimensity7000Data = [
     },
     {
         name: "MediaTek Dimensity 7200",
-        geekbench6: { single: "1180", multi: "2650" },
+        geekbench6: { single: "1239", multi: "2621" },
         wildlifeExtreme: "1150",
         partNumber: "MT6886",
         releaseDate: "2023.02",
@@ -3086,9 +3092,9 @@ const dimensity7000Data = [
         memory: "16-bit Dual-channel LPDDR5 5500"
     },
     {
-        name: "MediaTek Dimensity 7050 / 1080",
-        geekbench6: { single: "950", multi: "2450" },
-        wildlifeExtreme: "630",
+        name: "MediaTek Dimensity 7050",
+        geekbench6: { single: "967", multi: "2271" },
+        wildlifeExtreme: "636",
         partNumber: "MT6877",
         releaseDate: "2023",
         process: "TSMC 6nm",
@@ -3227,9 +3233,9 @@ const dimensity6000Data = [
         memory: "LPDDR4X 2133 MHz"
     },
     {
-        name: "MediaTek Dimensity 6080 / 810",
-        geekbench6: { single: "800", multi: "1950" },
-        wildlifeExtreme: "360",
+        name: "MediaTek Dimensity 6080",
+        geekbench6: { single: "796", multi: "1918" },
+        wildlifeExtreme: "483",
         partNumber: "MT6833",
         releaseDate: "2023.Q3",
         process: "TSMC N6",
@@ -3247,9 +3253,9 @@ const dimensity6000Data = [
         memory: "LPDDR4X 2133 MHz"
     },
     {
-        name: "MediaTek Dimensity 6020 / 720",
-        geekbench6: { single: "750", multi: "1900" },
-        wildlifeExtreme: "330",
+        name: "MediaTek Dimensity 6020",
+        geekbench6: { single: "702", multi: "1821" },
+        wildlifeExtreme: "328",
         partNumber: "MT6833",
         releaseDate: "2023",
         process: "TSMC 7nm",
@@ -3276,6 +3282,8 @@ const dimensity1000Data = [
         process: "TSMC 6nm (N6)",
         dieSize: "95.78mm²",
         architecture: "ARMv8.2-A",
+        geekbench6: { single: "1105", multi: "3252" },
+        wildlifeExtreme: "1325",
         cpu: {
             specs: "1x Cortex-A78 @ 3.0 GHz + 3x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
             l2Cache: "4x 512 KB (A78) + 4x 128 KB (A55)",
@@ -3293,6 +3301,8 @@ const dimensity1000Data = [
         releaseDate: "2021.01",
         process: "TSMC 6nm (N6)",
         dieSize: "95.78mm²",
+        geekbench6: { single: "1105", multi: "3252" },
+        wildlifeExtreme: "1325",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "1x Cortex-A78 @ 3.0 GHz + 3x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
@@ -3306,9 +3316,11 @@ const dimensity1000Data = [
         memory: "LPDDR4X 2133 MHz"
     },
     {
-        name: "MediaTek Dimensity 1100",
+        name: "MediaTek Dimensity 1100 / Kompanio 1300T",
         partNumber: "MT6891Z",
         releaseDate: "2021.01",
+        geekbench6: { single: "1043", multi: "3103" },
+        wildlifeExtreme: "1228",
         process: "TSMC 6nm (N6)",
         dieSize: "95.78mm²",
         architecture: "ARMv8.2-A",
@@ -3324,9 +3336,31 @@ const dimensity1000Data = [
         memory: "LPDDR4X 2133 MHz"
     },
     {
+        name: "MediaTek Dimensity 1080",
+        geekbench6: { single: "967", multi: "2271" },
+        wildlifeExtreme: "636",
+        partNumber: "MT6877",
+        releaseDate: "2023",
+        process: "TSMC 6nm",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A78 @ 2.6 GHz + 6x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "Unknown",
+            l3Cache: "Unknown"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G68 MC4 (950MHz)",
+        npu: "MediaTek NPU 550",
+        modem: "MediaTek 5G Modem",
+        memory: "16-bit Dual-channel LPDDR5 5500"
+    },
+    {
         name: "MediaTek Dimensity 1000+",
         partNumber: "MT6889Z",
         releaseDate: "2020.05",
+        geekbench6: { single: "992", multi: "3053" },
+        wildlifeExtreme: "1228",
         process: "TSMC 7nm (N7)",
         dieSize: "95.78mm²",
         architecture: "ARMv8.2-A",
@@ -3365,6 +3399,8 @@ const dimensity1000Data = [
         releaseDate: "2019.11",
         process: "TSMC 7nm (N7)",
         dieSize: "95.78mm²",
+        geekbench6: { single: "992", multi: "3053" },
+        wildlifeExtreme: "1228",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A77 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
@@ -3399,6 +3435,26 @@ const dimensity900Data = [
         memory: "LPDDR4X"
     },
     {
+        name: "MediaTek Dimensity 920",
+        partNumber: "MT6877T",
+        releaseDate: "2021.05",
+        geekbench6: { single: "911", multi: "2304" },
+        wildlifeExtreme: "635",
+        process: "TSMC N6",
+        dieSize: "unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A78 @ 2.5 GHz + 6x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G68 MC4 (950 MHz)",
+        npu: "unknown",
+        modem: "MediaTek 5G Modem",
+        memory: "LPDDR4X"
+    },
+    {
         name: "MediaTek Dimensity 900",
         partNumber: "MT6877",
         releaseDate: "2021.05",
@@ -3424,6 +3480,7 @@ const dimensity800Data = [
         partNumber: "MT6875",
         releaseDate: "2020.05",
         process: "TSMC 7nm",
+        geekbench6: { single: "843", multi: "2574" },
         dieSize: "unknown",
         architecture: "ARMv8.2-A",
         cpu: {
@@ -3441,6 +3498,8 @@ const dimensity800Data = [
         name: "MediaTek Dimensity 810",
         partNumber: "MT6833P/T",
         releaseDate: "2021.08",
+        geekbench6: { single: "759", multi: "1963" },
+        wildlifeExtreme: "369",
         process: "TSMC N6",
         dieSize: "unknown",
         architecture: "ARMv8.2-A",
@@ -3451,6 +3510,26 @@ const dimensity800Data = [
         },
         slc: "N/A",
         gpu: "ARM Mali-G57 MC2 (1068 MHz)",
+        npu: "unknown",
+        modem: "MediaTek 5G Modem",
+        memory: "LPDDR4X"
+    },
+    {
+        name: "MediaTek Dimensity 800U",
+        partNumber: "MT6853",
+        releaseDate: "2020.08",
+        geekbench6: { single: "796", multi: "1918" },
+        wildlifeExtreme: "483",
+        process: "TSMC N6",
+        dieSize: "unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G57 MC3 (850 MHz)",
         npu: "unknown",
         modem: "MediaTek 5G Modem",
         memory: "LPDDR4X"
@@ -3480,6 +3559,8 @@ const dimensity700Data = [
         name: "MediaTek Dimensity 700",
         partNumber: "MT6833",
         releaseDate: "2020.11",
+        geekbench6: { single: "702", multi: "1821" },
+        wildlifeExtreme: "328",
         process: "TSMC N7",
         dieSize: "unknown",
         architecture: "ARMv8.2-A",
@@ -3539,8 +3620,8 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G99",
-        geekbench6: { single: "764", multi: "2000" },
-        wildlifeExtreme: "340",
+        geekbench6: { single: "732", multi: "1984" },
+        wildlifeExtreme: "347",
         partNumber: "MT6789",
         releaseDate: "2022.05",
         process: "TSMC 6nm (N6)",
@@ -3679,8 +3760,8 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G85",
-        geekbench6: { single: "410", multi: "1300" },
-        wildlifeExtreme: "170",
+        geekbench6: { single: "413", multi: "1402" },
+        wildlifeExtreme: "183",
         partNumber: "MT6769Z",
         releaseDate: "2020.05",
         process: "TSMC 12nm FinFET",
@@ -4571,6 +4652,8 @@ const kirin800Data = [
         process: "SMIC N+2 (7nm)",
         dieSize: "70 mm²",
         architecture: "ARMv8.2-A",
+        geekbench6: { single: "984", multi: "2882" },
+        wildlifeExtreme: "1025",
         cpu: {
             specs: "1x Cortex-A77 @ 2.40 GHz + 3x Cortex-A77 @ 2.19 GHz + 4x Cortex-A55 @ 1.84 GHz",
             l2Cache: "512KB (A77) + 3x 256KB (A77) + 4x 128KB (A55)",
@@ -4775,7 +4858,7 @@ const kirinTabletData = [
         gpu: "Huawei Maleoon 916 6CUs (950 MHz)",
         npu: "Ascend (4x Tensor)",
         modem: "N/A",
-        memory: "16-bit Octa-channel LPDDR5X 8533"
+        memory: "16-bit Octa-channel LPDDR5X"
     },
     {
         name: "HiSilicon Kirin 9000W/9000WL/9000WE/T90/T90A",
@@ -6224,6 +6307,7 @@ const unisocData = [
         name: "Unisoc T770 / T7520",
         partNumber: "T7520",
         releaseDate: "2021.02",
+        wildlifeExtreme: "448",
         process: "TSMC 6nm (EUV)",
         dieSize: "unknown",
         architecture: "ARMv8.2-A",
@@ -6260,7 +6344,7 @@ const unisocData = [
     },
     {
         name: "Unisoc T760 / T8100",
-        geekbench6: { single: "780", multi: "2200" },
+        geekbench6: { single: "744", multi: "2390" },
         wildlifeExtreme: "448",
         partNumber: "UMS9611",
         releaseDate: "2021.12",
