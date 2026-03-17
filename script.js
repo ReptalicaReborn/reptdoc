@@ -4556,8 +4556,6 @@ const kirin800Data = [
         process: "SMIC N+2 (7nm)",
         dieSize: "unknown",
         architecture: "ARMv8-A compatible",
-        geekbench6: { single: "1284", multi: "4412" },
-        wildlifeExtreme: "956",
         cpu: {
             specs: "1x Taishan Prime @ 2.29 GHz + 3x Taishan Large @ 2.05 GHz + 4x Taishan Little @ 1.3 GHz",
             l2Cache: "unknown",

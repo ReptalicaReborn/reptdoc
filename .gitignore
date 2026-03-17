@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+*.min.js
+*.min.css
+.env
+.vscode/
