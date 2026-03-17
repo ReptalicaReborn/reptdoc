@@ -761,7 +761,7 @@ const snapdragon8Data = [
         memory: "16-bit Quad-Channel LPDDR5X 9600"
     },
     {
-        name: "Snapdragon ",
+        name: "Snapdragon 8 Elite Gen 5",
         geekbench6: { single: "3831", multi: "12459" },
         wildlifeExtreme: "8492",
         codename: "canoe/kaanapali",
