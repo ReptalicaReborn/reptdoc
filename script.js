@@ -3,6 +3,7 @@
         name: "A19 Pro",
         geekbench6: { single: "4019", multi: "11054" },
         wildlifeExtreme: "6557",
+        steelNomadLite: "3004",
         codename: "Thera",
         partNumber: "APL1V12 / T8150",
         releaseDate: "2025.09",
@@ -23,6 +24,7 @@
         name: "A19",
         geekbench6: { single: "3849", multi: "10307" },
         wildlifeExtreme: "5736",
+        steelNomadLite: "2598",
         codename: "Tilos",
         partNumber: "APL1V12 / T8150",
         releaseDate: "2025.09",
@@ -42,6 +44,7 @@
         name: "A18 Pro",
         geekbench6: { single: "3429", multi: "8790" },
         wildlifeExtreme: "5148",
+        steelNomadLite: "2132",
         codename: "Tahiti",
         partNumber: "APL1V07 / T8140",
         releaseDate: "2024.09",
@@ -743,6 +746,7 @@ const snapdragon8Data = [
         name: "Snapdragon 8 Gen 5",
         geekbench6: { single: "2957", multi: "10236" },
         wildlifeExtreme: "5681",
+        steelNomadLite: "2088",
         codename: "Molokai",
         partNumber: "SM8845",
         releaseDate: "2025.11",
@@ -764,6 +768,7 @@ const snapdragon8Data = [
         name: "Snapdragon 8 Elite Gen 5",
         geekbench6: { single: "3831", multi: "12459" },
         wildlifeExtreme: "8492",
+        steelNomadLite: "3143",
         codename: "canoe/kaanapali",
         partNumber: "SM8850-AC",
         releaseDate: "2025.09",
@@ -805,6 +810,7 @@ const snapdragon8Data = [
         name: "Snapdragon 8 Elite",
         geekbench6: { single: "3221", multi: "10426" },
         wildlifeExtreme: "6949",
+        steelNomadLite: "2583",
         codename: "sun/pakala",
         partNumber: "SM8750-AB",
         releaseDate: "2024.10",
@@ -826,6 +832,7 @@ const snapdragon8Data = [
         name: "Snapdragon 8s Gen 3",
         geekbench6: { single: "2000", multi: "5400" },
         wildlifeExtreme: "3250",
+        steelNomadLite: "1025",
         codename: "cliffs/palawan",
         partNumber: "SM8635",
         releaseDate: "2024.03",
@@ -910,6 +917,7 @@ const snapdragon8Data = [
         name: "Snapdragon 8 Gen 1",
         geekbench6: { single: "1650", multi: "4000" },
         wildlifeExtreme: "2600",
+        steelNomadLite: "1521",
         codename: "taro/waipio",
         partNumber: "SM8450",
         releaseDate: "2021.11",
@@ -931,6 +939,7 @@ const snapdragon8Data = [
         name: "Snapdragon 888+",
         geekbench6: { single: "1500", multi: "3800" },
         wildlifeExtreme: "1550",
+        steelNomadLite: "510",
         codename: "lahaina",
         partNumber: "SM8350-AC",
         releaseDate: "2021.06",
@@ -952,6 +961,7 @@ const snapdragon8Data = [
         name: "Snapdragon 888",
         geekbench6: { single: "1400", multi: "3600" },
         wildlifeExtreme: "1500",
+        steelNomadLite: "503",
         codename: "lahaina",
         partNumber: "SM8350",
         releaseDate: "2020.12",
@@ -2582,6 +2592,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9500s",
         geekbench6: { single: "2910", multi: "8930" },
         wildlifeExtreme: "6432",
+        steelNomadLite: "2683",
         partNumber: "MT6991",
         releaseDate: "2026.01",
         process: "TSMC 3nm (N3E)",
@@ -2602,6 +2613,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9500",
         geekbench6: { single: "3635", multi: "10941" },
         wildlifeExtreme: "8251",
+        steelNomadLite: "3386",
         partNumber: "MT6993",
         releaseDate: "2025.09",
         process: "TSMC 3nm (N3P)",
@@ -2623,6 +2635,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9400+",
         geekbench6: { single: "2910", multi: "8930" },
         wildlifeExtreme: "6432",
+        steelNomadLite: "2683",
         partNumber: "MT6991Z",
         releaseDate: "2025.04",
         process: "TSMC 3nm (N3E)",
@@ -2644,6 +2657,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9400",
         geekbench6: { single: "2878", multi: "8823" },
         wildlifeExtreme: "6383",
+        steelNomadLite: "2683",
         partNumber: "MT6991",
         releaseDate: "2024.10",
         process: "TSMC 3nm (N3E)",
@@ -2665,6 +2679,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9400e",
         geekbench6: { single: "2250", multi: "7600" },
         wildlifeExtreme: "5812",
+        steelNomadLite: "2341",
         partNumber: "MT6989E",
         releaseDate: "2025.05",
         process: "TSMC 4nm (N4P)",
@@ -2836,6 +2851,7 @@ const dimensity8000Data = [
         partNumber: "MT6899",
         geekbench6: { single: "1722", multi: "6906" },
         wildlifeExtreme: "4128",
+        steelNomadLite: "1446",
         releaseDate: "2024.12.24",
         process: "TSMC N4P",
         dieSize: "Unknown",
@@ -4249,6 +4265,7 @@ const kirin9000Data = [
         process: "SMIC N+3 (6nm+)",
         geekbench6: { single: "1856", multi: "6115" },
         wildlifeExtreme: "3263",
+        steelNomadLite: "1004",
         dieSize: "137mm²",
         architecture: "ARMv8-A compatible",
         cpu: {
@@ -4286,6 +4303,7 @@ const kirin9000Data = [
         name: "HiSilicon Kirin 9020",
         geekbench6: { single: "1477", multi: "4487" },
         wildlifeExtreme: "1894",
+        steelNomadLite: "548",
         partNumber: "Hi36B0",
         releaseDate: "2024.11",
         process: "SMIC N+2 (7nm)",
@@ -4633,6 +4651,7 @@ const kirin800Data = [
         dieSize: "unknown",
         geekbench6: { single: "1284", multi: "4112" },
         wildlifeExtreme: "956",
+        steelNomadLite: "277",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x Taishan Prime @ 2.29 GHz + 3x Taishan Large @ 2.05 GHz + 4x Taishan Little @ 1.3 GHz",
@@ -5938,6 +5957,7 @@ const tensorData = [
         name: "Google Tensor G4",
         geekbench6: { single: "1958", multi: "4638" },
         wildlifeExtreme: "2576",
+        steelNomadLite: "970",
         codename: "Zuma Pro (GS401)",
         partNumber: "S5P9875",
         releaseDate: "2024.08",
@@ -5959,6 +5979,7 @@ const tensorData = [
         name: "Google Tensor G3",
         geekbench6: { single: "1767", multi: "4668" },
         wildlifeExtreme: "2455",
+        steelNomadLite: "965",
         codename: "Zuma (GS301)",
         partNumber: "S5P9865",
         releaseDate: "2023.10",
@@ -6035,6 +6056,7 @@ const tableStructure = [
             { label: "geekbench6_single", key: "geekbench6.single" },
             { label: "geekbench6_multi", key: "geekbench6.multi" },
             { label: "wildlifeExtreme", key: "wildlifeExtreme" },
+            { label: "steelNomadLite", key: "steelNomadLite" },
         ]
     },
     {
@@ -6090,6 +6112,14 @@ function formatValue(val) {
 // Current active series
 let currentSeries = 'a-series';
 let isWelcomeState = false; // Will be set to true on load if renderWelcomePage is called
+
+window.activeGpuBenchmark = 'wildlife';
+window.toggleGpuBenchmark = function () {
+    window.activeGpuBenchmark = (window.activeGpuBenchmark === 'wildlife') ? 'steel_nomad' : 'wildlife';
+    if (document.getElementById('comparison-table-wrapper')) {
+        updateComparisonTable();
+    }
+};
 
 // Toggle Specs Column
 window.toggleSpecs = function () {
@@ -6609,6 +6639,7 @@ const xiaomiData = [
             multi: "9671"
         },
         wildlifeExtreme: "6604",
+        steelNomadLite: "2682",
         slc: "N/A",
         gpu: "ARM Mali-G925 MC16 @ 1392MHz",
         npu: "Xiaomi Hexa-core NPU (10MB cache)",
@@ -6664,7 +6695,12 @@ const translations = {
         geekbench_title: "Geekbench 6",
         geekbench_desc: "CPU performance benchmark - single core and multi-core",
         wildlife_title: "3DMark Wild Life Extreme",
+        steel_nomad_title: "3DMark Steel Nomad Lite",
         wildlife_desc: "GPU performance benchmark",
+        benchmark_toggle: "Switch GPU Benchmark",
+        switch_to_steel: "Switch to Steel Nomad Lite",
+        switch_to_wildlife: "Switch to Wild Life Extreme",
+        steelNomadLite: "Steel Nomad Lite",
         single_core: "Single-Core Score",
         multi_core: "Multi-Core Score",
         graphics_score: "Graphics Score",
@@ -6711,75 +6747,80 @@ const translations = {
     },
     vi: {
         welcome_title: "ReptDoc",
-        welcome_subtitle: "Chip và mấy thứ khác. Được tạo bởi một thằng chán với việc phải lục lọi 4 trang web để tìm thứ nó cần. Đóng góp? Có gì sai? Liên hệ tôi tại rep.ta.li.ca (Discord)",
+        welcome_subtitle: "Chip và m?y th? khác. Ðu?c t?o b?i m?t th?ng chán v?i vi?c ph?i l?c l?i 4 trang web d? tìm th? nó c?n. Ðóng góp? Có gì sai? Liên h? tôi t?i rep.ta.li.ca (Discord)",
         card_compare_title: "So sánh!",
-        card_compare_desc: "So sánh hai SoC với nhau.",
-        card_data_title: "Dữ liệu, dữ liệu và dữ liệu.",
-        card_data_desc: "Quên mất có bao nhiêu chip trong cái web này rồi, nên tự đi mà xem đi.",
-        card_search_title: "Tìm kiếm thứ gì đó",
-        card_search_desc: "Tìm cái giề đê.",
-        card_theme_title: "Lựu choáng!!!!",
-        card_theme_desc: "Chuyển đổi giữa chế độ tối và sáng.",
-        home: "Trang chủ",
-        welcome: "Chào mừng",
-        search_results: "Kết quả tìm kiếm",
+        card_compare_desc: "So sánh hai SoC v?i nhau.",
+        card_data_title: "D? li?u, d? li?u và d? li?u.",
+        card_data_desc: "Quên m?t có bao nhiêu chip trong cái web này r?i, nên t? di mà xem di.",
+        card_search_title: "Tìm ki?m th? gì dó",
+        card_search_desc: "Tìm cái gi? dê.",
+        card_theme_title: "L?u choáng!!!!",
+        card_theme_desc: "Chuy?n d?i gi?a ch? d? t?i và sáng.",
+        home: "Trang ch?",
+        welcome: "Chào m?ng",
+        search_results: "K?t qu? tìm ki?m",
         search_placeholder: "Tìm chip...",
         compare_btn: "So sánh",
         compare_socs: "So sánh 2 SoC",
-        compare_desc: "Chọn hai SoC để xem so sánh với nhau.",
-        search_first: "Tìm SoC thứ nhất...",
-        search_second: "Tìm SoC thứ hai...",
+        compare_desc: "Ch?n hai SoC d? xem so sánh v?i nhau.",
+        search_first: "Tìm SoC th? nh?t...",
+        search_second: "Tìm SoC th? hai...",
         remove: "Xóa",
-        specs: "Thông số",
-        select_soc: "Chọn SoC...",
+        specs: "Thông s?",
+        select_soc: "Ch?n SoC...",
         compare_breadcrumb: "So sánh",
         geekbench_title: "Geekbench 6",
-        geekbench_desc: "Điểm hiệu năng CPU - đơn nhân và đa nhân",
+        geekbench_desc: "Ði?m hi?u nang CPU - don nhân và da nhân",
         wildlife_title: "3DMark Wild Life Extreme",
-        wildlife_desc: "Điểm hiệu năng GPU",
-        single_core: "Điểm đơn nhân",
-        multi_core: "Điểm đa nhân",
-        graphics_score: "Điểm GPU",
-        no_chips_found: "Không tìm thấy SoC nào khớp với tìm kiếm của bạn.",
-        back_to_home: "Quay lại trang chủ",
-        toggle_labels: "Bật/Tắt nhãn",
-        show_labels: "Hiện nhãn",
-        hide_labels: "Ẩn nhãn",
-        settings: "Cài đặt",
-        changelog: "Nhật ký thay đổi",
-        language: "Ngôn ngữ",
+        steel_nomad_title: "3DMark Steel Nomad Lite",
+        wildlife_desc: "Ði?m hi?u nang GPU",
+        benchmark_toggle: "Ð?i thành Bench Steel Nomad Lite",
+        switch_to_steel: "Đổi thành Steel Nomad Lite",
+        switch_to_wildlife: "Đổi thành Wild Life Extreme",
+        steelNomadLite: "Steel Nomad Lite",
+        single_core: "Ði?m don nhân",
+        multi_core: "Ði?m da nhân",
+        graphics_score: "Ði?m GPU",
+        no_chips_found: "Không tìm th?y SoC nào kh?p v?i tìm ki?m c?a b?n.",
+        back_to_home: "Quay l?i trang ch?",
+        toggle_labels: "B?t/T?t nhãn",
+        show_labels: "Hi?n nhãn",
+        hide_labels: "?n nhãn",
+        settings: "Cài d?t",
+        changelog: "Nh?t ký thay d?i",
+        language: "Ngôn ng?",
         codename: "Tên mã",
-        partNumber: "Số hiệu chip",
+        partNumber: "S? hi?u chip",
         releaseDate: "Ngày phát hành",
-        process: "Tiến trình",
-        dieSize: "Kích thước die",
-        cpu_specs: "Thông số CPU",
-        l2Cache: "Bộ nhớ đệm L2",
-        l3Cache: "Bộ nhớ đệm L3",
+        process: "Ti?n trình",
+        dieSize: "Kích thu?c die",
+        cpu_specs: "Thông s? CPU",
+        l2Cache: "B? nh? d?m L2",
+        l3Cache: "B? nh? d?m L3",
         slc: "SLC",
         gpu: "GPU",
-        npu: "Bộ tăng tốc AI",
+        npu: "B? tang t?c AI",
         dsp: "DSP",
         modem: "Modem",
-        memory: "Tốc độ bộ nhớ RAM tối đa",
-        architecture: "Kiến trúc",
-        category_basic: "Cơ bản",
-        category_benchmarks: "Điểm chuẩn",
+        memory: "T?c d? b? nh? RAM t?i da",
+        architecture: "Ki?n trúc",
+        category_basic: "Co b?n",
+        category_benchmarks: "Ði?m chu?n",
         category_cpu: "CPU",
         category_gpu: "GPU",
         category_npu: "NPU",
-        category_connectivity: "Kết nối",
-        category_memory: "Bộ nhớ RAM",
-        category_arch: "Kiến trúc",
-        view_full_specs: "Xem chi tiết",
-        mobile_release: "Thời gian ra mắt",
-        mobile_process: "Tiến trình",
+        category_connectivity: "K?t n?i",
+        category_memory: "B? nh? RAM",
+        category_arch: "Ki?n trúc",
+        view_full_specs: "Xem chi ti?t",
+        mobile_release: "Th?i gian ra m?t",
+        mobile_process: "Ti?n trình",
         mobile_cpu: "CPU",
         mobile_gpu: "GPU",
         value_unknown: "Không rõ",
         value_na: "N/A",
-        accent_color: "Màu chủ đạo",
-        accent_color_desc: "Tùy chỉnh màu chính để phù hợp với phong cách của bạn"
+        accent_color: "Màu ch? d?o",
+        accent_color_desc: "Tùy ch?nh màu chính d? phù h?p v?i phong cách c?a b?n"
     }
 };
 
@@ -6796,7 +6837,7 @@ const changelogData = [
             vi: [
                 "Quên không ghi Changelogs.",
                 "Thêm benchmarks cho Kirin 9030 và 9030 Pro",
-                "Chắc là có nhiều cái đã được thay đổi nhưng tôi không nhớ được"
+                "Ch?c là có nhi?u cái dã du?c thay d?i nhung tôi không nh? du?c"
             ]
         }
     },
@@ -6826,10 +6867,10 @@ const changelogData = [
                 "Fixed benchmark bars clipping issues for long chip names.",
             ],
             vi: [
-                "Giao diện mới cho Desktop",
-                "Xóa chữ 'Samsung' cho các SoC Exynos.",
-                "Sửa lỗi tên SoC dài quá làm tràn khung giao diện.",
-                "Sửa lỗi thanh benchmark bị đè chữ khi tên chip quá dài.",
+                "Giao di?n m?i cho Desktop",
+                "Xóa ch? 'Samsung' cho các SoC Exynos.",
+                "S?a l?i tên SoC dài quá làm tràn khung giao di?n.",
+                "S?a l?i thanh benchmark b? dè ch? khi tên chip quá dài.",
             ]
         }
     },
@@ -6844,10 +6885,10 @@ const changelogData = [
                 "Code cleanup and performance optimizations.",
             ],
             vi: [
-                "UI được cải thiện đáng kể.",
-                "Làm lại giao diện Sáng (Light Mode) nhìn cho đàng hoàng hơn.",
-                "Thêm tính năng chỉnh màu chủ đạo (trong Cài đặt).",
-                "Dọn dẹp mã nguồn giúp web chạy mượt hơn.",
+                "UI du?c c?i thi?n dáng k?.",
+                "Làm l?i giao di?n Sáng (Light Mode) nhìn cho dàng hoàng hon.",
+                "Thêm tính nang ch?nh màu ch? d?o (trong Cài d?t).",
+                "D?n d?p mã ngu?n giúp web ch?y mu?t hon.",
             ]
         }
     },
@@ -6860,8 +6901,8 @@ const changelogData = [
                 "Added a small easter egg. Try to find it!",
             ],
             vi: [
-                "Thay thế toàn bộ 'Chipset' bằng 'SoC' cho nó chuẩn xác (và nghe ngầu hơn).",
-                "Thêm một cái easter egg nhỏ. Thử tìm xem!",
+                "Thay th? toàn b? 'Chipset' b?ng 'SoC' cho nó chu?n xác (và nghe ng?u hon).",
+                "Thêm m?t cái easter egg nh?. Th? tìm xem!",
             ]
         }
     },
@@ -6873,7 +6914,7 @@ const changelogData = [
                 "Fixed VN translation",
             ],
             vi: [
-                "Sửa lỗi dịch thuật tiếng Việt",
+                "S?a l?i d?ch thu?t ti?ng Vi?t",
             ]
         }
     },
@@ -6889,11 +6930,11 @@ const changelogData = [
                 "Optimized mobile stacking context for search dropdowns,ugh, too serious."
             ],
             vi: [
-                "Sửa lỗi gợi ý tìm kiếm SoC bị đè bởi các thành phần khác trên điện thoại.",
-                "Cải thiện hiển thị thanh tìm kiếm trên điện thoại (chỉnh kích thước chữ và padding).",
-                "Sửa lỗi mất chữ trong ô tìm kiếm khi dùng tiếng Việt ở trang so sánh.",
-                "Thêm hiệu ứng cắt chữ cho các SoC có tên dài trong kết quả tìm kiếm.",
-                "Tối ưu hóa thứ tự hiển thị của các bảng gợi ý trên điện thoại, mé, lâu lâu làm căng một tí."
+                "S?a l?i g?i ý tìm ki?m SoC b? dè b?i các thành ph?n khác trên di?n tho?i.",
+                "C?i thi?n hi?n th? thanh tìm ki?m trên di?n tho?i (ch?nh kích thu?c ch? và padding).",
+                "S?a l?i m?t ch? trong ô tìm ki?m khi dùng ti?ng Vi?t ? trang so sánh.",
+                "Thêm hi?u ?ng c?t ch? cho các SoC có tên dài trong k?t qu? tìm ki?m.",
+                "T?i uu hóa th? t? hi?n th? c?a các b?ng g?i ý trên di?n tho?i, mé, lâu lâu làm cang m?t tí."
             ]
         }
     },
@@ -6910,10 +6951,10 @@ const changelogData = [
             ],
             vi: [
                 "UI, UI, UI, UI, UI.",
-                "tui thêm cái gì quên mẹ r chắc ko phải cái nút trang chủ đâu ha",
-                "sửa cả đống lỗi trên trang web cho điện thoại, hehehee.",
-                "thêm hoạt ảnh, yay",
-                "thêm một cái favicon và embed"
+                "tui thêm cái gì quên m? r ch?c ko ph?i cái nút trang ch? dâu ha",
+                "s?a c? d?ng l?i trên trang web cho di?n tho?i, hehehee.",
+                "thêm ho?t ?nh, yay",
+                "thêm m?t cái favicon và embed"
             ]
         }
     },
@@ -6929,11 +6970,11 @@ const changelogData = [
                 "Added Snapdragon 675 benchmarks (requested)"
             ],
             vi: [
-                "Thêm chi tiết SoC Mediatek 9500s và 8500.",
-                "Thêm chi tiết SoC Xiaomi XRing o1 và Surge S1.",
+                "Thêm chi ti?t SoC Mediatek 9500s và 8500.",
+                "Thêm chi ti?t SoC Xiaomi XRing o1 và Surge S1.",
                 "Thêm logo Xiaomi.",
-                "Thêm mục Nhật ký thay đổi (rất quan trọng).",
-                "Thêm benchmarks cho Snapdragon 675 (theo yêu cầu)"
+                "Thêm m?c Nh?t ký thay d?i (r?t quan tr?ng).",
+                "Thêm benchmarks cho Snapdragon 675 (theo yêu c?u)"
             ]
         }
     },
@@ -6947,9 +6988,9 @@ const changelogData = [
                 "Renamed to ReptDoc."
             ],
             vi: [
-                "Bản đầu tiên mà trang web này chấp nhận được",
-                "Thêm trang So sánh với Geekbench 6 (CPU) và 3DMark Wildlife Extreme (GPU).",
-                "Đổi tên thành ReptDoc."
+                "B?n d?u tiên mà trang web này ch?p nh?n du?c",
+                "Thêm trang So sánh v?i Geekbench 6 (CPU) và 3DMark Wildlife Extreme (GPU).",
+                "Ð?i tên thành ReptDoc."
             ]
         }
     },
@@ -6963,9 +7004,9 @@ const changelogData = [
                 "Search functionality."
             ],
             vi: [
-                "Bản PoC với các SoC từ Apple, Qualcomm, MediaTek, Samsung.",
-                "Hỗ trợ chế độ Sáng/Tối.",
-                "Tìm kiếm (rất quan trọng)."
+                "B?n PoC v?i các SoC t? Apple, Qualcomm, MediaTek, Samsung.",
+                "H? tr? ch? d? Sáng/T?i.",
+                "Tìm ki?m (r?t quan tr?ng)."
             ]
         }
     }
@@ -7118,7 +7159,7 @@ function showSettingsModal() {
                     <div class="setting-control">
                         <select id="lang-select">
                             <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
-                            <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
+                            <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Ti?ng Vi?t</option>
                         </select>
                     </div>
                 </div>
@@ -7800,7 +7841,7 @@ function initCompareSearch(id) {
             alert("nagara nagara nagara nagara nagara nagara nagara nagara");
         }
         if (val === 'kietlak') {
-            alert("kietlak lắc đít đi");
+            alert("kietlak l?c dít di");
         }
         if (val === 'wil') {
             alert("pls maid");
@@ -7940,16 +7981,25 @@ function renderBenchmarkComparison(chip1, chip2) {
     const name1 = chip1 ? chip1.name : 'Chip 1';
     const name2 = chip2 ? chip2.name : 'Chip 2';
 
-    // Get benchmark values
+    // Get CPU benchmark values
     const gb6Single1 = chip1 && chip1.geekbench6 ? parseInt(chip1.geekbench6.single) || 0 : 0;
     const gb6Single2 = chip2 && chip2.geekbench6 ? parseInt(chip2.geekbench6.single) || 0 : 0;
     const gb6Multi1 = chip1 && chip1.geekbench6 ? parseInt(chip1.geekbench6.multi) || 0 : 0;
     const gb6Multi2 = chip2 && chip2.geekbench6 ? parseInt(chip2.geekbench6.multi) || 0 : 0;
+
+    // Get GPU benchmark values
     const wildlife1 = chip1 ? parseInt(chip1.wildlifeExtreme) || 0 : 0;
     const wildlife2 = chip2 ? parseInt(chip2.wildlifeExtreme) || 0 : 0;
+    const steelNomad1 = chip1 ? parseInt(chip1.steelNomadLite) || 0 : 0;
+    const steelNomad2 = chip2 ? parseInt(chip2.steelNomadLite) || 0 : 0;
+
+    const gpuMode = window.activeGpuBenchmark || 'wildlife';
+    const hasSteel = steelNomad1 || steelNomad2;
+    const hasWildlife = wildlife1 || wildlife2;
+    const canToggleGpu = hasSteel && hasWildlife;
 
     // Check if we have any benchmark data
-    if (!gb6Single1 && !gb6Single2 && !gb6Multi1 && !gb6Multi2 && !wildlife1 && !wildlife2) {
+    if (!gb6Single1 && !gb6Single2 && !gb6Multi1 && !gb6Multi2 && !hasWildlife && !hasSteel) {
         return '';
     }
 
@@ -7977,19 +8027,35 @@ function renderBenchmarkComparison(chip1, chip2) {
         </div>`;
     }
 
-    // 3DMark Wildlife Extreme Section
-    if (wildlife1 || wildlife2) {
+    // Determine which GPU benchmark to show based on toggle and availability
+    const showSteelNomad = (gpuMode === 'steel_nomad' && hasSteel) || (hasSteel && !hasWildlife);
+    const activeGpu1 = showSteelNomad ? steelNomad1 : wildlife1;
+    const activeGpu2 = showSteelNomad ? steelNomad2 : wildlife2;
+
+    if (activeGpu1 || activeGpu2 || canToggleGpu) {
+        const toggleLabel = showSteelNomad ? t('switch_to_wildlife') : t('switch_to_steel');
+        const toggleHtml = canToggleGpu ?
+            `<button class="btn-text tooltip" style="padding: 4px 8px; font-size: 13px; align-self: flex-start;" onclick="toggleGpuBenchmark()">
+                 <span class="material-icons-round" style="font-size: 16px; margin-right: 4px;">swap_horiz</span>
+                 ${toggleLabel}
+             </button>` : '';
+
+        const curGpuTitle = showSteelNomad ? t('steel_nomad_title') : t('wildlife_title');
+
         html += `
         <div class="benchmark-section">
-            <div class="benchmark-header">
-                <span class="material-icons-round" style="color: var(--md-sys-color-primary); margin-right: 8px;">videogame_asset</span>
-                <h3>${t('wildlife_title')}</h3>
+            <div class="benchmark-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; align-items: center;">
+                    <span class="material-icons-round" style="color: var(--md-sys-color-primary); margin-right: 8px;">videogame_asset</span>
+                    <h3>${curGpuTitle}</h3>
+                </div>
+                ${toggleHtml}
             </div>
             <p class="benchmark-desc">${t('wildlife_desc')}</p>
             <div class="benchmark-grid single">
                 <div class="benchmark-column">
                     <h4>${t('graphics_score')}</h4>
-                    ${renderBenchmarkBar(name1, wildlife1, name2, wildlife2)}
+                    ${renderBenchmarkBar(name1, activeGpu1, name2, activeGpu2)}
                 </div>
             </div>
         </div>`;
