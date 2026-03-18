@@ -1,4 +1,4 @@
-﻿const aSeriesData = [
+const aSeriesData = [
     {
         name: "A19 Pro",
         geekbench6: { single: "4019", multi: "11054" },
@@ -8035,7 +8035,7 @@ function renderBenchmarkComparison(chip1, chip2) {
     if (activeGpu1 || activeGpu2 || canToggleGpu) {
         const toggleLabel = showSteelNomad ? t('switch_to_wildlife') : t('switch_to_steel');
         const toggleHtml = canToggleGpu ?
-            `<button class="btn-text tooltip" style="padding: 4px 8px; font-size: 13px; align-self: flex-start;" onclick="toggleGpuBenchmark()">
+            `<button class="btn-text tooltip" style="display: inline-flex !important; align-items: center; justify-content: center; padding: 4px 8px; font-size: 13px; align-self: flex-start;" onclick="toggleGpuBenchmark()">
                  <span class="material-icons-round" style="font-size: 16px; margin-right: 4px;">swap_horiz</span>
                  ${toggleLabel}
              </button>` : '';
