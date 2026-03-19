@@ -1280,8 +1280,8 @@ const snapdragon8Data = [
 const snapdragon7Data = [
     {
         name: "Snapdragon 7 Gen 4",
-        geekbench6: { single: "1241", multi: "3592" },
-        wildlifeExtreme: "1816",
+        geekbench6: { single: "1361", multi: "4306" },
+        wildlifeExtreme: "2143",
         codename: "unknown",
         partNumber: "SM7750-AB",
         releaseDate: "2025.05",
