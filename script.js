@@ -1,4 +1,4 @@
-﻿const aSeriesData = [
+const aSeriesData = [
     {
         name: "A19 Pro",
         geekbench6: { single: "4019", multi: "11054" },
@@ -6750,80 +6750,80 @@ const translations = {
     },
     vi: {
         welcome_title: "ReptDoc",
-        welcome_subtitle: "Chip và m?y th? khác. Ðu?c t?o b?i m?t th?ng chán v?i vi?c ph?i l?c l?i 4 trang web d? tìm th? nó c?n. Ðóng góp? Có gì sai? Liên h? tôi t?i rep.ta.li.ca (Discord)",
+        welcome_subtitle: "Chip và mấy thứ khác. Được tạo bởi một thằng chán với việc phải lục lọi 4 trang web để tìm thứ nó cần. Đóng góp? Có gì sai? Liên hệ tôi tại rep.ta.li.ca (Discord)",
         card_compare_title: "So sánh!",
-        card_compare_desc: "So sánh hai SoC v?i nhau.",
-        card_data_title: "D? li?u, d? li?u và d? li?u.",
-        card_data_desc: "Quên m?t có bao nhiêu chip trong cái web này r?i, nên t? di mà xem di.",
-        card_search_title: "Tìm ki?m th? gì dó",
-        card_search_desc: "Tìm cái gi? dê.",
-        card_theme_title: "L?u choáng!!!!",
-        card_theme_desc: "Chuy?n d?i gi?a ch? d? t?i và sáng.",
-        home: "Trang ch?",
-        welcome: "Chào m?ng",
-        search_results: "K?t qu? tìm ki?m",
+        card_compare_desc: "So sánh hai SoC với nhau.",
+        card_data_title: "Dữ liệu, dữ liệu và dữ liệu.",
+        card_data_desc: "Quên mất có bao nhiêu chip trong cái web này rồi, nên tự đi mà xem đi.",
+        card_search_title: "Tìm kiếm thứ gì đó",
+        card_search_desc: "Tìm cái giề đê.",
+        card_theme_title: "Lựu choáng!!!!",
+        card_theme_desc: "Chuyển đổi giữa chế độ tối và sáng.",
+        home: "Trang chủ",
+        welcome: "Chào mừng",
+        search_results: "Kết quả tìm kiếm",
         search_placeholder: "Tìm chip...",
         compare_btn: "So sánh",
         compare_socs: "So sánh 2 SoC",
-        compare_desc: "Ch?n hai SoC d? xem so sánh v?i nhau.",
-        search_first: "Tìm SoC th? nh?t...",
-        search_second: "Tìm SoC th? hai...",
+        compare_desc: "Chọn hai SoC để xem so sánh với nhau.",
+        search_first: "Tìm SoC thứ nhất...",
+        search_second: "Tìm SoC thứ hai...",
         remove: "Xóa",
-        specs: "Thông s?",
-        select_soc: "Ch?n SoC...",
+        specs: "Thông số",
+        select_soc: "Chọn SoC...",
         compare_breadcrumb: "So sánh",
         geekbench_title: "Geekbench 6",
-        geekbench_desc: "Ði?m hi?u nang CPU - don nhân và da nhân",
+        geekbench_desc: "Điểm hiệu năng CPU - đơn nhân và đa nhân",
         wildlife_title: "3DMark Wild Life Extreme",
         steel_nomad_title: "3DMark Steel Nomad Lite",
-        wildlife_desc: "Ði?m hi?u nang GPU",
-        benchmark_toggle: "Ð?i thành Bench Steel Nomad Lite",
+        wildlife_desc: "Điểm hiệu năng GPU",
+        benchmark_toggle: "Đổi thành Bench Steel Nomad Lite",
         switch_to_steel: "Đổi thành Steel Nomad Lite",
         switch_to_wildlife: "Đổi thành Wild Life Extreme",
         steelNomadLite: "Steel Nomad Lite",
-        single_core: "Ði?m don nhân",
-        multi_core: "Ði?m da nhân",
-        graphics_score: "Ði?m GPU",
-        no_chips_found: "Không tìm th?y SoC nào kh?p v?i tìm ki?m c?a b?n.",
-        back_to_home: "Quay l?i trang ch?",
-        toggle_labels: "B?t/T?t nhãn",
-        show_labels: "Hi?n nhãn",
-        hide_labels: "?n nhãn",
-        settings: "Cài d?t",
-        changelog: "Nh?t ký thay d?i",
-        language: "Ngôn ng?",
+        single_core: "Điểm đơn nhân",
+        multi_core: "Điểm đa nhân",
+        graphics_score: "Điểm GPU",
+        no_chips_found: "Không tìm thấy SoC nào khớp với tìm kiếm của bạn.",
+        back_to_home: "Quay lại trang chủ",
+        toggle_labels: "Bật/Tắt nhãn",
+        show_labels: "Hiện nhãn",
+        hide_labels: "Ẩn nhãn",
+        settings: "Cài đặt",
+        changelog: "Nhật ký thay đổi",
+        language: "Ngôn ngữ",
         codename: "Tên mã",
-        partNumber: "S? hi?u chip",
+        partNumber: "Số hiệu chip",
         releaseDate: "Ngày phát hành",
-        process: "Ti?n trình",
-        dieSize: "Kích thu?c die",
-        cpu_specs: "Thông s? CPU",
-        l2Cache: "B? nh? d?m L2",
-        l3Cache: "B? nh? d?m L3",
+        process: "Tiến trình",
+        dieSize: "Kích thước die",
+        cpu_specs: "Thông số CPU",
+        l2Cache: "Bộ nhớ đệm L2",
+        l3Cache: "Bộ nhớ đệm L3",
         slc: "SLC",
         gpu: "GPU",
-        npu: "B? tang t?c AI",
+        npu: "Bộ tăng tốc AI",
         dsp: "DSP",
         modem: "Modem",
-        memory: "T?c d? b? nh? RAM t?i da",
-        architecture: "Ki?n trúc",
-        category_basic: "Co b?n",
-        category_benchmarks: "Ði?m chu?n",
+        memory: "Tốc độ bộ nhớ RAM tối đa",
+        architecture: "Kiến trúc",
+        category_basic: "Cơ bản",
+        category_benchmarks: "Điểm chuẩn",
         category_cpu: "CPU",
         category_gpu: "GPU",
         category_npu: "NPU",
-        category_connectivity: "K?t n?i",
-        category_memory: "B? nh? RAM",
-        category_arch: "Ki?n trúc",
-        view_full_specs: "Xem chi ti?t",
-        mobile_release: "Th?i gian ra m?t",
-        mobile_process: "Ti?n trình",
+        category_connectivity: "Kết nối",
+        category_memory: "Bộ nhớ RAM",
+        category_arch: "Kiến trúc",
+        view_full_specs: "Xem chi tiết",
+        mobile_release: "Thời gian ra mắt",
+        mobile_process: "Tiến trình",
         mobile_cpu: "CPU",
         mobile_gpu: "GPU",
         value_unknown: "Không rõ",
         value_na: "N/A",
-        accent_color: "Màu ch? d?o",
-        accent_color_desc: "Tùy ch?nh màu chính d? phù h?p v?i phong cách c?a b?n"
+        accent_color: "Màu chủ đạo",
+        accent_color_desc: "Tùy chỉnh màu chính để phù hợp với phong cách của bạn"
     }
 };
 
@@ -6852,7 +6852,7 @@ const changelogData = [
             vi: [
                 "Quên không ghi Changelogs.",
                 "Thêm benchmarks cho Kirin 9030 và 9030 Pro",
-                "Ch?c là có nhi?u cái dã du?c thay d?i nhung tôi không nh? du?c"
+                "Chắc là có nhiều cái đã được thay đổi nhưng tôi không nhớ được"
             ]
         }
     },
@@ -6882,10 +6882,10 @@ const changelogData = [
                 "Fixed benchmark bars clipping issues for long chip names.",
             ],
             vi: [
-                "Giao di?n m?i cho Desktop",
-                "Xóa ch? 'Samsung' cho các SoC Exynos.",
-                "S?a l?i tên SoC dài quá làm tràn khung giao di?n.",
-                "S?a l?i thanh benchmark b? dè ch? khi tên chip quá dài.",
+                "Giao diện mới cho Desktop",
+                "Xóa chữ 'Samsung' cho các SoC Exynos.",
+                "Sửa lỗi tên SoC dài quá làm tràn khung giao diện.",
+                "Sửa lỗi thanh benchmark bị đè chữ khi tên chip quá dài.",
             ]
         }
     },
@@ -6900,10 +6900,10 @@ const changelogData = [
                 "Code cleanup and performance optimizations.",
             ],
             vi: [
-                "UI du?c c?i thi?n dáng k?.",
-                "Làm l?i giao di?n Sáng (Light Mode) nhìn cho dàng hoàng hon.",
-                "Thêm tính nang ch?nh màu ch? d?o (trong Cài d?t).",
-                "D?n d?p mã ngu?n giúp web ch?y mu?t hon.",
+                "UI được cải thiện đáng kể.",
+                "Làm lại giao diện Sáng (Light Mode) nhìn cho đàng hoàng hơn.",
+                "Thêm tính năng chỉnh màu chủ đạo (trong Cài đặt).",
+                "Dọn dẹp mã nguồn giúp web chạy mượt hơn.",
             ]
         }
     },
@@ -6916,8 +6916,8 @@ const changelogData = [
                 "Added a small easter egg. Try to find it!",
             ],
             vi: [
-                "Thay th? toàn b? 'Chipset' b?ng 'SoC' cho nó chu?n xác (và nghe ng?u hon).",
-                "Thêm m?t cái easter egg nh?. Th? tìm xem!",
+                "Thay thế toàn bộ 'Chipset' bằng 'SoC' cho nó chuẩn xác (và nghe ngầu hơn).",
+                "Thêm một cái easter egg nhỏ. Thử tìm xem!",
             ]
         }
     },
@@ -6929,7 +6929,7 @@ const changelogData = [
                 "Fixed VN translation",
             ],
             vi: [
-                "S?a l?i d?ch thu?t ti?ng Vi?t",
+                "Sửa lỗi dịch thuật tiếng Việt",
             ]
         }
     },
@@ -6945,11 +6945,11 @@ const changelogData = [
                 "Optimized mobile stacking context for search dropdowns,ugh, too serious."
             ],
             vi: [
-                "S?a l?i g?i ý tìm ki?m SoC b? dè b?i các thành ph?n khác trên di?n tho?i.",
-                "C?i thi?n hi?n th? thanh tìm ki?m trên di?n tho?i (ch?nh kích thu?c ch? và padding).",
-                "S?a l?i m?t ch? trong ô tìm ki?m khi dùng ti?ng Vi?t ? trang so sánh.",
-                "Thêm hi?u ?ng c?t ch? cho các SoC có tên dài trong k?t qu? tìm ki?m.",
-                "T?i uu hóa th? t? hi?n th? c?a các b?ng g?i ý trên di?n tho?i, mé, lâu lâu làm cang m?t tí."
+                "Sửa lỗi gợi ý tìm kiếm SoC bị đè bởi các thành phần khác trên điện thoại.",
+                "Cải thiện hiển thị thanh tìm kiếm trên điện thoại (chỉnh kích thước chữ và padding).",
+                "Sửa lỗi mất chữ trong ô tìm kiếm khi dùng tiếng Việt ở trang so sánh.",
+                "Thêm hiệu ứng cắt chữ cho các SoC có tên dài trong kết quả tìm kiếm.",
+                "Tối ưu hóa thứ tự hiển thị của các bảng gợi ý trên điện thoại, mé, lâu lâu làm căng một tí."
             ]
         }
     },
@@ -6966,10 +6966,10 @@ const changelogData = [
             ],
             vi: [
                 "UI, UI, UI, UI, UI.",
-                "tui thêm cái gì quên m? r ch?c ko ph?i cái nút trang ch? dâu ha",
-                "s?a c? d?ng l?i trên trang web cho di?n tho?i, hehehee.",
-                "thêm ho?t ?nh, yay",
-                "thêm m?t cái favicon và embed"
+                "tui thêm cái gì quên mẹ r chắc ko phải cái nút trang chủ đâu ha",
+                "sửa cả đống lỗi trên trang web cho điện thoại, hehehee.",
+                "thêm hoạt ảnh, yay",
+                "thêm một cái favicon và embed"
             ]
         }
     },
@@ -6985,11 +6985,11 @@ const changelogData = [
                 "Added Snapdragon 675 benchmarks (requested)"
             ],
             vi: [
-                "Thêm chi ti?t SoC Mediatek 9500s và 8500.",
-                "Thêm chi ti?t SoC Xiaomi XRing o1 và Surge S1.",
+                "Thêm chi tiết SoC Mediatek 9500s và 8500.",
+                "Thêm chi tiết SoC Xiaomi XRing o1 và Surge S1.",
                 "Thêm logo Xiaomi.",
-                "Thêm m?c Nh?t ký thay d?i (r?t quan tr?ng).",
-                "Thêm benchmarks cho Snapdragon 675 (theo yêu c?u)"
+                "Thêm mục Nhật ký thay đổi (rất quan trọng).",
+                "Thêm benchmarks cho Snapdragon 675 (theo yêu cầu)"
             ]
         }
     },
@@ -7003,9 +7003,9 @@ const changelogData = [
                 "Renamed to ReptDoc."
             ],
             vi: [
-                "B?n d?u tiên mà trang web này ch?p nh?n du?c",
-                "Thêm trang So sánh v?i Geekbench 6 (CPU) và 3DMark Wildlife Extreme (GPU).",
-                "Ð?i tên thành ReptDoc."
+                "Bản đầu tiên mà trang web này chấp nhận được",
+                "Thêm trang So sánh với Geekbench 6 (CPU) và 3DMark Wildlife Extreme (GPU).",
+                "Đổi tên thành ReptDoc."
             ]
         }
     },
@@ -7019,9 +7019,9 @@ const changelogData = [
                 "Search functionality."
             ],
             vi: [
-                "B?n PoC v?i các SoC t? Apple, Qualcomm, MediaTek, Samsung.",
-                "H? tr? ch? d? Sáng/T?i.",
-                "Tìm ki?m (r?t quan tr?ng)."
+                "Bản PoC với các SoC từ Apple, Qualcomm, MediaTek, Samsung.",
+                "Hỗ trợ chế độ Sáng/Tối.",
+                "Tìm kiếm (rất quan trọng)."
             ]
         }
     }
@@ -7174,7 +7174,7 @@ function showSettingsModal() {
                     <div class="setting-control">
                         <select id="lang-select">
                             <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
-                            <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Ti?ng Vi?t</option>
+                            <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
                         </select>
                     </div>
                 </div>
