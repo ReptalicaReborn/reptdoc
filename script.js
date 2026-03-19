@@ -1,4 +1,4 @@
-const aSeriesData = [
+﻿const aSeriesData = [
     {
         name: "A19 Pro",
         geekbench6: { single: "4019", multi: "11054" },
@@ -2604,7 +2604,7 @@ const dimensity9000Data = [
             l3Cache: "12 MB"
         },
         slc: "10 MB",
-        gpu: "ARM Immortalis-G925 MC11/MC12 (1612 MHz)",
+        gpu: "ARM Immortalis-G925 MC11 (Poco) / MC12 (1612 MHz)",
         npu: "MediaTek NPU 890",
         dsp: "MediaTek Imagiq 1090",
         memory: "16-bit Quad-Channel LPDDR5X 9600"
@@ -2701,6 +2701,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9300+",
         geekbench6: { single: "2250", multi: "7600" },
         wildlifeExtreme: "5812",
+        steelNomadLite: "2341",
         partNumber: "MT6989Z",
         releaseDate: "2024.05",
         process: "TSMC 4nm (N4P)",
@@ -2722,6 +2723,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9300",
         geekbench6: { single: "2197", multi: "7389" },
         wildlifeExtreme: "5822",
+        steelNomadLite: "2321",
         partNumber: "MT6989",
         releaseDate: "2023.11",
         process: "TSMC 4nm (N4P)",
@@ -2831,6 +2833,7 @@ const dimensity8000Data = [
         partNumber: "MT6899Z",
         geekbench6: { single: "1776", multi: "7024s" },
         wildlifeExtreme: "4717",
+        steelNomadLite: "1502",
         releaseDate: "2026.01",
         process: "TSMC N4P",
         dieSize: "Unknown",
@@ -6825,6 +6828,18 @@ const translations = {
 };
 
 const changelogData = [
+    {
+        version: "v2.4.0",
+        date: "2026-03-19",
+        changes: {
+            en: [
+                "Added Steel Nomad Lite benchmark for selected SoC"
+            ],
+            vi: [
+                "Thêm benchmark Steel Nomad Lite cho một số chip nhất định"
+            ],
+        }
+    },
     {
         version: "v2.3.0",
         date: "2026-03-17",
