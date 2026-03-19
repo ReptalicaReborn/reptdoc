@@ -1,4 +1,4 @@
-const aSeriesData = [
+﻿const aSeriesData = [
     {
         name: "A19 Pro",
         geekbench6: { single: "4019", multi: "11054" },
@@ -6673,7 +6673,7 @@ const xiaomiData = [
 const translations = {
     en: {
         welcome_title: "ReptDoc",
-        welcome_subtitle: "Chip'n shit. Created by a dude who hate having to search though 4 websites tryna find information. Contribution? Something is wrong? Contact me at rep.ta.li.ca (Discord)",
+        welcome_subtitle: "Chip'n shit. Created by a dude who hate having to search though 4 websites tryna find information. Contribution? Something is wrong? Contact me at thatReppy (Discord)",
         card_compare_title: "Compare!",
         card_compare_desc: "Compare two SoCs side-by-side.",
         card_data_title: "Data, data, data.",
@@ -6750,7 +6750,7 @@ const translations = {
     },
     vi: {
         welcome_title: "ReptDoc",
-        welcome_subtitle: "Chip và mấy thứ khác. Được tạo bởi một thằng chán với việc phải lục lọi 4 trang web để tìm thứ nó cần. Đóng góp? Có gì sai? Liên hệ tôi tại rep.ta.li.ca (Discord)",
+        welcome_subtitle: "Chip và mấy thứ khác. Được tạo bởi một thằng chán với việc phải lục lọi 4 trang web để tìm thứ nó cần. Đóng góp? Có gì sai? Liên hệ tôi tại thatReppy (Discord)",
         card_compare_title: "So sánh!",
         card_compare_desc: "So sánh hai SoC với nhau.",
         card_data_title: "Dữ liệu, dữ liệu và dữ liệu.",
