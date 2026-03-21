@@ -1373,14 +1373,14 @@ const snapdragon7Data = [
         partNumber: "SM7550",
         releaseDate: "2023.11",
         process: "TSMC 4nm (N4)",
-        dieSize: "Unknown",
+        dieSize: "55.16mm²",
         architecture: "ARMv9-A",
         cpu: {
             specs: "1x Cortex-A715 @ 2.63 GHz + 3x Cortex-A715 @ 2.40 GHz + 4x Cortex-A510 @ 1.80 GHz",
-            l2Cache: "Unknown",
+            l2Cache: "512KB (A715) + 2x 256KB (A510)",
             l3Cache: "4 MB"
         },
-        slc: "Unknown",
+        slc: "N/A",
         gpu: "Adreno 720 (975 MHz)",
         npu: "Hexagon NPU",
         modem: "Snapdragon X63 5G",
@@ -5275,14 +5275,14 @@ const exynos1000Data = [
         partNumber: "S5E9815",
         releaseDate: "2020.11",
         process: "Samsung 5nm (SF5E)",
-        dieSize: "unknown",
+        dieSize: "95.5mm²",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "1x Cortex-A78 @ 2.81 GHz + 3x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            l2Cache: "4x 512KB (A78) + 4x 64KB (A55)",
+            l3Cache: "2MB"
         },
-        slc: "unknown",
+        slc: "N/A",
         gpu: "ARM Mali-G78 MP10 (850MHz)",
         npu: "5.7 TOPS",
         modem: "5G (5.1 Gbps DL)",
@@ -5586,16 +5586,16 @@ const exynos7Data = [
         partNumber: "S5E7420",
         releaseDate: "2015.02",
         process: "Samsung 14nm (14LPE)",
-        dieSize: "78 mm²",
+        dieSize: "80.37 mm²",
         architecture: "ARMv8-A",
         cpu: {
             specs: "4x Cortex-A57 @ 2.10 GHz + 4x Cortex-A53 @ 1.50 GHz",
             l2Cache: "2 MB (A57), 256 KB (A53)",
-            l3Cache: "unknown"
+            l3Cache: "N/A"
         },
-        slc: "unknown",
+        slc: "N/A",
         gpu: "ARM Mali-T760 MP8 (772 MHz)",
-        npu: "unknown",
+        npu: "N/A",
         modem: "N/A",
         dsp: "Exynos DSP",
         memory: "16-bit Quad-channel LPDDR4 1552 MHz"
@@ -5859,10 +5859,10 @@ const exynos8Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "4x Mongoose M1 @ 2.60 GHz + 4x Cortex-A53 @ 1.6 GHz",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            l2Cache: "2MB (M1) + 256KB (A53)",
+            l3Cache: "N/A"
         },
-        slc: "unknown",
+        slc: "N/A",
         gpu: "ARM Mali-T880 MP12 (650 MHz)",
         npu: "N/A",
         modem: "LTE Cat.6",
