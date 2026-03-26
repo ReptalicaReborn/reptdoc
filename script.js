@@ -5184,7 +5184,7 @@ const exynos1000Data = [
         name: "Exynos 13xx (unknown)",
         codename: "telos",
         partNumber: "S5E8365"
-    }
+    },
     {
         name: "Exynos 1680",
         codename: "terra",
