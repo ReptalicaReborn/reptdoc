@@ -936,7 +936,7 @@ const snapdragon8Data = [
         process: "TSMC N4P (4nm)",
         dieSize: "137.32 mm²",
         cpu: {
-            specs: "1x 3.3 GHz (X4) + 3x 3.15 GHz (A720) + 2x 2.96 GHz (A720) + 2x 2.27 GHz (A520)",
+            specs: "1x 3.3 GHz (Cortex-X4) + 3x 3.15 GHz (Cortex-A720) + 2x 2.96 GHz (Cortex-A720) + 2x 2.27 GHz (Cortex-A520)",
             l2Cache: "2MB (X4) + 5x 512KB (A720) + 512KB (2x A520)",
             l3Cache: "12MB"
         },
@@ -957,7 +957,7 @@ const snapdragon8Data = [
         process: "TSMC N4 (4nm)",
         dieSize: "120.9 mm²",
         cpu: {
-            specs: "1x 3.2 GHz (X3) + 2x 2.8 GHz (A715) + 2x 2.8 GHz (A710) + 3x 2.0 GHz (A510)",
+            specs: "1x 3.2 GHz (Cortex-X3) + 2x 2.8 GHz (Cortex-A715) + 2x 2.8 GHz (Cortex-A710) + 3x 2.0 GHz (Cortex-A510)",
             l2Cache: "1MB (X3) + 2x 512KB (A715) + 2x 512KB (A710) + 256KB (2x A520) + 128KB (A510)",
             l3Cache: "8MB"
         },
@@ -978,7 +978,7 @@ const snapdragon8Data = [
         process: "TSMC N4 (4nm)",
         dieSize: "102.8 mm²",
         cpu: {
-            specs: "1x 3.2 GHz (X2) + 3x 2.75 GHz (A710) + 4x 2.0 GHz (A510)",
+            specs: "1x 3.2 GHz (Cortex-X2) + 3x 2.75 GHz (Cortex-A710) + 4x 2.0 GHz (Cortex-A510)",
             l2Cache: "1MB (X2) + 3x 512KB (A710) + 2x 256KB (4x A510)",
             l3Cache: "6MB"
         },
@@ -1000,7 +1000,7 @@ const snapdragon8Data = [
         process: "Samsung 4LPX (4nm)",
         dieSize: "128.3 mm²",
         cpu: {
-            specs: "1x 3.0 GHz (X2) + 3x 2.5 GHz (A710) + 4x 1.8 GHz (A510)",
+            specs: "1x 3.0 GHz (Cortex-X2) + 3x 2.5 GHz (Cortex-A710) + 4x 1.8 GHz (Cortex-A510)",
             l2Cache: "1MB (X2) + 3x 512KB (A710) + 2x 256KB (4x A510)",
             l3Cache: "6MB"
         },
@@ -1022,7 +1022,7 @@ const snapdragon8Data = [
         process: "Samsung 5LPE (5nm)",
         dieSize: "112.2 mm²",
         cpu: {
-            specs: "1x 3 GHz (X1) + 3x 2.42 GHz (A78) + 4x 1.8 GHz (A55)",
+            specs: "1x 3 GHz (Cortex-X1) + 3x 2.42 GHz (Cortex-A78) + 4x 1.8 GHz (Cortex-A55)",
             l2Cache: "1MB (X1) + 3x 512KB (A78) + 4x 128KB (A55)",
             l3Cache: "4MB"
         },
@@ -1065,7 +1065,7 @@ const snapdragon8Data = [
         process: "TSMC N7P (7nm)",
         dieSize: "86.9 mm²",
         cpu: {
-            specs: "1x 3.2 GHz (A77) + 3x 2.42 GHz (A77) + 4x 1.8 GHz (A55)",
+            specs: "1x 3.2 GHz (Cortex-A77) + 3x 2.42 GHz (Cortex-A77) + 4x 1.8 GHz (Cortex-A55)",
             l2Cache: "512KB (A77) + 3x 256KB (A77) + 4x 128KB (A55)",
             l3Cache: "4MB"
         },
@@ -1086,7 +1086,7 @@ const snapdragon8Data = [
         process: "TSMC N7P (7nm)",
         dieSize: "86.9 mm²",
         cpu: {
-            specs: "1x 3.1 GHz (A77) + 3x 2.42 GHz (A77) + 4x 1.8 GHz (A55)",
+            specs: "1x 3.1 GHz (Cortex-A77) + 3x 2.42 GHz (Cortex-A77) + 4x 1.8 GHz (Cortex-A55)",
             l2Cache: "512KB (A77) + 3x 256KB (A77) + 4x 128KB (A55)",
             l3Cache: "4MB"
         },
@@ -1107,7 +1107,7 @@ const snapdragon8Data = [
         process: "TSMC N7P (7nm)",
         dieSize: "86.9 mm²",
         cpu: {
-            specs: "1x 2.84 GHz (A77) + 3x 2.42 GHz (A77) + 4x 1.8 GHz (A55)",
+            specs: "1x 2.84 GHz (Cortex-A77) + 3x 2.42 GHz (Cortex-A77) + 4x 1.8 GHz (Cortex-A55)",
             l2Cache: "512KB (A77) + 3x 256KB (A77) + 4x 128KB (A55)",
             l3Cache: "4MB"
         },
@@ -1128,7 +1128,7 @@ const snapdragon8Data = [
         process: "TSMC N7 (7nm)",
         dieSize: "76.53 mm²",
         cpu: {
-            specs: "1x 2.96 GHz (A76) + 3x 2.42 GHz (A76) + 4x 1.78 GHz (A55)",
+            specs: "1x 2.96 GHz (Cortex-A76) + 3x 2.42 GHz (Cortex-A76) + 4x 1.78 GHz (Cortex-A55)",
             l2Cache: "512KB (A76) + 3x 256KB (A76) + 4x 128KB (A55)",
             l3Cache: "2MB"
         },
@@ -1149,7 +1149,7 @@ const snapdragon8Data = [
         process: "TSMC N7 (7nm)",
         dieSize: "76.53 mm²",
         cpu: {
-            specs: "1x 2.96 GHz (A76) + 3x 2.42 GHz (A76) + 4x 1.78 GHz (A55)",
+            specs: "1x 2.96 GHz (Cortex-A76) + 3x 2.42 GHz (Cortex-A76) + 4x 1.78 GHz (Cortex-A55)",
             l2Cache: "512KB (A76) + 3x 256KB (A76) + 4x 128KB (A55)",
             l3Cache: "2MB"
         },
@@ -1170,7 +1170,7 @@ const snapdragon8Data = [
         process: "TSMC N7 (7nm)",
         dieSize: "76.53 mm² (8.48 x 8.64 mm)",
         cpu: {
-            specs: "1x 2.84 GHz (A76) + 3x 2.42 GHz (A76) + 4x 1.78 GHz (A55)",
+            specs: "1x 2.84 GHz (Cortex-A76) + 3x 2.42 GHz (Cortex-A76) + 4x 1.78 GHz (Cortex-A55)",
             l2Cache: "512KB (A76) + 3x 256KB (A76) + 4x 128KB (A55)",
             l3Cache: "2MB"
         },
@@ -1189,7 +1189,7 @@ const snapdragon8Data = [
         process: "Samsung 10LPP (10nm)",
         dieSize: "95 mm²",
         cpu: {
-            specs: "4x 2.8 GHz (A75) + 4x 1.8 GHz (A55)",
+            specs: "4x 2.8 GHz (Cortex-A75) + 4x 1.8 GHz (Cortex-A55)",
             l2Cache: "4x 256KB (A75) + 4x 128KB (A55)",
             l3Cache: "2MB"
         },
@@ -1210,7 +1210,7 @@ const snapdragon8Data = [
         process: "Samsung 10LPE (10nm)",
         dieSize: "72.3 mm²",
         cpu: {
-            specs: "4x 2.45 GHz (A73) + 4x 1.9 GHz (A53)",
+            specs: "4x 2.45 GHz (Cortex-A73) + 4x 1.9 GHz (Cortex-A53)",
             l2Cache: "2MB (A73 cluster) + 1MB (A53 cluster)",
             l3Cache: "N/A"
         },
@@ -1473,7 +1473,7 @@ const snapdragon7Data = [
         process: "TSMC N4 (4nm)",
         dieSize: "102.8 mm²",
         cpu: {
-            specs: "1x 2.91 GHz (X2) + 3x 2.49 GHz (A710) + 4x 1.8 GHz (A510)",
+            specs: "1x 2.91 GHz (Cortex-X2) + 3x 2.49 GHz (Cortex-A710) + 4x 1.8 GHz (Cortex-A510)",
             l2Cache: "1MB (X2) + 3x 512KB (A710) + 2x 256KB (4x A510)",
             l3Cache: "6MB"
         },
@@ -2145,6 +2145,24 @@ const snapdragon6Data = [
 ];
 
 const snapdragon4Data = [
+    {
+        name: "Snapdragon 4 Gen 5 (tentative name)",
+        codename: "unknown",
+        process: "Samsung 4nm (4LPX)",
+        partNumber: "SM4875",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A78 + 6x Cortex-A55",
+            l2Cache: "2x 256KB (A78) + 6x 64KB (A55)",
+            l3Cache: "1MB"
+        },
+        slc: "N/A",
+        gpu: "Adreno",
+        npu: "Qualcomm Hexagon NPU",
+        modem: "Snapdragon 5G sub-6 Rel.17",
+        dsp: "Qualcomm Hexagon",
+        memory: "16-bit Dual-channel LPDDR5 3200 MHz"
+    },
     {
         name: "Snapdragon 4s Gen 5 (tentative name)",
         codename: "Aldabra",
