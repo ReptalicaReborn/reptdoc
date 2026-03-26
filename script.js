@@ -5192,7 +5192,8 @@ const exynos1000Data = [
         releaseDate: "2026.03",
         process: "Samsung 4nm (4LPP+)",
         dieSize: "unknown",
-        geekbench6: { single: "1360", multi: "4332" },
+        geekbench6: { single: "1361", multi: "4446" },
+        wildlifeExtreme: "1738",
         architecture: "ARMv9.2-A",
         cpu: {
             specs: "1x Cortex-A720 @ 2.91 GHz + 4x Cortex-A720 @ 2.6 GHz + 3x Cortex-A520 @ 1.95 GHz",
@@ -5221,7 +5222,7 @@ const exynos1000Data = [
             l3Cache: "unknown"
         },
         slc: "unknown",
-        gpu: "Samsung Xclipse 540 2WPG 1.2GHz",
+        gpu: "Samsung Xclipse 540 RDNA2 2WGP 1.2GHz",
         npu: "Samsung NPU (2MB cache 14.7TOPS)",
         modem: "Exynos Shannon 5338",
         memory: "16-bit Dual-channel LPDDR5 6400"
