@@ -1266,8 +1266,9 @@ button:active {
 }
 
 .cluster-text {
-    font-family: var(--font-family-mono);
+    font-family: var(--font-family-base);
     color: var(--md-sys-color-on-surface);
+    font-weight: 500;
     flex: 1;
 }
 
