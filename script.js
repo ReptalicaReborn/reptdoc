@@ -5222,7 +5222,7 @@ const exynos1000Data = [
             l3Cache: "unknown"
         },
         slc: "unknown",
-        gpu: "Samsung Xclipse 540 2WPG 1.2GHz",
+        gpu: "Samsung Xclipse 540 RDNA2 2WGP 1.2GHz",
         npu: "Samsung NPU (2MB cache 14.7TOPS)",
         modem: "Exynos Shannon 5338",
         memory: "16-bit Dual-channel LPDDR5 6400"
