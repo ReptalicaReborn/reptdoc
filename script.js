@@ -743,6 +743,42 @@ const mSeriesData = [
 
 const snapdragon8Data = [
     {
+        name: "Snapdragon 8 Elite Gen 6 Pro (tentative name)",
+        codename: "Unknown",
+        partNumber: "SM8975",
+        releaseDate: "2026.09",
+        process: "TSMC N2P (2nm)",
+        dieSize: "Unknown",
+        cpu: {
+            specs: "2x (Oryon-P V4) + 3x (Oryon-M V4) + 3x (Oryon-E V4)",
+            l2Cache: "Unknown",
+            l3Cache: "N/A"
+        },
+        slc: "8MB",
+        gpu: "Adreno 850 (18MB GMEM)",
+        npu: "Hexagon V85 NPU",
+        dsp: "Hexagon DSP",
+        memory: "24-bit Quad-channel LPDDR6-10667",
+    },
+    {
+        name: "Snapdragon 8 Gen 6",
+        codename: "Unknown",
+        partNumber: "SM8950",
+        releaseDate: "2026.09",
+        process: "TSMC N2P (2nm)",
+        dieSize: "unknown²",
+        cpu: {
+            specs: "2x (Oryon-P V4) + 3x (Oryon-M V4) + 3x (Oryon-E V4)",
+            l2Cache: "Unknown",
+            l3Cache: "N/A"
+        },
+        slc: "6MB",
+        gpu: "Adreno 845 (12MB GMEM)",
+        npu: "Hexagon V85 NPU",
+        dsp: "Hexagon DSP",
+        memory: "16-bit Quad-channel LPDDR5-10667",
+    },
+    {
         name: "Snapdragon 8 Gen 5",
         geekbench6: { single: "2957", multi: "10236" },
         wildlifeExtreme: "5681",
@@ -2307,7 +2343,7 @@ const snapdragon4Data = [
         partNumber: "MSM8937",
         releaseDate: "2015.09",
         process: "TSMC 28nm (28LP)",
-        dieSize: "65.44mm²",
+        dieSize: "65.95mm²",
         architecture: "ARMv8-A",
         cpu: {
             specs: "4x Cortex-A53 @ 1.40 GHz + 4x Cortex-A53 @ 1.10 GHz",
@@ -3440,7 +3476,7 @@ const dimensity900Data = [
         partNumber: "MT6855",
         releaseDate: "2022.05",
         process: "TSMC N6",
-        dieSize: "unknown",
+        dieSize: "45mm²",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A78 @ 2.2 GHz + 6x Cortex-A55 @ 2.0 GHz",
@@ -3500,7 +3536,7 @@ const dimensity800Data = [
         releaseDate: "2020.05",
         process: "TSMC 7nm",
         geekbench6: { single: "843", multi: "2574" },
-        dieSize: "unknown",
+        dieSize: "67.12mm²",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A76 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
@@ -4735,7 +4771,7 @@ const kirin700Data = [
         partNumber: "Hi6260",
         releaseDate: "2018.07",
         process: "TSMC 12nm (N12)",
-        dieSize: "unknown",
+        dieSize: "59.9mm²",
         architecture: "ARMv8-A",
         cpu: {
             specs: "4x Cortex-A73 @ 2.2 GHz + 4x Cortex-A53 @ 1.7 GHz",
@@ -5026,13 +5062,13 @@ const exynos2000Data = [
         dieSize: "Unknown",
         architecture: "ARMv9.3-A",
         cpu: {
-            specs: "1x C1-Ultra @ 3.80 GHz + 3x C1-Pro @ 3.25 GHz + 6x C1-Pro @ 2.75 GHz",
+            specs: "1x C1-Ultra @ 3.80 GHz + 3x C1-Pro @ 3.25 GHz + 3x C1-Pro @ 0.672 - 2.75 GHz + 3x C1-Pro @ 0.4 - 2.75 GHz",
             l2Cache: "3MB (C1-Ultra) + unknown",
             l3Cache: "16MB"
         },
         slc: "Unknown",
         gpu: "Samsung Xclipse 960 (AMD RDNA 4, 980 MHz)",
-        npu: "Samsung GNPU + SNPU (92 TOPS)",
+        npu: "Samsung Dual core NPU (1.2GHz)",
         modem: "N/A",
         memory: "16-bit Quad-channel LPDDR5X 10667"
     },
@@ -5145,6 +5181,11 @@ const exynos2000Data = [
 
 const exynos1000Data = [
     {
+        name: "Exynos 13xx (unknown)",
+        codename: "telos",
+        partNumber: "S5E8365"
+    }
+    {
         name: "Exynos 1680",
         codename: "terra",
         partNumber: "S5E8865",
@@ -5159,8 +5200,8 @@ const exynos1000Data = [
             l3Cache: "unknown"
         },
         slc: "unknown",
-        gpu: "Samsung Xclipse 550 2WGP 1.3GHz",
-        npu: "Samsung NPU",
+        gpu: "Samsung Xclipse 550 RNDA 3 2WGP 1.2GHz",
+        npu: "Samsung 1 core NPU (1.2GHz)",
         modem: "Exynos Shannon",
         memory: "16-bit Dual-channel LPDDR5",
     },
