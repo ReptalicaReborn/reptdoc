@@ -203,7 +203,7 @@ const aSeriesData = [
         process: "TSMC N7 (7nm)",
         dieSize: "122 mm²",
         cpu: {
-            specs: "4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest",
+            specs: "8-core (4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest)",
             l2Cache: "8 MB (P-Core) + 2 MB (E-Core)"
         },
         slc: "8 MB",
@@ -239,10 +239,10 @@ const aSeriesData = [
         process: "TSMC 10nm FinFET",
         dieSize: "96.4 mm²",
         cpu: {
-            specs: "3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr",
+            specs: "6-core (3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr)",
             l2Cache: "8 MB"
         },
-        slc: "N/A",
+        slc: "N/A (8 MB L2 Cache)",
         memory: "LPDDR4-3200",
         gpu: "PowerVR GT7600 Plus (12-core)",
         npu: "N/A",
@@ -273,10 +273,10 @@ const aSeriesData = [
         process: "TSMC 16nm FinFET+",
         dieSize: "147 mm²",
         cpu: {
-            specs: "2x 2.26 GHz Twister",
+            specs: "2-core (2.26 GHz Twister)",
             l2Cache: "3 MB"
         },
-        slc: "N/A",
+        slc: "N/A (No L3/SLC present)",
         memory: "LPDDR4-3200",
         gpu: "PowerVR Series 7XT (12-core)",
         npu: "N/A",
@@ -307,7 +307,7 @@ const aSeriesData = [
         process: "TSMC 20nm HKMG",
         dieSize: "128 mm²",
         cpu: {
-            specs: "3x 1.5 GHz Typhoon",
+            specs: "3-core (1.5 GHz Typhoon)",
             l2Cache: "2 MB"
         },
         slc: "4 MB (L3 Cache)",
@@ -359,7 +359,7 @@ const aSeriesData = [
         s: "N/A",
         dieSize: "123 mm²",
         cpu: {
-            specs: "2x 1.4 GHz Swift",
+            specs: "2-core (1.4 GHz Swift)",
             l2Cache: "1 MB"
         },
         slc: "N/A",
@@ -394,7 +394,7 @@ const aSeriesData = [
         s: "N/A",
         dieSize: "165 mm²",
         cpu: {
-            specs: "2x 1 GHz Cortex-A9",
+            specs: "2-core (1.0 GHz Cortex-A9)",
             l2Cache: "1 MB"
         },
         slc: "N/A",
@@ -6353,9 +6353,10 @@ function generateMobileDetails(chip) {
         visibleRows.forEach(row => {
             const val = getNestedValue(chip, row.key);
             const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val) : formatValue(val);
+            const extraStyle = row.key === 'cpu.specs' ? ' style="grid-column: 1 / -1;"' : '';
 
             html += `
-                <div class="spec-item">
+                <div class="spec-item"${extraStyle}>
                     <span class="spec-label">${t(row.label)}</span>
                     <span class="spec-value">${formattedVal}</span>
                 </div>
