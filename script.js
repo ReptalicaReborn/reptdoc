@@ -203,7 +203,7 @@ const aSeriesData = [
         process: "TSMC N7 (7nm)",
         dieSize: "122 mm²",
         cpu: {
-            specs: "8-core (4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest)",
+            specs: "4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest",
             l2Cache: "8 MB (P-Core) + 2 MB (E-Core)"
         },
         slc: "8 MB",
@@ -239,10 +239,10 @@ const aSeriesData = [
         process: "TSMC 10nm FinFET",
         dieSize: "96.4 mm²",
         cpu: {
-            specs: "6-core (3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr)",
+            specs: "3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr",
             l2Cache: "8 MB"
         },
-        slc: "N/A (8 MB L2 Cache)",
+        slc: "N/A",
         memory: "LPDDR4-3200",
         gpu: "PowerVR GT7600 Plus (12-core)",
         npu: "N/A",
@@ -273,10 +273,10 @@ const aSeriesData = [
         process: "TSMC 16nm FinFET+",
         dieSize: "147 mm²",
         cpu: {
-            specs: "2-core (2.26 GHz Twister)",
+            specs: "2x 2.26 GHz Twister",
             l2Cache: "3 MB"
         },
-        slc: "N/A (No L3/SLC present)",
+        slc: "N/A",
         memory: "LPDDR4-3200",
         gpu: "PowerVR Series 7XT (12-core)",
         npu: "N/A",
@@ -307,7 +307,7 @@ const aSeriesData = [
         process: "TSMC 20nm HKMG",
         dieSize: "128 mm²",
         cpu: {
-            specs: "3-core (1.5 GHz Typhoon)",
+            specs: "3x 1.5 GHz Typhoon",
             l2Cache: "2 MB"
         },
         slc: "4 MB (L3 Cache)",
@@ -359,7 +359,7 @@ const aSeriesData = [
         s: "N/A",
         dieSize: "123 mm²",
         cpu: {
-            specs: "2-core (1.4 GHz Swift)",
+            specs: "2x 1.4 GHz Swift",
             l2Cache: "1 MB"
         },
         slc: "N/A",
@@ -394,7 +394,7 @@ const aSeriesData = [
         s: "N/A",
         dieSize: "165 mm²",
         cpu: {
-            specs: "2-core (1.0 GHz Cortex-A9)",
+            specs: "2x 1 GHz Cortex-A9",
             l2Cache: "1 MB"
         },
         slc: "N/A",
@@ -441,15 +441,55 @@ const aSeriesData = [
 
 const mSeriesData = [
     {
+        name: "M5 Max",
+        codename: "Unknown",
+        partNumber: "T6051",
+        releaseDate: "2026.03",
+        process: "TSMC N3P (3nm)",
+        dieSize: "Unknown",
+        geekbench6: { single: "4268", multi: "29216" },
+        wildlifeExtreme: "43222",
+        steelNomadLite: "17853",
+        cpu: {
+            specs: "6x 4.61 GHz pCore + 12x 4.38 GHz mCore",
+            l2Cache: "12x 1MB (P-core private) + 16 MB (P-Core shared) + 16 MB (E-Core)"
+        },
+        slc: "48 MB",
+        gpu: "Apple 40-core (G17C Family)",
+        npu: "16-core Neural Engine (Gen 10)",
+        memory: "512-bit LPDDR5X-9600",
+        architecture: "64-bit ARMv9.x-A"
+    },
+    {
+        name: "M5 Pro",
+        codename: "Unknown",
+        partNumber: "T6050",
+        releaseDate: "2026.03",
+        process: "TSMC N3P (3nm)",
+        dieSize: "Unknown",
+        geekbench6: { single: "4295", multi: "28436" },
+        wildlifeExtreme: "23757",
+        steelNomadLite: "10018",
+        cpu: {
+            specs: "6x 4.61 GHz pCore + 12x 4.38 GHz mCore",
+            l2Cache: "12x 1MB (P-core private) + 16 MB (P-Core shared) + 16 MB (E-Core)"
+        },
+        slc: "24 MB",
+        gpu: "Apple 20-core (G17S Family)",
+        npu: "16-core Neural Engine (Gen 10)",
+        memory: "256-bit LPDDR5X-9600",
+        architecture: "64-bit ARMv9.x-A"
+    },
+    {
         name: "M5",
         codename: "Hidra",
         partNumber: "T8142",
         releaseDate: "2025.10",
-        process: "TSMC N3P (3nm 3rd Gen)",
-        dieSize: "Unspecified",
+        process: "TSMC N3P (3nm)",
+        dieSize: "Unknown",
         cpu: {
-            specs: "10-core (4x 4.40 GHz Everest V4 + 6x 2.80 GHz Sawtooth V4)",
-            l2Cache: "16 MB (P-Core) + 4 MB (E-Core)"
+            specs: "4x 4.40 GHz pCore + 6x 2.80 GHz eCore",
+            l2Cache: "4x 1MB (P-core private) + 16 MB (P-Core shared) + 4 MB (E-Core)"
         },
         gpu: "Apple 10-core (G17G Family) - Neural Accelerator, Ray Tracing Gen 3",
         npu: "16-core Neural Engine (Gen 10)",
@@ -466,7 +506,7 @@ const mSeriesData = [
         process: "TSMC N3E (3nm)",
         dieSize: "454.27 mm²",
         cpu: {
-            specs: "Up to 16-core (12x 4.51 GHz Everest V3 + 4x 2.89 GHz Sawtooth V3)",
+            specs: "12x 4.51 GHz Everest V3 + 4x 2.89 GHz Sawtooth V3",
             l2Cache: "32 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "48 MB",
@@ -485,7 +525,7 @@ const mSeriesData = [
         process: "TSMC N3E (3nm)",
         dieSize: "‰ˆ320-330 mm²",
         cpu: {
-            specs: "Up to 14-core (10x 4.51 GHz Everest V3 + 4x 2.89 GHz Sawtooth V3)",
+            specs: "10x 4.51 GHz Everest V3 + 4x 2.89 GHz Sawtooth V3",
             l2Cache: "Unspecified"
         },
         slc: "24 MB",
@@ -504,7 +544,7 @@ const mSeriesData = [
         process: "TSMC N3E (3nm)",
         dieSize: "169.35 mm²",
         cpu: {
-            specs: "10-core (4x 4.51 GHz Everest V3 + 6x 2.89 GHz Sawtooth V3)",
+            specs: "4x 4.51 GHz Everest V3 + 6x 2.89 GHz Sawtooth V3",
             l2Cache: "16 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "8 MB",
@@ -519,7 +559,7 @@ const mSeriesData = [
         partNumber: "T6032",
         releaseDate: "2025.03",
         process: "TSMC N3B (3nm)",
-        dieSize: "‰ˆ894.18 mm²",
+        dieSize: "894.18 mm²",
         cpu: {
             specs: "32-core (24x 4.05 GHz Everest + 8x 2.75 GHz Sawtooth)",
             l2Cache: "Unspecified"
@@ -540,7 +580,7 @@ const mSeriesData = [
         process: "TSMC N3B (3nm)",
         dieSize: "447.09 mm²",
         cpu: {
-            specs: "16-core (12x 4.05 GHz Everest + 4x 2.75 GHz Sawtooth)",
+            specs: "12x 4.05 GHz Everest + 4x 2.75 GHz Sawtooth",
             l2Cache: "24 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "48 MB",
@@ -559,7 +599,7 @@ const mSeriesData = [
         process: "TSMC N3B (3nm)",
         dieSize: "219.22 mm²",
         cpu: {
-            specs: "12-core (6x 4.05 GHz Everest + 6x 2.75 GHz Sawtooth)",
+            specs: "6x 4.05 GHz Everest + 6x 2.75 GHz Sawtooth",
             l2Cache: "16 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "12 MB",
@@ -578,7 +618,7 @@ const mSeriesData = [
         process: "TSMC N3B (3nm)",
         dieSize: "152.53 mm²",
         cpu: {
-            specs: "8-core (4x 4.05 GHz Everest + 4x 2.75 GHz Sawtooth)",
+            specs: "4x 4.05 GHz Everest + 4x 2.75 GHz Sawtooth",
             l2Cache: "16 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "8 MB",
@@ -595,9 +635,9 @@ const mSeriesData = [
         partNumber: "APL1W12 / T6022",
         releaseDate: "2023.06",
         process: "TSMC N5P (5nm)",
-        dieSize: "‰ˆ910 mm²",
+        dieSize: "910 mm²",
         cpu: {
-            specs: "24-core (16x 3.50 GHz Avalanche + 8x 2.42 GHz Blizzard)",
+            specs: "16x 3.50 GHz Avalanche + 8x 2.42 GHz Blizzard",
             l2Cache: "64 MB (P-Core) + 8 MB (E-Core)"
         },
         slc: "96 MB",
@@ -616,7 +656,7 @@ const mSeriesData = [
         process: "TSMC N5P (5nm)",
         dieSize: "485.62 mm²",
         cpu: {
-            specs: "12-core (8x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard)",
+            specs: "8x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard",
             l2Cache: "32 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "48 MB",
@@ -635,7 +675,7 @@ const mSeriesData = [
         process: "TSMC N5P (5nm)",
         dieSize: "294.73 mm²",
         cpu: {
-            specs: "12-core (8x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard)",
+            specs: "8x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard",
             l2Cache: "32 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "24 MB",
@@ -654,7 +694,7 @@ const mSeriesData = [
         process: "TSMC N5P (5nm)",
         dieSize: "153.22 mm²",
         cpu: {
-            specs: "8-core (4x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard)",
+            specs: "4x 3.50 GHz Avalanche + 4x 2.42 GHz Blizzard",
             l2Cache: "16 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "8 MB",
@@ -673,7 +713,7 @@ const mSeriesData = [
         process: "TSMC N5 (5nm)",
         dieSize: "864.7 mm²",
         cpu: {
-            specs: "20-core (16x 3.20 GHz Firestorm + 4x 2.06 GHz Icestorm)",
+            specs: "16x 3.20 GHz Firestorm + 4x 2.06 GHz Icestorm",
             l2Cache: "48 MB (P-Core) + 8 MB (E-Core)"
         },
         slc: "96 MB",
@@ -692,7 +732,7 @@ const mSeriesData = [
         process: "TSMC N5 (5nm)",
         dieSize: "432.3 mm²",
         cpu: {
-            specs: "10-core (8x 3.20 GHz Firestorm + 2x 2.06 GHz Icestorm)",
+            specs: "8x 3.20 GHz Firestorm + 2x 2.06 GHz Icestorm",
             l2Cache: "24 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "48 MB",
@@ -711,7 +751,7 @@ const mSeriesData = [
         process: "TSMC N5 (5nm)",
         dieSize: "253.17 mm²",
         cpu: {
-            specs: "10-core (8x 3.20 GHz Firestorm + 2x 2.06 GHz Icestorm)",
+            specs: "8x 3.20 GHz Firestorm + 2x 2.06 GHz Icestorm",
             l2Cache: "24 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "24 MB",
@@ -730,7 +770,7 @@ const mSeriesData = [
         process: "TSMC N5 (5nm)",
         dieSize: "123.04 mm²",
         cpu: {
-            specs: "8-core (4x 3.20 GHz Firestorm + 4x 2.06 GHz Icestorm)",
+            specs: "4x 3.20 GHz Firestorm + 4x 2.06 GHz Icestorm",
             l2Cache: "12 MB (P-Core) + 4 MB (E-Core)"
         },
         slc: "8 MB",
@@ -6154,6 +6194,35 @@ function formatValue(val) {
     return val;
 }
 
+/**
+ * Intelligent CPU Spec Splitter
+ * Detects "+" separators and returns a clustered HTML structure
+ */
+function formatCpuSpecs(specString) {
+    if (typeof specString !== 'string' || !specString.includes('+')) {
+        return specString;
+    }
+
+    const clusters = specString.split('+').map(s => s.trim());
+    let html = '<div class="cpu-cluster-container">';
+
+    clusters.forEach((cluster, index) => {
+        // Simple numeric labeling as requested
+        const label = `CLUSTER ${index + 1}`;
+        const badgeClass = `badge-c${index + 1}`;
+
+        html += `
+            <div class="cpu-cluster">
+                <span class="cluster-badge ${badgeClass}">${label}</span>
+                <span class="cluster-text">${cluster}</span>
+            </div>
+        `;
+    });
+
+    html += '</div>';
+    return html;
+}
+
 // Current active series
 let currentSeries = 'a-series';
 let isWelcomeState = false; // Will be set to true on load if renderWelcomePage is called
@@ -6282,10 +6351,13 @@ function generateMobileDetails(chip) {
         </div>`;
 
         visibleRows.forEach(row => {
+            const val = getNestedValue(chip, row.key);
+            const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val) : formatValue(val);
+
             html += `
                 <div class="spec-item">
                     <span class="spec-label">${t(row.label)}</span>
-                    <span class="spec-value">${formatValue(getNestedValue(chip, row.key))}</span>
+                    <span class="spec-value">${formattedVal}</span>
                 </div>
             `;
         });
@@ -7790,8 +7862,8 @@ function updateComparisonTable() {
 
             html += `<tr>`;
             html += `<td class="feature-label">${t(row.label)}</td>`;
-            html += `<td class="val-col">${formatValue(v1)}</td>`;
-            html += `<td class="val-col">${formatValue(v2)}</td>`;
+            html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v1) : formatValue(v1)}</td>`;
+            html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v2) : formatValue(v2)}</td>`;
             html += `</tr>`;
         });
     });
