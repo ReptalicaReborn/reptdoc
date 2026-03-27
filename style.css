@@ -95,6 +95,17 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body.light-mode {
     /* -------------------------------------------------------------------------
        Theme: Technical Elegance (Cream & Deep Navy)
@@ -1150,7 +1161,7 @@ button:active {
 .card-quick-specs {
     display: flex;
     flex-direction: column;
-    padding: 0 28px 16px 28px;
+    padding: 0 20px 16px 20px;
     gap: 8px;
 }
 
@@ -1328,6 +1339,7 @@ button:active {
     font-size: 13.5px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
+    min-width: 0;
 }
 
 .cpu-cluster:hover {
@@ -1382,6 +1394,9 @@ button:active {
     color: var(--md-sys-color-on-surface);
     font-weight: 500;
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 body.light-mode .cpu-cluster {
@@ -1454,7 +1469,7 @@ body.light-mode .cpu-cluster:hover {
 
 .welcome-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 24px;
     width: 100%;
 }
@@ -2031,8 +2046,10 @@ body.light-mode .cpu-cluster:hover {
         border-radius: 0;
         background-color: var(--md-sys-color-background);
         border-bottom: 1px solid var(--md-sys-color-outline-variant);
-        padding: 0 8px;
+        padding: 0 12px;
         gap: 8px;
+        width: 100vw;
+        max-width: 100%;
     }
 
     .breadcrumbs {
@@ -2046,12 +2063,13 @@ body.light-mode .cpu-cluster:hover {
 
     .search-box {
         flex: 1;
-        width: auto;
+        width: 100%;
+        min-width: 0;
         margin: 0;
     }
 
     .search-box:focus-within {
-        width: auto;
+        width: 100%;
     }
 
     .btn-text,
@@ -2156,11 +2174,14 @@ body.light-mode .cpu-cluster:hover {
     /* Mobile Comparison Styles */
     .compare-container {
         padding: var(--spacing-m);
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .selectors-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-m);
+        width: 100%;
     }
 
     .selector-card {
