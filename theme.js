@@ -40,6 +40,16 @@ function getContrastColor(hexColor) {
  * Apply a custom accent color to the theme
  */
 function applyCustomAccent(hexColor) {
+    const isLightMode = localStorage.getItem('theme') === 'light' || (document.body && document.body.classList.contains('light-mode'));
+    
+    // Intelligent High-Contrast Monochrome
+    // Prevents UI from turning invisible if user picks White in Light Mode or Black in Dark Mode
+    if (isLightMode && hexColor.toUpperCase() === '#FFFFFF') {
+        hexColor = '#000000';
+    } else if (!isLightMode && hexColor === '#000000') {
+        hexColor = '#FFFFFF';
+    }
+
     const r = parseInt(hexColor.slice(1, 3), 16);
     const g = parseInt(hexColor.slice(3, 5), 16);
     const b = parseInt(hexColor.slice(5, 7), 16);
@@ -75,7 +85,6 @@ function applyCustomAccent(hexColor) {
     root.style.setProperty('--md-sys-color-tertiary', mixColors(rgbColor, 50, '#A6C8FF'));
 
     const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
-    const isLightMode = localStorage.getItem('theme') === 'light' || (document.body && document.body.classList.contains('light-mode'));
     if (metaThemeColor && !isLightMode) {
         metaThemeColor.content = tintedBackground;
     }
@@ -97,12 +106,12 @@ function applyCustomAccent(hexColor) {
     const lightPrimaryContainer = mixColors(rgbColor, 25, '#ffffff');
     const lightOnPrimaryContainer = mixColors(rgbColor, 90, '#000000');
     const lightSecondaryContainer = mixColors(rgbColor, 15, '#E1E3E8');
-    const lightBackground = mixColors(rgbColor, 5, '#FDFBFF');
-    const lightSidebar = mixColors(rgbColor, 3, '#F6F8FC');
-    const lightTableHeader = mixColors(rgbColor, 6, '#F0F4F9');
-    const lightRowHeader = mixColors(rgbColor, 4, '#F6F8FC');
-    const lightSearchBox = mixColors(rgbColor, 8, '#F5F5F5');
-    const lightGradientStart = mixColors(rgbColor, 15, '#EBF0F8');
+    const lightBackground = mixColors(rgbColor, 12, '#FDFBFF');
+    const lightSidebar = mixColors(rgbColor, 8, '#F6F8FC');
+    const lightTableHeader = mixColors(rgbColor, 15, '#F0F4F9');
+    const lightRowHeader = mixColors(rgbColor, 10, '#F6F8FC');
+    const lightSearchBox = mixColors(rgbColor, 18, '#F5F5F5');
+    const lightGradientStart = mixColors(rgbColor, 28, '#EBF0F8');
 
     styleTag.innerHTML = `
         body.light-mode {

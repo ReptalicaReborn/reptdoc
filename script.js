@@ -1717,7 +1717,7 @@ const snapdragon6Data = [
             npu: "Qualcomm Hexagon NPU",
             modem: "Snapdragon 5G sub-6 Rel.17",
             dsp: "Qualcomm Hexagon",
-            memory: "16-bit Dual-channel LPDDR5 6400MT"
+            memory: "16-bit Dual-channel LPDDR5 6400mt"
         }
     },
     {
@@ -5110,6 +5110,23 @@ const pastSoCs = [
 
 const exynos2000Data = [
     {
+        name: "Exynos 2800",
+        codename: "Vanguard",
+        process: "Samsung SF2P (2nm+)",
+    },
+    {
+        name: "Exynos 2700",
+        codename: "Ulysses",
+        partNumber: "S5E9975",
+        process: "Samsung 2nm (SF2)",
+        dieSize: "Unknown",
+        architecture: "ARMv9.3-A",
+        cpu: {
+            specs: "1x C2-Ultra + 5x C2-Pro High Clock + 4x C2-Pro Low Clock",
+        },
+        gpu: "Samsung Xclipse 970 (AMD RDNA, 8WGP)"
+    },
+    {
         name: "Exynos 2600",
         codename: "thetis",
         geekbench6: { single: "3189", multi: "10921" },
@@ -5238,6 +5255,10 @@ const exynos2000Data = [
 ];
 
 const exynos1000Data = [
+    {
+        name: "Exynos 1780",
+        process: "Samsung SF4P (4nm+)",
+    },
     {
         name: "Exynos 13xx (unknown)",
         codename: "telos",
@@ -6300,8 +6321,8 @@ function renderTable(dataRaw) {
         const bIsNull = nullish.includes(dateB);
 
         if (aIsNull && bIsNull) return 0;
-        if (aIsNull) return 1; // Push unknown to bottom
-        if (bIsNull) return -1;
+        if (aIsNull) return -1; // Push unknown to top
+        if (bIsNull) return 1;
 
         return dateB.localeCompare(dateA);
     });
@@ -6397,7 +6418,7 @@ function renderTable(dataRaw) {
     });
 
     gridHtml += '</div>';
-    
+
     container.innerHTML = gridHtml;
 
     // Hide the FAB since specific column toggling isn't relevant for cards
@@ -7364,6 +7385,13 @@ function showSettingsModal() {
     const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
     const isLightMode = document.body.classList.contains('light-mode');
 
+    let displaySavedAccent = savedAccent;
+    if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') {
+        displaySavedAccent = '#000000';
+    } else if (!isLightMode && savedAccent === '#000000') {
+        displaySavedAccent = '#FFFFFF';
+    }
+
     modal.innerHTML = `
         <div class="modal-content settings-content">
             <div class="modal-header">
@@ -7372,10 +7400,10 @@ function showSettingsModal() {
                     <span class="material-icons-round">close</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="padding-top: 8px;">
                 <div class="setting-item">
                     <div class="setting-info">
-                        <h3>${t('language')}</h3>
+                        <h3 style="margin-bottom: 0;">${t('language')}</h3>
                     </div>
                     <div class="setting-control">
                         <select id="lang-select">
@@ -7387,29 +7415,29 @@ function showSettingsModal() {
                 <div class="setting-item">
                     <div class="setting-info">
                         <h3>${t('accent_color') || 'Accent Color'}</h3>
-                        <p class="setting-desc">${t('accent_color_desc') || 'Customize the primary color to match your style'}</p>
+                        <p class="setting-desc" style="margin-top: 2px;">${t('accent_color_desc') || 'Customize the primary color to match your style'}</p>
                     </div>
-                    <div class="setting-control accent-control">
+                    <div class="setting-control">
                         <label class="toggle-switch">
                             <input type="checkbox" id="accent-toggle" ${isAccentEnabled ? 'checked' : ''}>
                             <span class="toggle-slider"></span>
                         </label>
-                        <div class="custom-color-picker" title="Pick a custom color" style="opacity: ${isAccentEnabled ? '1' : '0.5'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'};">
-                            <div id="accent-preview" style="background-color: ${savedAccent};"></div>
-                            <input type="color" id="accent-picker" value="${savedAccent}" ${!isAccentEnabled ? 'disabled' : ''}>
-                            <span class="material-icons-round picker-icon">palette</span>
-                        </div>
                     </div>
                 </div>
-                <div class="setting-item accent-presets" style="display: ${isAccentEnabled ? 'flex' : 'none'}; flex-wrap: nowrap; overflow-x: auto; gap: 8px; padding: 12px 0; -webkit-overflow-scrolling: touch;">
+                <div class="setting-item accent-presets" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding: 16px; -webkit-overflow-scrolling: touch; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s;">
+                    <div class="custom-color-picker" title="Pick a custom color">
+                        <div id="accent-preview" style="background-color: ${displaySavedAccent};"></div>
+                        <input type="color" id="accent-picker" value="${displaySavedAccent}" ${!isAccentEnabled ? 'disabled' : ''}>
+                        <span class="material-icons-round picker-icon" style="font-size: 16px;">palette</span>
+                    </div>
                     <button class="accent-preset" data-color="#4CAF50" style="background: #4CAF50; flex-shrink: 0;" title="Green"></button>
                     <button class="accent-preset" data-color="#2196F3" style="background: #2196F3; flex-shrink: 0;" title="Blue"></button>
-                    <button class="accent-preset" data-color="#9C27B0" style="background: #9C27B0;" title="Purple"></button>
-                    <button class="accent-preset" data-color="#FF5722" style="background: #FF5722;" title="Deep Orange"></button>
-                    <button class="accent-preset" data-color="#FFFFFF" style="background: #FFFFFF; border: 1px solid rgba(255,255,255,0.3);" title="White"></button>
-                    <button class="accent-preset" data-color="#E91E63" style="background: #E91E63;" title="Pink"></button>
-                    <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B;" title="Yellow"></button>
-                    <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C);" title="Deep Red"></button>
+                    <button class="accent-preset" data-color="#9C27B0" style="background: #9C27B0; flex-shrink: 0;" title="Purple"></button>
+                    <button class="accent-preset" data-color="#FF5722" style="background: #FF5722; flex-shrink: 0;" title="Deep Orange"></button>
+                    <button class="accent-preset" data-color="#FFFFFF" style="background: #FFFFFF; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.3);" title="White"></button>
+                    <button class="accent-preset" data-color="#E91E63" style="background: #E91E63; flex-shrink: 0;" title="Pink"></button>
+                    <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
+                    <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
                 </div>
             </div>
         </div>
@@ -7466,9 +7494,15 @@ function showSettingsModal() {
     modal.querySelectorAll('.accent-preset').forEach(btn => {
         btn.addEventListener('click', () => {
             const color = btn.dataset.color;
-            accentPicker.value = color;
-            accentPreview.style.backgroundColor = color;
-            localStorage.setItem('reptdoc_accent', color);
+            const isLight = document.body.classList.contains('light-mode');
+
+            let displayColor = color;
+            if (isLight && color.toUpperCase() === '#FFFFFF') displayColor = '#000000';
+            else if (!isLight && color === '#000000') displayColor = '#FFFFFF';
+
+            accentPicker.value = displayColor;
+            accentPreview.style.backgroundColor = displayColor;
+            localStorage.setItem('reptdoc_accent', color); // Keep storing true intended color '#FFFFFF'
             applyCustomAccent(color);
         });
     });
@@ -7794,20 +7828,67 @@ function initComparison() {
         window.location.href = 'index.html';
     };
 
-    // Auto-select chip from ?chip= URL param into slot 1
-    const params = new URLSearchParams(window.location.search);
-    const preselect = params.get('chip');
-    if (preselect) {
-        // Wait for allChipsFlat to be populated by initCompareSearch
-        setTimeout(() => {
-            if (!window.allChipsFlat) return;
-            const name = decodeURIComponent(preselect).toLowerCase();
-            const chipIndex = window.allChipsFlat.findIndex(c => c.name.toLowerCase() === name);
-            if (chipIndex !== -1) {
-                selectChip(1, chipIndex);
-            }
-        }, 50);
+    // Initialize Share Button
+    const shareBtn = document.getElementById('share-comparison');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+            copyComparisonLink();
+        });
     }
+
+    // Auto-select chips from URL params
+    const params = new URLSearchParams(window.location.search);
+    const preselect1 = params.get('chip1') || params.get('chip');
+    const preselect2 = params.get('chip2');
+
+    const waitForDataAndSelect = (slot, chipName) => {
+        if (!chipName) return;
+        const checkData = () => {
+            if (window.allChipsFlat && window.allChipsFlat.length > 0) {
+                const name = decodeURIComponent(chipName).toLowerCase();
+                const chipIndex = window.allChipsFlat.findIndex(c => c.name.toLowerCase() === name);
+                if (chipIndex !== -1) {
+                    selectChip(slot, chipIndex, false);
+                }
+            } else {
+                setTimeout(checkData, 50);
+            }
+        };
+        checkData();
+    };
+
+    waitForDataAndSelect(1, preselect1);
+    waitForDataAndSelect(2, preselect2);
+}
+
+function syncURLWithState() {
+    const params = new URLSearchParams();
+    if (comparisonState[1]) params.set('chip1', comparisonState[1].name);
+    if (comparisonState[2]) params.set('chip2', comparisonState[2].name);
+
+    const qs = params.toString();
+    const newURL = window.location.pathname + (qs ? '?' + qs : '');
+    window.history.replaceState({ path: newURL }, '', newURL);
+}
+
+function copyComparisonLink() {
+    // Current URL is kept in sync with state
+    const url = window.location.href;
+    const btn = document.getElementById('share-comparison');
+    const icon = btn ? btn.querySelector('.material-icons-round') : null;
+
+    navigator.clipboard.writeText(url).then(() => {
+        if (icon) {
+            const originalIcon = icon.textContent;
+            icon.textContent = 'check';
+            setTimeout(() => {
+                icon.textContent = originalIcon;
+            }, 2000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy link:', err);
+        // Fallback or legacy copy method could go here
+    });
 }
 
 function initCompareSearch(id) {
@@ -7914,7 +7995,7 @@ function initCompareSearch(id) {
     });
 }
 
-window.selectChip = function (slot, chipIndex) {
+window.selectChip = function (slot, chipIndex, updateURL = true) {
     const chip = window.allChipsFlat[chipIndex];
     comparisonState[slot] = chip;
 
@@ -7932,6 +8013,11 @@ window.selectChip = function (slot, chipIndex) {
     document.getElementById(`name-chip-${slot}`).innerHTML = chip.name;
     document.getElementById(`detail-chip-${slot}`).innerHTML = chip.partNumber || chip.codename || '';
 
+    // Update URL if needed
+    if (updateURL) {
+        syncURLWithState();
+    }
+
     // Defer table update to next animation frame to prevent layout thrashing/jitter
     requestAnimationFrame(() => {
         updateComparisonTable();
@@ -7944,6 +8030,8 @@ window.clearChip = function (slot) {
     document.getElementById(`selector-${slot}`).querySelector('.selector-search-box').style.display = 'flex';
     document.getElementById(`input-chip-${slot}`).value = '';
     document.getElementById(`display-chip-${slot}`).classList.remove('active');
+
+    syncURLWithState();
 
     // Defer update to smooth out removal animation
     requestAnimationFrame(() => {
