@@ -7821,12 +7821,33 @@ window.selectChip = function (slot, chipIndex) {
     const display = document.getElementById(`display-chip-${slot}`);
     display.classList.add('active');
 
-    // Set Icon
-    const displayIcon = getBrandLogoGlobal(chip.manufacturer, "64px");
+    // Set Icon (smaller for horizontal layout)
+    const displayIcon = getBrandLogoGlobal(chip.manufacturer, "48px");
 
     document.getElementById(`icon-chip-${slot}`).innerHTML = displayIcon;
     document.getElementById(`name-chip-${slot}`).innerHTML = chip.name;
-    document.getElementById(`detail-chip-${slot}`).innerHTML = chip.partNumber || chip.codename || '';
+    document.getElementById(`detail-chip-${slot}`).innerHTML = chip.codename || '';
+
+    // Populate quick specs
+    const quickSpecs = document.getElementById(`quick-specs-${slot}`);
+    const cpuSpec = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : null;
+    let quickHtml = '';
+    const specRows = [
+        { label: t('mobile_release'), value: chip.releaseDate },
+        { label: t('mobile_process'), value: chip.process },
+        { label: t('mobile_cpu'), value: cpuSpec },
+        { label: t('mobile_gpu'), value: chip.gpu }
+    ];
+    specRows.forEach(row => {
+        if (row.value && row.value !== 'N/A' && row.value !== 'Unknown') {
+            quickHtml += `
+                <div class="quick-spec-row">
+                    <span class="quick-spec-label">${row.label}</span>
+                    <span class="quick-spec-value">${row.value}</span>
+                </div>`;
+        }
+    });
+    quickSpecs.innerHTML = quickHtml;
 
     // Defer table update to next animation frame to prevent layout thrashing/jitter
     requestAnimationFrame(() => {
