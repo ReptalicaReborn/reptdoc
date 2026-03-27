@@ -951,6 +951,7 @@ const snapdragon8Data = [
         name: "Snapdragon 8 Gen 2",
         geekbench6: { single: "2000", multi: "5500" },
         wildlifeExtreme: "3750",
+        steelNomadLite: "1062",
         codename: "kalama/kailua",
         partNumber: "SM8550-AB",
         releaseDate: "2022.11",
@@ -993,7 +994,6 @@ const snapdragon8Data = [
         name: "Snapdragon 8 Gen 1",
         geekbench6: { single: "1650", multi: "4000" },
         wildlifeExtreme: "2600",
-        steelNomadLite: "1521",
         codename: "taro/waipio",
         partNumber: "SM8450",
         releaseDate: "2021.11",
@@ -6278,15 +6278,15 @@ function renderTable(dataRaw) {
     const data = [...dataRaw].sort((a, b) => {
         const dateA = a.releaseDate || '';
         const dateB = b.releaseDate || '';
-        
+
         const nullish = ['N/A', 'Unknown', ''];
         const aIsNull = nullish.includes(dateA);
         const bIsNull = nullish.includes(dateB);
-        
+
         if (aIsNull && bIsNull) return 0;
         if (aIsNull) return 1; // Push unknown to bottom
         if (bIsNull) return -1;
-        
+
         return dateB.localeCompare(dateA);
     });
 

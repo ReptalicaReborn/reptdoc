@@ -1195,7 +1195,7 @@ button:active {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 28px;
+    padding: 16px 28px;
     background-color: color-mix(in srgb, var(--md-sys-color-surface-container) 80%, transparent);
     border-top: 1px solid var(--md-sys-color-outline-variant);
     transition: background-color 0.2s;
