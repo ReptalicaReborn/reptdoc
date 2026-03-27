@@ -6301,8 +6301,34 @@ function renderTable(data) {
             : `<span class="material-icons-round">memory</span>`;
 
         // Determine if there are key specs to show on the card face
-        // e.g. Geekbench Single Score if available
-        let keySpecHtml = '';
+        const cpuSpec = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : null;
+        let quickSpecsHtml = '';
+
+        const specRows = [
+            { label: t('mobile_release') || 'Release', value: chip.releaseDate, isCpu: false },
+            { label: t('mobile_process') || 'Process', value: chip.process, isCpu: false },
+            { label: 'CPU', value: cpuSpec, isCpu: true },
+            { label: 'GPU', value: chip.gpu, isCpu: false }
+        ];
+
+        let hasSpecs = false;
+        specRows.forEach(row => {
+            if (row.value && row.value !== 'N/A' && row.value !== 'Unknown') {
+                hasSpecs = true;
+                const displayValue = row.isCpu ? formatCpuSpecs(row.value) : row.value;
+                const extraClass = row.isCpu ? ' card-quick-spec-cpu' : '';
+                quickSpecsHtml += `
+                    <div class="card-quick-spec-row${extraClass}">
+                        <span class="card-quick-spec-label">${row.label}</span>
+                        <span class="card-quick-spec-value">${displayValue}</span>
+                    </div>`;
+            }
+        });
+
+        let quickHtmlOut = '';
+        if (hasSpecs) {
+            quickHtmlOut = `<div class="card-quick-specs">${quickSpecsHtml}</div>`;
+        }
 
 
         const cardHtml = `
@@ -6312,9 +6338,12 @@ function renderTable(data) {
                     <div class="chip-card-title-group">
                         <div class="chip-card-title">${chip.name}</div>
                         <div class="chip-card-subtitle">${['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na'))}</div>
-                        ${keySpecHtml}
                     </div>
-                    <span class="material-icons-round expand-icon" id="icon-expand-${index}" style="color: var(--md-sys-color-on-surface-variant); transition: transform 0.3s;">expand_more</span>
+                </div>
+                ${quickHtmlOut}
+                <div class="chip-card-action-bar">
+                    <span class="view-specs-text">${t('view_full_specs') || 'View Full Specs'}</span>
+                    <span class="material-icons-round expand-icon" id="icon-expand-${index}">expand_more</span>
                 </div>
                 <div class="chip-card-body">
                      ${generateMobileDetails(chip)}
@@ -6346,7 +6375,7 @@ function renderTable(data) {
 
 function generateMobileDetails(chip) {
     let html = '';
-    const duplicateKeys = ['releaseDate'];
+    const duplicateKeys = ['releaseDate', 'process', 'cpu.specs', 'cpu', 'gpu'];
 
     tableStructure.forEach(group => {
         if (group.category === "category_benchmarks") return;
@@ -6962,6 +6991,18 @@ const translations = {
 
 const changelogData = [
     {
+        version: "Release Canidate 1",
+        date: "2026-03-28",
+        changes: {
+            en: [
+                "UI revamp babyyyyyyy"
+            ],
+            vi: [
+                "Chỉnh sửa lại UI"
+            ],
+        }
+    },
+    {
         version: "beta-v1.4.0",
         date: "2026-03-19",
         changes: {
@@ -7427,20 +7468,24 @@ function showChangelogModal() {
         document.body.appendChild(modal);
     }
 
-    let changelogHtml = '';
+    let changelogHtml = '<div class="changelog-timeline">';
     changelogData.forEach(item => {
         changelogHtml += `
             <div class="changelog-item">
-                <div class="changelog-header">
-                    <span class="changelog-version">${item.version}</span>
-                    <span class="changelog-date">${item.date}</span>
+                <div class="changelog-marker"></div>
+                <div class="changelog-content-wrap">
+                    <div class="changelog-header">
+                        <span class="changelog-version-badge">${item.version}</span>
+                        <span class="changelog-date">${item.date}</span>
+                    </div>
+                    <ul class="changelog-list">
+                        ${(item.changes[currentLang] || item.changes['en']).map(change => `<li>${change}</li>`).join('')}
+                    </ul>
                 </div>
-                <ul class="-list">
-                    ${(item.changes[currentLang] || item.changes['en']).map(change => `<li>${change}</li>`).join('')}
-                </ul>
             </div>
         `;
     });
+    changelogHtml += '</div>';
 
     modal.innerHTML = `
         <div class="modal-content settings-content">
