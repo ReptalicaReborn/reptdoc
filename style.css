@@ -407,8 +407,17 @@ body {
 
     margin-right: 0;
     z-index: 100;
-    transition: transform 0.3s cubic-bezier(0.2, 0.0, 0, 1.0);
+    transition: margin-left 0.3s cubic-bezier(0.2, 0.0, 0, 1.0), transform 0.3s cubic-bezier(0.2, 0.0, 0, 1.0);
     /* Emphasized easing */
+}
+
+/* Desktop Collapse State */
+@media (min-width: 769px) {
+    .sidebar.collapsed {
+        margin-left: calc(-1 * var(--sidebar-width));
+        /* Hides the sidebar by dragging it off canvas left, 
+           allowing the flex layout to expand .main-content naturally */
+    }
 }
 
 .logo-area {
@@ -698,9 +707,9 @@ body {
     flex-shrink: 0;
 }
 
-/* Mobile Menu Button */
+/* Mobile Menu Button (Now also used for Desktop Collapse) */
 .mobile-menu-btn {
-    display: none;
+    display: flex;
     background: transparent;
     color: var(--md-sys-color-on-surface);
     width: 48px;
@@ -2008,7 +2017,7 @@ body.light-mode .cpu-cluster:hover {
     }
 
     .mobile-menu-btn {
-        display: flex;
+        display: flex; /* Kept for consistency */
     }
 
     /* Header adjustments */

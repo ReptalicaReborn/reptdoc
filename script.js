@@ -7637,26 +7637,34 @@ function initNavigation() {
 }
 
 
-// Mobile Menu Logic
+// Navigation and Menu Toggle Logic
 function initMobileMenu() {
     const menuBtn = document.getElementById('menu-toggle');
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.getElementById('sidebar-overlay');
 
-    if (!menuBtn || !sidebar || !overlay) return;
+    if (!menuBtn || !sidebar) return;
 
     function toggleMenu() {
-        sidebar.classList.toggle('open');
-        overlay.classList.toggle('active');
+        if (window.innerWidth <= 768) {
+            // Mobile behavior: toggle 'open' class to slide in
+            sidebar.classList.toggle('open');
+            if (overlay) overlay.classList.toggle('active');
+        } else {
+            // Desktop behavior: toggle 'collapsed' class to hide sidebar
+            sidebar.classList.toggle('collapsed');
+        }
     }
 
     function closeMenu() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('active');
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('active');
+        }
     }
 
     menuBtn.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
 
     // Close sidebar when clicking any nav item (mobile UX)
     document.querySelectorAll('.nav-item').forEach(item => {
