@@ -801,12 +801,12 @@ const snapdragon8Data = [
         memory: "24-bit Quad-channel LPDDR6-10667",
     },
     {
-        name: "Snapdragon 8 Gen 6",
+        name: "Snapdragon 8 Elite Gen 6",
         codename: "Unknown",
         partNumber: "SM8950",
         releaseDate: "2026.09",
         process: "TSMC N2P (2nm)",
-        dieSize: "unknown²",
+        dieSize: "unknown",
         cpu: {
             specs: "2x (Oryon-P V4) + 3x (Oryon-M V4) + 3x (Oryon-E V4)",
             l2Cache: "Unknown",
@@ -6271,8 +6271,24 @@ window.toggleSpecs = function () {
     }
 };
 
-function renderTable(data) {
+function renderTable(dataRaw) {
     const container = document.getElementById('soc-table-container');
+
+    // Clone and sort the data by releaseDate descending (newest first)
+    const data = [...dataRaw].sort((a, b) => {
+        const dateA = a.releaseDate || '';
+        const dateB = b.releaseDate || '';
+        
+        const nullish = ['N/A', 'Unknown', ''];
+        const aIsNull = nullish.includes(dateA);
+        const bIsNull = nullish.includes(dateB);
+        
+        if (aIsNull && bIsNull) return 0;
+        if (aIsNull) return 1; // Push unknown to bottom
+        if (bIsNull) return -1;
+        
+        return dateB.localeCompare(dateA);
+    });
 
     if (data.length === 0) {
         container.innerHTML = `
@@ -6339,6 +6355,9 @@ function renderTable(data) {
                         <div class="chip-card-title">${chip.name}</div>
                         <div class="chip-card-subtitle">${['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na'))}</div>
                     </div>
+                    <button class="chip-card-compare-btn" onclick="event.stopPropagation(); goToCompare('${encodeURIComponent(chip.name)}')" title="${t('compare_btn') || 'Compare'}">
+                        <span class="material-icons-round">compare_arrows</span>
+                    </button>
                 </div>
                 ${quickHtmlOut}
                 <div class="chip-card-action-bar">
@@ -7739,6 +7758,10 @@ function getBrandLogoGlobal(manufacturer, size) {
 }
 
 
+function goToCompare(chipName) {
+    window.location.href = `compare.html?chip=${chipName}`;
+}
+
 function initComparison() {
     initCompareSearch(1);
     initCompareSearch(2);
@@ -7749,6 +7772,21 @@ function initComparison() {
         e.preventDefault();
         window.location.href = 'index.html';
     };
+
+    // Auto-select chip from ?chip= URL param into slot 1
+    const params = new URLSearchParams(window.location.search);
+    const preselect = params.get('chip');
+    if (preselect) {
+        // Wait for allChipsFlat to be populated by initCompareSearch
+        setTimeout(() => {
+            if (!window.allChipsFlat) return;
+            const name = decodeURIComponent(preselect).toLowerCase();
+            const chipIndex = window.allChipsFlat.findIndex(c => c.name.toLowerCase() === name);
+            if (chipIndex !== -1) {
+                selectChip(1, chipIndex);
+            }
+        }, 50);
+    }
 }
 
 function initCompareSearch(id) {
@@ -7866,33 +7904,12 @@ window.selectChip = function (slot, chipIndex) {
     const display = document.getElementById(`display-chip-${slot}`);
     display.classList.add('active');
 
-    // Set Icon (smaller for horizontal layout)
-    const displayIcon = getBrandLogoGlobal(chip.manufacturer, "48px");
+    // Set Icon
+    const displayIcon = getBrandLogoGlobal(chip.manufacturer, "64px");
 
     document.getElementById(`icon-chip-${slot}`).innerHTML = displayIcon;
     document.getElementById(`name-chip-${slot}`).innerHTML = chip.name;
-    document.getElementById(`detail-chip-${slot}`).innerHTML = chip.codename || '';
-
-    // Populate quick specs
-    const quickSpecs = document.getElementById(`quick-specs-${slot}`);
-    const cpuSpec = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : null;
-    let quickHtml = '';
-    const specRows = [
-        { label: t('mobile_release'), value: chip.releaseDate },
-        { label: t('mobile_process'), value: chip.process },
-        { label: t('mobile_cpu'), value: cpuSpec },
-        { label: t('mobile_gpu'), value: chip.gpu }
-    ];
-    specRows.forEach(row => {
-        if (row.value && row.value !== 'N/A' && row.value !== 'Unknown') {
-            quickHtml += `
-                <div class="quick-spec-row">
-                    <span class="quick-spec-label">${row.label}</span>
-                    <span class="quick-spec-value">${row.value}</span>
-                </div>`;
-        }
-    });
-    quickSpecs.innerHTML = quickHtml;
+    document.getElementById(`detail-chip-${slot}`).innerHTML = chip.partNumber || chip.codename || '';
 
     // Defer table update to next animation frame to prevent layout thrashing/jitter
     requestAnimationFrame(() => {
