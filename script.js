@@ -5125,7 +5125,7 @@ const exynos2000Data = [
             l3Cache: "16MB"
         },
         slc: "Unknown",
-        gpu: "Samsung Xclipse 960 (AMD RDNA 4, 980 MHz)",
+        gpu: "Samsung Xclipse 960 (AMD RDNA 4, 8WGP 980 MHz)",
         npu: "Samsung Dual core NPU (1.2GHz)",
         modem: "N/A",
         memory: "16-bit Quad-channel LPDDR5X 10667"
