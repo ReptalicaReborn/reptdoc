@@ -66,5 +66,6 @@
     "mobile_cpu": "CPU",
     "mobile_gpu": "GPU",
     "accent_color": "Accent Color",
-    "accent_color_desc": "Customize the primary color to match your style"
+    "accent_color_desc": "Customize the primary color to match your style",
+    "cluster": "CLUSTER"
 }

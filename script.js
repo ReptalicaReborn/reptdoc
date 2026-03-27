@@ -6046,7 +6046,7 @@ const tensorData = [
         dieSize: "~121 mm²",
         architecture: "ARMv9.2",
         cpu: {
-            specs: "1x 3.78 GHz (X4) + 5x 3.05 GHz (A725) + 2x 2.25 GHz (A520)",
+            specs: "1x 3.78 GHz Cortex-X4 + 5x 3.05 GHz Cortex-A725 + 2x 2.25 GHz Cortex-A520",
             l2Cache: "2MB (X4) + 5x 512KB (A725) + 256KB (2x A520)",
             l3Cache: "8MB"
         },
@@ -6068,7 +6068,7 @@ const tensorData = [
         dieSize: "135.16 mm²",
         architecture: "ARMv9.2",
         cpu: {
-            specs: "1x 3.10 GHz (X4) + 3x 2.60 GHz (A720) + 4x 1.92 GHz (A520)",
+            specs: "1x 3.10 GHz Cortex-X4 + 3x 2.60 GHz Cortex-A720 + 4x 1.92 GHz Cortex-A520",
             l2Cache: "2MB (X4) + 3x 256KB (A720) + 2x 256KB (4x A520)",
             l3Cache: "8 MB"
         },
@@ -6090,7 +6090,7 @@ const tensorData = [
         dieSize: "135.16 mm²",
         architecture: "ARMv9",
         cpu: {
-            specs: "1x 2.91 GHz (X3) + 4x 2.37 GHz (A715) + 4x 1.70 GHz (A510)",
+            specs: "1x 2.91 GHz Cortex-X3 + 4x 2.37 GHz Cortex-A715) + 4x 1.70 GHz Cortex-A510",
             l2Cache: "1MB (X3) + 4x 256KB (A715) + 2x 256KB (4x A510)",
             l3Cache: "8 MB"
         },
@@ -6111,7 +6111,7 @@ const tensorData = [
         dieSize: "114.27 mm²",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x 2.85 GHz (X2) + 2x 2.35 GHz (A78) + 4x 1.80 GHz (A55)",
+            specs: "2x 2.85 GHz Cortex-X2 + 2x 2.35 GHz Cortex-A78 + 4x 1.80 GHz Cortex-A55",
             l2Cache: "2x 1MB (X2) + 2x 256KB (A78) + 4x 128KB (A55)",
             l3Cache: "4 MB"
         },
@@ -6132,7 +6132,7 @@ const tensorData = [
         dieSize: "112.66 mm²",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x 2.80 GHz (X1) + 2x 2.25 GHz (A76) + 4x 1.80 GHz (A55)",
+            specs: "2x 2.80 GHz Cortex-X1 + 2x 2.25 GHz Cortex-A76 + 4x 1.80 GHz Cortex-A55",
             l2Cache: "2x 1MB (X1) + 2x 256KB (A76) + 4x 128KB (A55)",
             l3Cache: "4 MB"
         },
@@ -6217,16 +6217,16 @@ function formatValue(val) {
  * Detects "+" separators and returns a clustered HTML structure
  */
 function formatCpuSpecs(specString) {
-    if (typeof specString !== 'string' || !specString.includes('+')) {
+    if (typeof specString !== 'string') {
         return specString;
     }
 
-    const clusters = specString.split('+').map(s => s.trim());
+    const clusters = specString.includes('+') ? specString.split('+').map(s => s.trim()) : [specString.trim()];
     let html = '<div class="cpu-cluster-container">';
 
     clusters.forEach((cluster, index) => {
         // Simple numeric labeling as requested
-        const label = `CLUSTER ${index + 1}`;
+        const label = `${t('cluster')} ${index + 1}`;
         const badgeClass = `badge-c${index + 1}`;
 
         html += `
