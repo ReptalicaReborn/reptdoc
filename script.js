@@ -6962,7 +6962,7 @@ const translations = {
 
 const changelogData = [
     {
-        version: "v2.4.0",
+        version: "beta-v1.4.0",
         date: "2026-03-19",
         changes: {
             en: [
@@ -6974,7 +6974,7 @@ const changelogData = [
         }
     },
     {
-        version: "v2.3.0",
+        version: "beta-v1.3.0",
         date: "2026-03-17",
         changes: {
             en: [
@@ -6990,7 +6990,7 @@ const changelogData = [
         }
     },
     {
-        version: "v2.2.0",
+        version: "beta-v1.2.0",
         date: "2026-01-31",
         changes: {
             en: [
@@ -7005,7 +7005,7 @@ const changelogData = [
         }
     },
     {
-        version: "v2.1.0",
+        version: "beta-v1.1.0",
         date: "2026-01-15",
         changes: {
             en: [
@@ -7023,7 +7023,7 @@ const changelogData = [
         }
     },
     {
-        version: "v2.0.0",
+        version: "beta-v1.0.0",
         date: "2026-01-13",
         changes: {
             en: [
@@ -7041,7 +7041,7 @@ const changelogData = [
         }
     },
     {
-        version: "v1.4.0",
+        version: "alpha-v1.4.0",
         date: "2026-01-09",
         changes: {
             en: [
@@ -7055,7 +7055,7 @@ const changelogData = [
         }
     },
     {
-        version: "v1.3.2.hotfix",
+        version: "alpha-v1.3.2.hotfix",
         date: "2026-01-08",
         changes: {
             en: [
@@ -7067,7 +7067,7 @@ const changelogData = [
         }
     },
     {
-        version: "v1.3.1.hotfix",
+        version: "alpha-v1.3.1.hotfix",
         date: "2026-01-08",
         changes: {
             en: [
@@ -7087,7 +7087,7 @@ const changelogData = [
         }
     },
     {
-        version: "v1.3.0",
+        version: "alpha-v1.3.0",
         date: "2026-01-07",
         changes: {
             en: [
@@ -7107,7 +7107,7 @@ const changelogData = [
         }
     },
     {
-        version: "v1.2.0",
+        version: "alpha-v1.2.0",
         date: "2026-01-06",
         changes: {
             en: [
@@ -7127,11 +7127,11 @@ const changelogData = [
         }
     },
     {
-        version: "v1.0.0",
+        version: "alpha-v1.0.0",
         date: "2026-01-04",
         changes: {
             en: [
-                "First public release",
+                "First alpha release",
                 "Added Comparison page with Geekbench 6 as CPU bench and 3DMark Wildlife Extreme as GPU bench.",
                 "Renamed to ReptDoc."
             ],
@@ -7143,7 +7143,7 @@ const changelogData = [
         }
     },
     {
-        version: "v0.1-Proto",
+        version: "pre-Alpha v0.1",
         date: "2025-12-28",
         changes: {
             en: [
