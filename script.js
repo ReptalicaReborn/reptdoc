@@ -801,7 +801,7 @@ const snapdragon8Data = [
         memory: "24-bit Quad-channel LPDDR6-10667",
     },
     {
-        name: "Snapdragon 8 Elite Gen 6",
+        name: "Snapdragon 8 Elite Gen 6 (tentative name)",
         codename: "Unknown",
         partNumber: "SM8950",
         releaseDate: "2026.09",
@@ -6241,6 +6241,22 @@ function formatCpuSpecs(specString) {
     return html;
 }
 
+/**
+ * GPU Spec Formatter
+ * Wraps the GPU string in a single cluster-style box
+ */
+function formatGpuSpec(specString) {
+    if (!specString || typeof specString !== 'string') return specString;
+    return `
+        <div class="cpu-cluster-container">
+            <div class="cpu-cluster gpu-cluster">
+                <span class="cluster-badge badge-gpu">GPU</span>
+                <span class="cluster-text">${specString}</span>
+            </div>
+        </div>
+    `;
+}
+
 // Current active series
 let currentSeries = 'a-series';
 let isWelcomeState = false; // Will be set to true on load if renderWelcomePage is called
@@ -6321,18 +6337,27 @@ function renderTable(dataRaw) {
         let quickSpecsHtml = '';
 
         const specRows = [
-            { label: t('mobile_release') || 'Release', value: chip.releaseDate, isCpu: false },
-            { label: t('mobile_process') || 'Process', value: chip.process, isCpu: false },
-            { label: 'CPU', value: cpuSpec, isCpu: true },
-            { label: 'GPU', value: chip.gpu, isCpu: false }
+            { label: t('mobile_release') || 'Release', value: chip.releaseDate, isCpu: false, isGpu: false },
+            { label: t('mobile_process') || 'Process', value: chip.process, isCpu: false, isGpu: false },
+            { label: 'CPU', value: cpuSpec, isCpu: true, isGpu: false },
+            { label: 'GPU', value: chip.gpu, isCpu: false, isGpu: true }
         ];
 
         let hasSpecs = false;
         specRows.forEach(row => {
             if (row.value && row.value !== 'N/A' && row.value !== 'Unknown') {
                 hasSpecs = true;
-                const displayValue = row.isCpu ? formatCpuSpecs(row.value) : row.value;
-                const extraClass = row.isCpu ? ' card-quick-spec-cpu' : '';
+                let displayValue;
+                let extraClass = '';
+                if (row.isCpu) {
+                    displayValue = formatCpuSpecs(row.value);
+                    extraClass = ' card-quick-spec-cpu';
+                } else if (row.isGpu) {
+                    displayValue = formatGpuSpec(row.value);
+                    extraClass = ' card-quick-spec-cpu'; // reuse same column layout
+                } else {
+                    displayValue = row.value;
+                }
                 quickSpecsHtml += `
                     <div class="card-quick-spec-row${extraClass}">
                         <span class="card-quick-spec-label">${row.label}</span>

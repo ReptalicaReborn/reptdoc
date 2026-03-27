@@ -1323,7 +1323,7 @@ button:active {
     align-items: center;
     gap: 10px;
     background: rgba(255, 255, 255, 0.04);
-    padding: 6px 12px;
+    padding: 8px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 13.5px;
@@ -1369,6 +1369,13 @@ button:active {
     background: color-mix(in srgb, #9E9E9E 20%, transparent);
     color: #9E9E9E;
     border: 1px solid color-mix(in srgb, #9E9E9E 30%, transparent);
+}
+
+.badge-gpu {
+    background: color-mix(in srgb, var(--md-sys-color-tertiary) 20%, transparent);
+    color: var(--md-sys-color-tertiary);
+    border: 1px solid color-mix(in srgb, var(--md-sys-color-tertiary) 30%, transparent);
+    text-transform: uppercase;
 }
 
 .cluster-text {
