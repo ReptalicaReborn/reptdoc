@@ -5143,10 +5143,10 @@ const exynos2000Data = [
         cpu: {
             specs: "1x Cortex-X925 @ 3.30 GHz + 2x Cortex-A725 @ 2.74 GHz + 5x Cortex-A725 @ 2.36 GHz + 2x Cortex-A520 @ 1.80 GHz",
             l2Cache: "2 MB (X925) + 7x 512KB (A725) + 512 KB (2x A520)",
-            l3Cache: "16 MB"
+            l3Cache: "12 MB"
         },
         slc: "Unknown",
-        gpu: "Samsung Xclipse 950 (AMD RDNA 3.5, 999 MHz)",
+        gpu: "Samsung Xclipse 950 (AMD RDNA 3.5, 8WGP, 999 MHz)",
         npu: "Samsung NPU",
         modem: "Exynos Shannon 5400",
         memory: "16-bit Quad-channel LPDDR5X 9600"
