@@ -367,6 +367,11 @@ body.light-mode .chip-card {
     padding: 0;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 body {
     font-family: var(--font-family-base);
     background-color: var(--md-sys-color-background);
@@ -1032,7 +1037,7 @@ button:active {
 /* View Toggling - Auto-Scaling Grid */
 .chip-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
     gap: var(--spacing-m);
     padding: var(--spacing-m);
     padding-bottom: 128px;
@@ -2109,26 +2114,27 @@ body.light-mode .cpu-cluster:hover {
     /* Single column on mobile */
     .chip-grid {
         grid-template-columns: 1fr;
-        padding: var(--spacing-m);
+        padding: var(--spacing-s);
         padding-bottom: 128px;
         justify-items: stretch;
     }
 
     .chip-card {
-        max-width: none;
+        max-width: 100%;
         margin: 0;
         width: 100%;
+        overflow: hidden;
     }
 
     /* Smaller card sizing on mobile */
     .chip-card-header {
-        padding: var(--spacing-l);
-        gap: var(--spacing-m);
+        padding: var(--spacing-m);
+        gap: var(--spacing-s);
     }
 
     .chip-card-icon {
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
     }
 
     .chip-card-title {
@@ -2200,10 +2206,35 @@ body.light-mode .cpu-cluster:hover {
     }
 
     .chip-details-inner {
-        padding: 16px;
+        padding: 12px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Stack expanded card body specs into single column on mobile */
+    .chip-card-body {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce card quick-specs padding */
+    .card-quick-specs {
+        padding: 0 var(--spacing-m) var(--spacing-m) var(--spacing-m);
+    }
+
+    /* Reduce action bar padding */
+    .chip-card-action-bar {
+        padding: 12px var(--spacing-m);
+    }
+
+    /* Ensure welcome cards don't overflow */
+    .welcome-container {
+        padding: 24px var(--spacing-m);
+    }
+
+    .welcome-title {
+        font-size: 36px;
+        line-height: 44px;
     }
 }
 
