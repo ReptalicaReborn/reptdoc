@@ -6320,9 +6320,7 @@ function renderTable(dataRaw) {
     const getBrandLogoHtml = getBrandLogoGlobal;
     const manufacturer = seriesDataMap[currentSeries].manufacturer;
 
-    // Two-column layout with independent columns
-    let leftColumnHtml = '';
-    let rightColumnHtml = '';
+    let gridHtml = '<div class="chip-grid">';
 
     data.forEach((chip, index) => {
         const fileManufacturer = manufacturer === 'Global' ? chip.manufacturer : manufacturer;
@@ -6395,21 +6393,11 @@ function renderTable(dataRaw) {
             </div>
         `;
 
-        // Alternate between columns: even indices (0,2,4) go left, odd indices (1,3,5) go right
-        if (index % 2 === 0) {
-            leftColumnHtml += cardHtml;
-        } else {
-            rightColumnHtml += cardHtml;
-        }
+        gridHtml += cardHtml;
     });
 
-    const gridHtml = `
-        <div class="chip-grid">
-            <div class="chip-column">${leftColumnHtml}</div>
-            <div class="chip-column">${rightColumnHtml}</div>
-        </div>
-    `;
-
+    gridHtml += '</div>';
+    
     container.innerHTML = gridHtml;
 
     // Hide the FAB since specific column toggling isn't relevant for cards
