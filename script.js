@@ -7606,6 +7606,21 @@ function renderWelcomePage() {
                 <h1 class="welcome-title">${t('welcome_title')}</h1>
                 <p class="welcome-subtitle">${t('welcome_subtitle')}</p>
             </div>
+            
+            <div class="welcome-credits" style="margin: 32px auto 48px; padding: 24px 32px; background: var(--md-sys-color-surface-variant); border: 2px solid var(--md-sys-color-primary); border-radius: 24px; text-align: center; max-width: 800px; box-shadow: 0 16px 40px -8px rgba(0,0,0,0.15);">
+                <h3 style="display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--md-sys-color-on-surface);">
+                    <span class="material-icons-round" style="color: var(--md-sys-color-primary); font-size: 28px;">volunteer_activism</span> 
+                    ${t('translation_credits') || 'Translation Credits 💖'}
+                </h3>
+                <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 24px; font-size: 16px;">
+                    ${t('translation_desc') || 'Massive thanks to our community translators! Want to help translate ReptDoc into your language?'}
+                </p>
+                <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
+                    ${t('translation_join') || 'Join us on Weblate'}
+                    <span class="material-icons-round" style="font-size: 18px;">open_in_new</span>
+                </button>
+            </div>
+
             <div class="welcome-features">
                 <div class="welcome-card" onclick="window.location.href='compare.html'">
                     <div class="welcome-card-content">
@@ -7628,20 +7643,6 @@ function renderWelcomePage() {
                         <p>${t('card_search_desc')}</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="welcome-credits" style="margin-top: 48px; padding: 40px 24px; background: var(--md-sys-color-primary-container); border: 2px solid var(--md-sys-color-primary); border-radius: 24px; text-align: center; max-width: 800px; margin-inline: auto; box-shadow: 0 16px 40px -8px rgba(0,0,0,0.2);">
-                <h3 style="display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 24px; font-weight: 700; margin-bottom: 16px; color: var(--md-sys-color-on-primary-container);">
-                    <span class="material-icons-round" style="color: var(--md-sys-color-primary); font-size: 32px;">volunteer_activism</span> 
-                    ${t('translation_credits') || 'Translation Credits 💖'}
-                </h3>
-                <p style="color: var(--md-sys-color-on-primary-container); margin-bottom: 32px; font-size: 16px; opacity: 0.9;">
-                    ${t('translation_desc') || 'Massive thanks to our community translators! Want to help translate ReptDoc into your language?'}
-                </p>
-                <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 16px; padding: 12px 24px; border-radius: 999px;">
-                    ${t('translation_join') || 'Join us on Weblate'}
-                    <span class="material-icons-round" style="font-size: 20px;">open_in_new</span>
-                </button>
             </div>
         </div>
     `;
