@@ -29,6 +29,10 @@ Currently supported languages out-of-the-box:
 - 🇺🇸 English (`en`) 
 - 🇻🇳 Tiếng Việt (`vi`)
 
+### Translation Credits 💖
+Massive thanks to the awesome community members helping bringing ReptDoc to their local languages!
+* *(Your name could be here! Check out our Weblate space to contribute!)*
+
 ## 🤝 Contributing
 Contributions are highly welcomed, especially when it comes to keeping benchmark scores and specification data accurate. If you notice an error in the data or have newly released chip data to add:
 1. Fork the repository
