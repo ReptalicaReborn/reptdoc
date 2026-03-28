@@ -7044,8 +7044,20 @@ const translations = {
 
 const changelogData = [
     {
-        version: "Release Canidate 1",
+        version: "Release Canidate 2",
         date: "2026-03-28",
+        changes: {
+            en: [
+                "bug fix"
+            ],
+            vi: [
+                "fix bug"
+            ],
+        }
+    },
+    {
+        version: "Release Canidate 1",
+        date: "2026-03-27",
         changes: {
             en: [
                 "UI revamp babyyyyyyy"
@@ -7466,12 +7478,13 @@ function showSettingsModal() {
     accentToggle.addEventListener('change', (e) => {
         const enabled = e.target.checked;
         localStorage.setItem('reptdoc_accent_enabled', enabled);
-        accentPicker.disabled = !enabled;
-        accentPresets.style.display = enabled ? 'flex' : 'none';
 
-        // Update opacity/pointer events for UI feedback
-        customPickerContainer.style.opacity = enabled ? '1' : '0.5';
-        customPickerContainer.style.pointerEvents = enabled ? 'auto' : 'none';
+        // Update entire preset collection state
+        accentPicker.disabled = !enabled;
+
+        // Update visual feedback and interaction for the whole area
+        accentPresets.style.opacity = enabled ? '1' : '0.4';
+        accentPresets.style.pointerEvents = enabled ? 'auto' : 'none';
 
         if (enabled) {
             applyCustomAccent(accentPicker.value);

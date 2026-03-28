@@ -283,8 +283,22 @@ body.light-mode #comparison-table-wrapper {
 }
 
 body.light-mode .comparison-category {
-    background-color: #F0F4F9;
+    background-color: #F1F4F9;
     color: #44474E;
+}
+
+body.light-mode .comparison-table th {
+    background-color: #F8F9FB;
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .benchmark-comparison {
+    background-color: #FBFBFB;
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .benchmark-bar-container {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Modals */
@@ -345,8 +359,28 @@ body.light-mode .brand-logo-apple {
 /* Light mode chip-card styling for all screens */
 body.light-mode .chip-card {
     background-color: #FFFFFF;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .chip-card:hover {
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: var(--md-sys-color-primary);
+}
+
+body.light-mode .chip-card-action-bar {
+    background-color: #FCFCFC;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .chip-card:hover .chip-card-action-bar {
+    background-color: #F8F9FB;
+}
+
+body.light-mode .chip-card-body {
+    background-color: #F8F9FA;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Mobile sidebar shadow in light mode */

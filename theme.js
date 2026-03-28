@@ -40,78 +40,80 @@ function getContrastColor(hexColor) {
  * Apply a custom accent color to the theme
  */
 function applyCustomAccent(hexColor) {
-    const isLightMode = localStorage.getItem('theme') === 'light' || (document.body && document.body.classList.contains('light-mode'));
+    if (!hexColor) return;
     
-    // Intelligent High-Contrast Monochrome
-    // Prevents UI from turning invisible if user picks White in Light Mode or Black in Dark Mode
-    if (isLightMode && hexColor.toUpperCase() === '#FFFFFF') {
-        hexColor = '#000000';
-    } else if (!isLightMode && hexColor === '#000000') {
-        hexColor = '#FFFFFF';
-    }
+    // Normalize hexColor
+    const hex = hexColor.toUpperCase();
+    
+    // Determine colors for both modes independently
+    // This prevents "locking" the theme into one color scheme
+    let darkThemeHex = hex;
+    let lightThemeHex = hex;
 
-    const r = parseInt(hexColor.slice(1, 3), 16);
-    const g = parseInt(hexColor.slice(3, 5), 16);
-    const b = parseInt(hexColor.slice(5, 7), 16);
-    const rgbColor = `rgb(${r}, ${g}, ${b})`;
-    const contrastColor = getContrastColor(hexColor);
+    // Intelligent High-Contrast Monochrome for both modes
+    if (hex === '#FFFFFF') {
+        lightThemeHex = '#1A1C1E'; // Use dark gray instead of pure black for better look
+    }
+    if (hex === '#000000') {
+        darkThemeHex = '#E6C275'; // Fallback to brand gold for dark mode if black picked
+    }
 
     const root = document.documentElement;
+    const mixBaseDark = '#050505'; 
+    const mixBaseLight = '#ffffff';
 
-    const mixBase = '#050505'; 
+    // 1. Apply Dark Mode Colors (to :root)
+    const rD = parseInt(darkThemeHex.slice(1, 3), 16);
+    const gD = parseInt(darkThemeHex.slice(3, 5), 16);
+    const bD = parseInt(darkThemeHex.slice(5, 7), 16);
+    const rgbDark = `rgb(${rD}, ${gD}, ${bD})`;
+    const contrastDark = getContrastColor(darkThemeHex);
 
-    root.style.setProperty('--md-sys-color-primary', rgbColor);
-    root.style.setProperty('--md-sys-color-on-primary', contrastColor);
-    root.style.setProperty('--md-sys-color-primary-container', mixColors(rgbColor, 30, mixBase));
-    root.style.setProperty('--md-sys-color-on-primary-container', mixColors(rgbColor, 90, '#ffffff'));
-    root.style.setProperty('--md-sys-color-surface-container', mixColors(rgbColor, 12, mixBase));
-    root.style.setProperty('--md-sys-color-surface-container-low', mixColors(rgbColor, 8, mixBase));
-    root.style.setProperty('--md-sys-color-surface-container-high', mixColors(rgbColor, 16, mixBase));
-    root.style.setProperty('--md-sys-color-surface-container-highest', mixColors(rgbColor, 22, mixBase));
+    root.style.setProperty('--md-sys-color-primary', rgbDark);
+    root.style.setProperty('--md-sys-color-on-primary', contrastDark);
+    root.style.setProperty('--md-sys-color-primary-container', mixColors(rgbDark, 30, mixBaseDark));
+    root.style.setProperty('--md-sys-color-on-primary-container', mixColors(rgbDark, 90, '#ffffff'));
+    root.style.setProperty('--md-sys-color-surface-container', mixColors(rgbDark, 12, mixBaseDark));
+    root.style.setProperty('--md-sys-color-surface-container-low', mixColors(rgbDark, 8, mixBaseDark));
+    root.style.setProperty('--md-sys-color-surface-container-high', mixColors(rgbDark, 16, mixBaseDark));
+    root.style.setProperty('--md-sys-color-surface-container-highest', mixColors(rgbDark, 22, mixBaseDark));
+    root.style.setProperty('--md-sys-color-secondary-container', mixColors(rgbDark, 25, mixBaseDark));
+    root.style.setProperty('--md-sys-color-on-secondary-container', mixColors(rgbDark, 90, '#FFFFFF'));
+    root.style.setProperty('--md-sys-color-outline', mixColors(rgbDark, 30, '#938F99'));
+    root.style.setProperty('--md-sys-color-outline-variant', mixColors(rgbDark, 20, '#49454F'));
 
-    root.style.setProperty('--md-sys-color-secondary-container', mixColors(rgbColor, 25, mixBase));
-    root.style.setProperty('--md-sys-color-on-secondary-container', mixColors(rgbColor, 90, '#FFFFFF'));
+    const tintedBackgroundDark = mixColors(rgbDark, 6, mixBaseDark);
+    const darkGradientStart = mixColors(rgbDark, 20, mixBaseDark);
+    root.style.setProperty('--md-sys-color-background', tintedBackgroundDark);
+    root.style.setProperty('--md-sys-color-surface', tintedBackgroundDark);
+    root.style.setProperty('--gradient-surface', `radial-gradient(circle at top right, ${darkGradientStart}, ${tintedBackgroundDark} 70%)`);
+    root.style.setProperty('--md-sys-color-tertiary', mixColors(rgbDark, 50, '#A6C8FF'));
 
-    root.style.setProperty('--md-sys-color-outline', mixColors(rgbColor, 30, '#938F99'));
-    root.style.setProperty('--md-sys-color-outline-variant', mixColors(rgbColor, 20, '#49454F'));
-
-    const tintedBackground = mixColors(rgbColor, 6, mixBase);
-    const darkGradientStart = mixColors(rgbColor, 20, mixBase);
-
-    root.style.setProperty('--md-sys-color-background', tintedBackground);
-    root.style.setProperty('--md-sys-color-surface', tintedBackground);
-    root.style.setProperty('--gradient-surface', `radial-gradient(circle at top right, ${darkGradientStart}, ${tintedBackground} 70%)`);
-
-    root.style.setProperty('--md-sys-color-tertiary', mixColors(rgbColor, 50, '#A6C8FF'));
-
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
-    if (metaThemeColor && !isLightMode) {
-        metaThemeColor.content = tintedBackground;
-    }
+    // 2. Apply Light Mode Colors (via dynamic <style> tag)
+    const rL = parseInt(lightThemeHex.slice(1, 3), 16);
+    const gL = parseInt(lightThemeHex.slice(3, 5), 16);
+    const bL = parseInt(lightThemeHex.slice(5, 7), 16);
+    const rgbLight = `rgb(${rL}, ${gL}, ${bL})`;
+    const contrastLight = getContrastColor(lightThemeHex);
 
     let styleTag = document.getElementById('dynamic-theme-styles');
     if (!styleTag) {
         styleTag = document.createElement('style');
         styleTag.id = 'dynamic-theme-styles';
-        // Check if head exists since this runs before document loaded potentially
-        if (document.head) {
-            document.head.appendChild(styleTag);
-        } else {
-            document.documentElement.appendChild(styleTag);
-        }
+        (document.head || document.documentElement).appendChild(styleTag);
     }
 
-    const lightPrimary = rgbColor;
-    const lightOnPrimary = contrastColor; 
-    const lightPrimaryContainer = mixColors(rgbColor, 25, '#ffffff');
-    const lightOnPrimaryContainer = mixColors(rgbColor, 90, '#000000');
-    const lightSecondaryContainer = mixColors(rgbColor, 15, '#E1E3E8');
-    const lightBackground = mixColors(rgbColor, 12, '#FDFBFF');
-    const lightSidebar = mixColors(rgbColor, 8, '#F6F8FC');
-    const lightTableHeader = mixColors(rgbColor, 15, '#F0F4F9');
-    const lightRowHeader = mixColors(rgbColor, 10, '#F6F8FC');
-    const lightSearchBox = mixColors(rgbColor, 18, '#F5F5F5');
-    const lightGradientStart = mixColors(rgbColor, 28, '#EBF0F8');
+    const lightPrimary = rgbLight;
+    const lightOnPrimary = contrastLight; 
+    const lightPrimaryContainer = mixColors(rgbLight, 25, '#ffffff');
+    const lightOnPrimaryContainer = mixColors(rgbLight, 90, '#000000');
+    const lightSecondaryContainer = mixColors(rgbLight, 15, '#E1E3E8');
+    const lightBackground = mixColors(rgbLight, 12, '#FDFBFF');
+    const lightSidebar = mixColors(rgbLight, 8, '#F6F8FC');
+    const lightTableHeader = mixColors(rgbLight, 15, '#F0F4F9');
+    const lightRowHeader = mixColors(rgbLight, 10, '#F6F8FC');
+    const lightSearchBox = mixColors(rgbLight, 18, '#F5F5F5');
+    const lightGradientStart = mixColors(rgbLight, 28, '#EBF0F8');
 
     styleTag.innerHTML = `
         body.light-mode {
@@ -129,7 +131,17 @@ function applyCustomAccent(hexColor) {
         body.light-mode .chip-table thead th { background-color: ${lightTableHeader} !important; }
         body.light-mode .chip-table .row-header { background-color: ${lightRowHeader} !important; }
         body.light-mode .search-box { background-color: ${lightSearchBox} !important; }
+
+        /* Fix for breadcrumbs and other light-mode hardcoded items */
+        body.light-mode .breadcrumbs { background: ${mixColors(rgbLight, 5, '#FFFFFF')} !important; }
     `;
+
+    // 3. Update Meta Theme Color
+    const isLightMode = document.body.classList.contains('light-mode');
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (metaThemeColor) {
+        metaThemeColor.content = isLightMode ? lightBackground : tintedBackgroundDark;
+    }
 
     console.log('ReptDoc: Custom accent applied:', hexColor);
 }
@@ -218,6 +230,13 @@ function initTheme() {
         } else {
             if (icon) icon.textContent = 'dark_mode';
             localStorage.setItem('theme', 'dark');
+        }
+
+        // Re-apply Accent if enabled to update meta-tag and any dynamic tints
+        const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
+        if (isAccentEnabled) {
+            const savedAccent = localStorage.getItem('reptdoc_accent');
+            if (savedAccent) applyCustomAccent(savedAccent);
         }
     });
 }
