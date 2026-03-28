@@ -7048,10 +7048,12 @@ const changelogData = [
         date: "2026-03-28",
         changes: {
             en: [
-                "bug fix"
+                "bug fix",
+                "light mode fix"
             ],
             vi: [
-                "fix bug"
+                "fix bug",
+                "fix chế độ sáng"
             ],
         }
     },
