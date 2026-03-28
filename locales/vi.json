@@ -74,5 +74,8 @@
     "value_na": "N/A",
     "accent_color": "Màu chủ đạo",
     "accent_color_desc": "Tùy chỉnh màu chính để phù hợp với phong cách của bạn",
-    "cluster": "Băng Thông"
+    "cluster": "Băng Thông",
+    "translation_credits": "Danh sách người dịch 💖",
+    "translation_desc": "Rất cảm ơn các cộng tác viên đã giúp dịch ReptDoc sang ngôn ngữ của họ! Bạn cũng muốn đóng góp?",
+    "translation_join": "Tham gia trên Weblate"
 }

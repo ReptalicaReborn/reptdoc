@@ -74,5 +74,8 @@
     "value_na": "N/A",
     "accent_color": "Accent Color",
     "accent_color_desc": "Customize the primary color to match your style",
-    "cluster": "Cluster"
+    "cluster": "Cluster",
+    "translation_credits": "Translation Credits 💖",
+    "translation_desc": "Massive thanks to our community translators! Want to help translate ReptDoc into your language?",
+    "translation_join": "Join us on Weblate"
 }
