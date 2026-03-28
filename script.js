@@ -7443,21 +7443,6 @@ function showSettingsModal() {
                     <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
                     <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
                 </div>
-                
-                <div class="setting-item" style="border-top: 1px solid var(--md-sys-color-surface-variant); margin-top: 16px; padding-top: 16px; align-items: start; flex-direction: column;">
-                    <div class="setting-info" style="width: 100%;">
-                        <h3 style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                            <span class="material-icons-round" style="color: var(--md-sys-color-primary);">volunteer_activism</span> 
-                            ${t('translation_credits') || 'Translation Credits'}
-                        </h3>
-                        <p class="setting-desc" style="margin-top: 4px; line-height: 1.5;">
-                            Massive thanks to our community translators! Want to help translate ReptDoc into your language?
-                            <a href="https://hosted.weblate.org/projects/reptdoc/" target="_blank" style="color: var(--md-sys-color-primary); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;">
-                                Join us on Weblate <span class="material-icons-round" style="font-size: 14px;">open_in_new</span>
-                            </a>
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
     `;
@@ -7643,6 +7628,20 @@ function renderWelcomePage() {
                         <p>${t('card_search_desc')}</p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="welcome-credits" style="margin-top: 48px; padding: 32px 24px; background: var(--md-sys-color-surface-variant); border-radius: 24px; text-align: center; max-width: 800px; margin-inline: auto;">
+                <h3 style="display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--md-sys-color-on-surface);">
+                    <span class="material-icons-round" style="color: var(--md-sys-color-primary);">volunteer_activism</span> 
+                    ${t('translation_credits') || 'Translation Credits 💖'}
+                </h3>
+                <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 24px; font-size: 15px;">
+                    Massive thanks to our community translators! Want to help translate ReptDoc into your language?
+                </p>
+                <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px;">
+                    Join us on Weblate
+                    <span class="material-icons-round" style="font-size: 18px;">open_in_new</span>
+                </button>
             </div>
         </div>
     `;
