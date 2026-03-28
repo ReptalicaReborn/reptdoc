@@ -2679,7 +2679,129 @@ const snapdragon2Data = [
         memory: "32-bit Single-channel LPDDR2 333 MHz"
     }
 ];
-const snapdragonXData = [{ name: "Snapdragon X Elite", releaseDate: "2024.06", process: "TSMC N4P" }];
+const snapdragonXData = [
+    {
+        name: "Snapdragon X2 Elite Extreme (X2E-96-100)",
+        geekbench6: { single: "4080", multi: "23491" },
+        steelNomadLite: "5687",
+        partNumber: "X2E-96-100",
+        releaseDate: "2025.09",
+        process: "TSMC 3nm (N3P + N3X)",
+        cpu: {
+            specs: "6x Oryon-P 5GHz (1c), 4.8GHz (2c), 4.47GHz (3c), 4.4GHz (4-6c) + 6x Oryon-P 5GHz (1c), 4.8GHz (2c), 4.47GHz (3c), 4.4GHz (4-6c) + 6x Oryon-M 3.6GHz",
+            l2Cache: "16MB (cluster 1) + 16MB (cluster 2) + 12MB (cluster 3)"
+        },
+        slc: "8MB",
+        gpu: "Qualcomm Adreno X2-90 (4-slice) 1.85 GHz",
+        modem: "Snapdragon X75 5G",
+        npu: "Qualcomm Hexagon (80 TOPS)",
+        memory: "192-bit LPDDR5X-9523",
+    },
+    {
+        name: "Snapdragon X2 Elite (X2E-88-100)",
+        geekbench6: { single: "3838", multi: "20320" },
+        steelNomadLite: "4123",
+        partNumber: "X2E-88-100",
+        releaseDate: "2025.09",
+        process: "TSMC 3nm (N3P)",
+        cpu: {
+            specs: "6x Oryon-P 4.7 GHz (dual-core boost), 4.4GHz (all core) + 6x Oryon-M 4.4GHz + 6x Oryon-M 3.6GHz",
+            l2Cache: "16MB (cluster 1) + 16MB (cluster 2) + 12MB (cluster 3)"
+        },
+        slc: "8MB",
+        gpu: "Qualcomm Adreno X2-90 (4-slice) 1.70 GHz",
+        npu: "Qualcomm Hexagon (80 TOPS)",
+        modem: "Snapdragon X75 5G",
+        memory: "128-bit LPDDR5X-9523 (152 GB/s)",
+    },
+    {
+        name: "Snapdragon X2 Elite (X2E-80-100)",
+        geekbench6: { single: "3770", multi: "15971" },
+        steelNomadLite: "4123",
+        partNumber: "X2E-80-100",
+        releaseDate: "2025.09",
+        process: "TSMC 3nm (N3P)",
+        cpu: {
+            specs: "6x Oryon-P 4.7 GHz (single-core boost), 4.4GHz (all core) + 6x Oryon-M 3.6GHz",
+            l2Cache: "16MB (cluster 1) + 12MB (cluster 2)"
+        },
+        slc: "8MB",
+        gpu: "Qualcomm Adreno X2-85 1.70 GHz",
+        npu: "Qualcomm Hexagon (80 TOPS)",
+        modem: "Snapdragon X75 5G",
+        memory: "128-bit LPDDR5X-9523 (152 GB/s)",
+    },
+    {
+        name: "Snapdragon X Elite (X1E-00-1DE)",
+        geekbench6: { single: "3020", multi: "15969" },
+        wildlifeExtreme: "6139",
+        steelNomadLite: "2080",
+        dieSize: "173mm²",
+        partNumber: "X1E-00-1DE",
+        releaseDate: "2024.06",
+        process: "TSMC 4nm (N4P)",
+        cpu: {
+            specs: "4x Oryon 4.3GHz (dual-core boost) 3.8 GHz (all core) + 4x Oryon 3.8 GHz + 4x Oryon 3.8 GHz",
+            l2Cache: "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+        },
+        gpu: "Qualcomm Adreno X1-85 1.50 GHz",
+        npu: "Qualcomm Hexagon (45 TOPS)",
+        memory: "128-bit LPDDR5X-8448 (135 GB/s)",
+    },
+    {
+        name: "Snapdragon X Elite (X1E-84-100)",
+        geekbench6: { single: "2882", multi: "15412" },
+        wildlifeExtreme: "6139",
+        steelNomadLite: "2080",
+        dieSize: "173mm²",
+        partNumber: "X1E-84-100",
+        releaseDate: "2024.06",
+        process: "TSMC 4nm (N4P)",
+        cpu: {
+            specs: "4x Oryon 4.2GHz (dual-core boost) 3.8 GHz (all core) + 4x Oryon 3.8 GHz + 4x Oryon 3.8 GHz",
+            l2Cache: "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+        },
+        slc: "6MB",
+        gpu: "Qualcomm Adreno X1-85 1.50 GHz",
+        npu: "Qualcomm Hexagon (45 TOPS)",
+        memory: "128-bit LPDDR5X-8448 (135 GB/s)",
+    },
+    {
+        name: "Snapdragon X Elite (X1E-80-100)",
+        geekbench6: { single: "2805", multi: "14390" },
+        wildlifeExtreme: "5020",
+        steelNomadLite: "1702",
+        dieSize: "173mm²",
+        partNumber: "X1E-80-100",
+        releaseDate: "2024.06",
+        process: "TSMC 4nm (N4P)",
+        cpu: {
+            specs: "4x Oryon 4GHz (dual-core boost) 3.4 GHz (all core) + 4x Oryon 3.4 GHz + 4x Oryon 3.4 GHz",
+            l2Cache: "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+        },
+        slc: "6MB",
+        gpu: "Qualcomm Adreno X1-85 1.25 GHz",
+        npu: "Qualcomm Hexagon (45 TOPS)",
+        memory: "128-bit LPDDR5X-8448 (135 GB/s)",
+    },
+    {
+        name: "Snapdragon X Elite (X1E-78-100)",
+        geekbench6: { single: "2400", multi: "14050" },
+        wildlifeExtreme: "5020",
+        steelNomadLite: "1702",
+        partNumber: "X1E-78-100",
+        releaseDate: "2024.06",
+        dieSize: "173mm²",
+        process: "TSMC 4nm (N4P)",
+        cpu: {
+            specs: "4x Oryon 3.4 GHz + 4x Oryon 3.4 GHz + 4x Oryon 3.4 GHz",
+            l2Cache: "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+        },
+        gpu: "Qualcomm Adreno X1-85 1.25 GHz",
+        npu: "Qualcomm Hexagon (45 TOPS)",
+        memory: "128-bit LPDDR5X-8448 (135 GB/s)",
+    },
+];
 
 const dimensity9000Data = [
     {
@@ -3698,7 +3820,7 @@ const helioGData = [
         partNumber: "MT6789T",
         releaseDate: "2025.05",
         process: "TSMC 6nm (N6)",
-        dieSize: "Unknown",
+        dieSize: "29mm²",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
@@ -3718,7 +3840,7 @@ const helioGData = [
         partNumber: "MT6789H",
         releaseDate: "2024.08",
         process: "TSMC 6nm (N6)",
-        dieSize: "Unknown",
+        dieSize: "29mm²",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
@@ -3738,7 +3860,7 @@ const helioGData = [
         partNumber: "MT6789",
         releaseDate: "2022.05",
         process: "TSMC 6nm (N6)",
-        dieSize: "Unknown",
+        dieSize: "29mm²",
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
@@ -6227,10 +6349,18 @@ function getNestedValue(obj, path) {
 
 function formatValue(val) {
     if (!val) return val;
-    const lower = String(val).toLowerCase();
+    let text = String(val);
+    const lower = text.toLowerCase();
     if (lower === 'unknown') return t('value_unknown');
     if (lower === 'n/a') return t('value_na');
-    return val;
+
+    // Dynamically translate the word "cluster"
+    if (lower.includes('cluster')) {
+        const clusterTrans = t('cluster');
+        text = text.replace(/cluster/gi, clusterTrans);
+    }
+
+    return text;
 }
 
 /**
@@ -6961,7 +7091,8 @@ const translations = {
         value_unknown: "Unknown",
         value_na: "N/A",
         accent_color: "Accent Color",
-        accent_color_desc: "Customize the primary color to match your style"
+        accent_color_desc: "Customize the primary color to match your style",
+        cluster: "Cluster"
     },
     vi: {
         welcome_title: "ReptDoc",
@@ -7048,12 +7179,10 @@ const changelogData = [
         date: "2026-03-28",
         changes: {
             en: [
-                "bug fix",
-                "light mode fix"
+                "bug fix"
             ],
             vi: [
-                "fix bug",
-                "fix chế độ sáng"
+                "bug fix"
             ],
         }
     },
