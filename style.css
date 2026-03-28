@@ -145,6 +145,35 @@ body.light-mode {
 }
 
 /* -------------------------------------------------------------------------
+   CUSTOM SCROLLBAR (Premium Smooth Feel)
+   ------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--md-sys-color-outline-variant);
+    border: 2px solid transparent;
+    background-clip: content-box;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--md-sys-color-primary);
+}
+
+/* Support for Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--md-sys-color-outline-variant) transparent;
+}
+
+/* -------------------------------------------------------------------------
    MATERIAL YOU / DYNAMIC COLOR SUPPORT
    (Handled safely via JavaScript in script.js to avoid black-screen issues)
    ------------------------------------------------------------------------- */
