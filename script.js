@@ -7015,163 +7015,7 @@ const xiaomiData = [
     }
 ];
 
-const translations = {
-    en: {
-        welcome_title: "ReptDoc",
-        welcome_subtitle: "Chip'n shit. Created by a dude who hate having to search though 4 websites tryna find information. Contribution? Something is wrong? Contact me at thatReppy (Discord)",
-        card_compare_title: "Compare!",
-        card_compare_desc: "Compare two SoCs side-by-side.",
-        card_data_title: "Data, data, data.",
-        card_data_desc: "I genuinely forgot how many chips are on my website now. Go check it out or something.",
-        card_search_title: "Search something idk",
-        card_search_desc: "Find what you want, fast.",
-        card_theme_title: "Flashbang",
-        card_theme_desc: "Switch between dark mode and light mode.",
-        home: "Home",
-        welcome: "Welcome",
-        search_results: "Search Results",
-        search_placeholder: "Search chips...",
-        compare_btn: "Compare",
-        compare_socs: "Compare SoCs",
-        compare_desc: "Select two SoCs to see a side-by-side comparison.",
-        search_first: "Search first SoC...",
-        search_second: "Search second SoC...",
-        remove: "Remove",
-        specs: "Specs",
-        select_soc: "Select SoC...",
-        compare_breadcrumb: "Compare",
-        geekbench_title: "Geekbench 6",
-        geekbench_desc: "CPU performance benchmark - single core and multi-core",
-        wildlife_title: "3DMark Wild Life Extreme",
-        steel_nomad_title: "3DMark Steel Nomad Lite",
-        wildlife_desc: "GPU performance benchmark",
-        benchmark_toggle: "Switch GPU Benchmark",
-        switch_to_steel: "Switch to Steel Nomad Lite",
-        switch_to_wildlife: "Switch to Wild Life Extreme",
-        steelNomadLite: "Steel Nomad Lite",
-        single_core: "Single-Core Score",
-        multi_core: "Multi-Core Score",
-        graphics_score: "Graphics Score",
-        no_chips_found: "No chips found matching your search.",
-        back_to_home: "Back to home",
-        toggle_labels: "Toggle Labels",
-        show_labels: "Show Labels",
-        hide_labels: "Hide Labels",
-        settings: "Settings",
-        changelog: "Changelog",
-        language: "Language",
-        codename: "Codename",
-        partNumber: "Part Number",
-        releaseDate: "Release Date",
-        process: "Process Node",
-        dieSize: "Die Size",
-        cpu_specs: "CPU Specs",
-        l2Cache: "L2 Cache",
-        l3Cache: "L3 Cache",
-        slc: "SLC",
-        gpu: "GPU",
-        npu: "AI Accelerator",
-        dsp: "DSP",
-        modem: "Modem",
-        memory: "Max Memory Speed",
-        architecture: "Architecture",
-        category_basic: "Basic",
-        category_benchmarks: "Benchmarks",
-        category_cpu: "CPU",
-        category_gpu: "GPU",
-        category_npu: "NPU",
-        category_connectivity: "Connectivity",
-        category_memory: "Memory",
-        category_arch: "Arch",
-        view_full_specs: "View Full Specs",
-        mobile_release: "Release",
-        mobile_process: "Process",
-        mobile_cpu: "CPU",
-        mobile_gpu: "GPU",
-        value_unknown: "Unknown",
-        value_na: "N/A",
-        accent_color: "Accent Color",
-        accent_color_desc: "Customize the primary color to match your style",
-        cluster: "Cluster"
-    },
-    vi: {
-        welcome_title: "ReptDoc",
-        welcome_subtitle: "Chip và mấy thứ khác. Được tạo bởi một thằng chán với việc phải lục lọi 4 trang web để tìm thứ nó cần. Đóng góp? Có gì sai? Liên hệ tôi tại thatReppy (Discord)",
-        card_compare_title: "So sánh!",
-        card_compare_desc: "So sánh hai SoC với nhau.",
-        card_data_title: "Dữ liệu, dữ liệu và dữ liệu.",
-        card_data_desc: "Quên mất có bao nhiêu chip trong cái web này rồi, nên tự đi mà xem đi.",
-        card_search_title: "Tìm kiếm thứ gì đó",
-        card_search_desc: "Tìm cái giề đê.",
-        card_theme_title: "Lựu choáng!!!!",
-        card_theme_desc: "Chuyển đổi giữa chế độ tối và sáng.",
-        home: "Trang chủ",
-        welcome: "Chào mừng",
-        search_results: "Kết quả tìm kiếm",
-        search_placeholder: "Tìm chip...",
-        compare_btn: "So sánh",
-        compare_socs: "So sánh 2 SoC",
-        compare_desc: "Chọn hai SoC để xem so sánh với nhau.",
-        search_first: "Tìm SoC thứ nhất...",
-        search_second: "Tìm SoC thứ hai...",
-        remove: "Xóa",
-        specs: "Thông số",
-        select_soc: "Chọn SoC...",
-        compare_breadcrumb: "So sánh",
-        geekbench_title: "Geekbench 6",
-        geekbench_desc: "Điểm hiệu năng CPU - đơn nhân và đa nhân",
-        wildlife_title: "3DMark Wild Life Extreme",
-        steel_nomad_title: "3DMark Steel Nomad Lite",
-        wildlife_desc: "Điểm hiệu năng GPU",
-        benchmark_toggle: "Đổi thành Bench Steel Nomad Lite",
-        switch_to_steel: "Đổi thành Steel Nomad Lite",
-        switch_to_wildlife: "Đổi thành Wild Life Extreme",
-        steelNomadLite: "Steel Nomad Lite",
-        single_core: "Điểm đơn nhân",
-        multi_core: "Điểm đa nhân",
-        graphics_score: "Điểm GPU",
-        no_chips_found: "Không tìm thấy SoC nào khớp với tìm kiếm của bạn.",
-        back_to_home: "Quay lại trang chủ",
-        toggle_labels: "Bật/Tắt nhãn",
-        show_labels: "Hiện nhãn",
-        hide_labels: "Ẩn nhãn",
-        settings: "Cài đặt",
-        changelog: "Nhật ký thay đổi",
-        language: "Ngôn ngữ",
-        codename: "Tên mã",
-        partNumber: "Số hiệu chip",
-        releaseDate: "Ngày phát hành",
-        process: "Tiến trình",
-        dieSize: "Kích thước die",
-        cpu_specs: "Thông số CPU",
-        l2Cache: "Bộ nhớ đệm L2",
-        l3Cache: "Bộ nhớ đệm L3",
-        slc: "SLC",
-        gpu: "GPU",
-        npu: "Bộ tăng tốc AI",
-        dsp: "DSP",
-        modem: "Modem",
-        memory: "Tốc độ bộ nhớ RAM tối đa",
-        architecture: "Kiến trúc",
-        category_basic: "Cơ bản",
-        category_benchmarks: "Điểm chuẩn",
-        category_cpu: "CPU",
-        category_gpu: "GPU",
-        category_npu: "NPU",
-        category_connectivity: "Kết nối",
-        category_memory: "Bộ nhớ RAM",
-        category_arch: "Kiến trúc",
-        view_full_specs: "Xem chi tiết",
-        mobile_release: "Thời gian ra mắt",
-        mobile_process: "Tiến trình",
-        mobile_cpu: "CPU",
-        mobile_gpu: "GPU",
-        value_unknown: "Không rõ",
-        value_na: "N/A",
-        accent_color: "Màu chủ đạo",
-        accent_color_desc: "Tùy chỉnh màu chính để phù hợp với phong cách của bạn"
-    }
-};
+
 
 const changelogData = [
     {
@@ -7403,9 +7247,26 @@ if (!currentLang) {
     currentLang = userLang.startsWith('vi') ? 'vi' : 'en';
 }
 
+let loadedTranslations = {};
+
+async function loadLocales() {
+    try {
+        const response = await fetch(`locales/${currentLang}.json`);
+        if (!response.ok) throw new Error('Locale not found');
+        loadedTranslations = await response.json();
+    } catch (e) {
+        console.error('Failed to load locale:', e);
+        try {
+            const fallbackResponse = await fetch(`locales/en.json`);
+            loadedTranslations = await fallbackResponse.json();
+        } catch (e2) {
+            console.error('Failed to load fallback locale:', e2);
+        }
+    }
+}
+
 function t(key) {
-    const langSet = translations[currentLang] || translations['en'];
-    return langSet[key] || key;
+    return loadedTranslations[key] || key;
 }
 
 const seriesDataMap = {
@@ -8361,7 +8222,8 @@ function renderBenchmarkBar(name1, val1, name2, val2) {
 }
 
 // Init
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadLocales();
     initLang();
     initTheme();
 
