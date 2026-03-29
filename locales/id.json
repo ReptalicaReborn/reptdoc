@@ -1,3 +1,6 @@
 {
-    "welcome_title": "ReptDoc"
+    "welcome_title": "ReptDoc",
+    "card_compare_title": "Bandingkan!",
+    "card_compare_desc": "Bandingkan dua SOC bersama-sama.",
+    "card_data_title": "Data, data, data."
 }
