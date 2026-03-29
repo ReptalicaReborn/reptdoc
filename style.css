@@ -94,7 +94,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-body.lang-ru, body.lang-arz {
+body.lang-ru, body.lang-arz, body.lang-ar_SA {
     --font-family-base: 'Inter', 'Outfit', sans-serif;
 }
 

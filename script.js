@@ -7448,6 +7448,7 @@ function showSettingsModal() {
                             <option value="zh_MO" ${currentLang === 'zh_MO' ? 'selected' : ''}>简体中文</option>
                             <option value="hi" ${currentLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
                             <option value="arz" ${currentLang === 'arz' ? 'selected' : ''}>العربية (مصر)</option>
+                            <option value="ar_SA" ${currentLang === 'ar_SA' ? 'selected' : ''}>العربية (السعودية)</option>
                             ${currentLang === 'de@informal' ? `<option value="de@informal" selected>Bayerisch</option>` : ''}
                         </select>
                     </div>
@@ -7700,6 +7701,11 @@ function renderWelcomePage() {
                         <img src="https://flagcdn.com/w40/eg.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="العربية (مصر)">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">العربية (مصر)</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">1x0</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/sa.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="العربية (السعودية)">
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">العربية (السعودية)</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">ryan (5ppi)</span>
                     </div>
                 </div>
                 <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
