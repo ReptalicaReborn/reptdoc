@@ -7249,6 +7249,7 @@ if (!currentLang) {
     else if (userLang.startsWith('id')) currentLang = 'id';
     else if (userLang.startsWith('hu')) currentLang = 'hu';
     else if (userLang.startsWith('zh')) currentLang = 'zh_MO';
+    else if (userLang.startsWith('hi')) currentLang = 'hi';
     else currentLang = 'en';
 }
 
@@ -7434,6 +7435,7 @@ function showSettingsModal() {
                             <option value="de" ${currentLang === 'de' ? 'selected' : ''}>Deutsch</option>
                             <option value="hu" ${currentLang === 'hu' ? 'selected' : ''}>Magyar</option>
                             <option value="zh_MO" ${currentLang === 'zh_MO' ? 'selected' : ''}>简体中文</option>
+                            <option value="hi" ${currentLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
                         </select>
                     </div>
                 </div>
@@ -7634,6 +7636,16 @@ function renderWelcomePage() {
                         <img src="https://flagcdn.com/w40/hu.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Magyar">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Magyar</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">mackovaok (Kris)</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/in.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="हिन्दी">
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">हिन्दी</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">egapboi</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/cn.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="简体中文">
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">简体中文</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">syobe</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/kh.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="ភាសាខ្មែរ">
