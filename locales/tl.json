@@ -44,6 +44,7 @@
     "language": "Wika",
     "codename": "Codename",
     "partNumber": "Part Number",
+    "partNumber_desc": "Isang natatanging identifier na itinalaga ng tagagawa sa isang partikular na modelo o variant ng SoC.",
     "releaseDate": "Petsa ng Paglabas",
     "process": "Process Node",
     "dieSize": "Laki ng Die",

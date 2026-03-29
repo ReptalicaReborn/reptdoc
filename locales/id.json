@@ -42,6 +42,7 @@
     "language": "Bahasa",
     "codename": "Kode nama",
     "partNumber": "Nomor Part",
+    "partNumber_desc": "Pengidentifikasi unik yang diberikan oleh produsen untuk model atau varian SoC tertentu.",
     "releaseDate": "Tanggal Rilis",
     "dieSize": "Ukuran chip",
     "cpu_specs": "Spesifikasi CPU",

@@ -44,6 +44,7 @@
     "language": "Language",
     "codename": "Codename",
     "partNumber": "Part Number",
+    "partNumber_desc": "A unique identifier assigned by the manufacturer to a specific SoC model or variant.",
     "releaseDate": "Release Date",
     "process": "Process Node",
     "dieSize": "Die Size",

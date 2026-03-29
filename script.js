@@ -6527,7 +6527,10 @@ function renderTable(dataRaw) {
                     <div class="chip-card-icon">${iconHtml}</div>
                     <div class="chip-card-title-group">
                         <div class="chip-card-title">${chip.name}</div>
-                        <div class="chip-card-subtitle">${['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na'))}</div>
+                        <div class="chip-card-subtitle tooltip-container tooltip-bottom" style="display: inline-flex; cursor: help;">
+                            ${['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na'))}
+                            <div class="tooltip-content" style="font-weight: 400; text-transform: none;">${t('partNumber_desc')}</div>
+                        </div>
                     </div>
                     <button class="chip-card-compare-btn" onclick="event.stopPropagation(); goToCompare('${encodeURIComponent(chip.name)}')" title="${t('compare_btn') || 'Compare'}">
                         <span class="material-icons-round">compare_arrows</span>
@@ -6581,13 +6584,17 @@ function generateMobileDetails(chip) {
         </div>`;
 
         visibleRows.forEach(row => {
+            // Exclude Part Number from expansion as it's already shown in the card subtitle/header
+            if (row.key === 'partNumber') return;
+
             const val = getNestedValue(chip, row.key);
             const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val) : formatValue(val);
             const extraStyle = row.key === 'cpu.specs' ? ' style="grid-column: 1 / -1;"' : '';
 
+            let labelHtml = t(row.label);
             html += `
                 <div class="spec-item"${extraStyle}>
-                    <span class="spec-label">${t(row.label)}</span>
+                    <span class="spec-label">${labelHtml}</span>
                     <span class="spec-value">${formattedVal}</span>
                 </div>
             `;
@@ -8152,8 +8159,10 @@ function updateComparisonTable() {
 
             if ((!v1 || v1 === '-' || v1 === 'N/A' || v1 === 'unknown') && (!v2 || v2 === '-' || v2 === 'N/A' || v2 === 'unknown')) return;
 
+            let labelHtml = t(row.label);
+
             html += `<tr>`;
-            html += `<td class="feature-label">${t(row.label)}</td>`;
+            html += `<td class="feature-label">${labelHtml}</td>`;
             html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v1) : formatValue(v1)}</td>`;
             html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v2) : formatValue(v2)}</td>`;
             html += `</tr>`;

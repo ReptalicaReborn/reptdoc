@@ -44,6 +44,7 @@
     "language": "Ngôn ngữ",
     "codename": "Tên mã",
     "partNumber": "Số hiệu chip",
+    "partNumber_desc": "Mã định danh duy nhất do nhà sản xuất gán cho một mẫu SoC hoặc biến thể cụ thể.",
     "releaseDate": "Ngày phát hành",
     "process": "Tiến trình",
     "dieSize": "Kích thước die",

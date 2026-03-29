@@ -25,6 +25,7 @@
     "language": "Sprache",
     "codename": "Codename",
     "partNumber": "Teil Nummer",
+    "partNumber_desc": "Eine eindeutige Kennung, die vom Hersteller einem bestimmten SoC-Modell oder einer Variante zugewiesen wird.",
     "releaseDate": "Veröffentlichungsdatum",
     "process": "Fertigungs Verfahren",
     "dieSize": "Strukturgröße",

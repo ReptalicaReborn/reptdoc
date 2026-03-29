@@ -44,6 +44,7 @@
     "language": "语言",
     "codename": "代号",
     "partNumber": "编号",
+    "partNumber_desc": "製造商分配給特定 SoC 模型或變體的唯一識別碼。",
     "releaseDate": "发布日期",
     "process": "工艺节点",
     "dieSize": "芯片节点尺寸",

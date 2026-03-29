@@ -43,6 +43,7 @@
     "language": "Nyelv",
     "codename": "Kódnév",
     "partNumber": "Cikkszám",
+    "partNumber_desc": "A gyártó által egy adott SoC modellhez vagy változathoz rendelt egyedi azonosító.",
     "releaseDate": "Kiadási dátum",
     "process": "Gyártástechnológia",
     "dieSize": "Lapka Méret",
