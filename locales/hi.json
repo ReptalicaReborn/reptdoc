@@ -44,5 +44,20 @@
     "language": "भाषा",
     "codename": "कोडनेम",
     "partNumber": "पार्ट नंबर",
-    "releaseDate": "रिलीज़ तिथि"
+    "releaseDate": "रिलीज़ तिथि",
+    "process": "प्रोसेस नोड",
+    "dieSize": "डाई आकार",
+    "cpu_specs": "सीपीयू स्पेसिफिकेशन्स",
+    "l2Cache": "L2 कैश",
+    "l3Cache": "L3 कैश",
+    "slc": "SLC",
+    "gpu": "जीपीयू",
+    "npu": "एआई एक्सेलेरेटर",
+    "dsp": "DSP",
+    "modem": "मोडेम",
+    "memory": "अधिकतम मेमोरी स्पीड",
+    "architecture": "आर्किटेक्चर",
+    "category_basic": "बेसिक",
+    "category_benchmarks": "बेंचमार्क्स",
+    "category_cpu": "सीपीयू"
 }
