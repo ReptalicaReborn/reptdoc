@@ -12,7 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- All fonts in one request: Material Icons, Google Sans, Outfit, Share Tech Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Inter:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Inter:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=115">
     <script src="theme.js"></script>
@@ -154,28 +156,28 @@
                             <option value="zh_MO">简体中文</option>
                             <option value="hi">हिन्दी</option>
                         </select>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Changelog Modal -->
-    <div class="modal-overlay" id="changelog-modal">
-        <div class="modal-content changelog-content">
-            <div class="modal-header">
-                <h2 class="changelog-title">Changelog</h2>
-                <button class="modal-close-btn" onclick="closeChangelogModal()">
-                    <span class="material-icons-round">close</span>
-                </button>
-            </div>
-            <div class="modal-body" id="changelog-body">
-                <!-- Changelog entries will be rendered here by JS -->
+        <!-- Changelog Modal -->
+        <div class="modal-overlay" id="changelog-modal">
+            <div class="modal-content changelog-content">
+                <div class="modal-header">
+                    <h2 class="changelog-title">Changelog</h2>
+                    <button class="modal-close-btn" onclick="closeChangelogModal()">
+                        <span class="material-icons-round">close</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="changelog-body">
+                    <!-- Changelog entries will be rendered here by JS -->
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="script.js" defer></script>
+        <script src="script.js" defer></script>
 </body>
 
 </html>
