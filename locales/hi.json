@@ -30,5 +30,8 @@
     "benchmark_toggle": "जीपीयू बेंचमार्क बदलें",
     "switch_to_steel": "स्टील नोमैड लाइट पर स्विच करें",
     "switch_to_wildlife": "वाइल्ड लाइफ एक्सट्रीम पर स्विच करें",
-    "steelNomadLite": "स्टील नोमैड लाइट"
+    "steelNomadLite": "स्टील नोमैड लाइट",
+    "single_core": "सिंगल-कोर स्कोर",
+    "multi_core": "मल्टी-कोर स्कोर",
+    "graphics_score": "ग्राफिक्स स्कोर"
 }
