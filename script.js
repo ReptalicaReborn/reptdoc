@@ -7665,8 +7665,14 @@ function renderWelcomePage() {
                         <span style="color: var(--md-sys-color-on-surface-variant);">Riley</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.changeLanguage(currentLang === 'de@informal' ? 'de' : 'de@informal')">
-                        <img src="https://flagcdn.com/w40/de.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Deutsch">
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Deutsch</span>
+                        ${currentLang === 'de@informal' ? 
+                            `<svg viewBox="0 0 72 72" style="width: 28px; height: 22px; border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <g id="color"><rect x="5" y="17" width="62" height="38" fill="#fff"/><path transform="translate(6,18)" fill="#61B2E4" d="M 57.81375,0 L 44.5425,0 60,34.2 60,36 47.5425,36 31.27125,0 18,0 34.27125,36 21,36 9,9.45 0,7.155 0,18.9 7.72875,36 21,36 0,30.645 0,18.9 60,34.2 60,22.455 9,9.45 4.72875,0 18,0 60,10.71 60,4.8375 z"/></g>
+                                <g id="line"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M67 17H5V55H67V17Z"/></g>
+                            </svg>` : 
+                            `<img src="https://flagcdn.com/w40/de.png" width="28" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Deutsch">`
+                        }
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">${currentLang === 'de@informal' ? 'Bayerisch' : 'Deutsch'}</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
