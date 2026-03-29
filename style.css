@@ -94,7 +94,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-body.lang-ru, body.lang-arz, body.lang-ar_SA {
+body.lang-ru, body.lang-arz, body.lang-ar_SA, body.lang-bg {
     --font-family-base: 'Inter', 'Outfit', sans-serif;
 }
 
@@ -3051,4 +3051,42 @@ body.light-mode .accent-preset[data-color="#FFFFFF"] {
     .selected-chip-display {
         animation: none !important;
     }
+}
+
+/* -------------------------------------------------------------------------
+   TOAST NOTIFICATIONS
+   ------------------------------------------------------------------------- */
+.toast-container {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: var(--md-sys-color-surface-container-highest);
+    color: var(--md-sys-color-on-surface);
+    padding: 12px 24px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    z-index: 2000;
+    transition: transform var(--motion-duration-medium) var(--motion-easing-emphasized), opacity var(--motion-duration-medium);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toast-container.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast-icon {
+    color: var(--md-sys-color-primary);
+    font-size: 20px;
+}
+
+.toast-message {
+    font-size: 14px;
+    font-weight: 500;
 }
