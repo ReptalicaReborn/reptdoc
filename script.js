@@ -7327,6 +7327,10 @@ const seriesDataMap = {
 
 // Language Initialization
 function initLang() {
+    // Apply Language-Specific Classes for Smart Typography (e.g. Inter for RU/ARZ)
+    document.body.className = document.body.className.replace(/\blang-\S+/g, '');
+    document.body.classList.add(`lang-${currentLang}`);
+
     // Translate Page Title
     if (document.title.includes('Compare') || document.title.includes('So sánh')) {
         document.title = `ReptDoc - ${t('compare_breadcrumb')}`;
@@ -7678,12 +7682,14 @@ function renderWelcomePage() {
                         <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
-                        <div style="display: flex; gap: 4px;">
-                            <img src="https://flagcdn.com/w40/ro.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Română">
-                            <img src="https://flagcdn.com/w40/ru.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Русский">
-                        </div>
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Română & Русский</span>
+                        <img src="https://flagcdn.com/w40/ro.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Română">
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Română</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">fro0st</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/ru.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Русский">
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Русский</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">fro0st, MaxSpec</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/id.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Bahasa Indonesia">

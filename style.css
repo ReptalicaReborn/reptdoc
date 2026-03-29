@@ -54,7 +54,6 @@
     --md-sys-color-outline: #998F82;
     --md-sys-color-outline-variant: #4A433A;
 
-    /* Typography - Google Sans / Outfit */
     --font-family-base: 'Google Sans', 'Outfit', sans-serif;
     --font-family-mono: 'Share Tech Mono', monospace;
 
@@ -93,6 +92,10 @@
 
     /* Mobile handling */
     -webkit-tap-highlight-color: transparent;
+}
+
+body.lang-ru, body.lang-arz {
+    --font-family-base: 'Inter', 'Outfit', sans-serif;
 }
 
 body.light-mode {
