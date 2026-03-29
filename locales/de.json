@@ -75,5 +75,7 @@
     "accent_color": "Akzentfarbe",
     "accent_color_desc": "Verändere die Primärfarbe nach deinen Wünschen",
     "cluster": "Cluster",
-    "translation_credits": "Übersetzungs Anerkennungen 💖"
+    "translation_credits": "Übersetzungs Anerkennungen 💖",
+    "translation_desc": "Vielen lieben Dank an unsere Community fürs Übersetzen! Möchtest du mithelfen ReptDoc in deine Sprache zu übersetzen?",
+    "translation_join": "Komm zu Weblate"
 }
