@@ -1,1 +1,17 @@
-{}
+{
+    "welcome_title": "ReptDoc",
+    "welcome_subtitle": "Chips und so. Gemacht von einem Typ der es hasst durch 4 Internet Seiten zu suchen um Informationen zu finden. Verbesserungen/Infos? Irgendetwas inkorrekt? Kontaktiere mich unter thatReppy (Discord)",
+    "card_compare_title": "Vergleiche!",
+    "card_compare_desc": "Vergleiche zwei SoCs nebeneinander",
+    "card_data_title": "Daten, Daten, Daten.",
+    "card_data_desc": "I habe ehrlicherweise vergessen wir viele Chips auf meiner Website verfügbar sind inzwischen. Tue es einfach mal auschecken oder so.",
+    "card_search_title": "Such irgendwas",
+    "card_search_desc": "Finde was du brauchst, schnell.",
+    "card_theme_title": "Flashbang",
+    "card_theme_desc": "Wechsel zwischen dunkel Modus und hellem Modus.",
+    "home": "Startseite",
+    "welcome": "Willkommen",
+    "search_results": "Such Ergebnisse",
+    "search_placeholder": "Durchsuche Chips…",
+    "compare_btn": "Vergleiche"
+}
