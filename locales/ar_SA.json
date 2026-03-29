@@ -68,5 +68,15 @@
     "category_arch": "تصميم المعالج (Arch)",
     "view_full_specs": "اظهر المواصفات الكاملة",
     "mobile_release": "تاريخ النزول",
-    "mobile_process": "تصنيع الشريحة"
+    "mobile_process": "تصنيع الشريحة",
+    "mobile_cpu": "المعالج",
+    "mobile_gpu": "كرت الشاشة",
+    "value_unknown": "غير معروف",
+    "value_na": "غير موجود",
+    "accent_color": "لون الاساسي",
+    "accent_color_desc": "غير اللون الرئيسي على مزاجك",
+    "cluster": "عنقود (cluster)",
+    "translation_credits": "حقوق الترجمة 💖",
+    "translation_desc": "شكر كبير لمترجمينا في المجتمع! حاب تساعد تترجم ReptDoc في لغتك؟",
+    "translation_join": "انضم معانا في Weblate"
 }
