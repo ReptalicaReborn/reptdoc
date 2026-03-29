@@ -60,5 +60,17 @@
     "category_basic": "Erst mal des Grundzeigs",
     "category_benchmarks": "Schwitzprüfung",
     "category_cpu": "Da Denker",
-    "category_gpu": "Bildermocha"
+    "category_gpu": "Bildermocha",
+    "category_npu": "Da künstliche Denker",
+    "category_connectivity": "Verbindungs Zeigs",
+    "category_memory": "Da Kurzzeitgedächtnis Haufen",
+    "category_arch": "Bauarts",
+    "view_full_specs": "Zeig alles wos's hod",
+    "mobile_release": "Rausgkomma",
+    "mobile_process": "Wia's gmacht wird",
+    "mobile_cpu": "Da Rechenkopf",
+    "mobile_gpu": "Bildermocha",
+    "value_unknown": "Koa Ahnung",
+    "value_na": "Gibts ned",
+    "accent_color": "De Prachtfarb"
 }
