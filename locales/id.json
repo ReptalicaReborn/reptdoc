@@ -50,5 +50,11 @@
     "category_connectivity": "Konektivitas",
     "category_memory": "Memori",
     "view_full_specs": "Tampilkan Spek Seluruhnya",
-    "value_unknown": "Tidak diketahui"
+    "value_unknown": "Tidak diketahui",
+    "value_na": "Tidak ada",
+    "accent_color": "Warna Aksen",
+    "accent_color_desc": "Atur sendiri warna utama sesuai seleramu",
+    "translation_credits": "Kredit Penerjemah 💖",
+    "translation_desc": "Terima kasih banyak kepada translator komunitas kami! Apa kamu ingin membantu menerjemahkan ReptDoc kedalam bahasamu?",
+    "translation_join": "Gabung bersama kami di Weblate"
 }
