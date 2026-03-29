@@ -31,5 +31,7 @@
     "switch_to_steel": "غيّر لـ ستيل نوماد لايت",
     "switch_to_wildlife": "غيّر لـ وايلد لايف إكستريم",
     "steelNomadLite": "ستيل نوماد لايت",
-    "single_core": "درجة النواة الواحدة"
+    "single_core": "درجة النواة الواحدة",
+    "multi_core": "درجة النوى المتعددة",
+    "graphics_score": "درجة الرسوميات"
 }
