@@ -59,5 +59,14 @@
     "category_benchmarks": "Тестове за производителност",
     "category_cpu": "Процесор",
     "category_gpu": "Видео карта",
-    "category_npu": "Невронен процесор(NPU)"
+    "category_npu": "Невронен процесор(NPU)",
+    "value_na": "Липсва информация",
+    "accent_color": "Вторичен цвят",
+    "accent_color_desc": "Промени главния цвят по твоите предпочитания",
+    "cluster": "Процесорен клъстер",
+    "category_arch": "Архитектура",
+    "category_memory": "Памет",
+    "category_connectivity": "Модем",
+    "view_full_specs": "Виж подробни параметри",
+    "mobile_release": "Дата на Излизане"
 }
