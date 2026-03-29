@@ -7427,6 +7427,7 @@ function showSettingsModal() {
                             <option value="km" ${currentLang === 'km' ? 'selected' : ''}>ភាសាខ្មែរ</option>
                             <option value="ru" ${currentLang === 'ru' ? 'selected' : ''}>Русский</option>
                             <option value="ro" ${currentLang === 'ro' ? 'selected' : ''}>Română</option>
+                            <option value="de" ${currentLang === 'de' ? 'selected' : ''}>Deutsch</option>
                         </select>
                     </div>
                 </div>
@@ -7622,6 +7623,28 @@ function renderWelcomePage() {
                 <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 24px; font-size: 16px;">
                     ${t('translation_desc') || 'Massive thanks to our community translators! Want to help translate ReptDoc into your language?'}
                 </p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px;">
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 18px;">🇰🇭</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Khmer</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">Kenzi</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 18px;">🇵🇭</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Tagalog</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">Riley</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 18px;">🇩🇪</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">German</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 18px;">🇷🇴 🇷🇺</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Romanian & Russian</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">fro0st</span>
+                    </div>
+                </div>
                 <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
                     ${t('translation_join') || 'Join us on Weblate'}
                     <span class="material-icons-round" style="font-size: 18px;">open_in_new</span>
