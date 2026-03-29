@@ -8,5 +8,8 @@
     "card_search_title": "搜索",
     "card_search_desc": "快快找你要的。",
     "card_theme_title": "闪光弹",
-    "card_theme_desc": "切换深色和浅色模式。"
+    "card_theme_desc": "切换深色和浅色模式。",
+    "home": "首页",
+    "welcome": "欢迎",
+    "search_results": "搜索所成"
 }
