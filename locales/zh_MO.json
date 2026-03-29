@@ -11,5 +11,8 @@
     "card_theme_desc": "切换深色和浅色模式。",
     "home": "首页",
     "welcome": "欢迎",
-    "search_results": "搜索所成"
+    "search_results": "搜索所成",
+    "search_placeholder": "搜索处理器…",
+    "compare_btn": "对比",
+    "compare_socs": "对比处理器"
 }
