@@ -56,5 +56,17 @@
     "npu": "معجل الAI",
     "dsp": "DSP (معالج الإشارات الرقمية)",
     "modem": "المودم",
-    "memory": "اقصى سرعة للذاكرة"
+    "memory": "اقصى سرعة للذاكرة",
+    "architecture": "تصميم المعالج",
+    "category_basic": "البسيط",
+    "category_benchmarks": "اختبارات الأداء",
+    "category_cpu": "المعالج",
+    "category_gpu": "كرت الشاشة",
+    "category_npu": "NPU (معالج الشبكات العصبية)",
+    "category_connectivity": "الاتصال",
+    "category_memory": "الذاكرة المؤقتة",
+    "category_arch": "تصميم المعالج (Arch)",
+    "view_full_specs": "اظهر المواصفات الكاملة",
+    "mobile_release": "تاريخ النزول",
+    "mobile_process": "تصنيع الشريحة"
 }

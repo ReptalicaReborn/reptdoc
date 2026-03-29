@@ -54,7 +54,7 @@
     "value_unknown": "Tidak diketahui",
     "value_na": "Tidak ada",
     "accent_color": "Warna Aksen",
-    "accent_color_desc": "Atur sendiri warna utama sesuai seleramu",
+    "accent_color_desc": "Atur warna aksen utama sesuai seleramu",
     "translation_credits": "Kredit Penerjemah 💖",
     "translation_desc": "Terima kasih banyak kepada translator komunitas kami! Apa kamu ingin membantu menerjemahkan ReptDoc kedalam bahasamu?",
     "translation_join": "Gabung bersama kami di Weblate",
@@ -73,5 +73,10 @@
     "category_gpu": "GPU",
     "category_npu": "NPU",
     "category_arch": "Arsitektur Chipset",
-    "mobile_release": "Tanggal Rilis"
+    "mobile_release": "Tanggal Rilis",
+    "mobile_process": "Jenis Proses",
+    "mobile_cpu": "CPU",
+    "mobile_gpu": "GPU",
+    "cluster": "Klaster",
+    "slc": "SLC"
 }
