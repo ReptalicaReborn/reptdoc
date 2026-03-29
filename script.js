@@ -7246,6 +7246,7 @@ if (!currentLang) {
     const userLang = navigator.language || navigator.userLanguage;
     if (userLang.startsWith('vi')) currentLang = 'vi';
     else if (userLang.startsWith('tl') || userLang.startsWith('fil')) currentLang = 'tl';
+    else if (userLang.startsWith('id')) currentLang = 'id';
     else currentLang = 'en';
 }
 
@@ -7423,6 +7424,7 @@ function showSettingsModal() {
                         <select id="lang-select">
                             <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
                             <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
+                            <option value="id" ${currentLang === 'id' ? 'selected' : ''}>Bahasa Indonesia</option>
                             <option value="tl" ${currentLang === 'tl' ? 'selected' : ''}>Tagalog</option>
                             <option value="km" ${currentLang === 'km' ? 'selected' : ''}>ភាសាខ្មែរ</option>
                             <option value="ru" ${currentLang === 'ru' ? 'selected' : ''}>Русский</option>
@@ -7643,6 +7645,11 @@ function renderWelcomePage() {
                         <span style="font-size: 18px;">🇷🇴 🇷🇺</span>
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Romanian & Russian</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">fro0st</span>
+                    </div>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 18px;">🇮🇩</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Indonesian</span>
+                        <span style="color: var(--md-sys-color-on-surface-variant);">edibletomb</span>
                     </div>
                 </div>
                 <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
