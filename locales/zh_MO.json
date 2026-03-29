@@ -1,5 +1,18 @@
 {
     "welcome_title": "ReptDoc",
     "welcome_subtitle": "处理器… 由单人创造，讨厌去四个网站去找资料。想贡献？有些问题？可以通知我在thatReppy （Discord）",
-    "card_compare_title": "对比！"
+    "card_compare_title": "对比！",
+    "card_compare_desc": "对比两个处理器并排 。",
+    "card_data_title": "数据，数据，数据。",
+    "card_data_desc": "我忘记在我网站有几个处理器，可以去逛吧。",
+    "card_search_title": "搜索",
+    "card_search_desc": "快快找你要的。",
+    "card_theme_title": "闪光弹",
+    "card_theme_desc": "切换深色和浅色模式。",
+    "home": "首页",
+    "welcome": "欢迎",
+    "search_results": "搜索所成",
+    "search_placeholder": "搜索处理器…",
+    "compare_btn": "对比",
+    "compare_socs": "对比处理器"
 }
