@@ -67,5 +67,7 @@
     "category_arch": "架构",
     "view_full_specs": "查全规格",
     "mobile_release": "发布日期",
-    "mobile_process": "芯片工艺"
+    "mobile_process": "芯片工艺",
+    "mobile_cpu": "CPU",
+    "mobile_gpu": "GPU"
 }
