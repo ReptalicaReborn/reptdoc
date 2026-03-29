@@ -59,5 +59,7 @@
     "architecture": "建筑",
     "category_basic": "基本",
     "category_benchmarks": "基准",
-    "category_cpu": "CPU"
+    "category_cpu": "CPU",
+    "category_gpu": "GPU",
+    "category_npu": "NPU"
 }
