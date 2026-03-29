@@ -57,5 +57,7 @@
     "modem": "数据机",
     "memory": "最大内存速度",
     "architecture": "建筑",
-    "category_basic": "基本"
+    "category_basic": "基本",
+    "category_benchmarks": "基准",
+    "category_cpu": "CPU"
 }
