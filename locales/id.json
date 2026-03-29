@@ -46,5 +46,6 @@
     "dieSize": "Ukuran chip",
     "cpu_specs": "Spesifikasi CPU",
     "npu": "Akselerator AI",
-    "memory": "Kecepatan Maksimal Memori"
+    "memory": "Kecepatan Maksimal Memori",
+    "category_connectivity": "Konektivitas"
 }
