@@ -7664,7 +7664,7 @@ function renderWelcomePage() {
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Tagalog</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">Riley</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.changeLanguage(currentLang === 'de@informal' ? 'de' : 'de@informal')">
                         <img src="https://flagcdn.com/w40/de.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Deutsch">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Deutsch</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
