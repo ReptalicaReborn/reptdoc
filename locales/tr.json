@@ -1,5 +1,11 @@
 {
     "welcome_title": "ReptDoc",
     "welcome_subtitle": "Çipler falan. 4 web sitesinde bilgi aramaktan nefret eden biri tarafından oluşturuldu. Katkıda mı bulunmak istiyorsunuz? Ters bir şeyler mi var? thatReppy (Discord) üzerinden iletişime geçebilirsiniz",
-    "card_compare_title": "Karşılaştır!"
+    "card_compare_title": "Karşılaştır!",
+    "card_compare_desc": "İki SoC'leri yan yana karşılaştır.",
+    "card_data_title": "Veri, Veri, Veri.",
+    "card_data_desc": "Gerçekten şu an sitemde kaç tane çip olduğunu unuttum. Gidin bakın işte.",
+    "card_search_title": "Bi'şeyler arayın işte ne bileyim",
+    "card_search_desc": "İstediğinizi bulun, hızlıca.",
+    "card_theme_title": "Flaş bombası"
 }
