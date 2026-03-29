@@ -7247,6 +7247,8 @@ if (!currentLang) {
     if (userLang.startsWith('vi')) currentLang = 'vi';
     else if (userLang.startsWith('tl') || userLang.startsWith('fil')) currentLang = 'tl';
     else if (userLang.startsWith('id')) currentLang = 'id';
+    else if (userLang.startsWith('hu')) currentLang = 'hu';
+    else if (userLang.startsWith('zh')) currentLang = 'zh_MO';
     else currentLang = 'en';
 }
 
@@ -7430,6 +7432,8 @@ function showSettingsModal() {
                             <option value="ru" ${currentLang === 'ru' ? 'selected' : ''}>Русский</option>
                             <option value="ro" ${currentLang === 'ro' ? 'selected' : ''}>Română</option>
                             <option value="de" ${currentLang === 'de' ? 'selected' : ''}>Deutsch</option>
+                            <option value="hu" ${currentLang === 'hu' ? 'selected' : ''}>Magyar</option>
+                            <option value="zh_MO" ${currentLang === 'zh_MO' ? 'selected' : ''}>简体中文</option>
                         </select>
                     </div>
                 </div>
