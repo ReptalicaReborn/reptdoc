@@ -7381,7 +7381,7 @@ function initLang() {
     document.querySelectorAll('.remove-chip-btn').forEach(btn => btn.textContent = t('remove'));
 }
 
-window.changeLanguage = function(newLang) {
+window.changeLanguage = function (newLang) {
     if (newLang !== currentLang) {
         currentLang = newLang;
         localStorage.setItem('reptdoc_lang', currentLang);
@@ -7672,13 +7672,13 @@ function renderWelcomePage() {
                         <span style="color: var(--md-sys-color-on-surface-variant);">Riley</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.changeLanguage(currentLang === 'de@informal' ? 'de' : 'de@informal')">
-                        ${currentLang === 'de@informal' ? 
-                            `<svg viewBox="0 0 72 72" style="width: 28px; height: 22px; border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        ${currentLang === 'de@informal' ?
+            `<svg viewBox="0 0 72 72" style="width: 28px; height: 22px; border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                 <g id="color"><rect x="5" y="17" width="62" height="38" fill="#fff"/><path transform="translate(6,18)" fill="#61B2E4" d="M 57.81375,0 L 44.5425,0 60,34.2 60,36 47.5425,36 31.27125,0 18,0 34.27125,36 21,36 9,9.45 0,7.155 0,18.9 7.72875,36 21,36 0,30.645 0,18.9 60,34.2 60,22.455 9,9.45 4.72875,0 18,0 60,10.71 60,4.8375 z"/></g>
                                 <g id="line"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M67 17H5V55H67V17Z"/></g>
-                            </svg>` : 
-                            `<img src="https://flagcdn.com/w40/de.png" width="28" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Deutsch">`
-                        }
+                            </svg>` :
+            `<img src="https://flagcdn.com/w40/de.png" width="28" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Deutsch">`
+        }
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">${currentLang === 'de@informal' ? 'Bayerisch' : 'Deutsch'}</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
                     </div>
@@ -7705,7 +7705,7 @@ function renderWelcomePage() {
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/sa.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="العربية (السعودية)">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">العربية (السعودية)</span>
-                        <a href="https://www.instagram.com/1gzzt/" target="_blank" style="color: var(--md-sys-color-on-surface-variant); text-decoration: none; display: flex; align-items: center; gap: 4px;">ryan (5ppi) <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="https://www.instagram.com/1gzzt/" target="_blank" style="color: var(--md-sys-color-on-surface-variant); text-decoration: none; display: flex; align-items: center; gap: 4px;">ryan<svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                     </div>
                 </div>
                 <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
