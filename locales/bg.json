@@ -58,5 +58,6 @@
     "category_basic": "Основна информация",
     "category_benchmarks": "Тестове за производителност",
     "category_cpu": "Процесор",
-    "category_gpu": "Видео карта"
+    "category_gpu": "Видео карта",
+    "category_npu": "Невронен процесор(NPU)"
 }
