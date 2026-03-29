@@ -39,5 +39,9 @@
     "toggle_labels": "Смени текст",
     "show_labels": "Покажи текст",
     "hide_labels": "Скрий текст",
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "changelog": "Списък с промени",
+    "language": "Език",
+    "codename": "Кодово име",
+    "partNumber": "Номер на част"
 }
