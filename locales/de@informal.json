@@ -59,5 +59,6 @@
     "architecture": "Da innere Bauplan",
     "category_basic": "Erst mal des Grundzeigs",
     "category_benchmarks": "Schwitzprüfung",
-    "category_cpu": "Da Denker"
+    "category_cpu": "Da Denker",
+    "category_gpu": "Bildermocha"
 }
