@@ -52,7 +52,7 @@
     "l3Cache": "L3缓存",
     "slc": "SLC",
     "gpu": "GPU",
-    "npu": "NPU",
+    "npu": "AI加速器",
     "dsp": "DSP",
     "modem": "数据机",
     "memory": "最大内存速度",
@@ -61,5 +61,11 @@
     "category_benchmarks": "基准",
     "category_cpu": "CPU",
     "category_gpu": "GPU",
-    "category_npu": "NPU"
+    "category_npu": "NPU",
+    "category_connectivity": "连接技术",
+    "category_memory": "存储",
+    "category_arch": "架构",
+    "view_full_specs": "查全规格",
+    "mobile_release": "发布日期",
+    "mobile_process": "芯片工艺"
 }
