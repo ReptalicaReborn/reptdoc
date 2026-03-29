@@ -44,7 +44,7 @@
     "codename": "Kódnév",
     "partNumber": "Cikkszám",
     "releaseDate": "Kiadási dátum",
-    "process": "Folyamati Node",
+    "process": "Gyártástechnológia",
     "dieSize": "Lapka Méret",
     "cpu_specs": "CPU Specifikációk",
     "l2Cache": "L2 Cache",
