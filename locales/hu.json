@@ -2,5 +2,22 @@
     "welcome_subtitle": "Chipek és egyebek. Egy olyan pali által készítve aki utál 4 weboldalt átolvasni hogy találjon információt. Hozzájárulás? Valami probléma? Írj Discordon! - thatReppy",
     "card_compare_title": "Hasonlíts!",
     "card_compare_desc": "Hasonlíts össze két SoC-t egymás mellett.",
-    "card_data_title": "Adat, adat, adat."
+    "card_data_title": "Adat, adat, adat.",
+    "card_data_desc": "Őszintén elfelejtettem hány chip van a weboldalamon. Csekkold le vagy ilyesmi.",
+    "card_search_title": "Keress valamit",
+    "card_search_desc": "Találd meg amit akarsz, gyorsan.",
+    "card_theme_title": "Flashbang",
+    "card_theme_desc": "Válassz sötét és világos mód között.",
+    "home": "Főoldal",
+    "welcome": "Üdvözlet",
+    "search_results": "Találatok",
+    "search_placeholder": "Chip keresése...",
+    "compare_btn": "Összehasonlítás",
+    "compare_socs": "SoC-k összehasonlítása",
+    "compare_desc": "Válassz ki 2 SoC-t hogy összehasonlítsd egymás mellett.",
+    "search_first": "Első SoC keresése...",
+    "search_second": "Második SoC keresése...",
+    "remove": "Eltávolítás",
+    "specs": "Specifikációk",
+    "select_soc": "SoC kiválasztása..."
 }
