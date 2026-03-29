@@ -73,5 +73,7 @@
     "mobile_cpu": "Процесор",
     "mobile_gpu": "Видео карта",
     "value_unknown": "Непознато",
-    "translation_credits": "Благодарности за превод 💖"
+    "translation_credits": "Благодарности за превод 💖",
+    "translation_desc": "Огромно благодаря на нашите доброволни преводачи! Искаш да помогнеш с превода на ReptDoc на твоя собствен език?",
+    "translation_join": "Присъедини се към нас на Weblate"
 }
