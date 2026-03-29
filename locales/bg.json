@@ -66,7 +66,12 @@
     "cluster": "Процесорен клъстер",
     "category_arch": "Архитектура",
     "category_memory": "Памет",
-    "category_connectivity": "Модем",
+    "category_connectivity": "Антена",
     "view_full_specs": "Виж подробни параметри",
-    "mobile_release": "Дата на Излизане"
+    "mobile_release": "Дата на Излизане",
+    "mobile_process": "Литографичен процес",
+    "mobile_cpu": "Процесор",
+    "mobile_gpu": "Видео карта",
+    "value_unknown": "Непознато",
+    "translation_credits": "Благодарности за превод 💖"
 }
