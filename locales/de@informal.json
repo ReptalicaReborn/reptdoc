@@ -73,5 +73,9 @@
     "value_unknown": "Koa Ahnung",
     "value_na": "Gibts ned",
     "accent_color": "De Prachtfarb",
-    "accent_color_desc": "Farb's o wia's da g'foit!"
+    "accent_color_desc": "Farb's o wia's da g'foit!",
+    "cluster": "Grüpperl",
+    "translation_credits": "Große Ehre fia de Übersetza! 🥨💖",
+    "translation_desc": "A wahnsinnigs Vergeltsgott an unsere Gmeinschaft — ohne eich waar's nix! Hast Lust a mitzhelfen und ReptDoc in deine Sprach z'bringen? Her damit!",
+    "translation_join": "Kumm zu Weblate"
 }
