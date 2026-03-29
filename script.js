@@ -7443,6 +7443,7 @@ function showSettingsModal() {
                             <option value="hu" ${currentLang === 'hu' ? 'selected' : ''}>Magyar</option>
                             <option value="zh_MO" ${currentLang === 'zh_MO' ? 'selected' : ''}>简体中文</option>
                             <option value="hi" ${currentLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
+                            ${currentLang === 'de@informal' ? `<option value="de@informal" selected>Bayerisch</option>` : ''}
                         </select>
                     </div>
                 </div>

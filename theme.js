@@ -241,8 +241,14 @@ function initTheme() {
     });
 }
 
-// Automatically apply Custom Accent during parsing script (in <head>)
+// Automatically apply Custom Accent or Bavarian Theme during parsing script (in <head>)
 (function() {
+    const lang = localStorage.getItem('reptdoc_lang') || 'en';
+    if (lang === 'de@informal') {
+        applyCustomAccent('#61B2E4');
+        return;
+    }
+
     const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
     const savedAccent = localStorage.getItem('reptdoc_accent');
     if (isAccentEnabled && savedAccent) {
