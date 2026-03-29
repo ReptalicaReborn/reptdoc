@@ -3223,7 +3223,7 @@ const dimensity7000Data = [
             l3Cache: "Unknown"
         },
         slc: "N/A",
-        gpu: "Mali-G610 MC2",
+        gpu: "Mali-G610 MC2 1GHz",
         npu: "MediaTek NPU 550",
         modem: "MediaTek 5G Modem",
         memory: "16-bit Dual-channel LPDDR5 5500"
