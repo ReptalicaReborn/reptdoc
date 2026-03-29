@@ -75,5 +75,7 @@
     "accent_color": "强调色",
     "accent_color_desc": "自定主色以匹配您风格",
     "cluster": "簇",
-    "translation_credits": "翻译人员 💖"
+    "translation_credits": "翻译人员 💖",
+    "translation_desc": "超感谢我们社区翻译者！想帮将 ReptDoc 翻译成你的语言吗？",
+    "translation_join": "加入我们 Weblate"
 }
