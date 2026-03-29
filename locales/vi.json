@@ -55,7 +55,7 @@
     "npu": "Bộ tăng tốc AI",
     "dsp": "DSP",
     "modem": "Modem",
-    "memory": "Tốc độ bộ nhớ RAM tối đa",
+    "memory": "Tốc độ RAM tối đa",
     "architecture": "Kiến trúc",
     "category_basic": "Cơ bản",
     "category_benchmarks": "Điểm chuẩn",
@@ -74,7 +74,7 @@
     "value_na": "N/A",
     "accent_color": "Màu chủ đạo",
     "accent_color_desc": "Tùy chỉnh màu chính để phù hợp với phong cách của bạn",
-    "cluster": "Băng Thông",
+    "cluster": "Cụm nhân",
     "translation_credits": "Danh sách người dịch 💖",
     "translation_desc": "Rất cảm ơn các cộng tác viên đã giúp dịch ReptDoc sang ngôn ngữ của họ! Bạn cũng muốn đóng góp?",
     "translation_join": "Tham gia trên Weblate"
