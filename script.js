@@ -7632,12 +7632,12 @@ function renderWelcomePage() {
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px;">
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 18px;">🇭🇺</span>
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Hungarian</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Magyar</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">mackovaok (Kris)</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 18px;">🇰🇭</span>
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Khmer</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">ភាសាខ្មែរ</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">Kenzi</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
@@ -7647,17 +7647,17 @@ function renderWelcomePage() {
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 18px;">🇩🇪</span>
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">German</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Deutsch</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 18px;">🇷🇴 🇷🇺</span>
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Romanian & Russian</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Română & Русский</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">fro0st</span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 18px;">🇮🇩</span>
-                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Indonesian</span>
+                        <span style="font-weight: 600; color: var(--md-sys-color-primary);">Bahasa Indonesia</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">edibletomb</span>
                     </div>
                 </div>
