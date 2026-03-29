@@ -1,9 +1,20 @@
 {
     "welcome_title": "ReptDoc",
-    "welcome_subtitle": "I hob, um ehrli z'sei, vergessn wia vui Chips auf meiner Webseitn jetzad verfügbar san. Du konnst ja einfach amoi durchsuachn gehn, vielleicht findst ja a no a paar Überraschungan!",
+    "welcome_subtitle": "Alles über Chips — weil's mi aufgregt hod jedes Moi durch halb'm Internet z'wühln für a paar Infos. Hast was z'meckern oder z'verbessern? Her damit! thatReppy auf Discord — i beiß ned!",
     "card_compare_title": "Vaglaichs!",
     "card_compare_desc": "Vaglaich zwoa SoCs direkt nebenanand",
     "card_data_title": "Datn, Datn, Datn",
     "card_data_desc": "I hob, um ehrli z'sei, vergessn wia vui Chips auf meiner Webseitn jetzad verfügbar san. Du konnst ja einfach amoi durchsuachn gehn, vielleicht findst ja a no a paar Überraschungan!",
-    "card_search_title": "Suach iagendwas oda so"
+    "card_search_title": "Suach iagendwas oda so",
+    "card_search_desc": "Schau dass d'was findst, fia dass d'ned bis Weihnachten wartn muasst!",
+    "card_theme_title": "Ois weiß und nix gsegn",
+    "card_theme_desc": "Mach's Licht aa oda aus, mia is wurscht",
+    "home": "Hoam",
+    "welcome": "Griaß di Gott!",
+    "search_results": "Schau wos rauskommt",
+    "search_placeholder": "Find mia meine Chips, sofort!",
+    "compare_btn": "Vaglaichs",
+    "compare_socs": "Wer haut wen weg?",
+    "compare_desc": "Such da zwoa Chips aus, de gegeneinand o'treten!",
+    "search_first": "Wöi den easchtn SoC"
 }
