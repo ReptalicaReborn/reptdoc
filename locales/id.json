@@ -27,5 +27,16 @@
     "multi_core": "Skor Multi-Core",
     "graphics_score": "Skor performa grafik",
     "no_chips_found": "Chipset yang kamu cari tidak ditemukan.",
-    "back_to_home": "Kembali ke Beranda"
+    "back_to_home": "Kembali ke Beranda",
+    "show_labels": "Tunjukkan Label",
+    "hide_labels": "Sembunyikan Label",
+    "settings": "Setelan",
+    "language": "Bahasa",
+    "codename": "Kode nama",
+    "partNumber": "Nomor Part",
+    "releaseDate": "Tanggal Rilis",
+    "dieSize": "Ukuran chip",
+    "cpu_specs": "Spesifikasi CPU",
+    "npu": "Akselerator AI",
+    "memory": "Kecepatan Maksimal Memori"
 }
