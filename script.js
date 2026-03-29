@@ -7630,33 +7630,36 @@ function renderWelcomePage() {
                     ${t('translation_desc') || 'Massive thanks to our community translators! Want to help translate ReptDoc into your language?'}
                 </p>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 28px;">
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px;">🇭🇺</span>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/hu.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Magyar">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Magyar</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">mackovaok (Kris)</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px;">🇰🇭</span>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/kh.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="ភាសាខ្មែរ">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">ភាសាខ្មែរ</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">Kenzi</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px;">🇵🇭</span>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/ph.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Tagalog">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Tagalog</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">Riley</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px;">🇩🇪</span>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/de.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Deutsch">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Deutsch</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">SnitchPikachu</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px;">🇷🇴 🇷🇺</span>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <div style="display: flex; gap: 4px;">
+                            <img src="https://flagcdn.com/w40/ro.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Română">
+                            <img src="https://flagcdn.com/w40/ru.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Русский">
+                        </div>
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Română & Русский</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">fro0st</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px;">🇮🇩</span>
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
+                        <img src="https://flagcdn.com/w40/id.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Bahasa Indonesia">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Bahasa Indonesia</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">edibletomb</span>
                     </div>
