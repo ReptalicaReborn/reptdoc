@@ -14,5 +14,6 @@
     "search_results": "Arama Sonuçları",
     "search_placeholder": "Çip ara...",
     "compare_btn": "Karşılaştır",
-    "compare_socs": "SoC'leri karşılaştır"
+    "compare_socs": "SoC'leri karşılaştır",
+    "compare_desc": "Yan yana bir karşılaştırma görmek için iki tane SoC seçiniz."
 }
