@@ -6420,23 +6420,6 @@ window.toggleGpuBenchmark = function () {
     }
 };
 
-// Toggle Specs Column
-window.toggleSpecs = function () {
-    const container = document.getElementById('soc-table-container');
-    container.classList.toggle('specs-hidden');
-
-    // Update FAB icon and title
-    const fab = document.getElementById('fab-specs-toggle');
-    const icon = fab.querySelector('.material-icons-round');
-
-    if (container.classList.contains('specs-hidden')) {
-        icon.textContent = 'subtitles';
-        fab.title = t('show_labels');
-    } else {
-        icon.textContent = 'subtitles_off';
-        fab.title = t('hide_labels');
-    }
-};
 
 function renderTable(dataRaw) {
     const container = document.getElementById('soc-table-container');
@@ -6553,10 +6536,6 @@ function renderTable(dataRaw) {
     gridHtml += '</div>';
 
     container.innerHTML = gridHtml;
-
-    // Hide the FAB since specific column toggling isn't relevant for cards
-    const fab = document.getElementById('fab-specs-toggle');
-    if (fab) fab.style.display = 'none';
 }
 
 function generateMobileDetails(chip) {
@@ -7355,8 +7334,6 @@ function initLang() {
         }
     });
 
-    const fab = document.getElementById('fab-specs-toggle');
-    if (fab) fab.title = t('toggle_labels');
 
     const settingsLabel = document.querySelector('.settings-label');
     if (settingsLabel) settingsLabel.textContent = t('settings');
