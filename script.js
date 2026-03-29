@@ -7425,6 +7425,8 @@ function showSettingsModal() {
                             <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
                             <option value="tl" ${currentLang === 'tl' ? 'selected' : ''}>Tagalog</option>
                             <option value="km" ${currentLang === 'km' ? 'selected' : ''}>ភាសាខ្មែរ</option>
+                            <option value="ru" ${currentLang === 'ru' ? 'selected' : ''}>Русский</option>
+                            <option value="ro" ${currentLang === 'ro' ? 'selected' : ''}>Română</option>
                         </select>
                     </div>
                 </div>
