@@ -69,5 +69,11 @@
     "mobile_release": "发布日期",
     "mobile_process": "芯片工艺",
     "mobile_cpu": "CPU",
-    "mobile_gpu": "GPU"
+    "mobile_gpu": "GPU",
+    "value_unknown": "未知",
+    "value_na": "不适用",
+    "accent_color": "强调色",
+    "accent_color_desc": "自定主色以匹配您风格",
+    "cluster": "簇",
+    "translation_credits": "翻译人员 💖"
 }
