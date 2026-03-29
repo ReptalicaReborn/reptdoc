@@ -1,6 +1,6 @@
 {
     "welcome_title": "ReptDoc",
-    "welcome_subtitle": "处理器，之外更多。由单人创造，讨厌去四个网站去找资料。想贡献？有些问题？可以通知我在thatReppy （Discord）",
+    "welcome_subtitle": "处理器，之外更多。由单人创造，讨厌去四个网站去找资料。想贡献？有问题？可以通知我在 @thatreppy （Discord）\n\n如果有华文翻译问题，你也可以来找 @nekofen （Discord）",
     "card_compare_title": "对比！",
     "card_compare_desc": "对比两个处理器并排 。",
     "card_data_title": "数据，数据，数据。",
@@ -56,5 +56,6 @@
     "dsp": "DSP",
     "modem": "数据机",
     "memory": "最大内存速度",
-    "architecture": "建筑"
+    "architecture": "建筑",
+    "category_basic": "基本"
 }
