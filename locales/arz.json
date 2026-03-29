@@ -1,5 +1,5 @@
 {
-    "welcome_title": "تشيب و شِت. معمول بواسطة واحد بيكره يضطر يلف على ٤ مواقع عشان يلاقي معلومات. عايز تساهم؟ في حاجة غلط؟ كلّمني على thatReppy (Discord)",
+    "welcome_title": "ReptDoc",
     "welcome_subtitle": "تشيب إن شِت. معمول بواسطة واحد بيكره يضطر يلف على ٤ مواقع عشان يلاقي معلومات. عايز تساهم؟ في حاجة غلط؟ كلّمني على thatReppy (Discord)",
     "card_compare_title": "قارن!",
     "card_compare_desc": "قارن بين اتنين سوق (SoC) جنب بعض.",
@@ -33,5 +33,8 @@
     "steelNomadLite": "ستيل نوماد لايت",
     "single_core": "درجة النواة الواحدة",
     "multi_core": "درجة النوى المتعددة",
-    "graphics_score": "درجة الرسوميات"
+    "graphics_score": "درجة الرسوميات",
+    "no_chips_found": "مافيش شيبس مطابق لبحثك.",
+    "back_to_home": "الرجوع للصفحة الرئيسية",
+    "toggle_labels": "بدّل التسميات"
 }
