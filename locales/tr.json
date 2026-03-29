@@ -18,5 +18,9 @@
     "compare_desc": "Yan yana bir karşılaştırma görmek için iki tane SoC seçiniz.",
     "search_first": "İlk SoC'i ara...",
     "search_second": "İkinci SoC'i ara...",
-    "remove": "Kaldır"
+    "remove": "Kaldır",
+    "specs": "Özellikler",
+    "select_soc": "SoC seç...",
+    "compare_breadcrumb": "Karşılaştır",
+    "geekbench_title": "Geekbench 6"
 }
