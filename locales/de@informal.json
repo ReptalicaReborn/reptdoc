@@ -72,5 +72,6 @@
     "mobile_gpu": "Bildermocha",
     "value_unknown": "Koa Ahnung",
     "value_na": "Gibts ned",
-    "accent_color": "De Prachtfarb"
+    "accent_color": "De Prachtfarb",
+    "accent_color_desc": "Farb's o wia's da g'foit!"
 }
