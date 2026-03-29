@@ -3311,7 +3311,7 @@ const dimensity7000Data = [
     {
         name: "MediaTek Dimensity 7060",
         partNumber: "MT6855B",
-        releaseDate: "Not specified",
+        releaseDate: "2025.06",
         process: "TSMC 6nm FinFET",
         dieSize: "Unknown",
         architecture: "ARMv8.2-A",
