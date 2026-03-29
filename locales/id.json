@@ -47,5 +47,8 @@
     "cpu_specs": "Spesifikasi CPU",
     "npu": "Akselerator AI",
     "memory": "Kecepatan Maksimal Memori",
-    "category_connectivity": "Konektivitas"
+    "category_connectivity": "Konektivitas",
+    "category_memory": "Memori",
+    "view_full_specs": "Tampilkan Spek Seluruhnya",
+    "value_unknown": "Tidak diketahui"
 }
