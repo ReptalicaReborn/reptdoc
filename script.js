@@ -7244,7 +7244,9 @@ const changelogData = [
 let currentLang = localStorage.getItem('reptdoc_lang');
 if (!currentLang) {
     const userLang = navigator.language || navigator.userLanguage;
-    currentLang = userLang.startsWith('vi') ? 'vi' : 'en';
+    if (userLang.startsWith('vi')) currentLang = 'vi';
+    else if (userLang.startsWith('tl') || userLang.startsWith('fil')) currentLang = 'tl';
+    else currentLang = 'en';
 }
 
 let loadedTranslations = {};
@@ -7364,6 +7366,14 @@ function initLang() {
     document.querySelectorAll('.remove-chip-btn').forEach(btn => btn.textContent = t('remove'));
 }
 
+window.changeLanguage = function(newLang) {
+    if (newLang !== currentLang) {
+        currentLang = newLang;
+        localStorage.setItem('reptdoc_lang', currentLang);
+        location.reload();
+    }
+};
+
 function initSettings() {
     const settingsBtn = document.getElementById('nav-settings');
     if (!settingsBtn) return;
@@ -7413,6 +7423,7 @@ function showSettingsModal() {
                         <select id="lang-select">
                             <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
                             <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
+                            <option value="tl" ${currentLang === 'tl' ? 'selected' : ''}>Tagalog</option>
                         </select>
                     </div>
                 </div>
@@ -7451,14 +7462,7 @@ function showSettingsModal() {
 
     // Handle language change
     const langSelect = document.getElementById('lang-select');
-    langSelect.addEventListener('change', (e) => {
-        const newLang = e.target.value;
-        if (newLang !== currentLang) {
-            currentLang = newLang;
-            localStorage.setItem('reptdoc_lang', currentLang);
-            location.reload();
-        }
-    });
+    langSelect.addEventListener('change', (e) => window.changeLanguage(e.target.value));
 
     // Handle accent toggle
     const accentToggle = document.getElementById('accent-toggle');
