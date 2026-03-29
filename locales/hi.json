@@ -33,5 +33,16 @@
     "steelNomadLite": "स्टील नोमैड लाइट",
     "single_core": "सिंगल-कोर स्कोर",
     "multi_core": "मल्टी-कोर स्कोर",
-    "graphics_score": "ग्राफिक्स स्कोर"
+    "graphics_score": "ग्राफिक्स स्कोर",
+    "no_chips_found": "आपकी खोज से मेल खाने वाले कोई चिप्स नहीं मिले।",
+    "back_to_home": "होम पर वापस जाएँ",
+    "toggle_labels": "लेबल टॉगल करें",
+    "show_labels": "लेबल दिखाएँ",
+    "hide_labels": "लेबल छिपाएँ",
+    "settings": "सेटिंग्स",
+    "changelog": "परिवर्तन सूची",
+    "language": "भाषा",
+    "codename": "कोडनेम",
+    "partNumber": "पार्ट नंबर",
+    "releaseDate": "रिलीज़ तिथि"
 }
