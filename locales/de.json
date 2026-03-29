@@ -37,5 +37,14 @@
     "npu": "KI Beschleuniger",
     "dsp": "Digitaler Signal Prozessor",
     "modem": "Modem",
-    "memory": "Maximale Arbeitsspeicher Geschwindigkeit"
+    "memory": "Maximale Arbeitsspeicher Geschwindigkeit",
+    "compare_socs": "Vergleiche SoCs",
+    "compare_desc": "Wähle zwei SoCs aus für einen Direktvergleich.",
+    "search_first": "Wähle den ersten SoC",
+    "search_second": "Wähle den zweiten SoC",
+    "remove": "Entfernen",
+    "specs": "Spezifikationen",
+    "select_soc": "Wähle SoC…",
+    "compare_breadcrumb": "Vergleichen",
+    "geekbench_title": "Geekbench 6"
 }
