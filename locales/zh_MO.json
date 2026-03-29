@@ -1,6 +1,6 @@
 {
     "welcome_title": "ReptDoc",
-    "welcome_subtitle": "处理器，处理器… 由单人创造，讨厌去四个网站去找资料。想贡献？有些问题？可以通知我在thatReppy （Discord）",
+    "welcome_subtitle": "处理器，之外更多。由单人创造，讨厌去四个网站去找资料。想贡献？有些问题？可以通知我在thatReppy （Discord）",
     "card_compare_title": "对比！",
     "card_compare_desc": "对比两个处理器并排 。",
     "card_data_title": "数据，数据，数据。",
@@ -25,5 +25,15 @@
     "geekbench_title": "Geekbench 6",
     "geekbench_desc": "CPU性能基准测试 - 单核和多核",
     "wildlife_title": "3DMark Wild Life Extreme",
-    "steel_nomad_title": "3DMark Steel Nomad Lite"
+    "steel_nomad_title": "3DMark Steel Nomad Lite",
+    "wildlife_desc": "GPU性能基准测试",
+    "benchmark_toggle": "换GPU基准测试",
+    "switch_to_steel": "换去Steel Nomad Lite",
+    "switch_to_wildlife": "换去Wild Life Extreme",
+    "steelNomadLite": "Steel Nomad Lite",
+    "single_core": "单核得分",
+    "multi_core": "多核得分",
+    "graphics_score": "图形得分",
+    "no_chips_found": "你搜索的处理器没找到。",
+    "back_to_home": "回首页"
 }
