@@ -1,6 +1,6 @@
 {
     "welcome_title": "ReptDoc",
-    "welcome_subtitle": "Mga chip at iba pa. Ginawa ng isang lalaking sawang-sawa na sa paghahanap sa apat na website para lang sa impormasyon. May ambag? May mali? Kontakin ako sa thatReppy (Discord)",
+    "welcome_subtitle": "Mga chip at iba pa. Gawa ng isang lalaking sawang-sawa sa paghahanap sa apat na website para lang sa impormasyon. May gusto mong idagdag? May mali? Kontakin ako sa thatReppy (Discord)",
     "card_compare_title": "Paghambingin!",
     "card_compare_desc": "Ipagtabi ang dalawang SoC para makita ang pagkakaiba.",
     "card_data_title": "Datos, datos, datos.",
@@ -28,7 +28,7 @@
     "steel_nomad_title": "3DMark Steel Nomad Lite",
     "wildlife_desc": "GPU performance benchmark",
     "benchmark_toggle": "Palitan ang GPU Benchmark",
-    "switch_to_steel": "Lumipat sa Steel Nomad Lite",
+    "switch_to_steel": "Tingnan ang Steel Nomad Lite",
     "switch_to_wildlife": "Tingnan ang Wild Life Extreme",
     "steelNomadLite": "Steel Nomad Lite",
     "single_core": "Single-Core Score",
