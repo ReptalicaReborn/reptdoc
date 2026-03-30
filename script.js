@@ -3272,7 +3272,7 @@ const dimensity7000Data = [
         name: "MediaTek Dimensity 7300 / 7300X",
         partNumber: "MT6878",
         releaseDate: "2024",
-        process: "TSMC N4P",
+        process: "TSMC N4",
         dieSize: "Unknown",
         geekbench6: { single: "1041", multi: "3031" },
         wildlifeExtreme: "892",
