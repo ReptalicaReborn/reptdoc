@@ -3269,7 +3269,7 @@ const dimensity7000Data = [
         memory: "16-bit Dual-channel LPDDR5 6400"
     },
     {
-        name: "MediaTek Dimensity 7300 / 7300X / 7060",
+        name: "MediaTek Dimensity 7300 / 7300X",
         partNumber: "MT6878",
         releaseDate: "2024",
         process: "TSMC N4P",
