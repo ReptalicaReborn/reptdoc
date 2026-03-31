@@ -41,10 +41,10 @@ function getContrastColor(hexColor) {
  */
 function applyCustomAccent(hexColor) {
     if (!hexColor) return;
-    
+
     // Normalize hexColor
     const hex = hexColor.toUpperCase();
-    
+
     // Determine colors for both modes independently
     // This prevents "locking" the theme into one color scheme
     let darkThemeHex = hex;
@@ -59,7 +59,7 @@ function applyCustomAccent(hexColor) {
     }
 
     const root = document.documentElement;
-    const mixBaseDark = '#050505'; 
+    const mixBaseDark = '#050505';
     const mixBaseLight = '#ffffff';
 
     // 1. Apply Dark Mode Colors (to :root)
@@ -104,7 +104,7 @@ function applyCustomAccent(hexColor) {
     }
 
     const lightPrimary = rgbLight;
-    const lightOnPrimary = contrastLight; 
+    const lightOnPrimary = contrastLight;
     const lightPrimaryContainer = mixColors(rgbLight, 25, '#ffffff');
     const lightOnPrimaryContainer = mixColors(rgbLight, 90, '#000000');
     const lightSecondaryContainer = mixColors(rgbLight, 15, '#E1E3E8');
@@ -200,7 +200,7 @@ function initTheme() {
             meta.name = 'theme-color';
             document.head.appendChild(meta);
         }
-        
+
         // If Custom Accent Enabled, don't overwrite meta for dark mode!
         const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
         if (isAccentEnabled && !isLight) {
@@ -226,10 +226,10 @@ function initTheme() {
     });
 }
 
-window.toggleTheme = function(clickedElement) {
+window.toggleTheme = function (clickedElement) {
     document.body.classList.toggle('light-mode');
     const isLight = document.body.classList.contains('light-mode');
-    
+
     // Update all theme-related icons in the app (header and settings modal)
     document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round').forEach(i => {
         i.textContent = isLight ? 'light_mode' : 'dark_mode';
@@ -250,7 +250,7 @@ window.toggleTheme = function(clickedElement) {
             meta.name = 'theme-color';
             document.head.appendChild(meta);
         }
-        
+
         const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
         if (isAccentEnabled && !isLight) {
             // Apply accent-based dark background if accent is enabled
@@ -274,9 +274,9 @@ window.toggleTheme = function(clickedElement) {
     }
 
     // Re-apply Trans Pride or Accent if enabled (handles variable updates for the new mode)
-    const isTransPride = localStorage.getItem('reptdoc_trans_pride') === 'true' || 
-                         (localStorage.getItem('reptdoc_trans_pride') !== 'false' && isTransAwarenessDate());
-                         
+    const isTransPride = localStorage.getItem('reptdoc_trans_pride') === 'true' ||
+        (localStorage.getItem('reptdoc_trans_pride') !== 'false' && isTransAwarenessDate());
+
     if (isTransPride) {
         applyTransPrideTheme();
     } else {
@@ -485,7 +485,7 @@ function isTransAwarenessDate() {
 }
 
 // Automatically apply Custom Accent or Bavarian Theme during parsing script (in <head>)
-(function() {
+(function () {
     // Only run if we are in the head (initial parse) or DOM not fully ready
     if (!document.body) {
         // Wait for body to be available if needed, but for accent we can just apply variables to :root
@@ -502,8 +502,8 @@ function isTransAwarenessDate() {
     }
 
     // Apply Trans Pride theme if explicitly enabled OR if it's an awareness date and not explicitly disabled
-    const isTransPride = localStorage.getItem('reptdoc_trans_pride') === 'true' || 
-                         (localStorage.getItem('reptdoc_trans_pride') !== 'false' && isTransAwarenessDate());
+    const isTransPride = localStorage.getItem('reptdoc_trans_pride') === 'true' ||
+        (localStorage.getItem('reptdoc_trans_pride') !== 'false' && isTransAwarenessDate());
 
     if (isTransPride) {
         applyTransPrideTheme();

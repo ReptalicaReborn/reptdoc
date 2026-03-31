@@ -7518,7 +7518,7 @@ function showSettingsModal() {
                         </label>
                     </div>
                 </div>
-                <div class="setting-item accent-presets" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding: 16px; -webkit-overflow-scrolling: touch; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s;">
+                <div class="setting-item accent-presets" style="display: flex; flex-wrap: wrap; gap: 14px; padding: 12px 16px 20px 16px; justify-content: center; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s; margin-top: -12px;">
                     <div class="custom-color-picker" title="Pick a custom color">
                         <div id="accent-preview" style="background: ${displaySavedAccent.startsWith('linear-gradient') ? displaySavedAccent : displaySavedAccent}; background-color: ${displaySavedAccent.startsWith('linear-gradient') ? 'transparent' : displaySavedAccent};"></div>
                         <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
