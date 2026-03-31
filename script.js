@@ -7453,9 +7453,10 @@ function showSettingsModal() {
     if (typeof isTransAwarenessDate === 'function' && isTransAwarenessDate()) {
         const now = new Date();
         const month = now.getMonth();
-        if (month === 2) transDateLabel = '🏳️‍⚧️ Happy Trans Day of Visibility!';
-        else if (now.getDate() === 20) transDateLabel = '🕯️ Transgender Day of Remembrance';
-        else transDateLabel = '🏳️‍⚧️ Transgender Awareness Week';
+        const day = now.getDate();
+        if (month === 2) transDateLabel = t('trans_visibility_day') || 'Happy Trans Day of Visibility! 🏳️‍⚧️';
+        else if (day === 20) transDateLabel = t('trans_remembrance_day') || 'Transgender Day of Remembrance 🕯️';
+        else transDateLabel = t('trans_awareness_week') || 'Transgender Awareness Week 🏳️‍⚧️';
     }
 
     modal.innerHTML = `
