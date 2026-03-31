@@ -733,12 +733,14 @@ body {
     /* Scrim */
     z-index: 90;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, visibility 0.3s;
 }
 
 .sidebar-overlay.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
@@ -2528,12 +2530,14 @@ body.light-mode .cpu-cluster:hover {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity var(--motion-duration-medium) var(--motion-easing-standard);
+    transition: opacity var(--motion-duration-medium) var(--motion-easing-standard), visibility var(--motion-duration-medium) var(--motion-easing-standard);
 }
 
 .modal-overlay.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
