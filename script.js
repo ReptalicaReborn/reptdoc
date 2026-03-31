@@ -7532,7 +7532,7 @@ function showSettingsModal() {
                     <button class="accent-preset" data-color="#E91E63" style="background: #E91E63; flex-shrink: 0;" title="Pink"></button>
                     <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
                     <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
-                    <button class="accent-preset" data-color="trans-pride" style="background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="${t('trans_pride_theme') || 'Trans Pride'}"></button>
+                    <button class="accent-preset" data-color="trans-pride" style="background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="Trans Pride Theme 🏳️‍⚧️"></button>
                 </div>
             </div>
         </div>
