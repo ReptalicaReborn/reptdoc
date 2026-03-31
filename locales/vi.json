@@ -1,14 +1,6 @@
 {
     "welcome_title": "ReptDoc",
     "welcome_subtitle": "Chip và mấy thứ khác. Được tạo bởi một thằng chán với việc phải lục lọi 4 trang web để tìm thứ nó cần. Đóng góp? Có gì sai? Liên hệ tôi tại thatReppy (Discord)",
-    "card_compare_title": "So sánh!",
-    "card_compare_desc": "So sánh hai SoC với nhau.",
-    "card_data_title": "Dữ liệu, dữ liệu và dữ liệu.",
-    "card_data_desc": "Quên mất có bao nhiêu chip trong cái web này rồi, nên tự đi mà xem đi.",
-    "card_search_title": "Tìm kiếm thứ gì đó",
-    "card_search_desc": "Tìm cái giề đê.",
-    "card_theme_title": "Lựu choáng!!!!",
-    "card_theme_desc": "Chuyển đổi giữa chế độ tối và sáng.",
     "home": "Trang chủ",
     "welcome": "Chào mừng",
     "search_results": "Kết quả tìm kiếm",
@@ -75,5 +67,9 @@
     "cluster": "Cụm nhân",
     "translation_credits": "Danh sách người dịch 💖",
     "translation_desc": "Rất cảm ơn các cộng tác viên đã giúp dịch ReptDoc sang ngôn ngữ của họ! Bạn cũng muốn đóng góp?",
-    "translation_join": "Tham gia trên Weblate"
+    "translation_join": "Tham gia trên Weblate",
+    "theme_title": "Chủ đề",
+    "light_mode": "Sáng",
+    "dark_mode": "Tối",
+    "lang_theme_btn": "Ngôn ngữ & Chủ đề"
 }

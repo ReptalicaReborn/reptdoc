@@ -137,13 +137,16 @@ function applyCustomAccent(hexColor) {
     `;
 
     // 3. Update Meta Theme Color
-    const isLightMode = document.body.classList.contains('light-mode');
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
-    if (metaThemeColor) {
-        metaThemeColor.content = isLightMode ? lightBackground : tintedBackgroundDark;
+    const body = document.body;
+    if (body) {
+        const isLightMode = body.classList.contains('light-mode');
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+        if (metaThemeColor) {
+            metaThemeColor.content = isLightMode ? lightBackground : tintedBackgroundDark;
+        }
     }
 
-    console.log('ReptDoc: Custom accent applied:', hexColor);
+    // console.log('ReptDoc: Custom accent applied:', hexColor);
 }
 
 /**
@@ -218,31 +221,77 @@ function initTheme() {
     }
 
     toggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
         const icon = toggle.querySelector('.material-icons-round');
-        const isLight = document.body.classList.contains('light-mode');
-
-        updateMetaColor(isLight);
-
-        if (isLight) {
-            if (icon) icon.textContent = 'light_mode';
-            localStorage.setItem('theme', 'light');
-        } else {
-            if (icon) icon.textContent = 'dark_mode';
-            localStorage.setItem('theme', 'dark');
-        }
-
-        // Re-apply Accent if enabled to update meta-tag and any dynamic tints
-        const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
-        if (isAccentEnabled) {
-            const savedAccent = localStorage.getItem('reptdoc_accent');
-            if (savedAccent) applyCustomAccent(savedAccent);
-        }
+        window.toggleTheme(icon);
     });
+}
+
+window.toggleTheme = function(clickedElement) {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    
+    // Update all theme-related icons in the app (header and settings modal)
+    document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round').forEach(i => {
+        i.textContent = isLight ? 'light_mode' : 'dark_mode';
+    });
+
+    // Update text label in settings modal if it exists
+    const modalToggleLabel = document.querySelector('#modal-theme-toggle span:not(.material-icons-round)');
+    if (modalToggleLabel && typeof window.t === 'function') {
+        modalToggleLabel.textContent = isLight ? (window.t('light_mode') || 'Light') : (window.t('dark_mode') || 'Dark');
+    }
+
+    // Update Meta
+    const updateMetaColor = (isLight) => {
+        let meta = document.querySelector('meta[name="theme-color"]:not([media])');
+        if (!meta) {
+            document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.remove());
+            meta = document.createElement('meta');
+            meta.name = 'theme-color';
+            document.head.appendChild(meta);
+        }
+        
+        const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
+        if (isAccentEnabled && !isLight) {
+            // Apply accent-based dark background if accent is enabled
+            const savedAccent = localStorage.getItem('reptdoc_accent');
+            if (savedAccent) {
+                // Approximate the tinted background logic
+                meta.content = '#1C1915'; // Fallback to a dark-tinted neutral
+            } else {
+                meta.content = '#12100E';
+            }
+        } else {
+            meta.content = isLight ? '#FDFBFF' : '#12100E';
+        }
+    };
+    updateMetaColor(isLight);
+
+    if (isLight) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
+
+    // Re-apply Accent if enabled (handles variable updates for the new mode)
+    const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
+    if (isAccentEnabled) {
+        const savedAccent = localStorage.getItem('reptdoc_accent');
+        if (savedAccent) applyCustomAccent(savedAccent);
+    }
 }
 
 // Automatically apply Custom Accent or Bavarian Theme during parsing script (in <head>)
 (function() {
+    // Only run if we are in the head (initial parse) or DOM not fully ready
+    if (!document.body) {
+        // Wait for body to be available if needed, but for accent we can just apply variables to :root
+        // Special case: we can't check body class yet, so we assume dark or check localStorage directly
+        const savedTheme = localStorage.getItem('theme');
+        const isLight = savedTheme === 'light';
+        // We skip meta-tag updates during head-parse as they'll be handled in initTheme
+    }
+
     const lang = localStorage.getItem('reptdoc_lang') || 'en';
     if (lang === 'de@informal') {
         applyCustomAccent('#61B2E4');

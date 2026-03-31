@@ -1,14 +1,6 @@
 {
     "welcome_title": "ReptDoc",
     "welcome_subtitle": "Chip'n shit. Created by a dude who hates having to search though 4 websites tryna find information. Contribution? Something is wrong? Contact me at thatReppy (Discord)",
-    "card_compare_title": "Compare!",
-    "card_compare_desc": "Compare two SoCs side-by-side.",
-    "card_data_title": "Data, data, data.",
-    "card_data_desc": "I genuinely forgot how many chips are on my website now. Go check it out or something.",
-    "card_search_title": "Search something idk",
-    "card_search_desc": "Find what you want, fast.",
-    "card_theme_title": "Flashbang",
-    "card_theme_desc": "Switch between dark mode and light mode.",
     "home": "Home",
     "welcome": "Welcome",
     "search_results": "Search Results",
@@ -75,5 +67,9 @@
     "cluster": "Cluster",
     "translation_credits": "Translation Credits 💖",
     "translation_desc": "Massive thanks to our community translators! Want to help translate ReptDoc into your language?",
-    "translation_join": "Join us on Weblate"
+    "translation_join": "Join us on Weblate",
+    "theme_title": "Theme",
+    "light_mode": "Light",
+    "dark_mode": "Dark",
+    "lang_theme_btn": "Language & Theme"
 }
