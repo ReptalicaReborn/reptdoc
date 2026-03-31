@@ -3407,6 +3407,26 @@ const dimensity7000Data = [
 ];
 
 const dimensity6000Data = [
+{
+        name: "MediaTek Dimensity 6500",
+        geekbench6: { single: "875", multi: "2176" },
+        wildlifeExtreme: "380",
+        partNumber: "MT6835",
+        releaseDate: "2026.04",
+        process: "TSMC N6",
+        dieSize: "Unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "2x Cortex-A76 @ 2.6 GHz + 6x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "Unknown",
+            l3Cache: "Unknown"
+        },
+        slc: "N/A",
+        gpu: "arm Mali-G57 MC2",
+        npu: "MediaTek NPU",
+        modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
+        memory: "LPDDR4X 2133 MHz"
+    },
     {
         name: "MediaTek Dimensity 6400",
         geekbench6: { single: "854", multi: "2176" },
@@ -3422,7 +3442,7 @@ const dimensity6000Data = [
             l3Cache: "Unknown"
         },
         slc: "N/A",
-        gpu: "2x ARM Mali-G57 (1.07 GHz)",
+        gpu: "arm Mali-G57 MC2 1.07 GHz",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
         memory: "LPDDR4X 2133 MHz"
