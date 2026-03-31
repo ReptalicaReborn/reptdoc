@@ -7025,6 +7025,18 @@ const xiaomiData = [
 
 const changelogData = [
     {
+        version: "stable-v1.0.0",
+        date: "2026-03-31",
+        changes: {
+            en: [
+                "WE HAVE A SHIT TON OF LANGUAGE",
+            ],
+            vi: [
+                "CÓ MỘT ĐỐNG NGÔN NGỮ",
+            ],
+        }
+    },
+    {
         version: "Release Canidate 2",
         date: "2026-03-28",
         changes: {
@@ -7588,7 +7600,7 @@ function showSettingsModal() {
                 let displayColor = color;
                 if (isLight && color.toUpperCase() === '#FFFFFF') displayColor = '#000000';
                 else if (!isLight && color === '#000000') displayColor = '#FFFFFF';
-                
+
                 accentPicker.value = (color === '#FFFFFF' || color === '#000000') ? displayColor : color;
                 accentPreview.style.background = 'none';
                 accentPreview.style.backgroundColor = displayColor;
