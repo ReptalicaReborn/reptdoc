@@ -67,5 +67,10 @@
     "cluster": "عنقود (cluster)",
     "translation_credits": "حقوق الترجمة 💖",
     "translation_desc": "شكر كبير لمترجمينا في المجتمع! حاب تساعد تترجم ReptDoc في لغتك؟",
-    "translation_join": "انضم معانا في Weblate"
+    "translation_join": "انضم معانا في Weblate",
+    "theme_title": "المظهر",
+    "light_mode": "فاتح",
+    "dark_mode": "داكن",
+    "lang_theme_btn": "اللغة والمظهر",
+    "compare_share": "مشاركة"
 }

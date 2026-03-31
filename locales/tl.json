@@ -67,5 +67,10 @@
     "cluster": "Cluster",
     "translation_credits": "Salamat sa mga tagasalin 💖",
     "translation_desc": "Maraming salamat sa ating mga community translators! Gusto mo ring tumulong sa pagsasalin ng ReptDoc sa iyong wika?",
-    "translation_join": "Sumali sa amin sa Weblate"
+    "translation_join": "Sumali sa amin sa Weblate",
+    "theme_title": "Tema",
+    "light_mode": "Maliwanag",
+    "dark_mode": "Madilim",
+    "lang_theme_btn": "Wika at Tema",
+    "compare_share": "Ibahagi"
 }

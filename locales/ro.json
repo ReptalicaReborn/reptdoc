@@ -67,5 +67,10 @@
     "cluster": "Cluster",
     "translation_credits": "Mulțumiri Traducători 💖",
     "translation_desc": "Mii de mulțumiri traducătorilor noștri din comunitate! Vrei să ajuți la traducerea ReptDoc în limba ta?",
-    "translation_join": "Vino alături de noi pe Weblate"
+    "translation_join": "Vino alături de noi pe Weblate",
+    "theme_title": "Temă",
+    "light_mode": "Deschis",
+    "dark_mode": "Întunecat",
+    "lang_theme_btn": "Limbă și Temă",
+    "compare_share": "Partajează"
 }

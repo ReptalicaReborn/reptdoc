@@ -29,6 +29,35 @@
     <script>
         // Prevent FOUC (Flash of Unstyled Content) by immediately applying the saved theme before paint
         if (localStorage.getItem('theme') === 'light') { document.body.classList.add('light-mode'); }
+
+        // Inline fallback: ensure toggleTheme always exists even if theme.js fails
+        if (typeof window.toggleTheme !== 'function') {
+            window.toggleTheme = function() {
+                document.body.classList.toggle('light-mode');
+                var isLight = document.body.classList.contains('light-mode');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                // Update all theme icons (header + settings modal)
+                document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round').forEach(function(i) {
+                    i.textContent = isLight ? 'light_mode' : 'dark_mode';
+                });
+                // Update settings modal text label
+                var modalLabel = document.querySelector('#modal-theme-toggle span:not(.material-icons-round)');
+                if (modalLabel) {
+                    modalLabel.textContent = isLight ? (window.t ? window.t('light_mode') : 'Light') : (window.t ? window.t('dark_mode') : 'Dark');
+                }
+                // Update meta theme-color
+                var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+                if (meta) meta.content = isLight ? '#FDFBFF' : '#12100E';
+            };
+        }
+
+        // Set correct icon on load based on saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            var isLight = document.body.classList.contains('light-mode');
+            document.querySelectorAll('#theme-toggle .material-icons-round').forEach(function(i) {
+                i.textContent = isLight ? 'light_mode' : 'dark_mode';
+            });
+        });
     </script>
 
     <div class="app-container">
@@ -136,16 +165,7 @@
                 <a href="#" class="nav-item nav-top-level" data-series="tensor">Google Tensors</a>
             </nav>
 
-            <div class="sidebar-footer">
-                <a href="#" class="nav-item" id="nav-changelog">
-                    <span class="material-icons-round">history</span>
-                    <span class="changelog-label">Changelog</span>
-                </a>
-                <a href="#" class="nav-item" id="nav-settings">
-                    <span class="material-icons-round">settings</span>
-                    <span class="settings-label">Settings</span>
-                </a>
-            </div>
+
         </aside>
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
@@ -167,10 +187,6 @@
                         <span class="material-icons-round search-icon">search</span>
                         <input type="text" id="chip-search" placeholder="Search chips...">
                     </div>
-                    <button class="btn-contained" onclick="window.location.href='compare.html'">Compare</button>
-                    <button class="btn-text" id="theme-toggle">
-                        <span class="material-icons-round">dark_mode</span>
-                    </button>
                 </div>
             </header>
 

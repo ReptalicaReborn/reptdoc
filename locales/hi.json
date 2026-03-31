@@ -67,5 +67,10 @@
     "cluster": "क्लस्टर",
     "translation_credits": "अनुवाद श्रेय 💖",
     "translation_desc": "हमारे समुदाय के अनुवादकों को बहुत-बहुत धन्यवाद! क्या आप ReptDoc को अपनी भाषा में अनुवाद करने में मदद करना चाहते हैं?",
-    "translation_join": "Weblate पर हमारे साथ जुड़ें"
+    "translation_join": "Weblate पर हमारे साथ जुड़ें",
+    "theme_title": "थीम",
+    "light_mode": "हल्का",
+    "dark_mode": "गहरा",
+    "lang_theme_btn": "भाषा और थीम",
+    "compare_share": "शेयर करें"
 }

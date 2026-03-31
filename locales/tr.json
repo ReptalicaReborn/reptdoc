@@ -67,5 +67,10 @@
     "cluster": "Cluster",
     "translation_credits": "Çeviride Katkıda Bulunanlar 💖",
     "translation_desc": "Topluluk çevirmenlerimize çok teşekkürler! ReptDoc'u kendi dilinize çevirmekte yardım etmek ister misiniz?",
-    "translation_join": "Weblate'de bize katılın"
+    "translation_join": "Weblate'de bize katılın",
+    "theme_title": "Tema",
+    "light_mode": "Açık",
+    "dark_mode": "Koyu",
+    "lang_theme_btn": "Dil ve Tema",
+    "compare_share": "Paylaş"
 }

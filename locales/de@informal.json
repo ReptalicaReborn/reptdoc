@@ -67,5 +67,10 @@
     "translation_credits": "Große Ehre fia de Übersetza! 🥨💖",
     "translation_desc": "A wahnsinnigs Vergeltsgott an unsere Gmeinschaft — ohne eich waar's nix! Hast Lust a mitzhelfen und ReptDoc in deine Sprach z'bringen? Her damit!",
     "translation_join": "Kumm zu Weblate",
-    "partNumber_desc": "De Numma wo da Hersteller dem Ding geben hod damit ma's net verwechselt."
+    "partNumber_desc": "De Numma wo da Hersteller dem Ding geben hod damit ma's net verwechselt.",
+    "theme_title": "Design",
+    "light_mode": "Hell",
+    "dark_mode": "Dunkel",
+    "lang_theme_btn": "Sprache & Design",
+    "compare_share": "Teilen"
 }

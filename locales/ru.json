@@ -67,5 +67,10 @@
     "cluster": "Кластер",
     "translation_credits": "Участники перевода 💖",
     "translation_desc": "Огромное спасибо сообществу переводчиков! Хотите помочь перевести ReptDoc на ваш язык?",
-    "translation_join": "Присоединяйтесь к нам на Weblate"
+    "translation_join": "Присоединяйтесь к нам на Weblate",
+    "theme_title": "Тема",
+    "light_mode": "Светлая",
+    "dark_mode": "Тёмная",
+    "lang_theme_btn": "Язык и Тема",
+    "compare_share": "Поделиться"
 }

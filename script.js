@@ -7380,6 +7380,18 @@ function initLang() {
     }
 
     document.querySelectorAll('.remove-chip-btn').forEach(btn => btn.textContent = t('remove'));
+
+    const langThemeLabel = document.querySelector('.lang-theme-btn-label');
+    if (langThemeLabel) langThemeLabel.textContent = t('lang_theme_btn');
+
+    const shareBtnText = document.getElementById('share-comparison');
+    if (shareBtnText) {
+        // The button has an icon and text, we only want to translate the text node
+        const textNode = Array.from(shareBtnText.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
+        if (textNode) {
+            textNode.textContent = ' ' + (t('compare_share') || 'Share') + ' ';
+        }
+    }
 }
 
 window.changeLanguage = function (newLang) {
@@ -7661,6 +7673,10 @@ function renderWelcomePage() {
                     <span class="material-icons-round" style="font-size: 20px;">translate</span>
                     <span class="material-icons-round" style="font-size: 20px;">dark_mode</span>
                     ${t('lang_theme_btn') || 'Language & Theme'}
+                </button>
+                <button class="btn-contained" onclick="showChangelogModal()" style="display: flex; align-items: center; gap: 8px; padding: 0 24px; height: 44px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container);">
+                    <span class="material-icons-round" style="font-size: 20px;">history</span>
+                    ${t('changelog') || 'Changelog'}
                 </button>
             </div>
 

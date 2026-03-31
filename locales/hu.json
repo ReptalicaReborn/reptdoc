@@ -67,5 +67,10 @@
     "translation_credits": "Fordítási Hálaadás 💖",
     "translation_desc": "Óriási köszönet a közösségi fordítóinknak! Akarsz segíteni a ReptDoc lefordításában a saját nyelvedre?",
     "translation_join": "Csatlakozz hozzánk Weblate-n",
-    "welcome_title": "ReptDoc"
+    "welcome_title": "ReptDoc",
+    "theme_title": "Téma",
+    "light_mode": "Világos",
+    "dark_mode": "Sötét",
+    "lang_theme_btn": "Nyelv és Téma",
+    "compare_share": "Megosztás"
 }

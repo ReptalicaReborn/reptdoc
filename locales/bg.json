@@ -67,5 +67,10 @@
     "value_unknown": "Няма информация",
     "translation_credits": "Благодарности за превод 💖",
     "translation_desc": "Огромно благодаря на нашите доброволни преводачи! Искаш да помогнеш с превода на ReptDoc на твоя собствен език?",
-    "translation_join": "Присъедини се към нас на Weblate"
+    "translation_join": "Присъедини се към нас на Weblate",
+    "theme_title": "Тема",
+    "light_mode": "Светла",
+    "dark_mode": "Тъмна",
+    "lang_theme_btn": "Език и Тема",
+    "compare_share": "Сподели"
 }

@@ -2635,7 +2635,7 @@ body.light-mode .cpu-cluster:hover {
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    transition: all 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -2651,7 +2651,7 @@ body.light-mode .cpu-cluster:hover {
     border-right: 5px solid transparent;
     border-top: 6px solid var(--md-sys-color-primary);
     pointer-events: none;
-    transition: border-color 0.2s;
+    transition: none;
 }
 
 .setting-control select:hover {

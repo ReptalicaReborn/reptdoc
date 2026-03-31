@@ -67,5 +67,10 @@
     "value_unknown": "غير معروف",
     "value_na": "غير متوفر",
     "accent_color": "لون التمييز",
-    "accent_color_desc": "خصص اللون الرئيسي عشان يناسب ستايلك"
+    "accent_color_desc": "خصص اللون الرئيسي عشان يناسب ستايلك",
+    "theme_title": "السمة",
+    "light_mode": "فاتح",
+    "dark_mode": "داكن",
+    "lang_theme_btn": "اللغة والسمة",
+    "compare_share": "مشاركة"
 }
