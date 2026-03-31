@@ -7454,9 +7454,9 @@ function showSettingsModal() {
         const now = new Date();
         const month = now.getMonth();
         const day = now.getDate();
-        if (month === 2) transDateLabel = t('trans_visibility_day') || 'Happy Trans Day of Visibility! 🏳️‍⚧️';
-        else if (day === 20) transDateLabel = t('trans_remembrance_day') || 'Transgender Day of Remembrance 🕯️';
-        else transDateLabel = t('trans_awareness_week') || 'Transgender Awareness Week 🏳️‍⚧️';
+        if (month === 2) transDateLabel = 'Happy Trans Day of Visibility! 🏳️‍⚧️';
+        else if (day === 20) transDateLabel = 'Transgender Day of Remembrance 🕯️';
+        else transDateLabel = 'Transgender Awareness Week 🏳️‍⚧️';
     }
 
     modal.innerHTML = `
