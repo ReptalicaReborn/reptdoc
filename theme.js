@@ -273,12 +273,215 @@ window.toggleTheme = function(clickedElement) {
         localStorage.setItem('theme', 'dark');
     }
 
-    // Re-apply Accent if enabled (handles variable updates for the new mode)
-    const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
-    if (isAccentEnabled) {
-        const savedAccent = localStorage.getItem('reptdoc_accent');
-        if (savedAccent) applyCustomAccent(savedAccent);
+    // Re-apply Trans Pride or Accent if enabled (handles variable updates for the new mode)
+    const isTransPride = localStorage.getItem('reptdoc_trans_pride') === 'true' || 
+                         (localStorage.getItem('reptdoc_trans_pride') !== 'false' && isTransAwarenessDate());
+                         
+    if (isTransPride) {
+        applyTransPrideTheme();
+    } else {
+        const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
+        if (isAccentEnabled) {
+            const savedAccent = localStorage.getItem('reptdoc_accent');
+            if (savedAccent) applyCustomAccent(savedAccent);
+        }
     }
+}
+
+/**
+ * Apply special Trans Pride multi-color theme
+ * Uses the transgender flag colors: Light Blue (#55CDFC), Pink (#F7A8B8), White (#FFFFFF)
+ */
+function applyTransPrideTheme() {
+    const root = document.documentElement;
+    const isLight = localStorage.getItem('theme') === 'light';
+
+    // Trans flag colors
+    const transBlue = '#55CDFC';
+    const transPink = '#F7A8B8';
+    const transWhite = '#FFFFFF';
+
+    // Add the class for CSS animations and decorations
+    document.documentElement.classList.add('trans-pride-theme');
+
+    if (!isLight) {
+        // --- DARK MODE ---
+        const mixBaseDark = '#050505';
+        const rgbPink = `rgb(247, 168, 184)`;
+        const rgbBlue = `rgb(85, 205, 252)`;
+
+        root.style.setProperty('--md-sys-color-primary', rgbPink);
+        root.style.setProperty('--md-sys-color-on-primary', '#3D0A15');
+        root.style.setProperty('--md-sys-color-primary-container', mixColors(rgbPink, 30, mixBaseDark));
+        root.style.setProperty('--md-sys-color-on-primary-container', mixColors(rgbPink, 90, '#ffffff'));
+        root.style.setProperty('--md-sys-color-surface-container', mixColors(rgbBlue, 8, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-low', mixColors(rgbBlue, 5, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-high', mixColors(rgbBlue, 12, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-highest', mixColors(rgbBlue, 18, mixBaseDark));
+        root.style.setProperty('--md-sys-color-secondary-container', mixColors(rgbBlue, 20, mixBaseDark));
+        root.style.setProperty('--md-sys-color-on-secondary-container', mixColors(rgbBlue, 90, '#FFFFFF'));
+        root.style.setProperty('--md-sys-color-outline', mixColors(rgbPink, 25, '#938F99'));
+        root.style.setProperty('--md-sys-color-outline-variant', mixColors(rgbBlue, 15, '#49454F'));
+
+        const tintedBg = mixColors(rgbBlue, 4, mixBaseDark);
+        root.style.setProperty('--md-sys-color-background', tintedBg);
+        root.style.setProperty('--md-sys-color-surface', tintedBg);
+        root.style.setProperty('--gradient-surface', `radial-gradient(circle at top left, ${mixColors(rgbPink, 15, mixBaseDark)}, ${tintedBg} 50%, ${mixColors(rgbBlue, 12, mixBaseDark)} 100%)`);
+        root.style.setProperty('--md-sys-color-tertiary', rgbBlue);
+
+        // Trans-specific custom properties for CSS decorations
+        root.style.setProperty('--trans-pink', transPink);
+        root.style.setProperty('--trans-blue', transBlue);
+        root.style.setProperty('--trans-white', transWhite);
+    }
+
+    // Light Mode via dynamic style tag
+    let styleTag = document.getElementById('dynamic-theme-styles');
+    if (!styleTag) {
+        styleTag = document.createElement('style');
+        styleTag.id = 'dynamic-theme-styles';
+        (document.head || document.documentElement).appendChild(styleTag);
+    }
+
+    styleTag.innerHTML = `
+        /* Trans Pride Light Mode */
+        body.light-mode {
+            --md-sys-color-primary: #C74B7A;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-primary-container: #FFD9E4;
+            --md-sys-color-on-primary-container: #3E0021;
+            --md-sys-color-secondary-container: #D0E8F8;
+            --md-sys-color-background: #FFF5F8;
+            --md-sys-color-surface: #FFF5F8;
+            --gradient-surface: radial-gradient(circle at top left, #FFE4EC, #FFF5F8 50%, #E4F4FF 100%);
+            --md-sys-color-tertiary: #2C8BC7;
+        }
+        body.light-mode .sidebar { background-color: #F8F0F5 !important; }
+        body.light-mode .chip-table thead th { background-color: #F0EBF4 !important; }
+        body.light-mode .chip-table .row-header { background-color: #F5F0F8 !important; }
+        body.light-mode .breadcrumbs { background: #FFF0F5 !important; }
+
+        /* Trans Pride Flag Stripe on Sidebar */
+        .trans-pride-theme .sidebar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, ${transBlue} 0%, ${transBlue} 20%, ${transPink} 20%, ${transPink} 40%, ${transWhite} 40%, ${transWhite} 60%, ${transPink} 60%, ${transPink} 80%, ${transBlue} 80%, ${transBlue} 100%);
+            border-radius: 0 0 var(--shape-corner-xl) 0;
+            z-index: 10;
+        }
+
+        /* Animated gradient on logo text */
+        .trans-pride-theme .logo-area h2 {
+            background: linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) !important;
+            background-size: 300% 300% !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            animation: transGradientShift 6s ease-in-out infinite !important;
+        }
+
+        /* Welcome title gradient */
+        .trans-pride-theme .welcome-title {
+            background: linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) !important;
+            background-size: 300% 300% !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            animation: transGradientShift 6s ease-in-out infinite !important;
+        }
+
+        /* Benchmark bars with trans colors */
+        .trans-pride-theme .benchmark-bar {
+            background: linear-gradient(90deg, ${transBlue}, ${transPink}) !important;
+        }
+
+        /* Nav active item with trans accent */
+        .trans-pride-theme .nav-item.active {
+            background: linear-gradient(135deg, rgba(85, 205, 252, 0.15), rgba(247, 168, 184, 0.15)) !important;
+        }
+
+        /* btn-contained trans gradient */
+        .trans-pride-theme .btn-contained {
+            background: linear-gradient(135deg, ${transPink}, ${transBlue}) !important;
+            color: #1A1A2E !important;
+        }
+        .trans-pride-theme .btn-contained:hover {
+            box-shadow: 0 8px 24px rgba(85, 205, 252, 0.3), 0 4px 12px rgba(247, 168, 184, 0.3) !important;
+        }
+
+        /* Welcome credits border gradient */
+        .trans-pride-theme .welcome-credits {
+            border-image: linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) 1 !important;
+            border-style: solid !important;
+            border-width: 2px !important;
+            border-radius: 0 !important;
+        }
+
+        /* Comparison header gradient */
+        .trans-pride-theme .compare-header h1 {
+            background: linear-gradient(135deg, ${transBlue}, ${transPink}) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* Scrollbar trans colors */
+        .trans-pride-theme ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(${transPink}, ${transBlue}) !important;
+        }
+
+        @keyframes transGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    `;
+
+    // Meta theme color
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (metaThemeColor) {
+        metaThemeColor.content = isLight ? '#FFF5F8' : '#08080C';
+    }
+}
+
+/**
+ * Remove trans pride theme and restore defaults
+ */
+function removeTransPrideTheme() {
+    document.documentElement.classList.remove('trans-pride-theme');
+
+    // Remove inline style properties
+    const root = document.documentElement;
+    root.style.removeProperty('--trans-pink');
+    root.style.removeProperty('--trans-blue');
+    root.style.removeProperty('--trans-white');
+
+    // Call existing remove logic
+    removeCustomAccent();
+}
+
+/**
+ * Check if today is a trans awareness date
+ * March 31 = International Transgender Day of Visibility
+ * November 13-19 = Transgender Awareness Week
+ * November 20 = Transgender Day of Remembrance
+ */
+function isTransAwarenessDate() {
+    const now = new Date();
+    const month = now.getMonth(); // 0-indexed
+    const day = now.getDate();
+
+    // March 31 - Trans Day of Visibility
+    if (month === 2 && day === 31) return true;
+
+    // November 13-20 - Awareness Week + Day of Remembrance
+    if (month === 10 && day >= 13 && day <= 20) return true;
+
+    return false;
 }
 
 // Automatically apply Custom Accent or Bavarian Theme during parsing script (in <head>)
@@ -295,6 +498,15 @@ window.toggleTheme = function(clickedElement) {
     const lang = localStorage.getItem('reptdoc_lang') || 'en';
     if (lang === 'de@informal') {
         applyCustomAccent('#61B2E4');
+        return;
+    }
+
+    // Apply Trans Pride theme if explicitly enabled OR if it's an awareness date and not explicitly disabled
+    const isTransPride = localStorage.getItem('reptdoc_trans_pride') === 'true' || 
+                         (localStorage.getItem('reptdoc_trans_pride') !== 'false' && isTransAwarenessDate());
+
+    if (isTransPride) {
+        applyTransPrideTheme();
         return;
     }
 

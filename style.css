@@ -1869,10 +1869,8 @@ body.light-mode .cpu-cluster:hover {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 20%, var(--md-sys-color-outline-variant));
     border-radius: var(--shape-corner-xl);
-    /* Removed overflow: hidden to prevent tooltips from being cropped */
-    overflow: visible;
+    overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    /* Removed contain: content to allow tooltip popouts */
 }
 
 #comparison-table-wrapper:empty {
@@ -1886,6 +1884,7 @@ body.light-mode .cpu-cluster:hover {
     border-collapse: collapse;
     table-layout: fixed;
     /* Eliminate column width recalculation jitter */
+    overflow: hidden;
 }
 
 .comparison-table th,
@@ -2685,8 +2684,9 @@ body.light-mode .cpu-cluster:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--md-sys-color-surface-container-highest);
-    border: 2px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-outline-variant);
+    opacity: 0.8;
+    border: 2px solid transparent;
     transition: 0.3s;
     border-radius: 28px;
 }

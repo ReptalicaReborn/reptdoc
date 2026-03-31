@@ -3407,7 +3407,7 @@ const dimensity7000Data = [
 ];
 
 const dimensity6000Data = [
-{
+    {
         name: "MediaTek Dimensity 6500",
         geekbench6: { single: "875", multi: "2176" },
         wildlifeExtreme: "380",
@@ -5280,7 +5280,7 @@ const exynos2000Data = [
         architecture: "ARMv9.3-A",
         cpu: {
             specs: "1x C1-Ultra @ 3.80 GHz + 3x C1-Pro @ 3.25 GHz + 3x C1-Pro @ 0.672 - 2.75 GHz + 3x C1-Pro @ 0.4 - 2.75 GHz",
-            l2Cache: "3MB (C1-Ultra) + unknown",
+            l2Cache: "3MB (C1-Ultra) + 9x 1MB (C1-Pro)",
             l3Cache: "16MB"
         },
         slc: "Unknown",
@@ -7428,10 +7428,22 @@ function showSettingsModal() {
     const isLightMode = document.body.classList.contains('light-mode');
 
     let displaySavedAccent = savedAccent;
-    if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') {
+    if (savedAccent === 'trans-pride') {
+        displaySavedAccent = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
+    } else if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') {
         displaySavedAccent = '#000000';
     } else if (!isLightMode && savedAccent === '#000000') {
         displaySavedAccent = '#FFFFFF';
+    }
+
+    // Determine the trans awareness date label (display-only decorative)
+    let transDateLabel = '';
+    if (typeof isTransAwarenessDate === 'function' && isTransAwarenessDate()) {
+        const now = new Date();
+        const month = now.getMonth();
+        if (month === 2) transDateLabel = '🏳️‍⚧️ Happy Trans Day of Visibility!';
+        else if (now.getDate() === 20) transDateLabel = '🕯️ Transgender Day of Remembrance';
+        else transDateLabel = '🏳️‍⚧️ Transgender Awareness Week';
     }
 
     modal.innerHTML = `
@@ -7443,14 +7455,15 @@ function showSettingsModal() {
                 </button>
             </div>
             <div class="modal-body" style="padding-top: 8px;">
+                ${transDateLabel ? `<div style="text-align: center; padding: 10px 16px; background: linear-gradient(135deg, rgba(85, 205, 252, 0.12), rgba(247, 168, 184, 0.12)); border-radius: 14px; font-size: 14px; font-weight: 600; color: var(--md-sys-color-on-surface); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;"><span style="display: inline-block; width: 22px; height: 14px; border-radius: 3px; background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></span>${transDateLabel}</div>` : ''}
                 <div class="setting-item">
                     <div class="setting-info">
                         <h3>${t('theme_title') || 'Theme'}</h3>
                     </div>
                     <div class="setting-control">
-                        <button class="btn-tonal" id="modal-theme-toggle" onclick="window.toggleTheme(this)" style="height: 36px; padding: 0 16px; border-radius: 999px; background: var(--md-sys-color-surface-container-high); color: var(--md-sys-color-primary); display: flex; align-items: center; gap: 8px;">
+                        <button class="btn-tonal" id="modal-theme-toggle" onclick="window.toggleTheme(this)" style="height: 36px; padding: 0 20px; border-radius: 999px; background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); display: flex; align-items: center; gap: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s;">
                             <span class="material-icons-round" style="font-size: 20px;">${isLightMode ? 'light_mode' : 'dark_mode'}</span>
-                            <span style="font-size: 14px; font-weight: 600;">${isLightMode ? (t('light_mode') || 'Light') : (t('dark_mode') || 'Dark')}</span>
+                            <span style="font-size: 14px;">${isLightMode ? (t('light_mode') || 'Light') : (t('dark_mode') || 'Dark')}</span>
                         </button>
                     </div>
                 </div>
@@ -7459,7 +7472,7 @@ function showSettingsModal() {
                         <h3 style="margin-bottom: 0;">${t('language')}</h3>
                     </div>
                     <div class="setting-control">
-                        <select id="lang-select">
+                        <select id="lang-select" style="background-color: var(--md-sys-color-surface-container-low); color: var(--md-sys-color-on-surface); border: 1px solid var(--md-sys-color-outline-variant); border-radius: 8px; padding: 6px 12px; font-weight: 500; font-family: inherit; cursor: pointer; outline: none; transition: border-color 0.2s;">
                             <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
                             <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
                             <option value="id" ${currentLang === 'id' ? 'selected' : ''}>Bahasa Indonesia</option>
@@ -7494,8 +7507,8 @@ function showSettingsModal() {
                 </div>
                 <div class="setting-item accent-presets" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding: 16px; -webkit-overflow-scrolling: touch; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s;">
                     <div class="custom-color-picker" title="Pick a custom color">
-                        <div id="accent-preview" style="background-color: ${displaySavedAccent};"></div>
-                        <input type="color" id="accent-picker" value="${displaySavedAccent}" ${!isAccentEnabled ? 'disabled' : ''}>
+                        <div id="accent-preview" style="background: ${displaySavedAccent.startsWith('linear-gradient') ? displaySavedAccent : displaySavedAccent}; background-color: ${displaySavedAccent.startsWith('linear-gradient') ? 'transparent' : displaySavedAccent};"></div>
+                        <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
                         <span class="material-icons-round picker-icon" style="font-size: 16px;">palette</span>
                     </div>
                     <button class="accent-preset" data-color="#4CAF50" style="background: #4CAF50; flex-shrink: 0;" title="Green"></button>
@@ -7506,6 +7519,7 @@ function showSettingsModal() {
                     <button class="accent-preset" data-color="#E91E63" style="background: #E91E63; flex-shrink: 0;" title="Pink"></button>
                     <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
                     <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
+                    <button class="accent-preset" data-color="trans-pride" style="background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="${t('trans_pride_theme') || 'Trans Pride'}"></button>
                 </div>
             </div>
         </div>
@@ -7521,26 +7535,29 @@ function showSettingsModal() {
     const accentToggle = document.getElementById('accent-toggle');
     const accentPicker = document.getElementById('accent-picker');
     const accentPreview = document.getElementById('accent-preview');
-    const customPickerContainer = modal.querySelector('.custom-color-picker');
     const accentPresets = modal.querySelector('.accent-presets');
 
     accentToggle.addEventListener('change', (e) => {
         const enabled = e.target.checked;
         localStorage.setItem('reptdoc_accent_enabled', enabled);
 
-        // Update entire preset collection state
         accentPicker.disabled = !enabled;
-
-        // Update visual feedback and interaction for the whole area
         accentPresets.style.opacity = enabled ? '1' : '0.4';
         accentPresets.style.pointerEvents = enabled ? 'auto' : 'none';
 
         if (enabled) {
-            applyCustomAccent(accentPicker.value);
-            accentPreview.style.backgroundColor = accentPicker.value;
+            const saved = localStorage.getItem('reptdoc_accent');
+            if (saved === 'trans-pride') {
+                applyTransPrideTheme();
+                localStorage.setItem('reptdoc_trans_pride', 'true');
+            } else {
+                applyCustomAccent(accentPicker.value);
+                localStorage.setItem('reptdoc_trans_pride', 'false');
+            }
         } else {
-            // Reset to default brand colors
             removeCustomAccent();
+            removeTransPrideTheme();
+            localStorage.setItem('reptdoc_trans_pride', 'false');
         }
     });
 
@@ -7548,7 +7565,10 @@ function showSettingsModal() {
     accentPicker.addEventListener('input', (e) => {
         const color = e.target.value;
         localStorage.setItem('reptdoc_accent', color);
+        localStorage.setItem('reptdoc_trans_pride', 'false');
+        accentPreview.style.background = 'none';
         accentPreview.style.backgroundColor = color;
+        removeTransPrideTheme();
         applyCustomAccent(color);
     });
 
@@ -7556,16 +7576,25 @@ function showSettingsModal() {
     modal.querySelectorAll('.accent-preset').forEach(btn => {
         btn.addEventListener('click', () => {
             const color = btn.dataset.color;
-            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('reptdoc_accent', color);
 
-            let displayColor = color;
-            if (isLight && color.toUpperCase() === '#FFFFFF') displayColor = '#000000';
-            else if (!isLight && color === '#000000') displayColor = '#FFFFFF';
-
-            accentPicker.value = displayColor;
-            accentPreview.style.backgroundColor = displayColor;
-            localStorage.setItem('reptdoc_accent', color); // Keep storing true intended color '#FFFFFF'
-            applyCustomAccent(color);
+            if (color === 'trans-pride') {
+                localStorage.setItem('reptdoc_trans_pride', 'true');
+                accentPreview.style.background = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
+                applyTransPrideTheme();
+            } else {
+                localStorage.setItem('reptdoc_trans_pride', 'false');
+                const isLight = document.body.classList.contains('light-mode');
+                let displayColor = color;
+                if (isLight && color.toUpperCase() === '#FFFFFF') displayColor = '#000000';
+                else if (!isLight && color === '#000000') displayColor = '#FFFFFF';
+                
+                accentPicker.value = (color === '#FFFFFF' || color === '#000000') ? displayColor : color;
+                accentPreview.style.background = 'none';
+                accentPreview.style.backgroundColor = displayColor;
+                removeTransPrideTheme();
+                applyCustomAccent(color);
+            }
         });
     });
 
@@ -7664,19 +7693,21 @@ function renderWelcomePage() {
                 <p class="welcome-subtitle">${t('welcome_subtitle')}</p>
             </div>
             
-            <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 24px;">
-                <button class="btn-contained" onclick="window.location.href='compare.html'" style="display: flex; align-items: center; gap: 8px; padding: 0 24px; height: 44px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                    <span class="material-icons-round" style="font-size: 20px;">compare_arrows</span>
-                    ${t('compare_btn') || 'Compare'}
+            <div class="welcome-actions" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; padding: 0 16px;">
+                <button class="btn-contained" onclick="window.location.href='compare.html'" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
+                    <span class="material-icons-round" style="font-size: 20px; flex-shrink: 0;">compare_arrows</span>
+                    <span style="font-weight: 600;">${t('compare_btn') || 'Compare'}</span>
                 </button>
-                <button class="btn-contained" onclick="showSettingsModal()" style="display: flex; align-items: center; gap: 8px; padding: 0 24px; height: 44px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container);">
-                    <span class="material-icons-round" style="font-size: 20px;">translate</span>
-                    <span class="material-icons-round" style="font-size: 20px;">dark_mode</span>
-                    ${t('lang_theme_btn') || 'Language & Theme'}
+                <button class="btn-contained" onclick="showSettingsModal()" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
+                    <div style="display: flex; gap: 2px; flex-shrink: 0;">
+                        <span class="material-icons-round" style="font-size: 20px;">translate</span>
+                        <span class="material-icons-round" style="font-size: 20px;">dark_mode</span>
+                    </div>
+                    <span style="font-weight: 600;">${t('lang_theme_btn') || 'Language & Theme'}</span>
                 </button>
-                <button class="btn-contained" onclick="showChangelogModal()" style="display: flex; align-items: center; gap: 8px; padding: 0 24px; height: 44px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container);">
-                    <span class="material-icons-round" style="font-size: 20px;">history</span>
-                    ${t('changelog') || 'Changelog'}
+                <button class="btn-contained" onclick="showChangelogModal()" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
+                    <span class="material-icons-round" style="font-size: 20px; flex-shrink: 0;">history</span>
+                    <span style="font-weight: 600;">${t('changelog') || 'Changelog'}</span>
                 </button>
             </div>
 
@@ -8378,10 +8409,10 @@ function showToast(message) {
         `;
         document.body.appendChild(toast);
     }
-    
+
     toast.querySelector('.toast-message').textContent = message;
     toast.classList.add('active');
-    
+
     setTimeout(() => {
         toast.classList.remove('active');
     }, 3000);
