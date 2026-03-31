@@ -1,1 +1,10 @@
-{}
+{
+    "welcome_title": "ReptDoc",
+    "welcome_subtitle": "Chipy i takie tam. Stworzone przez gościa który nienawidzi przeszukiwać 4 stron aby znaleźć informacje. Chcesz wesprzeć? Masz z czymś problem? Skontaktuj się ze mną \"thatReppy\" (Discord)",
+    "card_compare_title": "Porównaj!",
+    "card_compare_desc": "Porównaj dwa SoC",
+    "card_data_title": "Dane, dane i dane.",
+    "card_data_desc": "Szczerze mówiąc zapomniałem ile jest chipów na mojej stronie. Pójdź to sprawdzić czy coś.",
+    "card_search_title": "Znajdź coś",
+    "card_search_desc": "Znajdź co chcesz, szybko."
+}
