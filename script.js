@@ -3233,7 +3233,7 @@ const dimensity7000Data = [
         partNumber: "MT6878V/TZA / MT6878V/TFZA",
         releaseDate: "2024",
         process: "TSMC N4",
-        geekbench6: { single: "181", multi: "3071" },
+        geekbench6: { single: "1080", multi: "3071" },
         wildlifeExtreme: "902",
         dieSize: "Unknown",
         architecture: "ARMv8.2-A",
