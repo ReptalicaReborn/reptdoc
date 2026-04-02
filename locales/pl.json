@@ -7,5 +7,16 @@
     "card_data_desc": "Szczerze mówiąc zapomniałem ile jest chipów na mojej stronie. Pójdź to sprawdzić czy coś.",
     "card_search_title": "Znajdź coś",
     "card_search_desc": "Znajdź co chcesz, szybko.",
-    "home": "Dom"
+    "home": "Dom",
+    "welcome": "Witaj",
+    "search_results": "Wyniki wyszukiwania",
+    "search_placeholder": "Szukaj chipów...",
+    "compare_btn": "Porównaj",
+    "compare_socs": "Porównaj SoC",
+    "compare_desc": "Wybierz SoC do porównania",
+    "search_first": "Szukaj pierwszego SoC",
+    "search_second": "Szukaj drugiego SoC",
+    "remove": "Usuń",
+    "specs": "Specyfikacje",
+    "select_soc": "Wybierz SoC..."
 }
