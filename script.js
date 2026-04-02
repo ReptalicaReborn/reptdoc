@@ -592,7 +592,7 @@ const mSeriesData = [
     {
         name: "M3 Pro",
         geekbench6: { single: "3090", multi: "15100" },
-        wildlifeExtreme: "10700",
+        wildlifeExtreme: "14540",
         codename: "Lobos",
         partNumber: "T6030",
         releaseDate: "2023.11",
