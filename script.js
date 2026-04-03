@@ -5413,7 +5413,7 @@ const exynos1000Data = [
         releaseDate: "2026.03",
         process: "Samsung 4nm (4LPP+)",
         dieSize: "unknown",
-        geekbench6: { single: "1361", multi: "4446" },
+        geekbench6: { single: "1408", multi: "4540" },
         wildlifeExtreme: "1738",
         architecture: "ARMv9.2-A",
         cpu: {
