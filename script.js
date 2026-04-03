@@ -5414,7 +5414,7 @@ const exynos1000Data = [
         process: "Samsung 4nm (4LPP+)",
         dieSize: "unknown",
         geekbench6: { single: "1408", multi: "4540" },
-        wildlifeExtreme: "1738",
+        wildlifeExtreme: "1751",
         architecture: "ARMv9.2-A",
         cpu: {
             specs: "1x Cortex-A720 @ 2.91 GHz + 4x Cortex-A720 @ 2.6 GHz + 3x Cortex-A520 @ 1.95 GHz",
