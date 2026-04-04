@@ -483,6 +483,9 @@ const mSeriesData = [
     {
         name: "M5",
         codename: "Hidra",
+        geekbench6: { single: "4326", multi: "18043" },
+        wildlifeExtreme: "12059",
+        steelNomadLite: "5335",
         partNumber: "T8142",
         releaseDate: "2025.10",
         process: "TSMC N3P (3nm)",
@@ -2804,6 +2807,16 @@ const snapdragonXData = [
 ];
 
 const dimensity9000Data = [
+    {
+        name: "MediaTek Dimensity 9600",
+        releaseDate: "2026.09",
+        process: "TSMC 2nm (N3P)",
+        cpu: {
+            specs: "2x C2-Ultra + 3x C2-Pro + 3x C1-Pro",
+        },
+        gpu: "arm Mali-G2-Ultra",
+        memory: "24-bit Quad-channel LPDDR6-10667"
+    },
     {
         name: "MediaTek Dimensity 9500s",
         geekbench6: { single: "2910", multi: "8930" },
