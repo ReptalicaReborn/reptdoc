@@ -6326,14 +6326,14 @@ const tensorData = [
         dieSize: "114.27 mm²",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x 2.85 GHz Cortex-X2 + 2x 2.35 GHz Cortex-A78 + 4x 1.80 GHz Cortex-A55",
-            l2Cache: "2x 1MB (X2) + 2x 256KB (A78) + 4x 128KB (A55)",
+            specs: "2x 2.85 GHz Cortex-X1 + 2x 2.35 GHz Cortex-A78 + 4x 1.80 GHz Cortex-A55",
+            l2Cache: "2x 1MB (X1) + 2x 256KB (A78) + 4x 128KB (A55)",
             l3Cache: "4 MB"
         },
         slc: "8 MB",
         gpu: "Mali-G710 MP7 (890 MHz)",
-        npu: "TPU \"Janeiro\"",
-        dsp: "GXP \"Aurora\" (2nd Gen)",
+        npu: "4x TPU \"Janeiro\"",
+        dsp: "4x GXP \"Amalthea\" (1st Gen)",
         memory: "16-bits Quad-channel LPDDR5 6400"
     },
     {
