@@ -2808,14 +2808,33 @@ const snapdragonXData = [
 
 const dimensity9000Data = [
     {
-        name: "MediaTek Dimensity 9600",
+        name: "MediaTek Dimensity 9600 Pro",
         releaseDate: "2026.09",
         process: "TSMC 2nm (N3P)",
         cpu: {
-            specs: "2x C2-Ultra + 3x C2-Pro + 3x C1-Pro",
+            specs: "2x C2-Ultra (Canyon) + 3x C1-Pro High Clock + 3x C1-Pro Low Clock",
         },
-        gpu: "arm Mali-G2-Ultra",
+        gpu: "arm Mali-G2-Ultra (Magni)",
         memory: "24-bit Quad-channel LPDDR6-10667"
+    },
+    {
+        name: "MediaTek Dimensity 9600",
+        partNumber: "MT6993",
+        releaseDate: "2026.09",
+        process: "TSMC 3nm (N3P)",
+        dieSize: "140.79mm²",
+        architecture: "ARMv9.3-A",
+        cpu: {
+            specs: "1x C1-Ultra + 3x C1-Premium + 4x C1-Pro ",
+            l2Cache: "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 3x 512 KB (C1-Pro)",
+            l3Cache: "16 MB"
+        },
+        slc: "10 MB",
+        gpu: "ARM Mali-G1 Ultra MC12",
+        modem: "MediaTek M90 5G",
+        npu: "MediaTek NPU 990",
+        dsp: "MediaTek Imagiq 1190",
+        memory: "16-bit Quad-channel LPDDR5X 10667"
     },
     {
         name: "MediaTek Dimensity 9500s",
@@ -2850,7 +2869,7 @@ const dimensity9000Data = [
         architecture: "ARMv9.3-A",
         cpu: {
             specs: "1x C1-Ultra @ 4.21 GHz + 3x C1-Premium @ 3.50 GHz + 4x C1-Pro @ 2.70 GHz",
-            l2Cache: "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium)+ 3x 512 KB (C1-Pro)",
+            l2Cache: "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 3x 512 KB (C1-Pro)",
             l3Cache: "16 MB"
         },
         slc: "10 MB",
@@ -2858,7 +2877,7 @@ const dimensity9000Data = [
         modem: "MediaTek M90 5G",
         npu: "MediaTek NPU 990",
         dsp: "MediaTek Imagiq 1190",
-        memory: "LPDDR5X 10667 Mbps"
+        memory: "16-bit Quad-channel LPDDR5X 10667"
     },
     {
         name: "MediaTek Dimensity 9400+",
@@ -3421,6 +3440,26 @@ const dimensity7000Data = [
 
 const dimensity6000Data = [
     {
+        name: "MediaTek Dimensity 6360",
+        geekbench6: { single: "840", multi: "2123" },
+        wildlifeExtreme: "370",
+        partNumber: "MT6835",
+        releaseDate: "2026.04",
+        process: "TSMC N6",
+        dieSize: "Unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "Unknown",
+            l3Cache: "Unknown"
+        },
+        slc: "N/A",
+        gpu: "2x ARM Mali-G57 (1.07 GHz)",
+        npu: "MediaTek NPU",
+        modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
+    },
+    {
         name: "MediaTek Dimensity 6500",
         geekbench6: { single: "875", multi: "2176" },
         wildlifeExtreme: "380",
@@ -3438,7 +3477,7 @@ const dimensity6000Data = [
         gpu: "arm Mali-G57 MC2",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
-        memory: "LPDDR4X 2133 MHz"
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
         name: "MediaTek Dimensity 6400",
@@ -3458,7 +3497,7 @@ const dimensity6000Data = [
         gpu: "arm Mali-G57 MC2 1.07 GHz",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
-        memory: "LPDDR4X 2133 MHz"
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
         name: "MediaTek Dimensity 6300",
@@ -3478,7 +3517,7 @@ const dimensity6000Data = [
         gpu: "2x ARM Mali-G57 (1.07 GHz)",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
-        memory: "LPDDR4X 2133 MHz"
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
         name: "MediaTek Dimensity 6100+",
@@ -3498,7 +3537,7 @@ const dimensity6000Data = [
         gpu: "2x ARM Mali-G57 (962 MHz)",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
-        memory: "LPDDR4X 2133 MHz"
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
         name: "MediaTek Dimensity 6080",
@@ -3518,7 +3557,7 @@ const dimensity6000Data = [
         gpu: "ARM Mali-G57 MC2 (1068 MHz)",
         npu: "Unknown",
         modem: "MediaTek 5G Modem (Sub-6)",
-        memory: "LPDDR4X 2133 MHz"
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
         name: "MediaTek Dimensity 6020",
@@ -3538,7 +3577,7 @@ const dimensity6000Data = [
         gpu: "ARM Mali-G57 MC2 (950 MHz)",
         npu: "N/A",
         modem: "MediaTek 5G Modem (Sub-6)",
-        memory: "LPDDR4X 2133 MHz"
+        memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
     }
 ];
 
