@@ -203,7 +203,7 @@ const aSeriesData = [
         process: "TSMC N7 (7nm)",
         dieSize: "122 mm²",
         cpu: {
-            specs: "8-core (4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest)",
+            specs: "4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest",
             l2Cache: "8 MB (P-Core) + 2 MB (E-Core)"
         },
         slc: "8 MB",
@@ -239,7 +239,7 @@ const aSeriesData = [
         process: "TSMC 10nm FinFET",
         dieSize: "96.4 mm²",
         cpu: {
-            specs: "6-core (3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr)",
+            specs: "3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr",
             l2Cache: "8 MB"
         },
         slc: "N/A (8 MB L2 Cache)",
@@ -273,7 +273,7 @@ const aSeriesData = [
         process: "TSMC 16nm FinFET+",
         dieSize: "147 mm²",
         cpu: {
-            specs: "2-core (2.26 GHz Twister)",
+            specs: "2x 2.26 GHz Twister",
             l2Cache: "3 MB"
         },
         slc: "N/A (No L3/SLC present)",
@@ -307,7 +307,7 @@ const aSeriesData = [
         process: "TSMC 20nm HKMG",
         dieSize: "128 mm²",
         cpu: {
-            specs: "3-core (1.5 GHz Typhoon)",
+            specs: "3x 1.5 GHz Typhoon",
             l2Cache: "2 MB"
         },
         slc: "4 MB (L3 Cache)",
@@ -359,7 +359,7 @@ const aSeriesData = [
         s: "N/A",
         dieSize: "123 mm²",
         cpu: {
-            specs: "2-core (1.4 GHz Swift)",
+            specs: "2x 1.4 GHz Swift",
             l2Cache: "1 MB"
         },
         slc: "N/A",
@@ -394,7 +394,7 @@ const aSeriesData = [
         s: "N/A",
         dieSize: "165 mm²",
         cpu: {
-            specs: "2-core (1.0 GHz Cortex-A9)",
+            specs: "2x 1.0 GHz Cortex-A9",
             l2Cache: "1 MB"
         },
         slc: "N/A",
@@ -4549,6 +4549,22 @@ const helioAData = [
 
 
 const kirin9000Data = [
+    {
+        name: "HiSilicon Kirin 9030S",
+        partNumber: "unknown",
+        releaseDate: "2026.4",
+        process: "SMIC N+3 (6nm+)",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x 2.85GHz (Taishan Prime) + 3x 2.25GHz (Taishan Large) + 4x 1.75GHz (Taishan Little)",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "unknown",
+        gpu: "Maleoon 3CUs",
+        modem: "Balong 5G Integrated Modem",
+        memory: "16-bit Quad-channel LPDDR5X 9600"
+    },
     {
         name: "HiSilicon Kirin 9030 Pro",
         partNumber: "Hi3D60 GFCV120",
