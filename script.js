@@ -3462,7 +3462,7 @@ const dimensity6000Data = [
     {
         name: "MediaTek Dimensity 6500",
         geekbench6: { single: "875", multi: "2176" },
-        wildlifeExtreme: "380",
+        wildlifeExtreme: "382",
         partNumber: "MT6835",
         releaseDate: "2026.04",
         process: "TSMC N6",
@@ -3474,7 +3474,7 @@ const dimensity6000Data = [
             l3Cache: "Unknown"
         },
         slc: "N/A",
-        gpu: "arm Mali-G57 MC2",
+        gpu: "arm Mali-G57 MC2 1.1GHz",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
         memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
@@ -4572,7 +4572,7 @@ const kirin9000Data = [
         process: "SMIC N+3 (6nm+)",
         geekbench6: { single: "1856", multi: "6115" },
         wildlifeExtreme: "3263",
-        steelNomadLite: "1004",
+        steelNomadLite: "1037",
         dieSize: "137mm²",
         architecture: "ARMv8-A compatible",
         cpu: {
@@ -4595,6 +4595,7 @@ const kirin9000Data = [
         architecture: "ARMv8-A compatible",
         geekbench6: { single: "1808", multi: "5124" },
         wildlifeExtreme: "2932",
+        steelNomadLite: "836",
         cpu: {
             specs: "1x 2.695GHz (Taishan Prime) + 3x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
             l2Cache: "unknown",
@@ -4980,6 +4981,7 @@ const kirin800Data = [
         architecture: "ARMv8.2-A",
         geekbench6: { single: "984", multi: "2882" },
         wildlifeExtreme: "1025",
+        steelNomadLite: "302",
         cpu: {
             specs: "1x Cortex-A77 @ 2.40 GHz + 3x Cortex-A77 @ 2.19 GHz + 4x Cortex-A55 @ 1.84 GHz",
             l2Cache: "512KB (A77) + 3x 256KB (A77) + 4x 128KB (A55)",
