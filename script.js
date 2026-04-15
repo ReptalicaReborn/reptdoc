@@ -6293,7 +6293,7 @@ const tensorData = [
             l2Cache: "2MB (X4) + 5x 512KB (A725) + 256KB (2x A520)",
             l3Cache: "8MB"
         },
-        slc: "16MB",
+        slc: "8MB",
         gpu: "PowerVR DXT-48-1536 (1.10 GHz)",
         npu: "4th Gen EdgeTPU",
         dsp: "3-core GXP (Q8)",
