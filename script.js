@@ -6248,23 +6248,33 @@ const exynos3Data = [
 
 const tensorData = [
     {
+        name: "Google Tensor G7 (unreleased)",
+        releaseDate: "unknown",
+        process: "TSMC 2nm (N2)",
+        architecture: "ARMv9.4",
+        cpu: {
+            specs: "2x Orion + 4x Orion-E",
+            l2Cache: "16MB",
+        }
+    },
+    {
         name: "Google Tensor G6 (unreleased)",
         codename: "Malibu",
         partNumber: "unknown",
         releaseDate: "unknown",
-        process: "unknown",
-        dieSize: "unknown",
-        architecture: "unknown",
+        process: "TSMC 3nm (N3P)",
+        dieSize: "target 105mm²",
+        architecture: "ARMv9.4",
         cpu: {
             specs: "1x C1-Ultra @ 4.11GHz + 4x C1-Pro @ 3.38GHz + 2x C1-Pro @ 2.65GHz",
             l2Cache: "unknown",
-            l3Cache: "unknown"
+            l3Cache: "8MB"
         },
-        slc: "unknown",
+        slc: "4MB",
         gpu: "PowerVR C-series CXTP-48-1536",
         npu: "unknown",
-        dsp: "unknown",
-        memory: "unknown"
+        dsp: "2-core GXP (Q8)",
+        memory: "16-bits Quad-channel LPDDR5X 8533"
     },
     {
         name: "Google Tensor G5",
@@ -6274,7 +6284,7 @@ const tensorData = [
         partNumber: "unknown",
         releaseDate: "2025.08",
         process: "TSMC N3P (3nm)",
-        dieSize: "~121 mm²",
+        dieSize: "121 mm²",
         architecture: "ARMv9.2",
         cpu: {
             specs: "1x 3.78 GHz Cortex-X4 + 5x 3.05 GHz Cortex-A725 + 2x 2.25 GHz Cortex-A520",
@@ -6284,8 +6294,8 @@ const tensorData = [
         slc: "16MB",
         gpu: "PowerVR DXT-48-1536 (1.10 GHz)",
         npu: "4th Gen EdgeTPU",
-        dsp: "GXP",
-        memory: "LPDDR5X"
+        dsp: "3-core GXP (Q8)",
+        memory: "16-bits Quad-channel LPDDR5X 8533"
     },
     {
         name: "Google Tensor G4",
