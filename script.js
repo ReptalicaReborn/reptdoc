@@ -3462,7 +3462,7 @@ const dimensity6000Data = [
     {
         name: "MediaTek Dimensity 6500",
         geekbench6: { single: "875", multi: "2176" },
-        wildlifeExtreme: "380",
+        wildlifeExtreme: "382",
         partNumber: "MT6835",
         releaseDate: "2026.04",
         process: "TSMC N6",
@@ -3474,7 +3474,7 @@ const dimensity6000Data = [
             l3Cache: "Unknown"
         },
         slc: "N/A",
-        gpu: "arm Mali-G57 MC2",
+        gpu: "arm Mali-G57 MC2 1.1GHz",
         npu: "MediaTek NPU",
         modem: "MediaTek 5G Modem (Sub-6 3.3 Gbps)",
         memory: "32-bit Dual-channel LPDDR4X 2133 MHz"
