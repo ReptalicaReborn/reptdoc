@@ -4564,7 +4564,7 @@ const kirin9000Data = [
         slc: "unknown",
         gpu: "Maleoon 935F 3CUs",
         modem: "Balong 5G Integrated Modem",
-        memory: "16-bit Quad-channel LPDDR5X 9600"
+        memory: "16-bit Dual-channel LPDDR5X"
     },
     {
         name: "HiSilicon Kirin 9030 Pro",
