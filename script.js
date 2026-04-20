@@ -4554,14 +4554,15 @@ const kirin9000Data = [
         partNumber: "unknown",
         releaseDate: "2026.4",
         process: "SMIC N+3 (6nm+)",
+        steelNomadLite: "507",
         architecture: "ARMv8-A compatible",
         cpu: {
-            specs: "1x 2.85GHz (Taishan Prime) + 3x 2.25GHz (Taishan Large) + 4x 1.75GHz (Taishan Little)",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            specs: "1x 2.7GHz (Taishan Prime) + 3x 2.15GHz (Taishan Large) + 4x 1.62GHz (Taishan Little)",
+            l2Cache: "1 MB (TP) + 2 MB (4x Little)",
+            l3Cache: "6 MB (shared between Prime and Large)"
         },
         slc: "unknown",
-        gpu: "Maleoon 3CUs",
+        gpu: "Maleoon 935F 3CUs",
         modem: "Balong 5G Integrated Modem",
         memory: "16-bit Quad-channel LPDDR5X 9600"
     },
@@ -4578,7 +4579,7 @@ const kirin9000Data = [
         cpu: {
             specs: "1x 2.75GHz (Taishan Prime) + 4x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
             l2Cache: "2 MB (TP) + 4 MB (4x Little)",
-            l3Cache: "12 MB"
+            l3Cache: "12 MB (shared between Prime and Large)"
         },
         slc: "12 MB",
         gpu: "Huawei Maleoon 935 6CUs (933 MHz) 1MB GMEM",
