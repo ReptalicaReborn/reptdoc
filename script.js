@@ -3241,6 +3241,26 @@ const dimensity8000Data = [
 ];
 const dimensity7000Data = [
     {
+        name: "MediaTek Dimensity 7300e",
+        partNumber: "MT6858T",
+        releaseDate: "2026.4",
+        process: "TSMC N6",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        geekbench6: { single: "1001", multi: "2901" },
+        wildlifeExtreme: "709",
+        cpu: {
+            specs: "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "Unknown",
+            l3Cache: "Unknown"
+        },
+        slc: "N/A",
+        gpu: "Mali-G610 MC2 1GHz",
+        npu: "MediaTek NPU 550",
+        modem: "MediaTek 5G Modem",
+        memory: "16-bit Dual-channel LPDDR5 5500"
+    },
+    {
         name: "MediaTek Dimensity 7100",
         partNumber: "MT6858",
         releaseDate: "2025.Q4",
@@ -3278,6 +3298,26 @@ const dimensity7000Data = [
         gpu: "ARM Mali-G615 MC2 (1.3GHz)",
         npu: "MediaTek NPU 655",
         modem: "MediaTek 5G Modem",
+        memory: "16-bit Dual-channel LPDDR5 6400"
+    },
+    {
+        name: "MediaTek Dimensity 7360",
+        partNumber: "MT6878",
+        releaseDate: "2025.9",
+        process: "TSMC N4",
+        dieSize: "Unknown",
+        geekbench6: { single: "1041", multi: "3031" },
+        wildlifeExtreme: "892",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "Unknown",
+            l3Cache: "Unknown"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G615 MC2 (1047MHz)",
+        npu: "MediaTek NPU 655",
+        modem: "MediaTek 5G Modem (Sub-6 3.27 Gbps)",
         memory: "16-bit Dual-channel LPDDR5 6400"
     },
     {
@@ -4584,27 +4624,27 @@ const kirin9000Data = [
             l3Cache: "12 MB (shared between Prime and Large)"
         },
         slc: "12 MB",
-        gpu: "Huawei Maleoon 935 6CUs (933 MHz) 1MB GMEM",
+        gpu: "Huawei Maleoon 935 6CUs (933 MHz) 1MB + Ray Tracing",
         npu: "Ascend NPU (4x Tensor + 2x Vector)",
         modem: "Balong 5G Integrated Modem",
         memory: "16-bit Quad-channel LPDDR5X 9600"
     },
     {
         name: "HiSilicon Kirin 9030",
-        partNumber: "unknown",
+        partNumber: "Hi3D60 GFCV110",
         releaseDate: "2025.11",
         process: "SMIC N+3 (6nm+)",
-        dieSize: "Unknown",
+        dieSize: "137mm²",
         architecture: "ARMv8-A compatible",
         geekbench6: { single: "1808", multi: "5124" },
         wildlifeExtreme: "2932",
         steelNomadLite: "836",
         cpu: {
             specs: "1x 2.695GHz (Taishan Prime) + 3x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            l2Cache: "2 MB (TP) + 4 MB (4x Little)",
+            l3Cache: "12 MB (shared between Prime and Large)"
         },
-        slc: "unknown",
+        slc: "12MB",
         gpu: "Huawei Maleoon 935A 5CUs (933 MHz)",
         npu: "Da Vinci",
         modem: "Balong 5G Integrated Modem",
@@ -6279,7 +6319,7 @@ const tensorData = [
         gpu: "PowerVR C-series CXTP-48-1536",
         npu: "unknown",
         dsp: "2-core GXP (Q8)",
-        memory: "16-bits Quad-channel LPDDR5X 8533"
+        memory: "24-bits Quad-channel LPDDR6 10677"
     },
     {
         name: "Google Tensor G5",
