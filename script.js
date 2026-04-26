@@ -5386,6 +5386,7 @@ const exynos2000Data = [
         codename: "thetis",
         geekbench6: { single: "3189", multi: "10921" },
         wildlifeExtreme: "6868",
+        steelNomadLite: "2251",
         partNumber: "S5E9965",
         releaseDate: "2025.12",
         process: "Samsung 2nm (SF2)",
@@ -5396,9 +5397,9 @@ const exynos2000Data = [
             l2Cache: "3MB (C1-Ultra) + 9x 1MB (C1-Pro)",
             l3Cache: "16MB"
         },
-        slc: "Unknown",
-        gpu: "Samsung Xclipse 960 (AMD RDNA 4, 8WGP 980 MHz)",
-        npu: "Samsung Dual core NPU (1.2GHz)",
+        slc: "16MB",
+        gpu: "Samsung Xclipse 960 (8WGP 980 MHz)",
+        npu: "Samsung Quad core NPU (1.2GHz)",
         modem: "N/A",
         memory: "16-bit Quad-channel LPDDR5X 10667"
     },
@@ -5511,13 +5512,30 @@ const exynos2000Data = [
 
 const exynos1000Data = [
     {
-        name: "Exynos 1780",
-        process: "Samsung SF4P (4nm+)",
+        name: "Exynos 1680 Plus",
+        partNumber: "S5E8865 Plus",
+        process: "Samsung 4nm (4LPP+)",
+        architecture: "ARMv9.2-A",
+        cpu: {
+            specs: "1x Cortex-A720 @ 3.2 GHz + 4x Cortex-A720 @ 2.8 GHz + 4x Cortex-A520 @ 1.95 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "unknown",
+        gpu: "Samsung Xclipse 550 RNDA 3 2WGP",
+        npu: "Samsung 1 core NPU (1.2GHz)",
+        modem: "Exynos Shannon",
+        memory: "16-bit Dual-channel LPDDR5",
     },
     {
         name: "Exynos 13xx (unknown)",
         codename: "telos",
-        partNumber: "S5E8365"
+        partNumber: "S5E8365",
+        cpu: {
+            specs: "2x Cortex A78 + 6x Cortex A55",
+        },
+        gpu: "ARM Valhall GPU @ 949MHz",
+
     },
     {
         name: "Exynos 1680",
