@@ -4601,7 +4601,7 @@ const kirin9000Data = [
         cpu: {
             specs: "1x 2.69GHz (Taishan Prime) + 3x 2.15GHz (Taishan Large) + 4x 1.62GHz (Taishan Little)",
             l2Cache: "1 MB (TP) + 2 MB (4x Little)",
-            l3Cache: "6 MB (shared between Prime and Large)"
+            l3Cache: "4 MB (shared between Prime and Large)"
         },
         slc: "6MB",
         gpu: "Maleoon 935F 933MHz 3CUs",
