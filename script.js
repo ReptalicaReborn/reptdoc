@@ -3241,6 +3241,24 @@ const dimensity8000Data = [
 ];
 const dimensity7000Data = [
     {
+        name: "MediaTek Dimensity 7450 / 7450X",
+        partNumber: "unknown",
+        releaseDate: "2026.04",
+        process: "TSMC N4",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "4x Cortex-A78 @ 2.8 GHz + 4x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "Unknown",
+            l3Cache: "Unknown"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G615 MC2",
+        npu: "MediaTek NPU 655",
+        modem: "MediaTek 5G R17 Modem",
+        memory: "16-bit Dual-channel LPDDR5 6400"
+    },
+    {
         name: "MediaTek Dimensity 7300e",
         partNumber: "MT6858T",
         releaseDate: "2026.4",
