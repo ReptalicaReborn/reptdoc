@@ -19,7 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- All fonts in one request: Material Icons, Google Sans, Outfit, Share Tech Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Inter:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Inter:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=115">
     <script src="theme.js"></script>
@@ -32,12 +34,12 @@
 
         // Inline fallback: ensure toggleTheme always exists even if theme.js fails
         if (typeof window.toggleTheme !== 'function') {
-            window.toggleTheme = function() {
+            window.toggleTheme = function () {
                 document.body.classList.toggle('light-mode');
                 var isLight = document.body.classList.contains('light-mode');
                 localStorage.setItem('theme', isLight ? 'light' : 'dark');
                 // Update all theme icons (header + settings modal)
-                document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round').forEach(function(i) {
+                document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round').forEach(function (i) {
                     i.textContent = isLight ? 'light_mode' : 'dark_mode';
                 });
                 // Update settings modal text label
@@ -52,9 +54,9 @@
         }
 
         // Set correct icon on load based on saved theme
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var isLight = document.body.classList.contains('light-mode');
-            document.querySelectorAll('#theme-toggle .material-icons-round').forEach(function(i) {
+            document.querySelectorAll('#theme-toggle .material-icons-round').forEach(function (i) {
                 i.textContent = isLight ? 'light_mode' : 'dark_mode';
             });
         });

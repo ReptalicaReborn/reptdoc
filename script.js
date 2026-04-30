@@ -5402,9 +5402,9 @@ const exynos2000Data = [
     {
         name: "Exynos 2600",
         codename: "thetis",
-        geekbench6: { single: "3189", multi: "10921" },
+        geekbench6: { single: "3410", multi: "11689" },
         wildlifeExtreme: "6868",
-        steelNomadLite: "2251",
+        steelNomadLite: "3231",
         partNumber: "S5E9965",
         releaseDate: "2025.12",
         process: "Samsung 2nm (SF2)",
@@ -5423,8 +5423,9 @@ const exynos2000Data = [
     },
     {
         name: "Exynos 2500",
-        geekbench6: { single: "2444", multi: "8359" },
+        geekbench6: { single: "2569", multi: "8492" },
         wildlifeExtreme: "5212",
+        steelNomadLite: "2291",
         codename: "solomon",
         partNumber: "S5E9955",
         releaseDate: "2025.07",
@@ -5546,13 +5547,16 @@ const exynos1000Data = [
         memory: "16-bit Dual-channel LPDDR5",
     },
     {
-        name: "Exynos 13xx (unknown)",
+        name: "Exynos 1730",
         codename: "telos",
         partNumber: "S5E8365",
         cpu: {
-            specs: "2x Cortex A78 + 6x Cortex A55",
+            specs: "2x Cortex-A78 @ 2.6 GHz + 6x Cortex-A55 @ 2.0 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
         },
-        gpu: "ARM Valhall GPU @ 949MHz",
+        slc: "N/A",
+        gpu: "ARM Mali-G68 MP2 (949 MHz)",
 
     },
     {
@@ -7455,6 +7459,27 @@ function t(key) {
 }
 window.t = t;
 
+const loongson3AData = [
+    {
+        name: "Loongson 3A6000",
+        partNumber: "3A6000",
+        releaseDate: "2023.11",
+        process: "12nm",
+        dieSize: "unknown",
+        architecture: "LoongArch (LA664)",
+        cpu: {
+            specs: "4x LA664 @ 2.50 GHz",
+            l2Cache: "4x 256 KB",
+            l3Cache: "16 MB"
+        },
+        slc: "N/A",
+        gpu: "N/A",
+        npu: "N/A",
+        modem: "N/A",
+        memory: "Dual-channel DDR4-3200"
+    }
+];
+
 const seriesDataMap = {
     'a-series': { data: aSeriesData, manufacturer: 'Apple Silicon', label: 'A Series' },
     'm-series': { data: mSeriesData, manufacturer: 'Apple Silicon', label: 'M Series' },
@@ -7493,6 +7518,7 @@ const seriesDataMap = {
     'exynos-4': { data: exynos4Data, manufacturer: 'Exynos', label: 'Exynos 4 series' },
     'exynos-3': { data: exynos3Data, manufacturer: 'Exynos', label: 'Exynos 3 series' },
     'tensor': { data: tensorData, manufacturer: 'Google', label: 'Google Tensors' },
+    'loongson-3a': { data: loongson3AData, manufacturer: 'Loongson', label: '3A Series' },
     'unisoc': { data: unisocData, manufacturer: 'Unisoc', label: 'Unisoc' },
     'xiaomi': { data: xiaomiData, manufacturer: 'Xiaomi', label: 'Xiaomi' },
     'global': { data: [], manufacturer: 'Global', label: 'Search Results' }
