@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SECURITY PATCH: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://flagcdn.com https://cdn.simpleicons.org; connect-src 'self';">
     <title>ReptDoc</title>
     <meta name="theme-color" content="#12100E" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#FDFBFF" media="(prefers-color-scheme: light)">
@@ -71,7 +73,7 @@
 
             <nav class="nav-menu">
                 <div class="nav-group expanded">
-                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                    <div class="nav-group-header">
                         <h3>Apple Silicon</h3>
                         <span class="material-icons-round expand-icon">expand_more</span>
                     </div>
@@ -84,7 +86,7 @@
                 </div>
 
                 <div class="nav-group">
-                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                    <div class="nav-group-header">
                         <h3>Qualcomm</h3>
                         <span class="material-icons-round expand-icon">expand_more</span>
                     </div>
@@ -101,7 +103,7 @@
                 </div>
 
                 <div class="nav-group">
-                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                    <div class="nav-group-header">
                         <h3>MediaTek</h3>
                         <span class="material-icons-round expand-icon">expand_more</span>
                     </div>
@@ -123,7 +125,7 @@
                     </div>
                 </div>
                 <div class="nav-group">
-                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                    <div class="nav-group-header">
                         <h3>HiSilicon</h3>
                         <span class="material-icons-round expand-icon">expand_more</span>
                     </div>
@@ -140,7 +142,7 @@
                 </div>
 
                 <div class="nav-group">
-                    <div class="nav-group-header" onclick="toggleNavGroup(this)">
+                    <div class="nav-group-header">
                         <h3>Exynos</h3>
                         <span class="material-icons-round expand-icon">expand_more</span>
                     </div>

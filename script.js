@@ -1,3 +1,11 @@
+// ===== SECURITY PATCH: HTML Escaping Utility =====
+function escapeHtml(str) {
+    if (str == null) return '';
+    const s = String(str);
+    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;' };
+    return s.replace(/[&<>"'/]/g, c => map[c]);
+}
+
 const aSeriesData = [
     {
         name: "A19 Pro",
@@ -356,7 +364,6 @@ const aSeriesData = [
         partNumber: "APL5598 / S5L8955",
         releaseDate: "2012.11",
         process: "Samsung 32nm HKMG",
-        s: "N/A",
         dieSize: "123 mm²",
         cpu: {
             specs: "2x 1.4 GHz Swift",
@@ -391,7 +398,6 @@ const aSeriesData = [
         partNumber: "APL5498 / S5L8945",
         releaseDate: "2012.03",
         process: "Samsung 45nm LP",
-        s: "N/A",
         dieSize: "165 mm²",
         cpu: {
             specs: "2x 1.0 GHz Cortex-A9",
@@ -526,7 +532,7 @@ const mSeriesData = [
         partNumber: "T6040",
         releaseDate: "2024.10",
         process: "TSMC N3E (3nm)",
-        dieSize: "‰ˆ320-330 mm²",
+        dieSize: "≈320-330 mm²",
         cpu: {
             specs: "10x 4.51 GHz Everest V3 + 4x 2.89 GHz Sawtooth V3",
             l2Cache: "Unspecified"
@@ -6543,7 +6549,7 @@ function formatValue(val) {
         text = text.replace(/cluster/gi, clusterTrans);
     }
 
-    return text;
+    return escapeHtml(text);
 }
 
 /**
@@ -6565,8 +6571,8 @@ function formatCpuSpecs(specString) {
 
         html += `
             <div class="cpu-cluster">
-                <span class="cluster-badge ${badgeClass}">${label}</span>
-                <span class="cluster-text">${cluster}</span>
+                <span class="cluster-badge ${badgeClass}">${escapeHtml(label)}</span>
+                <span class="cluster-text">${escapeHtml(cluster)}</span>
             </div>
         `;
     });
@@ -6585,7 +6591,7 @@ function formatGpuSpec(specString) {
         <div class="cpu-cluster-container">
             <div class="cpu-cluster gpu-cluster">
                 <span class="cluster-badge badge-gpu">GPU</span>
-                <span class="cluster-text">${specString}</span>
+                <span class="cluster-text">${escapeHtml(specString)}</span>
             </div>
         </div>
     `;
@@ -6671,7 +6677,7 @@ function renderTable(dataRaw) {
                     displayValue = formatGpuSpec(row.value);
                     extraClass = ' card-quick-spec-cpu'; // reuse same column layout
                 } else {
-                    displayValue = row.value;
+                    displayValue = escapeHtml(row.value);
                 }
                 quickSpecsHtml += `
                     <div class="card-quick-spec-row${extraClass}">
@@ -6688,17 +6694,17 @@ function renderTable(dataRaw) {
 
 
         const cardHtml = `
-            <div class="chip-card" id="card-${index}" style="animation: fadeIn 0.4s ease both; animation-delay: ${index * 0.05}s;" onclick="toggleCardDetails(${index})">
+            <div class="chip-card" id="card-${index}" style="animation: fadeIn 0.4s ease both; animation-delay: ${index * 0.05}s;" data-action="toggleCard" data-index="${index}">
                 <div class="chip-card-header">
                     <div class="chip-card-icon">${iconHtml}</div>
                     <div class="chip-card-title-group">
-                        <div class="chip-card-title">${chip.name}</div>
+                        <div class="chip-card-title">${escapeHtml(chip.name)}</div>
                         <div class="chip-card-subtitle tooltip-container tooltip-bottom" style="display: inline-flex; cursor: help;">
-                            ${['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na'))}
+                            ${escapeHtml(['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na')))}
                             <div class="tooltip-content" style="font-weight: 400; text-transform: none;">${t('partNumber_desc')}</div>
                         </div>
                     </div>
-                    <button class="chip-card-compare-btn" onclick="event.stopPropagation(); goToCompare('${encodeURIComponent(chip.name)}')" title="${t('compare_btn') || 'Compare'}">
+                    <button class="chip-card-compare-btn" data-action="goToCompare" data-chip="${encodeURIComponent(chip.name)}" title="${t('compare_btn') || 'Compare'}">
                         <span class="material-icons-round">compare_arrows</span>
                     </button>
                 </div>
@@ -6801,7 +6807,7 @@ function updateBreadcrumb(manufacturer, seriesName) {
     const breadcrumbs = document.querySelector('.breadcrumbs');
     if (breadcrumbs) {
         breadcrumbs.innerHTML = `
-            <a href="#" onclick="renderWelcomePage(); return false;" style="text-decoration: none; color: inherit;">${t('home')}</a>
+            <a href="#" data-action="renderWelcome" style="text-decoration: none; color: inherit;">${t('home')}</a>
             <span class="material-icons-round separator">chevron_right</span>
             <span>${manufacturer}</span>
             <span class="material-icons-round separator">chevron_right</span>
@@ -7648,7 +7654,7 @@ function showSettingsModal() {
         <div class="modal-content settings-content">
             <div class="modal-header">
                 <h2>${t('settings')}</h2>
-                <button class="btn-icon modal-close-btn" onclick="document.getElementById('settings-modal').classList.remove('active')">
+                <button class="btn-icon modal-close-btn" data-action="closeSettings">
                     <span class="material-icons-round">close</span>
                 </button>
             </div>
@@ -7659,7 +7665,7 @@ function showSettingsModal() {
                         <h3>${t('theme_title') || 'Theme'}</h3>
                     </div>
                     <div class="setting-control">
-                        <button class="btn-tonal" id="modal-theme-toggle" onclick="window.toggleTheme(this)" style="height: 36px; padding: 0 20px; border-radius: 999px; background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); display: flex; align-items: center; gap: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                        <button class="btn-tonal" id="modal-theme-toggle" data-action="toggleTheme" style="height: 36px; padding: 0 20px; border-radius: 999px; background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); display: flex; align-items: center; gap: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s;">
                             <span class="material-icons-round" style="font-size: 20px;">${isLightMode ? 'light_mode' : 'dark_mode'}</span>
                             <span style="font-size: 14px;">${isLightMode ? (t('light_mode') || 'Light') : (t('dark_mode') || 'Dark')}</span>
                         </button>
@@ -7847,7 +7853,7 @@ function showChangelogModal() {
         <div class="modal-content settings-content">
             <div class="modal-header">
                 <h2>${t('changelog')}</h2>
-                <button class="btn-icon modal-close-btn" onclick="document.getElementById('changelog-modal').classList.remove('active')">
+                <button class="btn-icon modal-close-btn" data-action="closeChangelog">
                     <span class="material-icons-round">close</span>
                 </button>
             </div>
@@ -7893,18 +7899,18 @@ function renderWelcomePage() {
             </div>
             
             <div class="welcome-actions" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; padding: 0 16px;">
-                <button class="btn-contained" onclick="window.location.href='compare.html'" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
+                <button class="btn-contained" data-action="goToComparePage" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
                     <span class="material-icons-round" style="font-size: 20px; flex-shrink: 0;">compare_arrows</span>
                     <span style="font-weight: 600;">${t('compare_btn') || 'Compare'}</span>
                 </button>
-                <button class="btn-contained" onclick="showSettingsModal()" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
+                <button class="btn-contained" data-action="openSettings" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
                     <div style="display: flex; gap: 2px; flex-shrink: 0;">
                         <span class="material-icons-round" style="font-size: 20px;">translate</span>
                         <span class="material-icons-round" style="font-size: 20px;">dark_mode</span>
                     </div>
                     <span style="font-weight: 600;">${t('lang_theme_btn') || 'Language & Theme'}</span>
                 </button>
-                <button class="btn-contained" onclick="showChangelogModal()" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
+                <button class="btn-contained" data-action="openChangelog" style="display: flex; align-items: center; gap: 8px; padding: 10px 24px; min-height: 44px; height: auto; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); white-space: normal; text-align: center; justify-content: center; flex: 0 1 auto; max-width: 100%;">
                     <span class="material-icons-round" style="font-size: 20px; flex-shrink: 0;">history</span>
                     <span style="font-weight: 600;">${t('changelog') || 'Changelog'}</span>
                 </button>
@@ -7944,7 +7950,7 @@ function renderWelcomePage() {
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Tagalog</span>
                         <span style="color: var(--md-sys-color-on-surface-variant);">Riley</span>
                     </div>
-                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.changeLanguage(currentLang === 'de@informal' ? 'de' : 'de@informal')">
+                    <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer;" data-action="toggleBayerisch">
                         ${currentLang === 'de@informal' ?
             `<svg viewBox="0 0 72 72" style="width: 28px; height: 22px; border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                 <g id="color"><rect x="5" y="17" width="62" height="38" fill="#fff"/><path transform="translate(6,18)" fill="#61B2E4" d="M 57.81375,0 L 44.5425,0 60,34.2 60,36 47.5425,36 31.27125,0 18,0 34.27125,36 21,36 9,9.45 0,7.155 0,18.9 7.72875,36 21,36 0,30.645 0,18.9 60,34.2 60,22.455 9,9.45 4.72875,0 18,0 60,10.71 60,4.8375 z"/></g>
@@ -7983,17 +7989,17 @@ function renderWelcomePage() {
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/bg.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Български">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Български</span>
-                        <span style="color: var(--md-sys-color-on-surface-variant); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s;" onclick="navigator.clipboard.writeText('dumbass.cat'); showToast('Discord copied: dumbass.cat')" onmouseover="this.style.color='var(--md-sys-color-primary)'" onmouseout="this.style.color='var(--md-sys-color-on-surface-variant)'">Lyuuu <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.29a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .077.01c.12.098.246.196.373.29a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.078.078 0 0 0 .031-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.156-1.085-2.156-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.156 2.419 0 1.334-.945 2.419-2.156 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></span>
+                        <span style="color: var(--md-sys-color-on-surface-variant); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s;" class="hoverable-link" data-action="copyText" data-copy="dumbass.cat" data-toast="Discord copied: dumbass.cat">Lyuuu <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.29a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .077.01c.12.098.246.196.373.29a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.078.078 0 0 0 .031-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.156-1.085-2.156-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.156 2.419 0 1.334-.945 2.419-2.156 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/tr.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Türkçe">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">Türkçe</span>
-                        <span style="color: var(--md-sys-color-on-surface-variant); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s;" onclick="navigator.clipboard.writeText('emitra'); showToast('Discord copied: emitra')" onmouseover="this.style.color='var(--md-sys-color-primary)'" onmouseout="this.style.color='var(--md-sys-color-on-surface-variant)'">emitra <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.29a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .077.01c.12.098.246.196.373.29a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .031-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.156-1.085-2.156-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.156 2.419 0 1.334-.945 2.419-2.156 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></span>
+                        <span style="color: var(--md-sys-color-on-surface-variant); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s;" class="hoverable-link" data-action="copyText" data-copy="emitra" data-toast="Discord copied: emitra">emitra <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.29a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .077.01c.12.098.246.196.373.29a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .031-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.156-1.085-2.156-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.156 2.419 0 1.334-.945 2.419-2.156 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/in.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="മലയാളം">
                         <span style="font-weight: 600; color: var(--md-sys-color-primary);">മലയാളം</span>
-                        <span style="color: var(--md-sys-color-on-surface-variant); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s;" onclick="navigator.clipboard.writeText('daemonxyz'); showToast('Discord copied: daemonxyz')" onmouseover="this.style.color='var(--md-sys-color-primary)'" onmouseout="this.style.color='var(--md-sys-color-on-surface-variant)'">Junkler <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.29a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .077.01c.12.098.246.196.373.29a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .031-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.156-1.085-2.156-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.156 2.419 0 1.334-.945 2.419-2.156 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></span>
+                        <span style="color: var(--md-sys-color-on-surface-variant); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s;" class="hoverable-link" data-action="copyText" data-copy="daemonxyz" data-toast="Discord copied: daemonxyz">Junkler <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.29a.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .077.01c.12.098.246.196.373.29a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .031-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.156-1.085-2.156-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.156 2.419 0 1.334-.945 2.419-2.156 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg></span>
                     </div>
                     <div style="background: rgba(128, 128, 128, 0.1); border: 1px solid rgba(128, 128, 128, 0.2); padding: 8px 16px; border-radius: 12px; display: flex; align-items: center; gap: 12px;">
                         <img src="https://flagcdn.com/w40/pl.png" width="20" style="border-radius: 2px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" alt="Polski">
@@ -8001,7 +8007,7 @@ function renderWelcomePage() {
                         <span style="color: var(--md-sys-color-on-surface-variant);">abys</span>
                     </div>
                 </div>
-                <button class="btn-contained" onclick="window.open('https://hosted.weblate.org/projects/reptdoc/', '_blank')" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
+                <button class="btn-contained" data-action="openExternal" data-url="https://hosted.weblate.org/projects/reptdoc/" style="margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; padding: 10px 24px; border-radius: 999px;">
                     ${t('translation_join') || 'Join us on Weblate'}
                     <span class="material-icons-round" style="font-size: 18px;">open_in_new</span>
                 </button>
@@ -8039,6 +8045,13 @@ function initNavigation() {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             switchSeries(item.getAttribute('data-series'));
+        });
+    });
+
+    // Nav group header toggle (replaces inline onclick="toggleNavGroup(this)")
+    document.querySelectorAll('.nav-group-header').forEach(header => {
+        header.addEventListener('click', () => {
+            toggleNavGroup(header);
         });
     });
 
@@ -8347,14 +8360,14 @@ function initCompareSearch(id) {
 
         if (matches.length > 0) {
             results.innerHTML = matches.map((chip, idx) => `
-                <div class="result-item" onclick="selectChip(${id}, ${window.allChipsFlat.indexOf(chip)})">
+                <div class="result-item" data-action="selectChip" data-slot="${id}" data-index="${window.allChipsFlat.indexOf(chip)}">
                     <div style="display: flex; align-items: center; gap: 12px;">
                         <div class="result-item-icon" style="flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px;">
                             ${getBrandLogoGlobal(chip.manufacturer).replace('width: 28px; height: 28px;', 'width: 20px; height: 20px;')}
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <strong>${chip.name}</strong>
-                            <small>${chip.manufacturer} - ${chip.releaseDate || ''}</small>
+                            <strong>${escapeHtml(chip.name)}</strong>
+                            <small>${escapeHtml(chip.manufacturer)} - ${escapeHtml(chip.releaseDate) || ''}</small>
                         </div>
                     </div>
                 </div>
@@ -8392,8 +8405,8 @@ window.selectChip = function (slot, chipIndex, updateURL = true) {
     const displayIcon = getBrandLogoGlobal(chip.manufacturer, "64px");
 
     document.getElementById(`icon-chip-${slot}`).innerHTML = displayIcon;
-    document.getElementById(`name-chip-${slot}`).innerHTML = chip.name;
-    document.getElementById(`detail-chip-${slot}`).innerHTML = chip.partNumber || chip.codename || '';
+    document.getElementById(`name-chip-${slot}`).textContent = chip.name;
+    document.getElementById(`detail-chip-${slot}`).textContent = chip.partNumber || chip.codename || '';
 
     // Update URL if needed
     if (updateURL) {
@@ -8434,8 +8447,8 @@ function updateComparisonTable() {
 
     let html = '<table class="comparison-table">';
     html += `<thead><tr><th>${t('specs')}</th>`;
-    html += `<th>${chip1 ? chip1.name : t('select_soc')}</th>`;
-    html += `<th>${chip2 ? chip2.name : t('select_soc')}</th>`;
+    html += `<th>${chip1 ? escapeHtml(chip1.name) : t('select_soc')}</th>`;
+    html += `<th>${chip2 ? escapeHtml(chip2.name) : t('select_soc')}</th>`;
     html += '</tr></thead><tbody>';
 
     tableStructure.forEach(group => {
@@ -8472,8 +8485,8 @@ function updateComparisonTable() {
 }
 
 function renderBenchmarkComparison(chip1, chip2) {
-    const name1 = chip1 ? chip1.name : 'Chip 1';
-    const name2 = chip2 ? chip2.name : 'Chip 2';
+    const name1 = chip1 ? escapeHtml(chip1.name) : 'Chip 1';
+    const name2 = chip2 ? escapeHtml(chip2.name) : 'Chip 2';
 
     // Get CPU benchmark values
     const gb6Single1 = chip1 && chip1.geekbench6 ? parseInt(chip1.geekbench6.single) || 0 : 0;
@@ -8529,7 +8542,7 @@ function renderBenchmarkComparison(chip1, chip2) {
     if (activeGpu1 || activeGpu2 || canToggleGpu) {
         const toggleLabel = showSteelNomad ? t('switch_to_wildlife') : t('switch_to_steel');
         const toggleHtml = canToggleGpu ?
-            `<button class="btn-text tooltip" style="display: inline-flex !important; align-items: center; justify-content: center; padding: 4px 8px; font-size: 13px; align-self: flex-start;" onclick="toggleGpuBenchmark()">
+            `<button class="btn-text tooltip" data-action="toggleGpuBenchmark" style="display: inline-flex !important; align-items: center; justify-content: center; padding: 4px 8px; font-size: 13px; align-self: flex-start;">
                  <span class="material-icons-round" style="font-size: 16px; margin-right: 4px;">swap_horiz</span>
                  ${toggleLabel}
              </button>` : '';
@@ -8621,6 +8634,83 @@ function showToast(message) {
         toast.classList.remove('active');
     }, 3000);
 }
+
+// ===== SECURITY PATCH: Event Delegation (replaces all inline onclick handlers) =====
+document.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-action]');
+    if (!target) return;
+
+    const action = target.dataset.action;
+
+    switch (action) {
+        case 'toggleCard':
+            e.stopPropagation();
+            toggleCardDetails(parseInt(target.dataset.index));
+            break;
+        case 'goToCompare':
+            e.stopPropagation();
+            goToCompare(decodeURIComponent(target.dataset.chip));
+            break;
+        case 'renderWelcome':
+            e.preventDefault();
+            renderWelcomePage();
+            break;
+        case 'closeSettings':
+            document.getElementById('settings-modal').classList.remove('active');
+            break;
+        case 'toggleTheme':
+            window.toggleTheme(target);
+            break;
+        case 'closeChangelog':
+            document.getElementById('changelog-modal').classList.remove('active');
+            break;
+        case 'goToComparePage':
+            window.location.href = 'compare.html';
+            break;
+        case 'openSettings':
+            showSettingsModal();
+            break;
+        case 'openChangelog':
+            showChangelogModal();
+            break;
+        case 'toggleBayerisch':
+            window.changeLanguage(currentLang === 'de@informal' ? 'de' : 'de@informal');
+            break;
+        case 'copyText':
+            navigator.clipboard.writeText(target.dataset.copy);
+            showToast(target.dataset.toast);
+            break;
+        case 'openExternal':
+            window.open(target.dataset.url, '_blank');
+            break;
+        case 'selectChip':
+            selectChip(parseInt(target.dataset.slot), parseInt(target.dataset.index));
+            break;
+        case 'toggleGpuBenchmark':
+            toggleGpuBenchmark();
+            break;
+        case 'clearChip':
+            clearChip(parseInt(target.dataset.slot));
+            break;
+        default:
+            break;
+    }
+});
+
+// Event delegation for change events (language select)
+document.addEventListener('change', (e) => {
+    const target = e.target.closest('[data-action]');
+    if (!target) return;
+
+    if (target.dataset.action === 'changeLanguage') {
+        window.changeLanguage(target.value);
+    }
+});
+
+// CSS hover effect for .hoverable-link (replaces onmouseover/onmouseout)
+const hoverStyle = document.createElement('style');
+hoverStyle.textContent = `.hoverable-link:hover { color: var(--md-sys-color-primary) !important; }`;
+document.head.appendChild(hoverStyle);
 
 // Init
 document.addEventListener('DOMContentLoaded', async () => {

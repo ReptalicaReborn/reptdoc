@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SECURITY PATCH: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://flagcdn.com https://cdn.simpleicons.org; connect-src 'self';">
     <title>ReptDoc - Compare</title>
     <meta name="theme-color" content="#12100E" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#FDFBFF" media="(prefers-color-scheme: light)">
@@ -88,7 +90,7 @@
                         <span class="material-icons-round" style="font-size: 18px;">share</span>
                         Share
                     </button>
-                    <button class="btn-contained" onclick="showSettingsModal()" style="display: flex; align-items: center; gap: 8px; padding: 0 20px; height: 40px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); font-size: 14px; font-weight: 500; border: none; cursor: pointer;">
+                    <button class="btn-contained" style="display: flex; align-items: center; gap: 8px; padding: 0 20px; height: 40px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); font-size: 14px; font-weight: 500; border: none; cursor: pointer;">
                         <span class="material-icons-round" style="font-size: 18px;">translate</span>
                         <span class="material-icons-round" id="compare-theme-icon" style="font-size: 18px;">dark_mode</span>
                         <span class="lang-theme-btn-label">Language & Theme</span>
@@ -118,7 +120,7 @@
                                 <div class="selected-chip-icon" id="icon-chip-1"></div>
                                 <div class="selected-chip-name" id="name-chip-1"></div>
                                 <div class="selected-chip-detail" id="detail-chip-1"></div>
-                                <button class="remove-chip-btn" onclick="clearChip(1)">Remove</button>
+                                <button class="remove-chip-btn" data-action="clearChip" data-slot="1">Remove</button>
                             </div>
                         </div>
 
@@ -136,7 +138,7 @@
                                 <div class="selected-chip-icon" id="icon-chip-2"></div>
                                 <div class="selected-chip-name" id="name-chip-2"></div>
                                 <div class="selected-chip-detail" id="detail-chip-2"></div>
-                                <button class="remove-chip-btn" onclick="clearChip(2)">Remove</button>
+                                <button class="remove-chip-btn" data-action="clearChip" data-slot="2">Remove</button>
                             </div>
                         </div>
                     </div>
@@ -152,7 +154,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="settings-title">Settings</h2>
-                <button class="modal-close-btn" onclick="closeSettingsModal()">
+                <button class="modal-close-btn">
                     <span class="material-icons-round">close</span>
                 </button>
             </div>
@@ -162,7 +164,7 @@
                         <h3 class="lang-label">Language</h3>
                     </div>
                     <div class="setting-control">
-                        <select id="language-select" onchange="window.changeLanguage(this.value)">
+                        <select id="language-select" data-action="changeLanguage">
                             <option value="en">English</option>
                             <option value="vi">Tiếng Việt</option>
                             <option value="id">Bahasa Indonesia</option>
@@ -185,13 +187,14 @@
                 </div>
             </div>
         </div>
+</div>
 
         <!-- Changelog Modal -->
         <div class="modal-overlay" id="changelog-modal">
             <div class="modal-content changelog-content">
                 <div class="modal-header">
                     <h2 class="changelog-title">Changelog</h2>
-                    <button class="modal-close-btn" onclick="closeChangelogModal()">
+                    <button class="modal-close-btn">
                         <span class="material-icons-round">close</span>
                     </button>
                 </div>

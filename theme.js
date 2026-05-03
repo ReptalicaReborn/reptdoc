@@ -1,4 +1,22 @@
 /**
+ * SECURITY PATCH: Validate that a string is a safe hex color.
+ * Rejects anything that isn't #RGB, #RRGGBB, or #RRGGBBAA.
+ */
+function isValidHexColor(val) {
+    return typeof val === 'string' && /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/.test(val.trim());
+}
+
+/**
+ * Sanitize a CSS custom property value — only allow safe CSS values.
+ * Blocks any string containing HTML-significant characters.
+ */
+function sanitizeCssValue(val) {
+    if (typeof val !== 'string') return '';
+    // Strip anything that could break out of a style context
+    return val.replace(/[<>"'&]/g, '');
+}
+
+/**
  * Mixes two RGB colors by a given percentage.
  * @param {string} color1 - First color in rgb(...) or hex format
  * @param {number} percent - Percentage of color1 (0-100)
@@ -41,6 +59,12 @@ function getContrastColor(hexColor) {
  */
 function applyCustomAccent(hexColor) {
     if (!hexColor) return;
+
+    // SECURITY PATCH: Validate input is a safe hex color
+    if (!isValidHexColor(hexColor)) {
+        console.warn('ReptDoc: Rejected invalid accent color:', hexColor);
+        return;
+    }
 
     // Normalize hexColor
     const hex = hexColor.toUpperCase();
@@ -512,7 +536,8 @@ function isTransAwarenessDate() {
 
     const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
     const savedAccent = localStorage.getItem('reptdoc_accent');
-    if (isAccentEnabled && savedAccent) {
+    if (isAccentEnabled && savedAccent && savedAccent !== 'trans-pride') {
+        // SECURITY PATCH: Validate before applying — isValidHexColor is now enforced in applyCustomAccent
         applyCustomAccent(savedAccent);
     }
 })();
