@@ -1720,13 +1720,13 @@ const snapdragon6Data = [
         codename: "Skyros",
         partNumber: "SM6850",
         cpu: {
-            specs: "4x Kryo Gold + 4x Kryo Silver",
+            specs: "4x Kryo Gold 2.6GHz + 4x Kryo Silver 2.0GHz",
             slc: "N/A",
             gpu: "Adreno",
             npu: "Qualcomm Hexagon NPU",
             modem: "Snapdragon 5G sub-6 Rel.17",
             dsp: "Qualcomm Hexagon",
-            memory: "16-bit Dual-channel LPDDR5 6400mt"
+            memory: "16-bit Dual-channel LPDDR5 6400MT"
         }
     },
     {
@@ -2155,7 +2155,7 @@ const snapdragon6Data = [
 
 const snapdragon4Data = [
     {
-        name: "Snapdragon 4 Gen 5 (tentative name)",
+        name: "Snapdragon 4 Gen (tentative name)",
         codename: "unknown",
         process: "Samsung 4nm (4LPX)",
         partNumber: "SM4875",
@@ -2173,13 +2173,13 @@ const snapdragon4Data = [
         memory: "16-bit Dual-channel LPDDR5 3200 MHz"
     },
     {
-        name: "Snapdragon 4s Gen 5 (tentative name)",
+        name: "Snapdragon 4 Gen 5",
         codename: "Aldabra",
         process: "Samsung 4nm (4LPX)",
         partNumber: "SM4850",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x Cortex-A78 + 6x Cortex-A55",
+            specs: "2x Cortex-A78 2.4GHz + 6x Cortex-A55 2.0GHz",
             l2Cache: "2x 256KB (A78) + 6x 64KB (A55)",
             l3Cache: "1MB"
         },
