@@ -3083,6 +3083,27 @@ const dimensity9000Data = [
 
 const dimensity8000Data = [
     {
+        name: "MediaTek Dimensity 8550",
+        partNumber: "MT6899Z",
+        geekbench6: { single: "1776", multi: "7024s" },
+        wildlifeExtreme: "4717",
+        steelNomadLite: "1502",
+        releaseDate: "2026.05",
+        process: "TSMC N4P",
+        dieSize: "Unknown",
+        architecture: "ARMv9.2-A",
+        cpu: {
+            specs: "1x Cortex-A725 @ 3.4 GHz + 3x Cortex-A725 @ 3.2 GHz + 4x Cortex-A725 @ 2.2 GHz",
+            l2Cache: "1 MB (A725) + 3x 512 KB (A725) + 4x 256 KB (A725)",
+            l3Cache: "6 MB"
+        },
+        slc: "5 MB",
+        gpu: "ARM Mali-G720 MC8 (1.3 GHz)",
+        npu: "MediaTek NPU 880",
+        modem: "MediaTek T800 Modem",
+        memory: "16-bit Quad-Channel LPDDR5X 9600"
+    },
+    {
         name: "MediaTek Dimensity 8500",
         partNumber: "MT6899Z",
         geekbench6: { single: "1776", multi: "7024s" },
