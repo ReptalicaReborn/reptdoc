@@ -5256,6 +5256,27 @@ const kirin600Data = [
 ];
 
 const kirinTabletData = [
+        {
+        name: "HiSilicon Kirin T93 Pro",
+        partNumber: "Hi3D60 GFCV120",
+        releaseDate: "2026.5",
+        process: "SMIC N+3 (6nm+)",
+        geekbench6: { single: "1856", multi: "6115" },
+        wildlifeExtreme: "3263",
+        steelNomadLite: "1037",
+        dieSize: "137mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x 2.75GHz (Taishan Prime) + 4x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
+            l2Cache: "2 MB (TP) + 4 MB (4x Little)",
+            l3Cache: "12 MB (shared between Prime and Large)"
+        },
+        slc: "12 MB",
+        gpu: "Huawei Maleoon 935 6CUs (933 MHz) 1MB + Ray Tracing",
+        npu: "Ascend NPU (4x Tensor + 2x Vector)",
+        modem: "N/A",
+        memory: "16-bit Quad-channel LPDDR5X 9600"
+    },
     {
         name: "HiSilicon Kirin X90",
         partNumber: "Hi9600 GFCV100",
