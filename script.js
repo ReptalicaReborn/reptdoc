@@ -1,4 +1,4 @@
-// ===== SECURITY PATCH: HTML Escaping Utility =====
+// ===== SECURITY PATCH: HTML Escaping =====
 function escapeHtml(str) {
     if (str == null) return '';
     const s = String(str);
@@ -495,7 +495,7 @@ const mSeriesData = [
         partNumber: "T8142",
         releaseDate: "2025.10",
         process: "TSMC N3P (3nm)",
-        dieSize: "Unknown",
+        dieSize: "157.5 mm²",
         cpu: {
             specs: "4x 4.40 GHz pCore + 6x 2.80 GHz eCore",
             l2Cache: "4x 1MB (P-core private) + 16 MB (P-Core shared) + 4 MB (E-Core)"
@@ -2695,6 +2695,7 @@ const snapdragonXData = [
         steelNomadLite: "5687",
         partNumber: "X2E-96-100",
         releaseDate: "2025.09",
+        dieSize: "220 mm²",
         process: "TSMC 3nm (N3P + N3X)",
         cpu: {
             specs: "6x Oryon-P 5GHz (1c), 4.8GHz (2c), 4.47GHz (3c), 4.4GHz (4-6c) + 6x Oryon-P 5GHz (1c), 4.8GHz (2c), 4.47GHz (3c), 4.4GHz (4-6c) + 6x Oryon-M 3.6GHz",
@@ -2712,6 +2713,7 @@ const snapdragonXData = [
         steelNomadLite: "4123",
         partNumber: "X2E-88-100",
         releaseDate: "2025.09",
+        dieSize: "220 mm²",
         process: "TSMC 3nm (N3P)",
         cpu: {
             specs: "6x Oryon-P 4.7 GHz (dual-core boost), 4.4GHz (all core) + 6x Oryon-M 4.4GHz + 6x Oryon-M 3.6GHz",
@@ -2729,6 +2731,7 @@ const snapdragonXData = [
         steelNomadLite: "4123",
         partNumber: "X2E-80-100",
         releaseDate: "2025.09",
+        dieSize: "220 mm²",
         process: "TSMC 3nm (N3P)",
         cpu: {
             specs: "6x Oryon-P 4.7 GHz (single-core boost), 4.4GHz (all core) + 6x Oryon-M 3.6GHz",
