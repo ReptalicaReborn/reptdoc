@@ -5459,7 +5459,7 @@ const exynos2000Data = [
         partNumber: "S5E9965",
         releaseDate: "2025.12",
         process: "Samsung 2nm (SF2)",
-        dieSize: "Unknown",
+        dieSize: "141.58mm²",
         architecture: "ARMv9.3-A",
         cpu: {
             specs: "1x C1-Ultra @ 3.80 GHz + 3x C1-Pro @ 3.25 GHz + 3x C1-Pro @ 0.672 - 2.75 GHz + 3x C1-Pro @ 0.4 - 2.75 GHz",
@@ -5481,7 +5481,7 @@ const exynos2000Data = [
         partNumber: "S5E9955",
         releaseDate: "2025.07",
         process: "Samsung 3nm (SF3)",
-        dieSize: "Unknown",
+        dieSize: "141.58mm²",
         architecture: "ARMv9.2-A",
         cpu: {
             specs: "1x Cortex-X925 @ 3.30 GHz + 2x Cortex-A725 @ 2.74 GHz + 5x Cortex-A725 @ 2.36 GHz + 2x Cortex-A520 @ 1.80 GHz",
