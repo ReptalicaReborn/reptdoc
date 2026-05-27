@@ -1913,7 +1913,7 @@ const snapdragon6Data = [
         partNumber: "SM6225",
         releaseDate: "2021.10 / 2023.3",
         process: "TSMC 6nm (N6)",
-        dieSize: "unknown",
+        dieSize: "32.45mm²",
         architecture: "ARMv8-A",
         cpu: {
             specs: "4x Cortex-A73 @ 2.40 / 2.80 GHz + 4x Cortex-A53 @ 1.90 GHz (Kryo 265)",
