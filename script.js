@@ -1374,9 +1374,9 @@ const snapdragon7Data = [
         dieSize: "unknown",
         architecture: "ARMv9.2-A",
         cpu: {
-            specs: "1x Cortex-A720 @ 2.80 GHz + 3x Cortex-A720 @ 2.40 GHz + 4x Cortex-A520 @ 1.84 GHz",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            specs: "1x Cortex-A720 @ 2.80 GHz + 4x Cortex-A720 @ 2.40 GHz + 3x Cortex-A520 @ 1.84 GHz",
+            l2Cache: "1x 512KB (A720) + 4x 256KB (A720) + 1x 512KB (2x A520) + 1x 256KB (A520) ",
+            l3Cache: "3MB"
         },
         slc: "unknown",
         gpu: "Qualcomm Adreno 722 (1.15 GHz)",
@@ -3298,8 +3298,8 @@ const dimensity7000Data = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A78 @ 2.8 GHz + 4x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "4x 512KB (A78) + 4x 128KB (A55)",
+            l3Cache: "2MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G615 MC2",
@@ -3358,8 +3358,8 @@ const dimensity7000Data = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "4x 512KB (A78) + 4x 128KB (A55)",
+            l3Cache: "2MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G615 MC2 (1.3GHz)",
@@ -3378,8 +3378,8 @@ const dimensity7000Data = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "4x 512KB (A78) + 4x 128KB (A55)",
+            l3Cache: "2MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G615 MC2 (1047MHz)",
@@ -3398,7 +3398,7 @@ const dimensity7000Data = [
         architecture: "ARMv9-A",
         cpu: {
             specs: "2x Cortex-A715 @ 3.0 GHz + 6x Cortex-A510 @ 2.0 GHz",
-            l2Cache: "Unknown",
+            l2Cache: "2x 512KB (A715) + 3x 128KB (2x A510)",
             l3Cache: "2 MB"
         },
         slc: "N/A",
@@ -3418,8 +3418,8 @@ const dimensity7000Data = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "4x 512KB (A78) + 4x 128KB (A55)",
+            l3Cache: "2MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G615 MC2 (1047MHz)",
@@ -3438,7 +3438,7 @@ const dimensity7000Data = [
         architecture: "ARMv9-A",
         cpu: {
             specs: "2x Cortex-A715 @ 2.80 GHz + 6x Cortex-A510 @ 2.00 GHz",
-            l2Cache: "Unknown",
+            l2Cache: "2x 512KB (A715) + 3x 128KB (2x A510)",
             l3Cache: "2 MB"
         },
         slc: "Not specified",
