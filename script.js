@@ -1553,7 +1553,7 @@ const snapdragon7Data = [
             l3Cache: "2 MB"
         },
         slc: "N/A",
-        gpu: "Adreno 642L (719GHz)",
+        gpu: "Adreno 642L (719mHz)",
         npu: "Hexagon 770",
         modem: "Snapdragon X53 5G",
         dsp: "Hexagon 770",
