@@ -1571,7 +1571,7 @@ const snapdragon7Data = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "1x Cortex-A78 @ 2.40/2.50 GHz + 3x Cortex-A78 @ 2.20/2.40 GHz + 4x Cortex-A55 @ 1.90 GHz",
-            l2Cache: "512KB (A78) + 3x 256KB (A78) + 4x 128KB (A55)",
+            l2Cache: "4x 256KB (A78) + 4x 128KB (A55)",
             l3Cache: "2 MB"
         },
         slc: "N/A",
