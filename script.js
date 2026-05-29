@@ -3277,6 +3277,7 @@ const dimensity7000Data = [
         process: "TSMC N4",
         dieSize: "Unknown",
         architecture: "ARMv9.3-A",
+        geekbench6: { single: "1243", multi: "3569" },
         cpu: {
             specs: "4x C1-Pro @ 2.6 GHz + 4x C1-Nano @ 2.0 GHz",
             l2Cache: "Unknown",
