@@ -1715,7 +1715,7 @@ const snapdragon7Data = [
 
 const snapdragon6Data = [
     {
-        name: "Snapdragon 6 Gen 5 (tentative name)",
+        name: "Snapdragon 6 Gen 5",
         process: "4nm",
         codename: "Skyros",
         partNumber: "SM6850",
