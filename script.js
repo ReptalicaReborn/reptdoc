@@ -3272,7 +3272,7 @@ const dimensity8000Data = [
 const dimensity7000Data = [
         {
         name: "MediaTek Dimensity 7500",
-        partNumber: "unknown",
+        partNumber: "MT6881",
         releaseDate: "2026.05",
         process: "TSMC N4",
         dieSize: "Unknown",
