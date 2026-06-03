@@ -452,7 +452,7 @@ const mSeriesData = [
         partNumber: "T6051",
         releaseDate: "2026.03",
         process: "TSMC N3P (3nm)",
-        dieSize: "Unknown",
+        dieSize: "166.9mm² CPU + 160.5mm² GPU",
         geekbench6: { single: "4268", multi: "29216" },
         wildlifeExtreme: "43222",
         steelNomadLite: "17853",
@@ -3277,7 +3277,7 @@ const dimensity7000Data = [
         process: "TSMC N4",
         dieSize: "Unknown",
         architecture: "ARMv9.3-A",
-        geekbench6: { single: "1243", multi: "3569" },
+        geekbench6: { single: "1255", multi: "3569" },
         cpu: {
             specs: "4x C1-Pro @ 2.6 GHz + 4x C1-Nano @ 2.0 GHz",
             l2Cache: "Unknown",
