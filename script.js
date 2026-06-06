@@ -6881,6 +6881,25 @@ function updateBreadcrumb(manufacturer, seriesName) {
 }
 
 const unisocData = [
+        {
+        name: "Unisoc N9 (placeholder)",
+        partNumber: "UMS9660",
+        releaseDate: "TBA",
+        process: "TBA",
+        dieSize: "unknown",
+        architecture: "ARMv9.2-A",
+        geekbench6 : {single: "1318", multi: "3084"},
+        cpu: {
+            specs: "2x Cortex-A725 @ 2.86 GHz + 6x Cortex-A520 @ 2.21 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "unknown",
+        gpu: "ARM Mali-G625 MC2 (1.3 GHz)",
+        npu: "UNISOC NPU",
+        modem: "UNISOC 5G Modem (Sub-6GHz)",
+        memory: "TBA"
+    },
     {
         name: "Unisoc T8300",
         partNumber: "unknown",
@@ -6889,7 +6908,7 @@ const unisocData = [
         dieSize: "unknown",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x Cortex-A78 @ 2.20 GHz + 4x Cortex-A55 @ 2 GHz",
+            specs: "2x Cortex-A78 @ 2.20 GHz + 6x Cortex-A55 @ 2 GHz",
             l2Cache: "unknown",
             l3Cache: "unknown"
         },
@@ -6897,7 +6916,7 @@ const unisocData = [
         gpu: "ARM Mali-G57 MC2 (950 MHz)",
         npu: "UNISOC NPU (3.2 TOPS)",
         modem: "UNISOC 5G Modem (Sub-6GHz)",
-        memory: "32-bit Quad-channel LPDDR4X 2133 MHz"
+        memory: "32-bit LPDDR4X 2133 MHz"
     },
     {
         name: "Unisoc T820",
