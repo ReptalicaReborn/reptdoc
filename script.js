@@ -5625,6 +5625,7 @@ const exynos1000Data = [
             l2Cache: "unknown",
             l3Cache: "unknown"
         },
+        geekbench6: { single: "966", multi: "2421" },
         slc: "N/A",
         gpu: "ARM Mali-G68 MP2 (949 MHz)",
 
