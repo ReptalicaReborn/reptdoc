@@ -6919,7 +6919,7 @@ const unisocData = [
         memory: "32-bit LPDDR4X 2133 MHz"
     },
     {
-        name: "Unisoc T820",
+        name: "Unisoc T820 / T9100",
         geekbench6: { single: "850", multi: "2400" },
         wildlifeExtreme: "574",
         partNumber: "UMS9620",
