@@ -4683,7 +4683,7 @@ const kirin9000Data = [
         geekbench6: { single: "1856", multi: "6115" },
         wildlifeExtreme: "3263",
         steelNomadLite: "1037",
-        dieSize: "137mm²",
+        dieSize: "140.3mm²",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x 2.75GHz (Taishan Prime) + 4x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
@@ -4701,7 +4701,7 @@ const kirin9000Data = [
         partNumber: "Hi3D60 GFCV110",
         releaseDate: "2025.11",
         process: "SMIC N+3 (6nm+)",
-        dieSize: "137mm²",
+        dieSize: "140.3mm²",
         architecture: "ARMv8-A compatible",
         geekbench6: { single: "1808", multi: "5124" },
         wildlifeExtreme: "2932",
@@ -5286,7 +5286,7 @@ const kirinTabletData = [
         geekbench6: { single: "1856", multi: "6115" },
         wildlifeExtreme: "3263",
         steelNomadLite: "1037",
-        dieSize: "137mm²",
+        dieSize: "140.3mm²",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x 2.75GHz (Taishan Prime) + 4x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
