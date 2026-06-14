@@ -8215,24 +8215,44 @@ function initSearch() {
     const searchInput = document.getElementById('chip-search');
     if (!searchInput) return;
 
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
+    // Cache for pre-built global data (rebuilt only when series data changes)
+    let _globalDataCache = null;
+    function getGlobalData() {
+        if (_globalDataCache) return _globalDataCache;
+        const result = [];
+        Object.keys(seriesDataMap).forEach(key => {
+            if (key === 'global') return;
+            const info = seriesDataMap[key];
+            info.data.forEach(chip => {
+                result.push({ ...chip, manufacturer: info.manufacturer, seriesKey: key });
+            });
+        });
+        _globalDataCache = result;
+        return result;
+    }
+    // Invalidate global cache if series data ever changes
+    window._invalidateGlobalSearchCache = function () { _globalDataCache = null; };
 
-        // If currently in welcome state (or was when search started), prepare context
+    let _lastQuery = '';
+    let _lastFilter = '';
+    let _lastResults = null;
+    let _debounceTimer = null;
+
+    function doSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+
         if (isWelcomeState) {
-            // Switch to global context if not already
             if (currentSeries !== 'global') {
                 currentSeries = 'global';
-                // Update breadcrumbs to show Global Search
                 updateBreadcrumb("ReptDoc", t('search_results'));
-
-                // Deselect nav items
                 document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
             }
         }
 
-        // Handle Empty Query -> Go back to state
         if (!query) {
+            _lastQuery = '';
+            _lastFilter = '';
+            _lastResults = null;
             if (isWelcomeState) {
                 renderWelcomePage();
             } else {
@@ -8242,28 +8262,14 @@ function initSearch() {
             return;
         }
 
-        // Prepare Data for Search
-        let dataToFilter = [];
-        if (currentSeries === 'global') {
-            // Aggregate ALL data
-            Object.keys(seriesDataMap).forEach(key => {
-                if (key === 'global') return;
-                const info = seriesDataMap[key];
-                // Add manufacturer info to each chip for the global view logic
-                const chipsWithMeta = info.data.map(chip => ({
-                    ...chip,
-                    manufacturer: info.manufacturer,
-                    seriesKey: key // optional, helpful for debugging
-                }));
-                dataToFilter = dataToFilter.concat(chipsWithMeta);
-            });
-        } else {
-            const seriesInfo = seriesDataMap[currentSeries];
-            if (!seriesInfo) return;
-            dataToFilter = seriesInfo.data;
-        }
         const searchFilter = document.getElementById('search-filter');
         const filterBy = searchFilter ? searchFilter.value : 'name';
+
+        // Skip re-render if query + filter unchanged
+        if (query === _lastQuery && filterBy === _lastFilter) return;
+
+        const dataToFilter = currentSeries === 'global' ? getGlobalData() : (seriesDataMap[currentSeries]?.data || []);
+
         const filteredData = dataToFilter.filter(chip => {
             const nameMatch = chip.name && getLc(chip.name).includes(query);
             if (filterBy === 'name') return nameMatch || (chip.codename && getLc(chip.codename).includes(query));
@@ -8291,13 +8297,27 @@ function initSearch() {
             return aName.length - bName.length;
         });
 
+        // Skip re-render if results are identical
+        const resultKey = filteredData.map(c => c.name).join(',');
+        if (_lastResults === resultKey) return;
+
+        _lastQuery = query;
+        _lastFilter = filterBy;
+        _lastResults = resultKey;
+
         renderTable(filteredData);
+    }
+
+    searchInput.addEventListener('input', () => {
+        clearTimeout(_debounceTimer);
+        _debounceTimer = setTimeout(doSearch, 100);
     });
 
     const searchFilter = document.getElementById('search-filter');
     if (searchFilter) {
         searchFilter.addEventListener('change', () => {
-            searchInput.dispatchEvent(new Event('input'));
+            _lastQuery = '';
+            doSearch();
         });
     }
 }
