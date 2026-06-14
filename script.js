@@ -3557,8 +3557,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "2x ARM Mali-G57 (1.07 GHz)",
@@ -3577,8 +3577,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.6 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "arm Mali-G57 MC2 1.1GHz",
@@ -3597,8 +3597,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.5 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "arm Mali-G57 MC2 1.07 GHz",
@@ -3617,8 +3617,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "2x ARM Mali-G57 (1.07 GHz)",
@@ -3637,8 +3637,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.2 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "2x ARM Mali-G57 (962 MHz)",
@@ -3657,8 +3657,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G57 MC2 (1068 MHz)",
@@ -3677,8 +3677,8 @@ const dimensity6000Data = [
         architecture: "ARMv8-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.2 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "Unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G57 MC2 (950 MHz)",
@@ -3980,8 +3980,8 @@ const dimensity700Data = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.2 GHz + 6x Cortex-A55 @ 2.0 GHz",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "N/A",
         gpu: "ARM Mali-G57 MC2 (950 MHz)",
@@ -4003,8 +4003,8 @@ const helioGData = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "2 MB"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "Unknown",
         gpu: "ARM Mali-G57 MC2 (1100 MHz)",
@@ -4023,8 +4023,8 @@ const helioGData = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
-            l2Cache: "Unknown",
-            l3Cache: "2 MB"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "Unknown",
         gpu: "ARM Mali-G57 MC2 (1000 MHz)",
@@ -4043,8 +4043,8 @@ const helioGData = [
         architecture: "ARMv8.2-A",
         cpu: {
             specs: "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
-            l2Cache: "512 KB (A76), 128 KB (A55)",
-            l3Cache: "2 MB"
+            l2Cache: "256 KB (A76), 128 KB (A55)",
+            l3Cache: "1 MB"
         },
         slc: "Unknown",
         gpu: "ARM Mali-G57 MC2 (950 MHz)",
