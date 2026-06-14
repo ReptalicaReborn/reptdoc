@@ -72,5 +72,9 @@
     "light_mode": "Maliwanag",
     "dark_mode": "Madilim",
     "lang_theme_btn": "Wika at Tema",
-    "compare_share": "Ibahagi"
+    "compare_share": "Ibahagi",
+    "filter_all": "Lahat",
+    "filter_name": "Pangalan",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
 }

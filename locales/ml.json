@@ -72,5 +72,9 @@
     "dark_mode": "ഡാർക്ക്",
     "lang_theme_btn": "ഭാഷയും തീമും",
     "compare_share": "പങ്കിടുക",
-    "home": "ഹോം"
+    "home": "ഹോം",
+    "filter_all": "എല്ലാം",
+    "filter_name": "പേര്",
+    "filter_cpu": "സിപിയു",
+    "filter_gpu": "ജിപിയു"
 }

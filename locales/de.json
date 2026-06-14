@@ -72,5 +72,9 @@
     "light_mode": "Hell",
     "dark_mode": "Dunkel",
     "lang_theme_btn": "Sprache & Design",
-    "compare_share": "Teilen"
+    "compare_share": "Teilen",
+    "filter_all": "Alle",
+    "filter_name": "Name",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
 }

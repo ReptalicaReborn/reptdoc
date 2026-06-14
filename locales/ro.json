@@ -72,5 +72,9 @@
     "light_mode": "Deschis",
     "dark_mode": "Întunecat",
     "lang_theme_btn": "Limbă și Temă",
-    "compare_share": "Partajează"
+    "compare_share": "Partajează",
+    "filter_all": "Toate",
+    "filter_name": "Nume",
+    "filter_cpu": "Procesor",
+    "filter_gpu": "GPU"
 }

@@ -72,5 +72,9 @@
     "light_mode": "ភ្លឺ",
     "dark_mode": "ងងឹត",
     "lang_theme_btn": "ភាសា នឹង រចនាប័ទ្ម",
-    "compare_share": "ចែករំលែក"
+    "compare_share": "ចែករំលែក",
+    "filter_all": "ទាំងអស់",
+    "filter_name": "ឈ្មោះ",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
 }

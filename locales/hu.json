@@ -72,5 +72,9 @@
     "light_mode": "Világos",
     "dark_mode": "Sötét",
     "lang_theme_btn": "Nyelv és Téma",
-    "compare_share": "Megosztás"
+    "compare_share": "Megosztás",
+    "filter_all": "Összes",
+    "filter_name": "Név",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
 }

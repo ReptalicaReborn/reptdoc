@@ -1,1 +1,6 @@
-{}
+{
+    "filter_all": "همه",
+    "filter_name": "نام",
+    "filter_cpu": "پردازنده",
+    "filter_gpu": "کارت گرافیک"
+}

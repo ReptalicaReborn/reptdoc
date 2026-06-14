@@ -1,4 +1,8 @@
 {
     "welcome_title": "",
-    "compare_share": "Kongsi"
+    "compare_share": "Kongsi",
+    "filter_all": "Semua",
+    "filter_name": "Nama",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
 }

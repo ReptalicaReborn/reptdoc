@@ -7636,6 +7636,17 @@ function initLang() {
         if (ph.includes('second soc')) input.placeholder = t('search_second');
     });
 
+    // Translate Search Filter Dropdown
+    const searchFilter = document.getElementById('search-filter');
+    if (searchFilter) {
+        const savedVal = searchFilter.value;
+        searchFilter.querySelectorAll('option').forEach(opt => {
+            const key = 'filter_' + opt.value;
+            opt.textContent = t(key);
+        });
+        searchFilter.value = savedVal;
+    }
+
     // Translate Compare Button in Top Bar
     document.querySelectorAll('.top-bar button').forEach(btn => {
         const text = btn.textContent.trim().toLowerCase();
@@ -8241,10 +8252,22 @@ function initSearch() {
             if (!seriesInfo) return;
             dataToFilter = seriesInfo.data;
         }
-        const filteredData = dataToFilter.filter(chip =>
-            (chip.name && chip.name.toLowerCase().includes(query)) ||
-            (chip.codename && chip.codename.toLowerCase().includes(query))
-        );
+        const searchFilter = document.getElementById('search-filter');
+        const filterBy = searchFilter ? searchFilter.value : 'all';
+        const filteredData = dataToFilter.filter(chip => {
+            const cpuSpecs = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : '';
+            const gpuStr = chip.gpu || '';
+            const nameMatch = chip.name && chip.name.toLowerCase().includes(query);
+            const cpuMatch = cpuSpecs && cpuSpecs.toLowerCase().includes(query);
+            const gpuMatch = gpuStr.toLowerCase().includes(query);
+            const codeMatch = chip.codename && chip.codename.toLowerCase().includes(query);
+            switch (filterBy) {
+                case 'cpu': return cpuMatch;
+                case 'gpu': return gpuMatch;
+                case 'name': return nameMatch || codeMatch;
+                default: return nameMatch || codeMatch || cpuMatch || gpuMatch;
+            }
+        });
 
         // Sort by relevance
         filteredData.sort((a, b) => {
@@ -8261,6 +8284,13 @@ function initSearch() {
 
         renderTable(filteredData);
     });
+
+    const searchFilter = document.getElementById('search-filter');
+    if (searchFilter) {
+        searchFilter.addEventListener('change', () => {
+            searchInput.dispatchEvent(new Event('input'));
+        });
+    }
 }
 
 /* Comparison Logic */

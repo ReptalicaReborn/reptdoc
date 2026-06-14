@@ -871,6 +871,60 @@ body {
     color: var(--md-sys-color-on-surface-variant);
 }
 
+.search-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.search-filter-select {
+    height: 48px;
+    padding: 0 12px;
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface-variant);
+    border: none;
+    border-radius: var(--shape-corner-full) 0 0 var(--shape-corner-full);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9C0B5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.search-filter-select:hover {
+    background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.search-filter-select:focus {
+    outline: none;
+}
+
+.search-filter-group .search-box {
+    border-radius: 0 var(--shape-corner-full) var(--shape-corner-full) 0;
+    width: 240px;
+}
+
+.search-filter-group .search-box:focus-within {
+    width: 280px;
+}
+
+body.light-mode .search-filter-select {
+    background-color: #F8F9FA;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2344474E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+body.light-mode .search-filter-select:hover {
+    background-color: color-mix(in srgb, var(--md-sys-color-primary) 5%, #F8F9FA);
+}
+
 /* Buttons */
 button {
     border: none;
@@ -2318,6 +2372,24 @@ body.light-mode .cpu-cluster:hover {
 
     .search-box:focus-within {
         width: auto;
+    }
+
+    .search-filter-group {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-filter-group .search-box {
+        flex: 1;
+        width: auto;
+    }
+
+    .search-filter-select {
+        font-size: 12px;
+        padding: 0 24px 0 10px;
+        height: 48px;
     }
 
     .btn-text,

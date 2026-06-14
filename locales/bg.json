@@ -72,5 +72,9 @@
     "light_mode": "Светла",
     "dark_mode": "Тъмна",
     "lang_theme_btn": "Език и Тема",
-    "compare_share": "Сподели"
+    "compare_share": "Сподели",
+    "filter_all": "Всички",
+    "filter_name": "Име",
+    "filter_cpu": "Процесор",
+    "filter_gpu": "ГПУ"
 }

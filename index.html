@@ -25,7 +25,7 @@
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100..900&family=Inter:wght@100..900&family=Outfit:wght@300;400;500;700&family=Share+Tech+Mono&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=115">
+    <link rel="stylesheet" href="style.css?v=116">
     <script src="theme.js"></script>
 </head>
 
@@ -187,9 +187,17 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <div class="search-box">
-                        <span class="material-icons-round search-icon">search</span>
-                        <input type="text" id="chip-search" placeholder="Search chips...">
+                    <div class="search-filter-group">
+                        <select id="search-filter" class="search-filter-select">
+                            <option value="name" selected>Name</option>
+                            <option value="all">All</option>
+                            <option value="cpu">CPU</option>
+                            <option value="gpu">GPU</option>
+                        </select>
+                        <div class="search-box">
+                            <span class="material-icons-round search-icon">search</span>
+                            <input type="text" id="chip-search" placeholder="Search chips...">
+                        </div>
                     </div>
                 </div>
             </header>

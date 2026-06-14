@@ -1,1 +1,6 @@
-{}
+{
+    "filter_all": "Tanan",
+    "filter_name": "Ngalan",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
+}

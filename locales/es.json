@@ -1,1 +1,6 @@
-{}
+{
+    "filter_all": "Todos",
+    "filter_name": "Nombre",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
+}

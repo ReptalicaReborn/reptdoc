@@ -1,1 +1,6 @@
-{}
+{
+    "filter_all": "Sabhi",
+    "filter_name": "Naam",
+    "filter_cpu": "Processor",
+    "filter_gpu": "GPU"
+}

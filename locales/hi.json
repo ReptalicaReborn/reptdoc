@@ -72,5 +72,9 @@
     "light_mode": "हल्का",
     "dark_mode": "गहरा",
     "lang_theme_btn": "भाषा और थीम",
-    "compare_share": "शेयर करें"
+    "compare_share": "शेयर करें",
+    "filter_all": "सभी",
+    "filter_name": "नाम",
+    "filter_cpu": "प्रोसेसर",
+    "filter_gpu": "GPU"
 }

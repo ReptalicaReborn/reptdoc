@@ -72,5 +72,9 @@
     "light_mode": "فاتح",
     "dark_mode": "داكن",
     "lang_theme_btn": "اللغة والسمة",
-    "compare_share": "مشاركة"
+    "compare_share": "مشاركة",
+    "filter_all": "الكل",
+    "filter_name": "الاسم",
+    "filter_cpu": "المعالج",
+    "filter_gpu": "كرت الشاشة"
 }

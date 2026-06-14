@@ -80,5 +80,9 @@
     "light_mode": "浅色",
     "dark_mode": "深色",
     "lang_theme_btn": "语言与主题",
-    "compare_share": "分享"
+    "compare_share": "分享",
+    "filter_all": "全部",
+    "filter_name": "名称",
+    "filter_cpu": "处理器",
+    "filter_gpu": "显卡"
 }

@@ -72,5 +72,9 @@
     "light_mode": "Terang",
     "dark_mode": "Gelap",
     "lang_theme_btn": "Bahasa & Tema",
-    "compare_share": "Bagikan"
+    "compare_share": "Bagikan",
+    "filter_all": "Semua",
+    "filter_name": "Nama",
+    "filter_cpu": "CPU",
+    "filter_gpu": "GPU"
 }

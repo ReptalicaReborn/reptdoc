@@ -1,1 +1,6 @@
-{}
+{
+    "filter_all": "அனைத்தும்",
+    "filter_name": "பெயர்",
+    "filter_cpu": "செயலி",
+    "filter_gpu": "ஜிபியு"
+}

@@ -78,5 +78,9 @@
     "light_mode": "Jasny",
     "dark_mode": "Ciemny",
     "lang_theme_btn": "Język i Motyw",
-    "compare_share": "Udostępnij"
+    "compare_share": "Udostępnij",
+    "filter_all": "Wszystkie",
+    "filter_name": "Nazwa",
+    "filter_cpu": "Procesor",
+    "filter_gpu": "GPU"
 }

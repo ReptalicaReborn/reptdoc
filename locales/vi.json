@@ -72,5 +72,9 @@
     "light_mode": "Sáng",
     "dark_mode": "Tối",
     "lang_theme_btn": "Ngôn ngữ & Chủ đề",
-    "compare_share": "Chia sẻ"
+    "compare_share": "Chia sẻ",
+    "filter_all": "Tất cả",
+    "filter_name": "Tên",
+    "filter_cpu": "Bộ xử lý",
+    "filter_gpu": "GPU"
 }

@@ -72,5 +72,9 @@
     "light_mode": "Açık",
     "dark_mode": "Koyu",
     "lang_theme_btn": "Dil ve Tema",
-    "compare_share": "Paylaş"
+    "compare_share": "Paylaş",
+    "filter_all": "Tümü",
+    "filter_name": "İsim",
+    "filter_cpu": "İşlemci",
+    "filter_gpu": "GPU"
 }
