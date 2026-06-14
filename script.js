@@ -8253,20 +8253,19 @@ function initSearch() {
             dataToFilter = seriesInfo.data;
         }
         const searchFilter = document.getElementById('search-filter');
-        const filterBy = searchFilter ? searchFilter.value : 'all';
+        const filterBy = searchFilter ? searchFilter.value : 'name';
         const filteredData = dataToFilter.filter(chip => {
-            const cpuSpecs = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : '';
-            const gpuStr = chip.gpu || '';
             const nameMatch = chip.name && chip.name.toLowerCase().includes(query);
-            const cpuMatch = cpuSpecs && cpuSpecs.toLowerCase().includes(query);
-            const gpuMatch = gpuStr.toLowerCase().includes(query);
-            const codeMatch = chip.codename && chip.codename.toLowerCase().includes(query);
-            switch (filterBy) {
-                case 'cpu': return cpuMatch;
-                case 'gpu': return gpuMatch;
-                case 'name': return nameMatch || codeMatch;
-                default: return nameMatch || codeMatch || cpuMatch || gpuMatch;
+            if (filterBy === 'name') return nameMatch || (chip.codename && chip.codename.toLowerCase().includes(query));
+            if (filterBy === 'cpu') {
+                const cpuSpecs = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : '';
+                return cpuSpecs && cpuSpecs.toLowerCase().includes(query);
             }
+            if (filterBy === 'gpu') return chip.gpu && chip.gpu.toLowerCase().includes(query);
+            const cpuSpecs = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : '';
+            return nameMatch || (chip.codename && chip.codename.toLowerCase().includes(query)) ||
+                (cpuSpecs && cpuSpecs.toLowerCase().includes(query)) ||
+                (chip.gpu && chip.gpu.toLowerCase().includes(query));
         });
 
         // Sort by relevance
