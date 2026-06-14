@@ -6666,6 +6666,16 @@ function formatGpuSpec(specString) {
 let currentSeries = 'a-series';
 let isWelcomeState = false; // Will be set to true on load if renderWelcomePage is called
 
+// Pre-computed lowercase cache for search performance
+const _lcCache = new Map();
+function getLc(val) {
+    if (!val) return '';
+    if (_lcCache.has(val)) return _lcCache.get(val);
+    const lc = val.toLowerCase();
+    _lcCache.set(val, lc);
+    return lc;
+}
+
 window.activeGpuBenchmark = 'wildlife';
 window.toggleGpuBenchmark = function () {
     window.activeGpuBenchmark = (window.activeGpuBenchmark === 'wildlife') ? 'steel_nomad' : 'wildlife';
@@ -8255,23 +8265,23 @@ function initSearch() {
         const searchFilter = document.getElementById('search-filter');
         const filterBy = searchFilter ? searchFilter.value : 'name';
         const filteredData = dataToFilter.filter(chip => {
-            const nameMatch = chip.name && chip.name.toLowerCase().includes(query);
-            if (filterBy === 'name') return nameMatch || (chip.codename && chip.codename.toLowerCase().includes(query));
+            const nameMatch = chip.name && getLc(chip.name).includes(query);
+            if (filterBy === 'name') return nameMatch || (chip.codename && getLc(chip.codename).includes(query));
             if (filterBy === 'cpu') {
                 const cpuSpecs = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : '';
-                return cpuSpecs && cpuSpecs.toLowerCase().includes(query);
+                return cpuSpecs && getLc(cpuSpecs).includes(query);
             }
-            if (filterBy === 'gpu') return chip.gpu && chip.gpu.toLowerCase().includes(query);
+            if (filterBy === 'gpu') return chip.gpu && getLc(chip.gpu).includes(query);
             const cpuSpecs = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : '';
-            return nameMatch || (chip.codename && chip.codename.toLowerCase().includes(query)) ||
-                (cpuSpecs && cpuSpecs.toLowerCase().includes(query)) ||
-                (chip.gpu && chip.gpu.toLowerCase().includes(query));
+            return nameMatch || (chip.codename && getLc(chip.codename).includes(query)) ||
+                (cpuSpecs && getLc(cpuSpecs).includes(query)) ||
+                (chip.gpu && getLc(chip.gpu).includes(query));
         });
 
         // Sort by relevance
         filteredData.sort((a, b) => {
-            const aName = a.name.toLowerCase();
-            const bName = b.name.toLowerCase();
+            const aName = getLc(a.name);
+            const bName = getLc(b.name);
             if (aName === query) return -1;
             if (bName === query) return 1;
             const aStarts = aName.startsWith(query);
