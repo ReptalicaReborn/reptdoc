@@ -1818,13 +1818,13 @@ const snapdragon6Data = [
         partNumber: "SM6850",
         cpu: {
             specs: "4x Cortex-A78 2.6GHz + 4x Cortex-A55 2.0GHz",
-            slc: "N/A",
-            gpu: "Adreno 812",
-            npu: "Qualcomm Hexagon NPU",
-            modem: "Snapdragon 5G sub-6 Rel.17",
-            dsp: "Qualcomm Hexagon",
-            memory: "16-bit Dual-channel LPDDR5 6400MT"
-        }
+        },
+        slc: "N/A",
+        gpu: "Adreno 812",
+        npu: "Qualcomm Hexagon NPU",
+        modem: "Snapdragon 5G sub-6 Rel.17",
+        dsp: "Qualcomm Hexagon",
+        memory: "16-bit Dual-channel LPDDR5 6400MT"
     },
     {
         name: "Snapdragon 6 Gen 4",
