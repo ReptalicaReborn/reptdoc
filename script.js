@@ -203,6 +203,7 @@ const aSeriesData = [
     },
     {
         name: "A12X / A12Z Bionic",
+        binnedOf: "A12Z Bionic",
         geekbench6: { single: "1490", multi: "4800" },
         wildlifeExtreme: "2100",
         codename: "Vortex / Tempest",
@@ -1022,6 +1023,7 @@ const snapdragon8Data = [
     },
     {
         name: "Snapdragon 888+",
+        binnedOf: "Snapdragon 888",
         geekbench6: { single: "1500", multi: "3800" },
         wildlifeExtreme: "1550",
         steelNomadLite: "510",
@@ -1087,6 +1089,7 @@ const snapdragon8Data = [
     },
     {
         name: "Snapdragon 865+",
+        binnedOf: "Snapdragon 865",
         geekbench6: { single: "1150", multi: "3200" },
         wildlifeExtreme: "1120",
         codename: "kona",
@@ -1129,6 +1132,7 @@ const snapdragon8Data = [
     },
     {
         name: "Snapdragon 860",
+        binnedOf: "Snapdragon 855+",
         geekbench6: { single: "950", multi: "2800" },
         wildlifeExtreme: "1050",
         codename: "msmnile/hana",
@@ -1150,6 +1154,7 @@ const snapdragon8Data = [
     },
     {
         name: "Snapdragon 855+",
+        binnedOf: "Snapdragon 855",
         geekbench6: { single: "989", multi: "3036" },
         wildlifeExtreme: "936",
         codename: "msmnile/hana",
@@ -1387,6 +1392,7 @@ const snapdragon7Data = [
     },
     {
         name: "Snapdragon 7s Gen 4",
+        binnedOf: "Snapdragon 7s Gen 3",
         geekbench6: { single: "1236", multi: "3060" },
         wildlifeExtreme: "1111",
         codename: "volcano",
@@ -1539,6 +1545,7 @@ const snapdragon7Data = [
     },
     {
         name: "Snapdragon 782G",
+        binnedOf: "Snapdragon 778G",
         geekbench6: { single: "1108", multi: "2906" },
         wildlifeExtreme: "806",
         codename: "kodiak",
@@ -1560,22 +1567,45 @@ const snapdragon7Data = [
         memory: "16-bit Dual-channel LPDDR5 3200 MHz"
     },
     {
-        name: "Snapdragon 778G / 778G+",
+        name: "Snapdragon 778G",
         geekbench6: { single: "1000", multi: "2897" },
         wildlifeExtreme: "692",
         codename: "kodiak",
-        partNumber: "SM7325 / SM7325-AE",
-        releaseDate: "2021.05 (778G) / 2021.10 (778G+)",
+        partNumber: "SM7325",
+        releaseDate: "2021.05",
         process: "TSMC 6nm (N6)",
         dieSize: "Unknown",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "1x Cortex-A78 @ 2.40/2.50 GHz + 3x Cortex-A78 @ 2.20/2.40 GHz + 4x Cortex-A55 @ 1.90 GHz",
+            specs: "1x Cortex-A78 @ 2.40 GHz + 3x Cortex-A78 @ 2.20 GHz + 4x Cortex-A55 @ 1.90 GHz",
             l2Cache: "4x 256KB (A78) + 4x 128KB (A55)",
             l3Cache: "2 MB"
         },
         slc: "N/A",
-        gpu: "Adreno 642L (550 MHz / 608 MHz for Plus)",
+        gpu: "Adreno 642L (550 MHz)",
+        npu: "Hexagon 770 (12 TOPS)",
+        modem: "Snapdragon X53 5G",
+        dsp: "Hexagon 770",
+        memory: "16-bit Dual-channel LPDDR5 3200 MHz"
+    },
+    {
+        name: "Snapdragon 778G+",
+        binnedOf: "Snapdragon 778G",
+        geekbench6: { single: "1000", multi: "2897" },
+        wildlifeExtreme: "692",
+        codename: "kodiak",
+        partNumber: "SM7325-AE",
+        releaseDate: "2021.10",
+        process: "TSMC 6nm (N6)",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "1x Cortex-A78 @ 2.50 GHz + 3x Cortex-A78 @ 2.40 GHz + 4x Cortex-A55 @ 1.90 GHz",
+            l2Cache: "4x 256KB (A78) + 4x 128KB (A55)",
+            l3Cache: "2 MB"
+        },
+        slc: "N/A",
+        gpu: "Adreno 642L (608 MHz)",
         npu: "Hexagon 770 (12 TOPS)",
         modem: "Snapdragon X53 5G",
         dsp: "Hexagon 770",
@@ -1648,22 +1678,68 @@ const snapdragon7Data = [
         memory: "16-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
-        name: "Snapdragon 730 / 730G / 732G",
+        name: "Snapdragon 730",
         geekbench6: { single: "700", multi: "1800" },
         wildlifeExtreme: "330",
         codename: "moorea",
-        partNumber: "SM7150-AA / SM7150-AB",
+        partNumber: "SM7150-AA",
         releaseDate: "2019.04",
         process: "Samsung 8nm (8LPP)",
         dieSize: "Unknown",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x Cortex-A76 @ 2.2 GHz / 2.3 GHz (732G) + 6x Cortex-A55 @ 1.8 GHz",
+            specs: "2x Cortex-A76 @ 2.2 GHz + 6x Cortex-A55 @ 1.8 GHz",
             l2Cache: "2x 256KB (A76) + 6x 64KB (A55)",
             l3Cache: "1 MB"
         },
         slc: "N/A",
-        gpu: "Adreno 618 (610MHz / 700MHz / 800MHz)",
+        gpu: "Adreno 618 (610 MHz)",
+        npu: "Hexagon 688 (3.6 TOPS)",
+        modem: "Snapdragon X15 LTE",
+        dsp: "Hexagon 688",
+        memory: "16-bit Dual-channel LPDDR4X 1866 MHz"
+    },
+    {
+        name: "Snapdragon 730G",
+        binnedOf: "Snapdragon 730",
+        geekbench6: { single: "700", multi: "1800" },
+        wildlifeExtreme: "330",
+        codename: "moorea",
+        partNumber: "SM7150-AB",
+        releaseDate: "2019.04",
+        process: "Samsung 8nm (8LPP)",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A76 @ 2.2 GHz + 6x Cortex-A55 @ 1.8 GHz",
+            l2Cache: "2x 256KB (A76) + 6x 64KB (A55)",
+            l3Cache: "1 MB"
+        },
+        slc: "N/A",
+        gpu: "Adreno 618 (700 MHz)",
+        npu: "Hexagon 688 (3.6 TOPS)",
+        modem: "Snapdragon X15 LTE",
+        dsp: "Hexagon 688",
+        memory: "16-bit Dual-channel LPDDR4X 1866 MHz"
+    },
+    {
+        name: "Snapdragon 732G",
+        binnedOf: "Snapdragon 730",
+        geekbench6: { single: "700", multi: "1800" },
+        wildlifeExtreme: "330",
+        codename: "moorea",
+        partNumber: "SM7150-AC",
+        releaseDate: "2020.08",
+        process: "Samsung 8nm (8LPP)",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A76 @ 2.3 GHz + 6x Cortex-A55 @ 1.8 GHz",
+            l2Cache: "2x 256KB (A76) + 6x 64KB (A55)",
+            l3Cache: "1 MB"
+        },
+        slc: "N/A",
+        gpu: "Adreno 618 (800 MHz)",
         npu: "Hexagon 688 (3.6 TOPS)",
         modem: "Snapdragon X15 LTE",
         dsp: "Hexagon 688",
@@ -1692,20 +1768,41 @@ const snapdragon7Data = [
         architecture: "ARMv8.2-A"
     },
     {
-        name: "Snapdragon 710 / 712",
+        name: "Snapdragon 710",
         codename: "napaliQ",
-        partNumber: "SDM710 / SDM712",
-        releaseDate: "2018.05 / 2019.02",
+        partNumber: "SDM710",
+        releaseDate: "2018.05",
         process: "Samsung 10nm (10LPP)",
         dieSize: "Unknown",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x Cortex-A75 @ 2.2/2.3 GHz + 6x Cortex-A55 @ 1.70 GHz",
+            specs: "2x Cortex-A75 @ 2.2 GHz + 6x Cortex-A55 @ 1.70 GHz",
             l2Cache: "2x 256KB (A75) + 6x 64KB (A55)",
             l3Cache: "1 MB"
         },
         slc: "N/A",
-        gpu: "Adreno 616 (504 MHz / 610 MHz)",
+        gpu: "Adreno 616 (504 MHz)",
+        npu: "Hexagon 685",
+        modem: "Snapdragon X15 LTE",
+        dsp: "Hexagon 685",
+        memory: "16-bit Dual-channel LPDDR4X 1866 MHz"
+    },
+    {
+        name: "Snapdragon 712",
+        binnedOf: "Snapdragon 710",
+        codename: "napaliQ",
+        partNumber: "SDM712",
+        releaseDate: "2019.02",
+        process: "Samsung 10nm (10LPP)",
+        dieSize: "Unknown",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x Cortex-A75 @ 2.3 GHz + 6x Cortex-A55 @ 1.70 GHz",
+            l2Cache: "2x 256KB (A75) + 6x 64KB (A55)",
+            l3Cache: "1 MB"
+        },
+        slc: "N/A",
+        gpu: "Adreno 616 (610 MHz)",
         npu: "Hexagon 685",
         modem: "Snapdragon X15 LTE",
         dsp: "Hexagon 685",
@@ -1720,9 +1817,9 @@ const snapdragon6Data = [
         codename: "Skyros",
         partNumber: "SM6850",
         cpu: {
-            specs: "4x Kryo Gold 2.6GHz + 4x Kryo Silver 2.0GHz",
+            specs: "4x Cortex-A78 2.6GHz + 4x Cortex-A55 2.0GHz",
             slc: "N/A",
-            gpu: "Adreno",
+            gpu: "Adreno 812",
             npu: "Qualcomm Hexagon NPU",
             modem: "Snapdragon 5G sub-6 Rel.17",
             dsp: "Qualcomm Hexagon",
@@ -1819,6 +1916,7 @@ const snapdragon6Data = [
     },
     {
         name: "Snapdragon 6s 4G Gen 2",
+        binnedOf: "Snapdragon 680",
         geekbench6: { single: "490", multi: "1519" },
         wildlifeExtreme: "134",
         codename: "divar",
@@ -1841,6 +1939,7 @@ const snapdragon6Data = [
     },
     {
         name: "Snapdragon 6s 4G Gen 1",
+        binnedOf: "Snapdragon 665",
         geekbench6: { single: "310", multi: "1332" },
         wildlifeExtreme: "112",
         codename: "bengal",
@@ -1928,10 +2027,11 @@ const snapdragon6Data = [
         memory: "16-bit Dual-channel LPDDR4X 2133 MHz"
     },
     {
-        name: "Snapdragon 675 / 678",
+        name: "Snapdragon 675",
+        binnedOf: null,
         codename: "trinket",
-        partNumber: "SM6150(-AC)",
-        releaseDate: "2018.10 / 2020.12",
+        partNumber: "SM6150",
+        releaseDate: "2018.10",
         process: "Samsung 11nm (11LPP)",
         dieSize: "unknown",
         architecture: "ARMv8.2-A",
@@ -1970,7 +2070,7 @@ const snapdragon6Data = [
         memory: "16-bit Dual-channel LPDDR4X 1866 MHz"
     },
     {
-        name: "Snapdragon 665 / 662",
+        name: "Snapdragon 665",
         geekbench6: { single: "337", multi: "1190" },
         wildlifeExtreme: "108",
         codename: "trinket",
@@ -2012,22 +2112,64 @@ const snapdragon6Data = [
         memory: "16-bit Dual-channel LPDDR4 1866 MHz"
     },
     {
-        name: "Snapdragon 650 / 652 / 653",
+        name: "Snapdragon 650",
         codename: "eldarion",
-        partNumber: "MSM8956 (Pro)",
-        releaseDate: "2015.02 / 2016.10 (653)",
+        partNumber: "MSM8956",
+        releaseDate: "2015.02",
         process: "TSMC 28nm (28HPM)",
         dieSize: "unknown",
         architecture: "ARMv7-A",
         cpu: {
-            specs: "2x (650) / 4x Cortex A72 @ 1.8 GHz / 1.95 GHz (653) + 4x Cortex A53 @ 1.4 GHz",
+            specs: "2x Cortex-A72 @ 1.8 GHz + 4x Cortex-A53 @ 1.4 GHz",
             l2Cache: "unknown",
             l3Cache: "N/A"
         },
         slc: "N/A",
-        gpu: "Adreno 510 (600 MHz / 621 MHz (653))",
+        gpu: "Adreno 510 (600 MHz)",
         npu: "N/A",
-        modem: "X8 LTE / X9 LTE (653)",
+        modem: "X8 LTE",
+        dsp: "Qualcomm Hexagon V56",
+        memory: "32-bit Single-channel LPDDR3 933 MHz"
+    },
+    {
+        name: "Snapdragon 652",
+        binnedOf: "Snapdragon 650",
+        codename: "eldarion",
+        partNumber: "MSM8976",
+        releaseDate: "2015.02",
+        process: "TSMC 28nm (28HPM)",
+        dieSize: "unknown",
+        architecture: "ARMv7-A",
+        cpu: {
+            specs: "4x Cortex-A72 @ 1.8 GHz + 4x Cortex-A53 @ 1.4 GHz",
+            l2Cache: "unknown",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "Adreno 510 (600 MHz)",
+        npu: "N/A",
+        modem: "X8 LTE",
+        dsp: "Qualcomm Hexagon V56",
+        memory: "32-bit Single-channel LPDDR3 933 MHz"
+    },
+    {
+        name: "Snapdragon 653",
+        binnedOf: "Snapdragon 650",
+        codename: "eldarion",
+        partNumber: "MSM8976 Pro",
+        releaseDate: "2016.10",
+        process: "TSMC 28nm (28HPM)",
+        dieSize: "unknown",
+        architecture: "ARMv7-A",
+        cpu: {
+            specs: "4x Cortex-A72 @ 1.95 GHz + 4x Cortex-A53 @ 1.4 GHz",
+            l2Cache: "unknown",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "Adreno 510 (621 MHz)",
+        npu: "N/A",
+        modem: "X9 LTE",
         dsp: "Qualcomm Hexagon V56",
         memory: "32-bit Single-channel LPDDR3 933 MHz"
     },
@@ -2072,10 +2214,10 @@ const snapdragon6Data = [
         memory: "16-bit Single-channel LPDDR3 933 MHz"
     },
     {
-        name: "Snapdragon 625/626",
+        name: "Snapdragon 625",
         codename: "msmtitanium",
         partNumber: "MSM8953",
-        releaseDate: "2016.02 / 2016.10",
+        releaseDate: "2016.02",
         process: "Samsung 14nm (14LPP)",
         dieSize: "unknown",
         architecture: "ARMv8-A",
@@ -2092,15 +2234,15 @@ const snapdragon6Data = [
         memory: "16-bit Single-channel LPDDR3 933 MHz"
     },
     {
-        name: "Snapdragon 615 / 616",
+        name: "Snapdragon 615",
         codename: "unknown",
         partNumber: "MSM8936",
-        releaseDate: "2014.02 / 2015.07",
+        releaseDate: "2014.02",
         process: "TSMC 28nm (28LP)",
         dieSize: "unknown",
         architecture: "ARMv7-A",
         cpu: {
-            specs: "4x Cortex-A53 @ 1.70 GHz + 4x Cortex-A53 @ 1.10 / 1.20 GHz",
+            specs: "4x Cortex-A53 @ 1.70 GHz + 4x Cortex-A53 @ 1.10 GHz",
             l2Cache: "unknown",
             l3Cache: "N/A"
         },
@@ -2280,6 +2422,7 @@ const snapdragon4Data = [
     },
     {
         name: "Snapdragon 480+ 5G",
+        binnedOf: "Snapdragon 480 5G",
         geekbench6: { single: "750", multi: "1950" },
         wildlifeExtreme: "280",
         codename: "Holi",
@@ -2762,6 +2905,7 @@ const snapdragonXData = [
     },
     {
         name: "Snapdragon X Elite (X1E-84-100)",
+        binnedOf: "Snapdragon X Elite (X1E-00-1DE)",
         geekbench6: { single: "2882", multi: "15412" },
         wildlifeExtreme: "6139",
         steelNomadLite: "2080",
@@ -2780,6 +2924,7 @@ const snapdragonXData = [
     },
     {
         name: "Snapdragon X Elite (X1E-80-100)",
+        binnedOf: "Snapdragon X Elite (X1E-00-1DE)",
         geekbench6: { single: "2805", multi: "14390" },
         wildlifeExtreme: "5020",
         steelNomadLite: "1702",
@@ -2798,6 +2943,7 @@ const snapdragonXData = [
     },
     {
         name: "Snapdragon X Elite (X1E-78-100)",
+        binnedOf: "Snapdragon X Elite (X1E-00-1DE)",
         geekbench6: { single: "2400", multi: "14050" },
         wildlifeExtreme: "5020",
         steelNomadLite: "1702",
@@ -2847,6 +2993,7 @@ const dimensity9000Data = [
     },
     {
         name: "MediaTek Dimensity 9500s",
+        binnedOf: "MediaTek Dimensity 9400",
         geekbench6: { single: "2910", multi: "8930" },
         wildlifeExtreme: "6432",
         steelNomadLite: "2683",
@@ -2890,6 +3037,7 @@ const dimensity9000Data = [
     },
     {
         name: "MediaTek Dimensity 9400+",
+        binnedOf: "MediaTek Dimensity 9400",
         geekbench6: { single: "2910", multi: "8930" },
         wildlifeExtreme: "6432",
         steelNomadLite: "2683",
@@ -2934,6 +3082,7 @@ const dimensity9000Data = [
     },
     {
         name: "MediaTek Dimensity 9400e",
+        binnedOf: "MediaTek Dimensity 9300",
         geekbench6: { single: "2250", multi: "7600" },
         wildlifeExtreme: "5812",
         steelNomadLite: "2341",
@@ -2956,6 +3105,7 @@ const dimensity9000Data = [
     },
     {
         name: "MediaTek Dimensity 9300+",
+        binnedOf: "MediaTek Dimensity 9300",
         geekbench6: { single: "2250", multi: "7600" },
         wildlifeExtreme: "5812",
         steelNomadLite: "2341",
@@ -3000,6 +3150,7 @@ const dimensity9000Data = [
     },
     {
         name: "MediaTek Dimensity 9200+",
+        binnedOf: "MediaTek Dimensity 9200",
         geekbench6: { single: "2100", multi: "5550" },
         wildlifeExtreme: "3976",
         partNumber: "MT6985Z",
@@ -3042,6 +3193,7 @@ const dimensity9000Data = [
     },
     {
         name: "MediaTek Dimensity 9000+",
+        binnedOf: "MediaTek Dimensity 9000",
         geekbench6: { single: "1700", multi: "4500" },
         wildlifeExtreme: "2460",
         partNumber: "MT6983",
@@ -3087,6 +3239,7 @@ const dimensity9000Data = [
 const dimensity8000Data = [
     {
         name: "MediaTek Dimensity 8550",
+        binnedOf: "MediaTek Dimensity 8400",
         partNumber: "MT6899Z",
         geekbench6: { single: "1776", multi: "7024s" },
         wildlifeExtreme: "4717",
@@ -3108,6 +3261,7 @@ const dimensity8000Data = [
     },
     {
         name: "MediaTek Dimensity 8500",
+        binnedOf: "MediaTek Dimensity 8400",
         partNumber: "MT6899Z",
         geekbench6: { single: "1776", multi: "7024s" },
         wildlifeExtreme: "4717",
@@ -3128,7 +3282,7 @@ const dimensity8000Data = [
         memory: "16-bit Quad-Channel LPDDR5X 9600"
     },
     {
-        name: "MediaTek Dimensity 8400/8450",
+        name: "MediaTek Dimensity 8400",
         partNumber: "MT6899",
         geekbench6: { single: "1722", multi: "6906" },
         wildlifeExtreme: "4128",
@@ -3149,7 +3303,7 @@ const dimensity8000Data = [
         memory: "16-bit Quad-Channel LPDDR5X 8533"
     },
     {
-        name: "MediaTek Dimensity 8300 / 8350",
+        name: "MediaTek Dimensity 8300 (MC6)",
         geekbench6: { single: "1450", multi: "4700" },
         wildlifeExtreme: "3251",
         partNumber: "MT6897",
@@ -3163,13 +3317,56 @@ const dimensity8000Data = [
             l3Cache: "4 MB"
         },
         slc: "4MB",
-        gpu: "ARM Mali-G615 MC6 / MC5 (Lenovo) (1400 MHz)",
+        gpu: "ARM Mali-G615 MC6 (1400 MHz)",
         npu: "MediaTek APU 780",
         modem: "MediaTek T800 Modem",
         memory: "16-bit Quad-Channel LPDDR5X 8533"
     },
     {
+        name: "MediaTek Dimensity 8300 (MC5)",
+        binnedOf: "MediaTek Dimensity 8300 (MC6)",
+        geekbench6: { single: "1450", multi: "4700" },
+        wildlifeExtreme: "3251",
+        partNumber: "MT6897",
+        releaseDate: "2023.11.21",
+        process: "TSMC N4P",
+        dieSize: "Unknown",
+        architecture: "ARMv9-A",
+        cpu: {
+            specs: "1x Cortex-A715 @ 3.35 GHz + 3x Cortex-A715 @ 3.20 GHz + 4x Cortex-A510 @ 2.20 GHz",
+            l2Cache: "4x 512KB (A715) + 4x 128KB (A510)",
+            l3Cache: "4 MB"
+        },
+        slc: "4MB",
+        gpu: "ARM Mali-G615 MC5 (1400 MHz)",
+        npu: "MediaTek APU 780",
+        modem: "MediaTek T800 Modem",
+        memory: "16-bit Quad-Channel LPDDR5X 8533"
+    },
+    {
+        name: "MediaTek Dimensity 8250",
+        binnedOf: "MediaTek Dimensity 8100",
+        geekbench6: { single: "1250", multi: "3900" },
+        wildlifeExtreme: "1603",
+        partNumber: "MT6896",
+        releaseDate: "2022.Q4",
+        process: "TSMC N4",
+        dieSize: "84.93mm²",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "1x Cortex-A78 @ 3.10 GHz + 3x Cortex-A78 @ 3.00 GHz + 4x Cortex-A55 @ 2.00 GHz",
+            l2Cache: "4x 512 KB (A78) + 4x 128 KB (A55)",
+            l3Cache: "4 MB"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G610 MC6 (950 MHz)",
+        npu: "MediaTek NPU 580",
+        modem: "MediaTek M70 5G Modem (Sub-6)",
+        memory: "LPDDR5 3200 MHz"
+    },
+    {
         name: "MediaTek Dimensity 8200",
+        binnedOf: "MediaTek Dimensity 8100",
         geekbench6: { single: "1250", multi: "3900" },
         wildlifeExtreme: "1603",
         partNumber: "MT6896",
@@ -3230,6 +3427,7 @@ const dimensity8000Data = [
     },
     {
         name: "MediaTek Dimensity 8020",
+        binnedOf: "MediaTek Dimensity 8050",
         geekbench6: { single: "1043", multi: "3103" },
         wildlifeExtreme: "1228",
         partNumber: "MT6981Z",
@@ -3250,6 +3448,7 @@ const dimensity8000Data = [
     },
     {
         name: "MediaTek Dimensity 8000",
+        binnedOf: "MediaTek Dimensity 8100",
         geekbench6: { single: "1080", multi: "3600" },
         wildlifeExtreme: "1500",
         partNumber: "MT6895",
@@ -3290,7 +3489,7 @@ const dimensity7000Data = [
         memory: "16-bit Dual-channel LPDDR5 6400"
     },
     {
-        name: "MediaTek Dimensity 7450 / 7450X",
+        name: "MediaTek Dimensity 7450",
         partNumber: "unknown",
         releaseDate: "2026.04",
         process: "TSMC N4",
@@ -3309,6 +3508,7 @@ const dimensity7000Data = [
     },
     {
         name: "MediaTek Dimensity 7300e",
+        binnedOf: "MediaTek Dimensity 7100",
         partNumber: "MT6858T",
         releaseDate: "2026.4",
         process: "TSMC N6",
@@ -3348,7 +3548,7 @@ const dimensity7000Data = [
         memory: "16-bit Dual-channel LPDDR5 5500"
     },
     {
-        name: "MediaTek Dimensity 7400 / 7400X",
+        name: "MediaTek Dimensity 7400",
         partNumber: "MT6878V/TZA / MT6878V/TFZA",
         releaseDate: "2024",
         process: "TSMC N4",
@@ -3369,6 +3569,7 @@ const dimensity7000Data = [
     },
     {
         name: "MediaTek Dimensity 7360",
+        binnedOf: "MediaTek Dimensity 7300",
         partNumber: "MT6878",
         releaseDate: "2025.9",
         process: "TSMC N4",
@@ -3408,7 +3609,7 @@ const dimensity7000Data = [
         memory: "16-bit Dual-channel LPDDR5 6400"
     },
     {
-        name: "MediaTek Dimensity 7300 / 7300X",
+        name: "MediaTek Dimensity 7300",
         partNumber: "MT6878",
         releaseDate: "2024",
         process: "TSMC N4",
@@ -3429,6 +3630,7 @@ const dimensity7000Data = [
     },
     {
         name: "MediaTek Dimensity 7200",
+        binnedOf: "MediaTek Dimensity 7350",
         geekbench6: { single: "1239", multi: "2621" },
         wildlifeExtreme: "1150",
         partNumber: "MT6886",
@@ -3548,6 +3750,7 @@ const dimensity7000Data = [
 const dimensity6000Data = [
     {
         name: "MediaTek Dimensity 6360",
+        binnedOf: "MediaTek Dimensity 6300",
         geekbench6: { single: "840", multi: "2123" },
         wildlifeExtreme: "370",
         partNumber: "MT6835",
@@ -3568,6 +3771,7 @@ const dimensity6000Data = [
     },
     {
         name: "MediaTek Dimensity 6500",
+        binnedOf: "MediaTek Dimensity 6300",
         geekbench6: { single: "875", multi: "2176" },
         wildlifeExtreme: "382",
         partNumber: "MT6835",
@@ -3588,6 +3792,7 @@ const dimensity6000Data = [
     },
     {
         name: "MediaTek Dimensity 6400",
+        binnedOf: "MediaTek Dimensity 6300",
         geekbench6: { single: "854", multi: "2176" },
         wildlifeExtreme: "380",
         partNumber: "MT6835",
@@ -3628,6 +3833,7 @@ const dimensity6000Data = [
     },
     {
         name: "MediaTek Dimensity 6100+",
+        binnedOf: "MediaTek Dimensity 6300",
         geekbench6: { single: "830", multi: "1950" },
         wildlifeExtreme: "360",
         partNumber: "MT6835",
@@ -3648,6 +3854,7 @@ const dimensity6000Data = [
     },
     {
         name: "MediaTek Dimensity 6080",
+        binnedOf: "MediaTek Dimensity 6300",
         geekbench6: { single: "796", multi: "1918" },
         wildlifeExtreme: "483",
         partNumber: "MT6833",
@@ -3691,6 +3898,7 @@ const dimensity6000Data = [
 const dimensity1000Data = [
     {
         name: "MediaTek Dimensity 1300",
+        binnedOf: "MediaTek Dimensity 1200",
         partNumber: "MT6893Z",
         releaseDate: "2022.04",
         process: "TSMC 6nm (N6)",
@@ -3730,7 +3938,8 @@ const dimensity1000Data = [
         memory: "LPDDR4X 2133 MHz"
     },
     {
-        name: "MediaTek Dimensity 1100 / Kompanio 1300T",
+        name: "MediaTek Dimensity 1100",
+        binnedOf: "MediaTek Dimensity 1200",
         partNumber: "MT6891Z",
         releaseDate: "2021.01",
         geekbench6: { single: "1043", multi: "3103" },
@@ -3771,6 +3980,7 @@ const dimensity1000Data = [
     },
     {
         name: "MediaTek Dimensity 1000+",
+        binnedOf: "MediaTek Dimensity 1000",
         partNumber: "MT6889Z",
         releaseDate: "2020.05",
         geekbench6: { single: "992", multi: "3053" },
@@ -3791,6 +4001,7 @@ const dimensity1000Data = [
     },
     {
         name: "MediaTek Dimensity 1000L",
+        binnedOf: "MediaTek Dimensity 1000",
         partNumber: "MT6885Z",
         releaseDate: "2019.12",
         process: "TSMC 7nm (N7)",
@@ -3994,6 +4205,7 @@ const dimensity700Data = [
 const helioGData = [
     {
         name: "MediaTek Helio G200",
+        binnedOf: "MediaTek Helio G99",
         geekbench6: { single: "812", multi: "2121" },
         wildlifeExtreme: "370",
         partNumber: "MT6789T",
@@ -4014,6 +4226,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G100",
+        binnedOf: "MediaTek Helio G99",
         geekbench6: { single: "792", multi: "2028" },
         wildlifeExtreme: "360",
         partNumber: "MT6789H",
@@ -4094,6 +4307,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G90T",
+        binnedOf: "MediaTek Helio G95",
         geekbench6: { single: "650", multi: "1750" },
         wildlifeExtreme: "400",
         partNumber: "MT6785V/CC",
@@ -4114,6 +4328,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G90",
+        binnedOf: "MediaTek Helio G95",
         geekbench6: { single: "640", multi: "1700" },
         wildlifeExtreme: "380",
         partNumber: "MT6785",
@@ -4174,6 +4389,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G85",
+        binnedOf: "MediaTek Helio G88",
         geekbench6: { single: "413", multi: "1402" },
         wildlifeExtreme: "183",
         partNumber: "MT6769Z",
@@ -4194,6 +4410,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G80",
+        binnedOf: "MediaTek Helio G88",
         geekbench6: { single: "400", multi: "1300" },
         wildlifeExtreme: "170",
         partNumber: "MT6769V/CU",
@@ -4214,6 +4431,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G70",
+        binnedOf: "MediaTek Helio G88",
         geekbench6: { single: "390", multi: "1250" },
         wildlifeExtreme: "160",
         partNumber: "MT6769V/CB",
@@ -4233,7 +4451,26 @@ const helioGData = [
         memory: "LPDDR4X 1800 MHz"
     },
     {
-        name: "MediaTek Helio G36/G50",
+        name: "MediaTek Helio G50",
+        partNumber: "MT6765V/XAA",
+        releaseDate: "2023.02",
+        process: "TSMC 12nm FinFET",
+        dieSize: "Unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "4x Cortex-A53 @ 2.2 GHz + 4x Cortex-A53 @ 1.6/1.7 GHz",
+            l2Cache: "512 KB",
+            l3Cache: "Unknown"
+        },
+        slc: "Unknown",
+        gpu: "IMG PowerVR GE8320 (680 MHz)",
+        npu: "Unknown",
+        modem: "Integrated 4G LTE Cat-7",
+        memory: "LPDDR4X 1600 MHz"
+    },
+    {
+        name: "MediaTek Helio G36",
+        binnedOf: "MediaTek Helio G50",
         partNumber: "MT6765V/XAA",
         releaseDate: "2023.02",
         process: "TSMC 12nm FinFET",
@@ -4252,6 +4489,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G35",
+        binnedOf: "MediaTek Helio G50",
         partNumber: "MT6765G",
         releaseDate: "2020.06",
         process: "TSMC 12nm FinFET",
@@ -4270,6 +4508,7 @@ const helioGData = [
     },
     {
         name: "MediaTek Helio G25",
+        binnedOf: "MediaTek Helio G50",
         partNumber: "MT6762G",
         releaseDate: "2020.06",
         process: "TSMC 12nm FinFET",
@@ -4363,6 +4602,7 @@ const helioPData = [
     },
     {
         name: "MediaTek Helio P90",
+        binnedOf: "MediaTek Helio P95",
         partNumber: "MT6779",
         releaseDate: "2018.12",
         process: "TSMC 12nm FinFET",
@@ -4417,6 +4657,7 @@ const helioPData = [
     },
     {
         name: "MediaTek Helio P60",
+        binnedOf: "MediaTek Helio P70",
         partNumber: "MT6771",
         releaseDate: "2018.02",
         process: "TSMC 12nm FinFET",
@@ -4489,6 +4730,7 @@ const helioPData = [
     },
     {
         name: "MediaTek Helio P23",
+        binnedOf: "MediaTek Helio P30",
         partNumber: "MT6763T",
         releaseDate: "2017.08",
         process: "TSMC 16nm FinFET",
@@ -4507,6 +4749,7 @@ const helioPData = [
     },
     {
         name: "MediaTek Helio P22",
+        binnedOf: "MediaTek Helio P35",
         partNumber: "MT6762",
         releaseDate: "2018.05",
         process: "TSMC 12nm FinFET",
@@ -4525,6 +4768,7 @@ const helioPData = [
     },
     {
         name: "MediaTek Helio P20",
+        binnedOf: "MediaTek Helio P25",
         partNumber: "MT6757",
         releaseDate: "2016.09",
         process: "TSMC 16nm FinFET",
@@ -4579,6 +4823,7 @@ const helioPData = [
     },
     {
         name: "MediaTek Helio P10",
+        binnedOf: "MediaTek Helio P18",
         partNumber: "MT6755",
         releaseDate: "2015.06",
         process: "TSMC 28nm HPC+",
@@ -4618,6 +4863,7 @@ const helioAData = [
     },
     {
         name: "MediaTek Helio A22",
+        binnedOf: "MediaTek Helio A25",
         partNumber: "MT6761 / MT6762M",
         releaseDate: "2018.06",
         process: "TSMC 12nm FinFET",
@@ -4698,6 +4944,7 @@ const kirin9000Data = [
     },
     {
         name: "HiSilicon Kirin 9030",
+        binnedOf: "HiSilicon Kirin 9030 Pro",
         partNumber: "Hi3D60 GFCV110",
         releaseDate: "2025.11",
         process: "SMIC N+3 (6nm+)",
@@ -4758,6 +5005,7 @@ const kirin9000Data = [
     },
     {
         name: "HiSilicon Kirin 9010",
+        binnedOf: "HiSilicon Kirin 9010L",
         geekbench6: { single: "1446", multi: "4524" },
         wildlifeExtreme: "1578",
         partNumber: "Hi36A0 V121",
@@ -4814,6 +5062,7 @@ const kirin9000Data = [
     },
     {
         name: "HiSilicon Kirin 9000S",
+        binnedOf: "HiSilicon Kirin 9000S1",
         geekbench6: { single: "1350", multi: "4200" },
         wildlifeExtreme: "1532",
         partNumber: "Hi36A0 V120",
@@ -4854,6 +5103,7 @@ const kirin9000Data = [
     },
     {
         name: "HiSilicon Kirin 9000E",
+        binnedOf: "HiSilicon Kirin 9000",
         geekbench6: { single: "1150", multi: "3500" },
         wildlifeExtreme: "1600",
         partNumber: "Hi36A0",
@@ -4874,6 +5124,7 @@ const kirin9000Data = [
     },
     {
         name: "HiSilicon Kirin 9000L",
+        binnedOf: "HiSilicon Kirin 9000",
         partNumber: "Hi36A0",
         releaseDate: "2020.10",
         process: "TSMC 5nm (N5 EUV)",
@@ -4891,23 +5142,44 @@ const kirin9000Data = [
         memory: "16-bits Quad-channel LPDDR5 5500"
     },
     {
-        name: "HiSilicon Kirin 990 / 990 5G",
+        name: "HiSilicon Kirin 990 5G",
         geekbench6: { single: "950", multi: "2900" },
         wildlifeExtreme: "1050",
         partNumber: "Hi3690",
         releaseDate: "2019.09",
-        process: "TSMC N7 (7nm) (4G) / TSMC N7+ (7nm+) (5G)",
-        dieSize: "99.04 mm² (4G) / 107.07 mm² (5G)",
+        process: "TSMC N7+ (7nm+)",
+        dieSize: "107.07 mm²",
         architecture: "ARMv8.2-A",
         cpu: {
-            specs: "2x 2.86 GHz (A76) + 2x 2.09/2.36 GHz (A76) + 4x 1.86/1.95 GHz (A55)",
+            specs: "2x 2.86 GHz (A76) + 2x 2.36 GHz (A76) + 4x 1.95 GHz (A55)",
             l2Cache: "4x 512KB (A76), 4x 128KB (A55)",
             l3Cache: "4MB"
         },
         slc: "4MB",
-        gpu: "Mali-G76 MP16 (600-700 MHz)",
-        npu: "1/2 Big + 1 Tiny Core (Da Vinci)",
-        modem: "Balong 765 (4G) /Balong 5000 (5G)",
+        gpu: "Mali-G76 MP16 (700 MHz)",
+        npu: "1 Big + 1 Tiny Core (Da Vinci)",
+        modem: "Balong 5000 (5G)",
+        memory: "16-bit Quad-channel LPDDR4X 4266"
+    },
+    {
+        name: "HiSilicon Kirin 990",
+        binnedOf: "HiSilicon Kirin 990 5G",
+        geekbench6: { single: "950", multi: "2900" },
+        wildlifeExtreme: "1050",
+        partNumber: "Hi3690",
+        releaseDate: "2019.09",
+        process: "TSMC N7 (7nm)",
+        dieSize: "99.04 mm²",
+        architecture: "ARMv8.2-A",
+        cpu: {
+            specs: "2x 2.86 GHz (A76) + 2x 2.09 GHz (A76) + 4x 1.86 GHz (A55)",
+            l2Cache: "4x 512KB (A76), 4x 128KB (A55)",
+            l3Cache: "4MB"
+        },
+        slc: "4MB",
+        gpu: "Mali-G76 MP16 (600 MHz)",
+        npu: "2 Big + 1 Tiny Core (Da Vinci)",
+        modem: "Balong 765 (4G)",
         memory: "16-bit Quad-channel LPDDR4X 4266"
     },
     {
@@ -4987,14 +5259,14 @@ const kirin9000Data = [
         memory: "16-bit Quad-channel LPDDR4X 3732"
     },
     {
-        name: "HiSilicon Kirin 950 / 955",
+        name: "HiSilicon Kirin 950",
         partNumber: "Hi3650",
         releaseDate: "2015.11",
         process: "TSMC 16nm",
         dieSize: "unknown",
         architecture: "ARMv8-A",
         cpu: {
-            specs: "4x 2.3-2.5 GHz (A72) + 4x 1.8 GHz (A53)",
+            specs: "4x 2.3 GHz (A72) + 4x 1.8 GHz (A53)",
             l2Cache: "2MB (A72 cluster) + 512KB (A53 cluster)",
             l3Cache: "N/A"
         },
@@ -5005,14 +5277,33 @@ const kirin9000Data = [
         memory: "LPDDR4"
     },
     {
-        name: "HiSilicon Kirin 930 / 935",
+        name: "HiSilicon Kirin 955",
+        binnedOf: "HiSilicon Kirin 950",
+        partNumber: "Hi3650",
+        releaseDate: "2016.06",
+        process: "TSMC 16nm",
+        dieSize: "unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "4x 2.5 GHz (A72) + 4x 1.8 GHz (A53)",
+            l2Cache: "2MB (A72 cluster) + 512KB (A53 cluster)",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "Mali-T880 MP4 (900 MHz)",
+        npu: "N/A",
+        modem: "Balong 4G modem",
+        memory: "LPDDR4"
+    },
+    {
+        name: "HiSilicon Kirin 930",
         partNumber: "Hi3635",
         releaseDate: "2015.03",
         process: "TSMC 28nm",
         dieSize: "unknown",
         architecture: "ARMv8-A",
         cpu: {
-            specs: "4x 2.0-2.2 GHz (A53e) + 4x 1.5 GHz (A53)",
+            specs: "4x 2.0 GHz (A53e) + 4x 1.5 GHz (A53)",
             l2Cache: "unknown",
             l3Cache: "unknown"
         },
@@ -5023,14 +5314,34 @@ const kirin9000Data = [
         memory: "LPDDR3 1600 MHz"
     },
     {
-        name: "HiSilicon Kirin 920 / 925 / 928",
+        name: "HiSilicon Kirin 935",
+        binnedOf: "HiSilicon Kirin 930",
+        partNumber: "Hi3635",
+        releaseDate: "2015.03",
+        process: "TSMC 28nm",
+        dieSize: "unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "4x 2.2 GHz (A53e) + 4x 1.5 GHz (A53)",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "N/A",
+        gpu: "Mali-T628 MP4 (680 MHz)",
+        npu: "N/A",
+        modem: "Balong 4G modem",
+        memory: "LPDDR3 1600 MHz"
+    },
+    {
+        name: "HiSilicon Kirin 928",
+        binnedOf: "HiSilicon Kirin 920",
         partNumber: "Hi3630",
         releaseDate: "2014.06",
         process: "TSMC 28nm",
         dieSize: "125mm²",
         architecture: "ARMv7-A",
         cpu: {
-            specs: "4x 1.7-2.0 GHz (A15) + 4x 1.3 GHz (A7)",
+            specs: "4x 2.0 GHz (A15) + 4x 1.3 GHz (A7)",
             l2Cache: "2MB (A15 cluster) + 512KB (A7 cluster)",
             l3Cache: "N/A"
         },
@@ -5041,19 +5352,76 @@ const kirin9000Data = [
         memory: "32-bit LPDDR3 1600 MHz"
     },
     {
-        name: "HiSilicon Kirin 910 / 910T",
+        name: "HiSilicon Kirin 925",
+        binnedOf: "HiSilicon Kirin 920",
+        partNumber: "Hi3630",
+        releaseDate: "2014.06",
+        process: "TSMC 28nm",
+        dieSize: "125mm²",
+        architecture: "ARMv7-A",
+        cpu: {
+            specs: "4x 1.8 GHz (A15) + 4x 1.3 GHz (A7)",
+            l2Cache: "2MB (A15 cluster) + 512KB (A7 cluster)",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "Mali-T628 MP4 (600 MHz)",
+        npu: "N/A",
+        modem: "Balong 4G modem",
+        memory: "32-bit LPDDR3 1600 MHz"
+    },
+    {
+        name: "HiSilicon Kirin 920",
+        partNumber: "Hi3630",
+        releaseDate: "2014.06",
+        process: "TSMC 28nm",
+        dieSize: "125mm²",
+        architecture: "ARMv7-A",
+        cpu: {
+            specs: "4x 1.7 GHz (A15) + 4x 1.3 GHz (A7)",
+            l2Cache: "2MB (A15 cluster) + 512KB (A7 cluster)",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "Mali-T628 MP4 (600 MHz)",
+        npu: "N/A",
+        modem: "Balong 4G modem",
+        memory: "32-bit LPDDR3 1600 MHz"
+    },
+    {
+        name: "HiSilicon Kirin 910T",
+        binnedOf: "HiSilicon Kirin 910",
         partNumber: "Hi6620",
         releaseDate: "2014.01",
         process: "TSMC 28nm",
         dieSize: "unknown",
         architecture: "ARMv7-A",
         cpu: {
-            specs: "4x Cortex-A9 1.6-1.8 GHz",
+            specs: "4x Cortex-A9 @ 1.8 GHz",
             l2Cache: "unknown",
             l3Cache: "N/A"
         },
         slc: "N/A",
-        gpu: "Mali-450 MP4 (533-700 MHz)",
+        gpu: "Mali-450 MP4 (700 MHz)",
+        npu: "N/A",
+        modem: "Balong 4G modem",
+        memory: "LPDDR3"
+    },
+    {
+        name: "HiSilicon Kirin 910",
+        binnedOf: "HiSilicon Kirin 910T",
+        partNumber: "Hi6620",
+        releaseDate: "2014.01",
+        process: "TSMC 28nm",
+        dieSize: "unknown",
+        architecture: "ARMv7-A",
+        cpu: {
+            specs: "4x Cortex-A9 @ 1.6 GHz",
+            l2Cache: "unknown",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "Mali-450 MP4 (533 MHz)",
         npu: "N/A",
         modem: "Balong 4G modem",
         memory: "LPDDR3"
@@ -5063,6 +5431,7 @@ const kirin9000Data = [
 const kirin800Data = [
     {
         name: "HiSilicon Kirin 8020",
+        binnedOf: "HiSilicon Kirin 9010S",
         partNumber: "unknown",
         releaseDate: "2025.05",
         process: "SMIC N+2 (7nm)",
@@ -5147,7 +5516,26 @@ const kirin800Data = [
 
 const kirin700Data = [
     {
-        name: "HiSilicon Kirin 710 / 710F",
+        name: "HiSilicon Kirin 710",
+        partNumber: "Hi6260",
+        releaseDate: "2018.07",
+        process: "TSMC 12nm (N12)",
+        dieSize: "59.9mm²",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "4x Cortex-A73 @ 2.2 GHz + 4x Cortex-A53 @ 1.7 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "unknown",
+        gpu: "ARM Mali-G51 MP4 (1 GHz)",
+        npu: "N/A",
+        modem: "4G LTE Cat.12/13",
+        memory: "16-bits Dual-channel LPDDR4"
+    },
+    {
+        name: "HiSilicon Kirin 710F",
+        binnedOf: "HiSilicon Kirin 710",
         partNumber: "Hi6260",
         releaseDate: "2018.07",
         process: "TSMC 12nm (N12)",
@@ -5320,7 +5708,7 @@ const kirinTabletData = [
         memory: "16-bit Octa-channel LPDDR5X"
     },
     {
-        name: "HiSilicon Kirin 9000W/9000WL/9000WE/T90/T90A",
+        name: "HiSilicon Kirin 9000W",
         partNumber: "Hi36A0V120",
         releaseDate: "2023.08",
         process: "SMIC N+2 (7nm)",
@@ -5338,7 +5726,84 @@ const kirinTabletData = [
         memory: "16-bit Quad-channel LPDDR5 6400"
     },
     {
-        name: "HiSilicon Kirin 9000SL/9000WM",
+        name: "HiSilicon Kirin 9000WL",
+        binnedOf: "HiSilicon Kirin 9000W",
+        partNumber: "Hi36A0V120",
+        releaseDate: "2023.08",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "111.28 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Large 2.49GHz + 3x Taishan Large 2.15GHz + 4x Cortex-A510 1.53GHz",
+            l2Cache: "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "4 MB"
+        },
+        slc: "4 MB",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "16-bit Quad-channel LPDDR5 6400"
+    },
+    {
+        name: "HiSilicon Kirin 9000WE",
+        binnedOf: "HiSilicon Kirin 9000W",
+        partNumber: "Hi36A0V120",
+        releaseDate: "2023.08",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "111.28 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Large 2.49GHz + 3x Taishan Large 2.15GHz + 4x Cortex-A510 1.53GHz",
+            l2Cache: "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "4 MB"
+        },
+        slc: "4 MB",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "16-bit Quad-channel LPDDR5 6400"
+    },
+    {
+        name: "HiSilicon Kirin T90",
+        binnedOf: "HiSilicon Kirin 9000W",
+        partNumber: "Hi36A0V120",
+        releaseDate: "2023.08",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "111.28 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Large 2.49GHz + 3x Taishan Large 2.15GHz + 4x Cortex-A510 1.53GHz",
+            l2Cache: "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "4 MB"
+        },
+        slc: "4 MB",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "16-bit Quad-channel LPDDR5 6400"
+    },
+    {
+        name: "HiSilicon Kirin T90A",
+        binnedOf: "HiSilicon Kirin 9000W",
+        partNumber: "Hi36A0V120",
+        releaseDate: "2023.08",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "111.28 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Large 2.49GHz + 3x Taishan Large 2.15GHz + 4x Cortex-A510 1.53GHz",
+            l2Cache: "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "4 MB"
+        },
+        slc: "4 MB",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "16-bit Quad-channel LPDDR5 6400"
+    },
+    {
+        name: "HiSilicon Kirin 9000SL",
+        binnedOf: "HiSilicon Kirin 9000W",
         partNumber: "Hi36A0V120",
         releaseDate: "2023.08",
         process: "SMIC N+2 (7nm)",
@@ -5356,7 +5821,84 @@ const kirinTabletData = [
         memory: "16-bit Quad-channel LPDDR5 6400"
     },
     {
-        name: "HiSilicon Kirin 9010E/9010A/9010W/T91",
+        name: "HiSilicon Kirin 9000WM",
+        binnedOf: "HiSilicon Kirin 9000W",
+        partNumber: "Hi36A0V120",
+        releaseDate: "2023.08",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "111.28 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Large 2.49GHz + 2x Taishan Large 2.15GHz + 3x Cortex-A510 1.53GHz",
+            l2Cache: "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "4 MB"
+        },
+        slc: "4 MB",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "16-bit Quad-channel LPDDR5 6400"
+    },
+    {
+        name: "HiSilicon Kirin 9010E",
+        binnedOf: "HiSilicon Kirin 9010S",
+        partNumber: "Hi36A0V121",
+        releaseDate: "unknown",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "136.6 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Prime 2.19GHz + 3x Taishan Large 2.18 GHz + 4x Cortex-A510 1.55 GHz",
+            l2Cache: "1MB (Taishan Prime) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "8 MB"
+        },
+        slc: "4 MB (System Level Cache)",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "LPDDR5/LPDDR5X"
+    },
+    {
+        name: "HiSilicon Kirin 9010A",
+        binnedOf: "HiSilicon Kirin 9010S",
+        partNumber: "Hi36A0V121",
+        releaseDate: "unknown",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "136.6 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Prime 2.19GHz + 3x Taishan Large 2.18 GHz + 4x Cortex-A510 1.55 GHz",
+            l2Cache: "1MB (Taishan Prime) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "8 MB"
+        },
+        slc: "4 MB (System Level Cache)",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "LPDDR5/LPDDR5X"
+    },
+    {
+        name: "HiSilicon Kirin 9010W",
+        binnedOf: "HiSilicon Kirin 9010S",
+        partNumber: "Hi36A0V121",
+        releaseDate: "unknown",
+        process: "SMIC N+2 (7nm)",
+        dieSize: "136.6 mm²",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x Taishan Prime 2.19GHz + 3x Taishan Large 2.18 GHz + 4x Cortex-A510 1.55 GHz",
+            l2Cache: "1MB (Taishan Prime) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+            l3Cache: "8 MB"
+        },
+        slc: "4 MB (System Level Cache)",
+        gpu: "Huawei Maleoon 910 4CUs (750 MHz)",
+        npu: "Da Vinci",
+        modem: "N/A",
+        memory: "LPDDR5/LPDDR5X"
+    },
+    {
+        name: "HiSilicon Kirin T91",
+        binnedOf: "HiSilicon Kirin 9010S",
         partNumber: "Hi36A0V121",
         releaseDate: "unknown",
         process: "SMIC N+2 (7nm)",
@@ -5536,6 +6078,7 @@ const exynos2000Data = [
     },
     {
         name: "Exynos 2400",
+        binnedOf: "Exynos 2400e",
         geekbench6: { single: "2067", multi: "6520" },
         wildlifeExtreme: "4259",
         codename: "root",
@@ -5888,6 +6431,7 @@ const exynos9Data = [
     },
     {
         name: "Exynos 9820",
+        binnedOf: "Exynos 9825",
         codename: "makalu",
         partNumber: "S5E9820",
         releaseDate: "2018.11",
@@ -5951,20 +6495,62 @@ const exynos9Data = [
 
 const exynos7Data = [
     {
-        name: "Exynos 7885 / 7884A/B",
+        name: "Exynos 7885",
         codename: "Lassen",
         partNumber: "S5E7885",
-        releaseDate: "2017.12 / 2018.06",
+        releaseDate: "2017.12",
         process: "Samsung 14nm (14LPP)",
         dieSize: "unknown",
         architecture: "ARMv8-A",
         cpu: {
-            specs: "2x Cortex-A73 @ 2.2 / 1.56 (B) / 1.35 (A) GHz + 6x Cortex-A53 @ 1.60 / 1.35 (A/B) GHz",
+            specs: "2x Cortex-A73 @ 2.2 GHz + 6x Cortex-A53 @ 1.60 GHz",
             l2Cache: "unknown",
             l3Cache: "N/A"
         },
         slc: "N/A",
-        gpu: "ARM Mali-G71 MP2 (1300 MHz / 450MHz (A) / 770MHz (B))",
+        gpu: "ARM Mali-G71 MP2 (1300 MHz)",
+        npu: "N/A",
+        modem: "LTE Cat.12",
+        dsp: "Exynos DSP",
+        memory: "16-bit Dual-channel LPDDR4X 1866 MHz"
+    },
+    {
+        name: "Exynos 7884B",
+        binnedOf: "Exynos 7885",
+        codename: "Lassen",
+        partNumber: "S5E7885",
+        releaseDate: "2018.06",
+        process: "Samsung 14nm (14LPP)",
+        dieSize: "unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "2x Cortex-A73 @ 1.56 GHz + 6x Cortex-A53 @ 1.35 GHz",
+            l2Cache: "unknown",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G71 MP2 (770 MHz)",
+        npu: "N/A",
+        modem: "LTE Cat.12",
+        dsp: "Exynos DSP",
+        memory: "16-bit Dual-channel LPDDR4X 1866 MHz"
+    },
+    {
+        name: "Exynos 7884A",
+        binnedOf: "Exynos 7885",
+        codename: "Lassen",
+        partNumber: "S5E7885",
+        releaseDate: "2018.06",
+        process: "Samsung 14nm (14LPP)",
+        dieSize: "unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "2x Cortex-A73 @ 1.35 GHz + 6x Cortex-A53 @ 1.35 GHz",
+            l2Cache: "unknown",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-G71 MP2 (450 MHz)",
         npu: "N/A",
         modem: "LTE Cat.12",
         dsp: "Exynos DSP",
@@ -6030,19 +6616,39 @@ const exynos7Data = [
         memory: "LPDDR3 1866 MHz"
     },
     {
-        name: "Exynos 7 Octa 7580 / 7578",
+        name: "Exynos 7 Octa 7580",
         partNumber: "S5E7570",
         releaseDate: "2015.10",
         process: "Samsung 28nm HKMG",
         dieSize: "unknown",
         architecture: "ARMv8-A",
         cpu: {
-            specs: "8x Cortex-A53 @ 1.6 / 1.5 GHz (4 cores disabled on 7578)",
+            specs: "8x Cortex-A53 @ 1.6 GHz",
             l2Cache: "unknown",
             l3Cache: "N/A"
         },
         slc: "N/A",
-        gpu: "ARM Mali-T720 MP1 (800 MHz / 700 MHz 7578)",
+        gpu: "ARM Mali-T720 MP1 (800 MHz)",
+        npu: "N/A",
+        modem: "LTE Cat.6",
+        dsp: "Exynos DSP",
+        memory: "32-bit Single-channel LPDDR3 933 MHz"
+    },
+    {
+        name: "Exynos 7 Octa 7578",
+        binnedOf: "Exynos 7 Octa 7580",
+        partNumber: "S5E7570",
+        releaseDate: "2015.10",
+        process: "Samsung 28nm HKMG",
+        dieSize: "unknown",
+        architecture: "ARMv8-A",
+        cpu: {
+            specs: "4x Cortex-A53 @ 1.5 GHz",
+            l2Cache: "unknown",
+            l3Cache: "N/A"
+        },
+        slc: "N/A",
+        gpu: "ARM Mali-T720 MP1 (700 MHz)",
         npu: "N/A",
         modem: "LTE Cat.6",
         dsp: "Exynos DSP",
@@ -6131,7 +6737,7 @@ const exynos5Data = [
         memory: "32-bit Dual-channel LPDDR3 800 MHz"
     },
     {
-        name: "Exynos 5 Octa 5422 / 5800",
+        name: "Exynos 5 Octa 5800",
         codename: "Adonis Prime 2",
         partNumber: "S5E5422",
         releaseDate: "2014.02",
@@ -6139,7 +6745,28 @@ const exynos5Data = [
         dieSize: "unknown",
         architecture: "ARMv7-A",
         cpu: {
-            specs: "4x Cortex-A15 @ 1.9 / 2.10 GHz + 4x Cortex-A7 @ 1.3 / 1.50 GHz",
+            specs: "4x Cortex-A15 @ 2.10 GHz + 4x Cortex-A7 @ 1.50 GHz",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "unknown",
+        gpu: "ARM Mali-T628 MP6 (533 MHz)",
+        npu: "unknown",
+        modem: "N/A",
+        dsp: "Exynos DSP",
+        memory: "32-bit Dual-channel LPDDR3 933 MHz"
+    },
+    {
+        name: "Exynos 5 Octa 5422",
+        binnedOf: "Exynos 5 Octa 5800",
+        codename: "Adonis Prime 2",
+        partNumber: "S5E5422",
+        releaseDate: "2014.02",
+        process: "Samsung 28nm (28HKMG)",
+        dieSize: "unknown",
+        architecture: "ARMv7-A",
+        cpu: {
+            specs: "4x Cortex-A15 @ 1.9 GHz + 4x Cortex-A7 @ 1.3 GHz",
             l2Cache: "unknown",
             l3Cache: "unknown"
         },
@@ -6685,11 +7312,28 @@ window.toggleGpuBenchmark = function () {
 };
 
 
-function renderTable(dataRaw) {
+function renderTable(dataRaw, isSearch) {
     const container = document.getElementById('soc-table-container');
 
-    // Clone and sort the data by releaseDate descending (newest first)
-    const data = [...dataRaw].sort((a, b) => {
+    const variantGroups = {};
+    let renderData;
+    if (isSearch) {
+        renderData = [...dataRaw];
+    } else {
+        renderData = [];
+        dataRaw.forEach(chip => {
+            if (chip.binnedOf) {
+                if (!variantGroups[chip.binnedOf]) variantGroups[chip.binnedOf] = [];
+                variantGroups[chip.binnedOf].push(chip);
+            } else {
+                renderData.push(chip);
+                if (!variantGroups[chip.name]) variantGroups[chip.name] = [];
+            }
+        });
+    }
+
+    // Sort the data by releaseDate descending (newest first)
+    renderData.sort((a, b) => {
         const dateA = a.releaseDate || '';
         const dateB = b.releaseDate || '';
 
@@ -6698,13 +7342,13 @@ function renderTable(dataRaw) {
         const bIsNull = nullish.includes(dateB);
 
         if (aIsNull && bIsNull) return 0;
-        if (aIsNull) return -1; // Push unknown to top
+        if (aIsNull) return -1;
         if (bIsNull) return 1;
 
         return dateB.localeCompare(dateA);
     });
 
-    if (data.length === 0) {
+    if (renderData.length === 0) {
         container.innerHTML = `
             <div style="padding: 40px; text-align: center; color: var(--md-sys-color-on-surface-variant);">
                 <span class="material-icons-round" style="font-size: 48px; opacity: 0.5;">search_off</span>
@@ -6714,13 +7358,15 @@ function renderTable(dataRaw) {
         return;
     }
 
-    // Use global logo helper
     const getBrandLogoHtml = getBrandLogoGlobal;
     const manufacturer = seriesDataMap[currentSeries].manufacturer;
 
     let gridHtml = '<div class="chip-grid">';
 
-    data.forEach((chip, index) => {
+    renderData.forEach((chip, index) => {
+        const variants = isSearch ? [] : (variantGroups[chip.name] || []);
+        const allChips = [chip, ...variants];
+        const hasVariants = variants.length > 0;
         const fileManufacturer = manufacturer === 'Global' ? chip.manufacturer : manufacturer;
         const localLogoHtml = getBrandLogoHtml(fileManufacturer);
 
@@ -6728,7 +7374,6 @@ function renderTable(dataRaw) {
             ? `<div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">${localLogoHtml.replace('width: 28px;', 'width: 32px;').replace('height: 28px;', 'height: 32px;')}</div>`
             : `<span class="material-icons-round">memory</span>`;
 
-        // Determine if there are key specs to show on the card face
         const cpuSpec = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : null;
         let quickSpecsHtml = '';
 
@@ -6750,7 +7395,7 @@ function renderTable(dataRaw) {
                     extraClass = ' card-quick-spec-cpu';
                 } else if (row.isGpu) {
                     displayValue = formatGpuSpec(row.value);
-                    extraClass = ' card-quick-spec-cpu'; // reuse same column layout
+                    extraClass = ' card-quick-spec-cpu';
                 } else {
                     displayValue = escapeHtml(row.value);
                 }
@@ -6764,17 +7409,34 @@ function renderTable(dataRaw) {
 
         let quickHtmlOut = '';
         if (hasSpecs) {
-            quickHtmlOut = `<div class="card-quick-specs">${quickSpecsHtml}</div>`;
+            quickHtmlOut = `<div class="card-quick-specs" id="card-quick-${index}">${quickSpecsHtml}</div>`;
         }
 
+        let variantSwitcherHtml = '';
+        if (hasVariants) {
+            const variantNames = allChips.map(c => c.name);
+            variantSwitcherHtml = `
+                <div class="variant-switcher">
+                    ${variantNames.map((vName, vi) => `
+                        <button class="variant-chip${vi === 0 ? ' active' : ''}"
+                                data-action="switchVariant"
+                                data-card-id="card-${index}"
+                                data-variant-index="${vi}"
+                                title="${escapeHtml(vName)}">
+                            ${escapeHtml(vName)}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
 
         const cardHtml = `
-            <div class="chip-card" id="card-${index}" style="animation: fadeIn 0.4s ease both; animation-delay: ${index * 0.05}s;" data-action="toggleCard" data-index="${index}">
+            <div class="chip-card" id="card-${index}" style="animation: fadeIn 0.4s ease both; animation-delay: ${index * 0.05}s;" data-action="toggleCard" data-index="${index}" data-variants='${JSON.stringify(allChips.map(c => c.name)).replace(/'/g, "&#39;")}'>
                 <div class="chip-card-header">
                     <div class="chip-card-icon">${iconHtml}</div>
                     <div class="chip-card-title-group">
-                        <div class="chip-card-title">${escapeHtml(chip.name)}</div>
-                        <div class="chip-card-subtitle tooltip-container tooltip-bottom" style="display: inline-flex; cursor: help;">
+                        <div class="chip-card-title" id="card-title-${index}">${escapeHtml(chip.name)}</div>
+                        <div class="chip-card-subtitle tooltip-container tooltip-bottom" style="display: inline-flex; cursor: help;" id="card-subtitle-${index}">
                             ${escapeHtml(['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na')))}
                             <div class="tooltip-content" style="font-weight: 400; text-transform: none;">${t('partNumber_desc')}</div>
                         </div>
@@ -6783,12 +7445,13 @@ function renderTable(dataRaw) {
                         <span class="material-icons-round">compare_arrows</span>
                     </button>
                 </div>
+                ${variantSwitcherHtml}
                 ${quickHtmlOut}
                 <div class="chip-card-action-bar">
                     <span class="view-specs-text">${t('view_full_specs') || 'View Full Specs'}</span>
                     <span class="material-icons-round expand-icon" id="icon-expand-${index}">expand_more</span>
                 </div>
-                <div class="chip-card-body">
+                <div class="chip-card-body" id="card-body-${index}">
                      ${generateMobileDetails(chip)}
                 </div>
             </div>
@@ -6801,6 +7464,74 @@ function renderTable(dataRaw) {
 
     container.innerHTML = gridHtml;
 }
+
+window.switchVariant = function (cardId, variantIndex) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+    const allNames = JSON.parse(card.dataset.variants);
+    const chipIndex = parseInt(cardId.replace('card-', ''));
+    const seriesData = seriesDataMap[currentSeries].data;
+    const chipName = allNames[variantIndex];
+    const chip = seriesData.find(c => c.name === chipName);
+    if (!chip) return;
+
+    card.querySelectorAll('.variant-chip').forEach((btn, i) => {
+        btn.classList.toggle('active', i === variantIndex);
+    });
+
+    const titleEl = card.querySelector('.chip-card-title');
+    if (titleEl) titleEl.textContent = chip.name;
+
+    const manufacturer = seriesDataMap[currentSeries].manufacturer;
+    const subtitleEl = card.querySelector('.chip-card-subtitle');
+    if (subtitleEl) {
+        const textNode = subtitleEl.childNodes[0];
+        if (textNode) textNode.textContent = ['MediaTek', 'HiSilicon', 'Unisoc'].includes(manufacturer) ? (chip.partNumber || t('value_na')) : (chip.partNumber || chip.codename || t('value_na'));
+    }
+
+    const compareBtn = card.querySelector('.chip-card-compare-btn');
+    if (compareBtn) compareBtn.dataset.chip = encodeURIComponent(chip.name);
+
+    const cpuSpec = chip.cpu ? (typeof chip.cpu === 'object' ? chip.cpu.specs : chip.cpu) : null;
+    let quickSpecsHtml = '';
+    const specRows = [
+        { label: t('mobile_release') || 'Release', value: chip.releaseDate, isCpu: false, isGpu: false },
+        { label: t('mobile_process') || 'Process', value: chip.process, isCpu: false, isGpu: false },
+        { label: 'CPU', value: cpuSpec, isCpu: true, isGpu: false },
+        { label: 'GPU', value: chip.gpu, isCpu: false, isGpu: true }
+    ];
+    let hasSpecs = false;
+    specRows.forEach(row => {
+        if (row.value && row.value !== 'N/A' && row.value !== 'Unknown') {
+            hasSpecs = true;
+            let displayValue;
+            let extraClass = '';
+            if (row.isCpu) {
+                displayValue = formatCpuSpecs(row.value);
+                extraClass = ' card-quick-spec-cpu';
+            } else if (row.isGpu) {
+                displayValue = formatGpuSpec(row.value);
+                extraClass = ' card-quick-spec-cpu';
+            } else {
+                displayValue = escapeHtml(row.value);
+            }
+            quickSpecsHtml += `
+                <div class="card-quick-spec-row${extraClass}">
+                    <span class="card-quick-spec-label">${row.label}</span>
+                    <span class="card-quick-spec-value">${displayValue}</span>
+                </div>`;
+        }
+    });
+    const quickContainer = document.getElementById(`card-quick-${chipIndex}`);
+    if (quickContainer) {
+        quickContainer.innerHTML = hasSpecs ? quickSpecsHtml : '';
+    }
+
+    const bodyContainer = document.getElementById(`card-body-${chipIndex}`);
+    if (bodyContainer) {
+        bodyContainer.innerHTML = generateMobileDetails(chip);
+    }
+};
 
 function generateMobileDetails(chip) {
     let html = '';
@@ -8305,7 +9036,7 @@ function initSearch() {
         _lastFilter = filterBy;
         _lastResults = resultKey;
 
-        renderTable(filteredData);
+        renderTable(filteredData, true);
     }
 
     searchInput.addEventListener('input', () => {
@@ -8789,6 +9520,11 @@ document.addEventListener('click', (e) => {
         case 'toggleCard':
             e.stopPropagation();
             toggleCardDetails(parseInt(target.dataset.index));
+            break;
+        case 'switchVariant':
+            e.stopPropagation();
+            e.preventDefault();
+            window.switchVariant(target.dataset.cardId, parseInt(target.dataset.variantIndex));
             break;
         case 'goToCompare':
             e.stopPropagation();
