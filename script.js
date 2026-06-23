@@ -1819,6 +1819,7 @@ const snapdragon6Data = [
         cpu: {
             specs: "4x Cortex-A78 2.6GHz + 4x Cortex-A55 2.0GHz",
         },
+        geekbench6: { single: "1096", multi: "3381" },
         slc: "N/A",
         gpu: "Adreno 812",
         npu: "Qualcomm Hexagon NPU",
