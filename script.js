@@ -881,7 +881,7 @@ const snapdragon8Data = [
         process: "TSMC N4P (4nm)",
         dieSize: "Unknown",
         cpu: {
-            specs: "1x 3.21 GHz (X4) + 3x 3.21GHz (A720) + 2x 2.8GHz (A720) + 2x (A520)",
+            specs: "1x 3.21 GHz (X4) + 3x 3.21GHz (A720) + 2x 2.8GHz (A720) + 2x 2.02GHz (A720)",
             l2Cache: "1MB (X4) + 7x 256KB (A720)",
             l3Cache: "8MB"
         },
