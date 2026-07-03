@@ -22,13 +22,12 @@ Because ReptDoc is built as a static client-side web application using HTML, CSS
 3. Enjoy! (Note: Due to strict browser CORS policies, fetching local `.json` translation files using a `file:///` address may fail on some browsers. Running a simple local live server is recommended).
 
 ## 🌍 Translations (Weblate)
-ReptDoc fully supports community-driven translations. You don't need to know how to code to help translate the interface! 
+ReptDoc fully supports community-driven translations. You don't need to know how to code to help translate the interface! The link is https://hosted.weblate.org/projects/reptdoc/
 
-Head over to the localization setup connected via **Weblate** or submit a direct Pull Request to the `/locales/` directory.
+Head over to the localization setup connected via **Weblate** |or submit a direct Pull Request to the `/locales/` directory.
 Currently supported languages out-of-the-box:
-- 🇺🇸 English (`en`) 
-- 🇻🇳 Tiếng Việt (`vi`)
-
+- 🇺🇸 English (`en`) - 🇻🇳 Tiếng Việt (`vi`)
+## <a href="https://hosted.weblate.org/engage/reptdoc/"><img src="https://hosted.weblate.org/widget/reptdoc/svg-badge.svg" alt="Translation status"></a>
 ### Translation Credits 💖
 Massive thanks to the awesome community members helping bringing ReptDoc to their local languages!
 * *(Your name could be here! Check out our Weblate space to contribute!)*
