@@ -27,7 +27,7 @@ ReptDoc fully supports community-driven translations. You don't need to know how
 Head over to the localization setup connected via **Weblate** |or submit a direct Pull Request to the `/locales/` directory.
 Currently supported languages out-of-the-box:
 - 🇺🇸 English (`en`) - 🇻🇳 Tiếng Việt (`vi`)
-## <a href="https://hosted.weblate.org/engage/reptdoc/"><img src="https://hosted.weblate.org/widget/reptdoc/svg-badge.svg" alt="Translation status"></a>
+## <a href="https://hosted.weblate.org/engage/reptdoc/"><img src="https://hosted.weblate.org/widget/reptdoc/open-graph.png" alt="Translation status"></a>
 ### Translation Credits 💖
 Massive thanks to the awesome community members helping bringing ReptDoc to their local languages!
 * *(Your name could be here! Check out our Weblate space to contribute!)*
