@@ -7063,7 +7063,7 @@ const tensorData = [
     },
     {
         name: "Google Tensor G5",
-        geekbench6: { single: "2421", multi: "6191" },
+        geekbench6: { single: "2221", multi: "6101" },
         wildlifeExtreme: "3252",
         codename: "Laguna",
         partNumber: "unknown",
