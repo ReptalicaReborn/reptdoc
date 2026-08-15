@@ -7042,7 +7042,7 @@ const tensorData = [
         }
     },
     {
-        name: "Google Tensor G6 (unreleased)",
+        name: "Google Tensor G6",
         codename: "Malibu",
         partNumber: "unknown",
         releaseDate: "unknown",
@@ -7054,11 +7054,12 @@ const tensorData = [
             l2Cache: "unknown",
             l3Cache: "8MB"
         },
+        geekbench6: { single: "2711", multi: "7518" },
         slc: "4MB",
         gpu: "PowerVR C-series CXTP-48-1536",
-        npu: "unknown",
+        npu: "50% faster than G5",
         dsp: "2-core GXP (Q8)",
-        memory: "24-bits Quad-channel LPDDR6 10677"
+        memory: "16-bits Quad-channel LPDDR5"
     },
     {
         name: "Google Tensor G5",
