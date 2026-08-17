@@ -285,7 +285,7 @@ const aSeriesData = [
             specs: "2x 2.26 GHz Twister",
             l2Cache: "3 MB"
         },
-        slc: "N/A (No L3/SLC present)",
+        slc: "N/A",
         memory: "LPDDR4-3200",
         gpu: "PowerVR Series 7XT (12-core)",
         npu: "N/A",
@@ -7054,7 +7054,7 @@ const tensorData = [
             l2Cache: "unknown",
             l3Cache: "8MB"
         },
-        geekbench6: { single: "2711", multi: "7518" },
+        geekbench6: { single: "2755", multi: "7563" },
         slc: "4MB",
         gpu: "PowerVR C-series CXTP-48-1536",
         npu: "50% faster than G5",
