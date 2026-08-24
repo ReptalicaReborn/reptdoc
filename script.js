@@ -7991,7 +7991,6 @@ const xiaomiData = [
             single: "3950",
             multi: "15221"
         },
-        wildlifeExtreme: "11474",
         steelNomadLite: "4657",
         slc: "N/A",
         gpu: "ARM Mali-G2-Ultra NX MC16",
@@ -8318,6 +8317,8 @@ async function loadLocales() {
 function t(key) {
     return loadedTranslations[key] || key;
 }
+window.t = t;
+
 const loongson3AData = [
     {
         name: "Loongson 3A6000",
@@ -8337,7 +8338,6 @@ const loongson3AData = [
         modem: "N/A",
         memory: "Dual-channel DDR4-3200"
     }
-window.t = t;
 ];
 
 const seriesDataMap = {
