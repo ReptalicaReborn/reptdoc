@@ -7991,6 +7991,7 @@ const xiaomiData = [
             single: "3950",
             multi: "15221"
         },
+        wildlifeExtreme: "11474",
         steelNomadLite: "4657",
         slc: "N/A",
         gpu: "ARM Mali-G2-Ultra NX MC16",
@@ -8318,26 +8319,6 @@ function t(key) {
     return loadedTranslations[key] || key;
 }
 window.t = t;
-
-const loongson3AData = [
-    {
-        name: "Loongson 3A6000",
-        partNumber: "3A6000",
-        releaseDate: "2023.11",
-        process: "12nm",
-        dieSize: "unknown",
-        architecture: "LoongArch (LA664)",
-        cpu: {
-            specs: "4x LA664 @ 2.50 GHz",
-            l2Cache: "4x 256 KB",
-            l3Cache: "16 MB"
-        },
-        slc: "N/A",
-        gpu: "N/A",
-        npu: "N/A",
-        modem: "N/A",
-        memory: "Dual-channel DDR4-3200"
-    }
 ];
 
 const seriesDataMap = {
