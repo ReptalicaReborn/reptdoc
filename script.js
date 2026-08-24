@@ -8318,6 +8318,25 @@ async function loadLocales() {
 function t(key) {
     return loadedTranslations[key] || key;
 }
+const loongson3AData = [
+    {
+        name: "Loongson 3A6000",
+        partNumber: "3A6000",
+        releaseDate: "2023.11",
+        process: "12nm",
+        dieSize: "unknown",
+        architecture: "LoongArch (LA664)",
+        cpu: {
+            specs: "4x LA664 @ 2.50 GHz",
+            l2Cache: "4x 256 KB",
+            l3Cache: "16 MB"
+        },
+        slc: "N/A",
+        gpu: "N/A",
+        npu: "N/A",
+        modem: "N/A",
+        memory: "Dual-channel DDR4-3200"
+    }
 window.t = t;
 ];
 
