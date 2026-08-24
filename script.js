@@ -7056,6 +7056,7 @@ const tensorData = [
         },
         geekbench6: { single: "2755", multi: "7563" },
         wildlifeExtreme: "3401",
+        steelNomadLite: "1193",
         slc: "4MB",
         gpu: "PowerVR C-series CXTP-48-1536",
         npu: "50% faster than G5",
