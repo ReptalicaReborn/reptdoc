@@ -7972,11 +7972,36 @@ const unisocData = [
 ];
 
 const xiaomiData = [
+        {
+        name: "Xiaomi XRing o3",
+        codename: "NA",
+        partNumber: "V11101C",
+        releaseDate: "2026.08",
+        process: "TSMC N3P",
+        dieSize: "133mm²",
+        architecture: "ARMv9.2-A",
+        cpu: {
+            specs: "2x C1 Ultra @ 4.35 GHz + 4x C1-Premium @ 3.68 GHz + 4x C1-Pro @ 3.15GHz",
+            l2Cache: "12MB",
+            l3Cache: "16MB"
+        },
+            slc: "16MB",
+        geekbench6: {
+            single: "3950",
+            multi: "15221"
+        },
+        steelNomadLite: "4657",
+        slc: "N/A",
+        gpu: "ARM Mali-G2-Ultra NX MC16",
+        npu: "Xiaomi Quad-core NPU (1MB L1 each core, 8MB shared)",
+        modem: "N/A",
+        memory: "24-bit LPDDR6 Quad-Channel 10667"
+    },
     {
         name: "Xiaomi XRing o1",
         codename: "Franklin1",
         partNumber: "V10100A/B/C",
-        releaseDate: "2026.01",
+        releaseDate: "2025.05",
         process: "TSMC N3E",
         dieSize: "109mm²",
         architecture: "ARMv9.2-A",
