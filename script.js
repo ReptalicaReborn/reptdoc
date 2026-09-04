@@ -1,4 +1,3 @@
-// ===== SECURITY PATCH: HTML Escaping =====
 function escapeHtml(str) {
     if (str == null) return '';
     const s = String(str);
@@ -448,18 +447,51 @@ const aSeriesData = [
 
 const mSeriesData = [
     {
-        name: "M5 Max",
-        codename: "Unknown",
+        name: "M6",
+        codename: "Komodo",
+        partNumber: "T8142",
+        releaseDate: "2026.08",
+        process: "TSMC N2 (2nm)",
+        dieSize: "Unknown",
+        cpu: {
+            specs: "2x 4.8 GHz pCore + 4x 4.5 GHz mCore + 6x 3.5GHz eCore",
+            l2Cache: "Unknown"
+        },
+        gpu: "Apple 12-core",
+        npu: "32-core Neural Engine (Gen 10)",
+        memory: "128-bit LPDDR5X-10667",
+        architecture: "64-bit ARMv9.x-A"
+    },
+    {
+        name: "M5 Ultra",
+        codename: "Sotra C",
         partNumber: "T6051",
         releaseDate: "2026.03",
         process: "TSMC N3P (3nm)",
-        dieSize: "166.9mm² CPU + 160.5mm² GPU",
+        dieSize: "2x 166.9mm² CPU + 320.95mm² GPU",
+        cpu: {
+            specs: "12x 4.61 GHz pCore + 24x 4.38 GHz mCore",
+            l2Cache: "12x 1MB (P-core private) + 2x 16 MB (P-Core shared) + 2x 16 MB (M-Core)"
+        },
+        slc: "96 MB",
+        gpu: "Apple 80-core (G17C Family)",
+        npu: "30-core Neural Engine (Gen 10)",
+        memory: "1024-bit LPDDR5X-9600",
+        architecture: "64-bit ARMv9.x-A"
+    },
+    {
+        name: "M5 Max",
+        codename: "Sotra C",
+        partNumber: "T6051",
+        releaseDate: "2026.03",
+        process: "TSMC N3P (3nm)",
+        dieSize: "166.9mm² CPU + 320.95mm² GPU",
         geekbench6: { single: "4268", multi: "29216" },
         wildlifeExtreme: "43222",
         steelNomadLite: "17853",
         cpu: {
             specs: "6x 4.61 GHz pCore + 12x 4.38 GHz mCore",
-            l2Cache: "12x 1MB (P-core private) + 16 MB (P-Core shared) + 16 MB (E-Core)"
+            l2Cache: "6x 1MB (P-core private) + 16 MB (P-Core shared) + 16 MB (M-Core)"
         },
         slc: "48 MB",
         gpu: "Apple 40-core (G17C Family)",
@@ -469,17 +501,17 @@ const mSeriesData = [
     },
     {
         name: "M5 Pro",
-        codename: "Unknown",
+        codename: "Sotra S",
         partNumber: "T6050",
         releaseDate: "2026.03",
         process: "TSMC N3P (3nm)",
-        dieSize: "Unknown",
+        dieSize: "166.9mm² CPU + 160.5mm² GPU",
         geekbench6: { single: "4295", multi: "28436" },
         wildlifeExtreme: "23757",
         steelNomadLite: "10018",
         cpu: {
             specs: "6x 4.61 GHz pCore + 12x 4.38 GHz mCore",
-            l2Cache: "12x 1MB (P-core private) + 16 MB (P-Core shared) + 16 MB (E-Core)"
+            l2Cache: "6x 1MB (P-core private) + 16 MB (P-Core shared) + 16 MB (M-Core)"
         },
         slc: "24 MB",
         gpu: "Apple 20-core (G17S Family)",
