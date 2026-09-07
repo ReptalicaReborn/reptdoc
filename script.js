@@ -4936,6 +4936,27 @@ const helioAData = [
 
 const kirin9000Data = [
     {
+        name: "HiSilicon Kirin 9050 Pro",
+        partNumber: "Hi36E0 GPCV100",
+        releaseDate: "2026.09",
+        process: "SMIC N+3 (6nm+), stacked",
+        geekbench6: { single: "1856", multi: "6115" },
+        wildlifeExtreme: "3263",
+        steelNomadLite: "1260",
+        dieSize: "unknown",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x 3.1GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
+            l2Cache: "unknown",
+            l3Cache: "unknown"
+        },
+        slc: "unknown",
+        gpu: "Huawei Maleoon 955",
+        npu: "Ascend NPU (4x Tensor + 2x Vector)",
+        modem: "Balong 5G Integrated Modem",
+        memory: "16-bit Quad-channel LPDDR5X 10677"
+    },
+    {
         name: "HiSilicon Kirin 9030S",
         partNumber: "unknown",
         releaseDate: "2026.4",
