@@ -7,6 +7,27 @@ function escapeHtml(str) {
 
 const aSeriesData = [
     {
+        name: "A20 Pro",
+        geekbench6: { single: "4725", multi: "12574" },
+        wildlifeExtreme: "6557",
+        steelNomadLite: "3904",
+        codename: "Thera",
+        partNumber: "APL1V12 / T8150",
+        releaseDate: "2025.09",
+        process: "TSMC N3P (3nm)",
+        dieSize: "98.69 mm²",
+        cpu: {
+            specs: "2x 4.26 GHz (Everest V4) + 4x 2.59 GHz (Sawtooth V4)",
+            l2Cache: "16 MB (P-Core) + 6 MB (E-Core)"
+        },
+        slc: "32 MB",
+
+        memory: "LPDDR5X-8533/9600",
+        gpu: "Apple 6-core (G18P) - Hardware Ray Tracing",
+        npu: "16-core Neural Engine (Gen 8)",
+        architecture: "64-bit ARMv9.x-A"
+    },
+    {
         name: "A19 Pro",
         geekbench6: { single: "4019", multi: "11054" },
         wildlifeExtreme: "6557",
