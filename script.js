@@ -6235,7 +6235,7 @@ const exynos1000Data = [
         memory: "16-bit Dual-channel LPDDR5",
     },
     {
-        name: "Exynos 1730",
+        name: "Exynos 1610",
         codename: "telos",
         partNumber: "S5E8365",
         cpu: {
@@ -6245,6 +6245,7 @@ const exynos1000Data = [
         },
         geekbench6: { single: "966", multi: "2421" },
         slc: "N/A",
+        modem: "Shannon 4G",
         gpu: "ARM Mali-G68 MP2 (949 MHz)",
 
     },
