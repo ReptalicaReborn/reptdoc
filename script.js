@@ -4974,27 +4974,28 @@ const kirin9000Data = [
         partNumber: "Hi36E0 GPCV100",
         releaseDate: "2026.09",
         process: "SMIC N+3 (6nm+), stacked",
-        geekbench6: { single: "1856", multi: "6115" },
+        geekbench6: { single: "1813", multi: "6115" },
         wildlifeExtreme: "3263",
-        steelNomadLite: "1260",
+        steelNomadLite: "993",
         dieSize: "unknown",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x 3.1GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
-            l2Cache: "unknown",
-            l3Cache: "unknown"
+            l2Cache: "2MB (Taishan Prime) + 2MB (Taishan Little shared)",
+            l3Cache: "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
         },
-        slc: "unknown",
+        slc: "12MB",
         gpu: "Huawei Maleoon 955",
         npu: "Ascend NPU (4x Tensor + 2x Vector)",
         modem: "Balong 5G Integrated Modem",
-        memory: "16-bit Quad-channel LPDDR5X 10677"
+        memory: "24-bit Quad-channel LPDDR6 10677"
     },
     {
         name: "HiSilicon Kirin 9030S",
         partNumber: "unknown",
         releaseDate: "2026.4",
-        process: "SMIC N+3 (6nm+)",
+        process: "SMIC N+2 (7nm+)",
+        diesize: "122mm²",
         geekbench6: { single: "1808", multi: "5124" },
         wildlifeExtreme: "1589",
         steelNomadLite: "507",
