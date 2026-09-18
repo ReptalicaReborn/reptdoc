@@ -845,14 +845,14 @@ const mSeriesData = [
 
 const snapdragon8Data = [
     {
-        name: "Snapdragon 8 Elite Gen 6 Pro (tentative name)",
+        name: "Snapdragon 8 Elite Extreme Gen 6",
         codename: "Unknown",
         partNumber: "SM8975",
         releaseDate: "2026.09",
         process: "TSMC N2P (2nm)",
         dieSize: "Unknown",
         cpu: {
-            specs: "2x (Oryon-P V4) + 3x (Oryon-M V4) + 3x (Oryon-E V4)",
+            specs: "2x 5.01GHz (Oryon-P V4) + 3x 4.03GHz (Oryon-M V4) + 3x 3.74GHz (Oryon-M V4)",
             l2Cache: "Unknown",
             l3Cache: "N/A"
         },
@@ -863,14 +863,14 @@ const snapdragon8Data = [
         memory: "24-bit Quad-channel LPDDR6-10667",
     },
     {
-        name: "Snapdragon 8 Elite Gen 6 (tentative name)",
+        name: "Snapdragon 8 Elite Gen 6",
         codename: "Unknown",
         partNumber: "SM8950",
         releaseDate: "2026.09",
         process: "TSMC N2P (2nm)",
         dieSize: "unknown",
         cpu: {
-            specs: "2x (Oryon-P V4) + 3x (Oryon-M V4) + 3x (Oryon-E V4)",
+            specs: "2x 5.01GHz (Oryon-P V4) + 3x 4.03GHz (Oryon-M V4) + 3x 3.74GHz (Oryon-M V4)",
             l2Cache: "Unknown",
             l3Cache: "N/A"
         },
