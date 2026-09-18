@@ -11,20 +11,19 @@ const aSeriesData = [
         geekbench6: { single: "4725", multi: "12574" },
         wildlifeExtreme: "6557",
         steelNomadLite: "3904",
-        codename: "Thera",
-        partNumber: "APL1V12 / T8150",
-        releaseDate: "2025.09",
-        process: "TSMC N3P (3nm)",
-        dieSize: "98.69 mm²",
+        codename: "Borneo",
+        partNumber: "T8160",
+        releaseDate: "2026.09",
+        process: "TSMC N2 (2nm)",
+        dieSize: "98.8 mm²",
         cpu: {
             specs: "2x 4.26 GHz (Everest V4) + 4x 2.59 GHz (Sawtooth V4)",
-            l2Cache: "16 MB (P-Core) + 6 MB (E-Core)"
+            l2Cache: "16 MB (P-Core) + 8 MB (E-Core)"
         },
         slc: "32 MB",
-
-        memory: "LPDDR5X-8533/9600",
-        gpu: "Apple 6-core (G18P) - Hardware Ray Tracing",
-        npu: "16-core Neural Engine (Gen 8)",
+        memory: "96-bit LPDDR5X-9600",
+        gpu: "Apple 7-core (G19P)",
+        npu: "Dual 16-core Neural Engine (Gen 9)",
         architecture: "64-bit ARMv9.x-A"
     },
     {
