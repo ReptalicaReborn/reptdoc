@@ -4969,15 +4969,36 @@ const helioAData = [
 
 
 const kirin9000Data = [
+      {
+        name: "HiSilicon Kirin 9050",
+        partNumber: "Hi36E0 GPCV100",
+        releaseDate: "2026.10",
+        process: "SMIC N+3 (6nm+) & SMIC N+2, stacked",
+        geekbench6: { single: "1813", multi: "6115" },
+        wildlifeExtreme: "3263",
+        steelNomadLite: "993",
+        dieSize: "128.23mm² x2",
+        architecture: "ARMv8-A compatible",
+        cpu: {
+            specs: "1x 3GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
+            l2Cache: "2MB (Taishan Prime) + 2MB (Taishan Little shared)",
+            l3Cache: "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
+        },
+        slc: "12MB",
+        gpu: "Huawei Maleoon 955A (5CUs)",
+        npu: "Ascend NPU (4x Tensor + 2x Vector)",
+        modem: "Balong 5G Integrated Modem",
+        memory: "24-bit Quad-channel LPDDR6 10677"
+    },
     {
         name: "HiSilicon Kirin 9050 Pro",
         partNumber: "Hi36E0 GPCV100",
         releaseDate: "2026.09",
-        process: "SMIC N+3 (6nm+), stacked",
+        process: "SMIC N+3 (6nm+) & SMIC N+2, stacked",
         geekbench6: { single: "1813", multi: "6115" },
         wildlifeExtreme: "3263",
         steelNomadLite: "993",
-        dieSize: "unknown",
+        dieSize: "128.23mm² x2",
         architecture: "ARMv8-A compatible",
         cpu: {
             specs: "1x 3.1GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
@@ -4985,7 +5006,7 @@ const kirin9000Data = [
             l3Cache: "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
         },
         slc: "12MB",
-        gpu: "Huawei Maleoon 955",
+        gpu: "Huawei Maleoon 955 (6CUs)",
         npu: "Ascend NPU (4x Tensor + 2x Vector)",
         modem: "Balong 5G Integrated Modem",
         memory: "24-bit Quad-channel LPDDR6 10677"
