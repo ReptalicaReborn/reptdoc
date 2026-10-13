@@ -70,6 +70,7 @@ const aSeriesData = [
     {
         name: "A18 Pro",
         geekbench6: { single: "3429", multi: "8790" },
+        geekbench7: { single: "3088", multi: "7954" },
         wildlifeExtreme: "5148",
         steelNomadLite: "2132",
         codename: "Tahiti",
@@ -543,6 +544,7 @@ const mSeriesData = [
         name: "M5",
         codename: "Hidra",
         geekbench6: { single: "4326", multi: "18043" },
+        geekbench7: { single: "3692", multi: "17776" },
         wildlifeExtreme: "12059",
         steelNomadLite: "5335",
         partNumber: "T8142",
@@ -580,6 +582,7 @@ const mSeriesData = [
     {
         name: "M4 Pro",
         geekbench6: { single: "3925", multi: "22669" },
+        geekbench7: { single: "3360", multi: "21894" },
         wildlifeExtreme: "16140",
         codename: "Brava S",
         partNumber: "T6040",
@@ -599,6 +602,7 @@ const mSeriesData = [
     {
         name: "M4",
         geekbench6: { single: "3781", multi: "14858" },
+        geekbench7: { single: "3261", multi: "14610" },
         wildlifeExtreme: "9133",
         codename: "Donan",
         partNumber: "T8132",
@@ -654,6 +658,7 @@ const mSeriesData = [
     {
         name: "M3 Pro",
         geekbench6: { single: "3090", multi: "15100" },
+        geekbench7: { single: "2843", multi: "14898" },
         wildlifeExtreme: "14540",
         codename: "Lobos",
         partNumber: "T6030",
@@ -711,6 +716,7 @@ const mSeriesData = [
     {
         name: "M2 Max",
         geekbench6: { single: "2750", multi: "14600" },
+        geekbench7: { single: "2496", multi: "17615" },
         wildlifeExtreme: "13600",
         codename: "Rhodes",
         partNumber: "T6021",
@@ -730,6 +736,7 @@ const mSeriesData = [
     {
         name: "M2 Pro",
         geekbench6: { single: "2650", multi: "14200" },
+        geekbench7: { single: "2374", multi: "14100" },
         wildlifeExtreme: "10200",
         codename: "Rhodes 1C",
         partNumber: "T6020",
@@ -749,6 +756,7 @@ const mSeriesData = [
     {
         name: "M2",
         geekbench6: { single: "2600", multi: "10000" },
+        geekbench7: { single: "2374", multi: "9943" },
         wildlifeExtreme: "6900",
         codename: "Staten",
         partNumber: "APL1109 / T8112",
@@ -768,6 +776,7 @@ const mSeriesData = [
     {
         name: "M1 Ultra",
         geekbench6: { single: "2400", multi: "17500" },
+        geekbench7: { single: "2263", multi: "24355" },
         wildlifeExtreme: "15000",
         codename: "Jade 4C",
         partNumber: "T6002",
@@ -787,6 +796,7 @@ const mSeriesData = [
     {
         name: "M1 Max",
         geekbench6: { single: "2390", multi: "12500" },
+        geekbench7: { single: "2238", multi: "14121" },
         wildlifeExtreme: "10600",
         codename: "Jade 2C",
         partNumber: "T6001",
@@ -806,6 +816,7 @@ const mSeriesData = [
     {
         name: "M1 Pro",
         geekbench6: { single: "2380", multi: "12300" },
+        geekbench7: { single: "2255", multi: "14750" },
         wildlifeExtreme: "9400",
         codename: "Jade C",
         partNumber: "T6000",
@@ -825,6 +836,7 @@ const mSeriesData = [
     {
         name: "M1",
         geekbench6: { single: "2350", multi: "8600" },
+        geekbench7: { single: "2189", multi: "8860" },
         wildlifeExtreme: "5000",
         codename: "Tonga",
         partNumber: "APL1102 / T8103",
@@ -905,6 +917,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 8 Elite Gen 5",
         geekbench6: { single: "3831", multi: "12459" },
+        geekbench7: { single: "3196", multi: "10585" },
         wildlifeExtreme: "8492",
         steelNomadLite: "3143",
         codename: "canoe/kaanapali",
@@ -947,6 +960,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 8 Elite",
         geekbench6: { single: "3221", multi: "10426" },
+        geekbench7: { single: "2669", multi: "9544" },
         wildlifeExtreme: "6949",
         steelNomadLite: "2583",
         codename: "sun/pakala",
@@ -991,6 +1005,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 8 Gen 3",
         geekbench6: { single: "2200", multi: "7000" },
+        geekbench7: { single: "1611", multi: "6477" },
         wildlifeExtreme: "5060",
         codename: "lanai/pineapple",
         partNumber: "SM8650-AB",
@@ -1012,6 +1027,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 8 Gen 2",
         geekbench6: { single: "2000", multi: "5500" },
+        geekbench7: { single: "1758", multi: "5066" },
         wildlifeExtreme: "3750",
         steelNomadLite: "1062",
         codename: "kalama/kailua",
@@ -1055,6 +1071,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 8 Gen 1",
         geekbench6: { single: "1650", multi: "4000" },
+        geekbench7: { single: "1368", multi: "3600" },
         wildlifeExtreme: "2600",
         codename: "taro/waipio",
         partNumber: "SM8450",
@@ -1099,6 +1116,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 888",
         geekbench6: { single: "1400", multi: "3600" },
+        geekbench7: { single: "1330", multi: "3701" },
         wildlifeExtreme: "1500",
         steelNomadLite: "503",
         codename: "lahaina",
@@ -1164,6 +1182,7 @@ const snapdragon8Data = [
     {
         name: "Snapdragon 865",
         geekbench6: { single: "1100", multi: "3100" },
+        geekbench7: { single: "1058", multi: "3541" },
         wildlifeExtreme: "1100",
         codename: "kona",
         partNumber: "SM8250",
@@ -2906,6 +2925,7 @@ const snapdragonXData = [
     {
         name: "Snapdragon X2 Elite (X2E-88-100)",
         geekbench6: { single: "3838", multi: "20320" },
+        geekbench7: { single: "3225", multi: "22735" },
         steelNomadLite: "4123",
         partNumber: "X2E-88-100",
         releaseDate: "2025.09",
@@ -2960,6 +2980,7 @@ const snapdragonXData = [
         name: "Snapdragon X Elite (X1E-84-100)",
         binnedOf: "Snapdragon X Elite (X1E-00-1DE)",
         geekbench6: { single: "2882", multi: "15412" },
+        geekbench7: { single: "2643", multi: "17207" },
         wildlifeExtreme: "6139",
         steelNomadLite: "2080",
         dieSize: "173mm²",
@@ -2998,6 +3019,7 @@ const snapdragonXData = [
         name: "Snapdragon X Elite (X1E-78-100)",
         binnedOf: "Snapdragon X Elite (X1E-00-1DE)",
         geekbench6: { single: "2400", multi: "14050" },
+        geekbench7: { single: "2149", multi: "16326" },
         wildlifeExtreme: "5020",
         steelNomadLite: "1702",
         partNumber: "X1E-78-100",
@@ -3174,6 +3196,7 @@ const dimensity9000Data = [
         name: "MediaTek Dimensity 9300+",
         binnedOf: "MediaTek Dimensity 9300",
         geekbench6: { single: "2250", multi: "7600" },
+        geekbench7: { single: "1934", multi: "7097" },
         wildlifeExtreme: "5812",
         steelNomadLite: "2341",
         partNumber: "MT6989Z",
@@ -3682,6 +3705,7 @@ const dimensity7000Data = [
         process: "TSMC N4",
         dieSize: "Unknown",
         geekbench6: { single: "1041", multi: "3031" },
+        geekbench7: { single: "896", multi: "3041" },
         wildlifeExtreme: "892",
         architecture: "ARMv8.2-A",
         cpu: {
@@ -6168,6 +6192,7 @@ const exynos2000Data = [
     {
         name: "Exynos 2400e",
         geekbench6: { single: "2000", multi: "6400" },
+        geekbench7: { single: "1749", multi: "5987" },
         wildlifeExtreme: "4100",
         codename: "root",
         partNumber: "S5E9945",
@@ -6190,6 +6215,7 @@ const exynos2000Data = [
         name: "Exynos 2400",
         binnedOf: "Exynos 2400e",
         geekbench6: { single: "2067", multi: "6520" },
+        geekbench7: { single: "1862", multi: "6399" },
         wildlifeExtreme: "4259",
         codename: "root",
         partNumber: "S5E9945",
@@ -6350,6 +6376,7 @@ const exynos1000Data = [
     {
         name: "Exynos 1380",
         geekbench6: { single: "1000", multi: "2800" },
+        geekbench7: { single: "891", multi: "2976" },
         wildlifeExtreme: "800",
         codename: "quartz",
         partNumber: "S5E8835",
@@ -6390,6 +6417,7 @@ const exynos1000Data = [
     {
         name: "Exynos 1280",
         geekbench6: { single: "880", multi: "2050" },
+        geekbench7: { single: "830", multi: "2106" },
         wildlifeExtreme: "600",
         codename: "papaya",
         partNumber: "S5E8825",
@@ -7176,6 +7204,7 @@ const tensorData = [
     {
         name: "Google Tensor G5",
         geekbench6: { single: "2221", multi: "6101" },
+        geekbench7: { single: "1973", multi: "5872" },
         wildlifeExtreme: "3252",
         codename: "Laguna",
         partNumber: "unknown",
@@ -7197,6 +7226,7 @@ const tensorData = [
     {
         name: "Google Tensor G4",
         geekbench6: { single: "1958", multi: "4638" },
+        geekbench7: { single: "1497", multi: "4317" },
         wildlifeExtreme: "2576",
         steelNomadLite: "970",
         codename: "Zuma Pro (GS401)",
@@ -7219,6 +7249,7 @@ const tensorData = [
     {
         name: "Google Tensor G3",
         geekbench6: { single: "1767", multi: "4668" },
+        geekbench7: { single: "1443", multi: "4144" },
         wildlifeExtreme: "2455",
         steelNomadLite: "965",
         codename: "Zuma (GS301)",
@@ -7262,6 +7293,7 @@ const tensorData = [
     {
         name: "Google Tensor G1",
         geekbench6: { single: "1425", multi: "3167" },
+        geekbench7: { single: "1294", multi: "3621" },
         wildlifeExtreme: "2088",
         codename: "Whitechapel (GS101)",
         partNumber: "S5P9845",
@@ -7296,6 +7328,8 @@ const tableStructure = [
         category: "category_benchmarks", rows: [
             { label: "geekbench6_single", key: "geekbench6.single" },
             { label: "geekbench6_multi", key: "geekbench6.multi" },
+            { label: "geekbench7_single", key: "geekbench7.single" },
+            { label: "geekbench7_multi", key: "geekbench7.multi" },
             { label: "wildlifeExtreme", key: "wildlifeExtreme" },
             { label: "steelNomadLite", key: "steelNomadLite" },
         ]
@@ -7416,6 +7450,14 @@ function getLc(val) {
     _lcCache.set(val, lc);
     return lc;
 }
+
+window.activeCpuBenchmark = 'geekbench6';
+window.toggleCpuBenchmark = function () {
+    window.activeCpuBenchmark = (window.activeCpuBenchmark === 'geekbench6') ? 'geekbench7' : 'geekbench6';
+    if (document.getElementById('comparison-table-wrapper')) {
+        updateComparisonTable();
+    }
+};
 
 window.activeGpuBenchmark = 'wildlife';
 window.toggleGpuBenchmark = function () {
@@ -9507,6 +9549,20 @@ function renderBenchmarkComparison(chip1, chip2) {
     const gb6Single2 = chip2 && chip2.geekbench6 ? parseInt(chip2.geekbench6.single) || 0 : 0;
     const gb6Multi1 = chip1 && chip1.geekbench6 ? parseInt(chip1.geekbench6.multi) || 0 : 0;
     const gb6Multi2 = chip2 && chip2.geekbench6 ? parseInt(chip2.geekbench6.multi) || 0 : 0;
+    const gb7Single1 = chip1 && chip1.geekbench7 ? parseInt(chip1.geekbench7.single) || 0 : 0;
+    const gb7Single2 = chip2 && chip2.geekbench7 ? parseInt(chip2.geekbench7.single) || 0 : 0;
+    const gb7Multi1 = chip1 && chip1.geekbench7 ? parseInt(chip1.geekbench7.multi) || 0 : 0;
+    const gb7Multi2 = chip2 && chip2.geekbench7 ? parseInt(chip2.geekbench7.multi) || 0 : 0;
+
+    const cpuMode = window.activeCpuBenchmark || 'geekbench6';
+    const hasGb6 = gb6Single1 || gb6Single2 || gb6Multi1 || gb6Multi2;
+    const hasGb7 = gb7Single1 || gb7Single2 || gb7Multi1 || gb7Multi2;
+    const canToggleCpu = hasGb6 && hasGb7;
+    const showGb7 = (cpuMode === 'geekbench7' && hasGb7) || (hasGb7 && !hasGb6);
+    const cpuSingle1 = showGb7 ? gb7Single1 : gb6Single1;
+    const cpuSingle2 = showGb7 ? gb7Single2 : gb6Single2;
+    const cpuMulti1 = showGb7 ? gb7Multi1 : gb6Multi1;
+    const cpuMulti2 = showGb7 ? gb7Multi2 : gb6Multi2;
 
     // Get GPU benchmark values
     const wildlife1 = chip1 ? parseInt(chip1.wildlifeExtreme) || 0 : 0;
@@ -9520,29 +9576,40 @@ function renderBenchmarkComparison(chip1, chip2) {
     const canToggleGpu = hasSteel && hasWildlife;
 
     // Check if we have any benchmark data
-    if (!gb6Single1 && !gb6Single2 && !gb6Multi1 && !gb6Multi2 && !hasWildlife && !hasSteel) {
+    if (!hasGb6 && !hasGb7 && !hasWildlife && !hasSteel) {
         return '';
     }
 
     let html = '<div class="benchmark-comparison">';
 
-    // Geekbench 6 Section
-    if (gb6Single1 || gb6Single2 || gb6Multi1 || gb6Multi2) {
+    // Geekbench CPU Section (6 or 7, switchable when both are available)
+    if (hasGb6 || hasGb7) {
+        const cpuTitle = showGb7 ? t('geekbench7_title') : t('geekbench_title');
+        const cpuDesc = showGb7 ? t('geekbench7_desc') : t('geekbench_desc');
+        const toggleCpuHtml = canToggleCpu ?
+            `<button class="btn-text tooltip" data-action="toggleCpuBenchmark" style="display: inline-flex !important; align-items: center; justify-content: center; padding: 4px 8px; font-size: 13px; align-self: flex-start;">
+                 <span class="material-icons-round" style="font-size: 16px; margin-right: 4px;">swap_horiz</span>
+                 ${showGb7 ? t('switch_to_geekbench6') : t('switch_to_geekbench7')}
+             </button>` : '';
+
         html += `
         <div class="benchmark-section">
-            <div class="benchmark-header">
-                <span class="material-icons-round" style="color: var(--md-sys-color-primary); margin-right: 8px;">speed</span>
-                <h3>${t('geekbench_title')}</h3>
+            <div class="benchmark-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; align-items: center;">
+                    <span class="material-icons-round" style="color: var(--md-sys-color-primary); margin-right: 8px;">speed</span>
+                    <h3>${cpuTitle}</h3>
+                </div>
+                ${toggleCpuHtml}
             </div>
-            <p class="benchmark-desc">${t('geekbench_desc')}</p>
+            <p class="benchmark-desc">${cpuDesc}</p>
             <div class="benchmark-grid">
                 <div class="benchmark-column">
                     <h4>${t('single_core')}</h4>
-                    ${renderBenchmarkBar(name1, gb6Single1, name2, gb6Single2)}
+                    ${renderBenchmarkBar(name1, cpuSingle1, name2, cpuSingle2)}
                 </div>
                 <div class="benchmark-column">
                     <h4>${t('multi_core')}</h4>
-                    ${renderBenchmarkBar(name1, gb6Multi1, name2, gb6Multi2)}
+                    ${renderBenchmarkBar(name1, cpuMulti1, name2, cpuMulti2)}
                 </div>
             </div>
         </div>`;
@@ -9704,6 +9771,9 @@ document.addEventListener('click', (e) => {
             break;
         case 'selectChip':
             selectChip(parseInt(target.dataset.slot), parseInt(target.dataset.index));
+            break;
+        case 'toggleCpuBenchmark':
+            toggleCpuBenchmark();
             break;
         case 'toggleGpuBenchmark':
             toggleGpuBenchmark();
