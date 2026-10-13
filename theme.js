@@ -541,3 +541,25 @@ function isTransAwarenessDate() {
         applyCustomAccent(savedAccent);
     }
 })();
+
+// Apply the saved theme before first paint. theme.js runs from <head>, so <body>
+// doesn't exist yet; add the class the moment the parser creates it.
+(function () {
+    let isLight = false;
+    try { isLight = localStorage.getItem('theme') === 'light'; } catch (e) { }
+    if (!isLight) return;
+    const apply = () => {
+        if (!document.body) return false;
+        document.body.classList.add('light-mode');
+        return true;
+    };
+    if (apply()) return;
+    const observer = new MutationObserver(() => { if (apply()) observer.disconnect(); });
+    observer.observe(document.documentElement, { childList: true });
+})();
+
+// Keep the compare page's combined language/theme button icon in sync with the theme.
+document.addEventListener('DOMContentLoaded', () => {
+    const icon = document.getElementById('compare-theme-icon');
+    if (icon) icon.textContent = document.body.classList.contains('light-mode') ? 'light_mode' : 'dark_mode';
+});

@@ -4,3 +4,4 @@ node_modules/
 *.min.css
 .env
 .vscode/
+git_*.txt
