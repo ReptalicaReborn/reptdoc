@@ -21,9 +21,6 @@ Because ReptDoc is built as a static client-side web application using HTML, CSS
 2. Open `index.html` in your favorite web browser.
 3. Enjoy! (Note: Due to strict browser CORS policies, fetching local `.json` translation files using a `file:///` address may fail on some browsers. Running a simple local live server is recommended).
 
-## 🔗 Discord / link embeds
-Comparison links (`compare.html?chip1=...&chip2=...`) get a per-comparison embed via a Netlify Edge Function (`netlify/edge-functions/compare-og.js`) that injects Open Graph tags with the key benchmark scores. Chat apps don't run JavaScript, so this has to happen server-side.
-
 ## 🌍 Translations (Weblate)
 ReptDoc fully supports community-driven translations. You don't need to know how to code to help translate the interface! The link is https://hosted.weblate.org/projects/reptdoc/
 
@@ -37,7 +34,7 @@ Massive thanks to the awesome community members helping bringing ReptDoc to thei
 ## 🤝 Contributing
 Contributions are highly welcomed, especially when it comes to keeping benchmark scores and specification data accurate. If you notice an error in the data or have newly released chip data to add:
 1. Fork the repository
-2. Edit the matching file in `data/` (one JSON file per series, e.g. `data/snapdragon-8.json`). A brand-new series also needs an entry in `seriesDataMap` in `script.js`, a nav link in `index.html`, and its key added to `SERIES_KEYS` in `netlify/edge-functions/compare-og.js`
+2. Edit `script.js` to modify or add the JSON entries describing the chip data
 3. Open a Pull Request!
 
 If you'd like to reach out directly regarding contributions or suggestions, contact **thatReppy** on Discord.
