@@ -1,0 +1,10 @@
+{
+  "name": "reptdoc",
+  "private": true,
+  "description": "Static site. Dependencies are only for Netlify Functions (comparison card image for link embeds).",
+  "license": "MIT",
+  "dependencies": {
+    "@resvg/resvg-wasm": "2.6.2",
+    "satori": "0.56.1"
+  }
+}

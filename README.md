@@ -22,7 +22,7 @@ Because ReptDoc is built as a static client-side web application using HTML, CSS
 3. Enjoy! (Note: Due to strict browser CORS policies, fetching local `.json` translation files using a `file:///` address may fail on some browsers. Running a simple local live server is recommended).
 
 ## 🔗 Discord / link embeds
-Comparison links (`compare.html?chip1=...&chip2=...`) get a per-comparison embed via a Netlify Edge Function (`netlify/edge-functions/compare-og.js`) that injects Open Graph tags with the key benchmark scores. Chat apps don't run JavaScript, so this has to happen server-side.
+Comparison links (`compare.html?chip1=...&chip2=...`) get a per-comparison embed via a Netlify Edge Function (`netlify/edge-functions/compare-og.js`) that injects Open Graph tags with the key benchmark scores, and a Netlify Function (`netlify/functions/compare-card.mjs`, served at `/og/compare.png`) renders a side-by-side comparison card image (satori + resvg). The only npm dependencies in the repo (`package.json`) are for that function. Chat apps don't run JavaScript, so this has to happen server-side.
 
 ## 🌍 Translations (Weblate)
 ReptDoc fully supports community-driven translations. You don't need to know how to code to help translate the interface! The link is https://hosted.weblate.org/projects/reptdoc/
