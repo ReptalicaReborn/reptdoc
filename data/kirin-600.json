@@ -1,0 +1,92 @@
+[
+ {
+  "name": "HiSilicon Kirin 659",
+  "partNumber": "Hi6250",
+  "releaseDate": "unknown",
+  "process": "TSMC 16nm FinFET+",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.36 GHz + 4x Cortex-A53 @ 1.7 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-T830 MP2 (900 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.6",
+  "memory": "32-bits Dual-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 658",
+  "partNumber": "Q4 2016",
+  "releaseDate": "unknown",
+  "process": "TSMC 16nm FinFET+",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.35 GHz + 4x Cortex-A53 @ 1.7 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-T830 MP2 (900 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.6",
+  "memory": "32-bits Dual-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 655",
+  "partNumber": "Hi6250",
+  "releaseDate": "Q4 2016",
+  "process": "TSMC 16nm FinFET+",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.1 GHz + 4x Cortex-A53 @ 1.7 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-T830 MP2 (900 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.6",
+  "memory": "32-bits Dual-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 650",
+  "partNumber": "Hi6250",
+  "releaseDate": "Q2 2016",
+  "process": "TSMC 16nm FinFET+",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.0 GHz + 4x Cortex-A53 @ 1.7 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-T830 MP2 (900 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.6",
+  "memory": "32-bits Dual-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 620",
+  "partNumber": "Hi6620",
+  "releaseDate": "Q1 2015",
+  "process": "TSMC 28nm HPM",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "8x Cortex-A53 @ 1.2 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-450 MP4 (533 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.4",
+  "memory": "32-bits Single-Channel LPDDR3 800MHz"
+ }
+]

@@ -1,0 +1,97 @@
+[
+ {
+  "name": "HiSilicon Kirin 8020",
+  "binnedOf": "HiSilicon Kirin 9010S",
+  "partNumber": "unknown",
+  "releaseDate": "2025.05",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "unknown",
+  "geekbench6": {
+   "single": "1284",
+   "multi": "4112"
+  },
+  "wildlifeExtreme": "956",
+  "steelNomadLite": "277",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x Taishan Prime @ 2.29 GHz + 3x Taishan Large @ 2.05 GHz + 4x Taishan Little @ 1.3 GHz",
+   "l2Cache": "1MB (TP) + 1MB L2 (4x TLi)",
+   "l3Cache": "4MB"
+  },
+  "slc": "unknown",
+  "gpu": "Huawei Maleoon 920C 2CUs (840 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Modem",
+  "memory": "LPDDR5X"
+ },
+ {
+  "name": "HiSilicon Kirin 8000",
+  "partNumber": "Hi6290V110",
+  "releaseDate": "2023.12",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "70 mm²",
+  "architecture": "ARMv8.2-A",
+  "geekbench6": {
+   "single": "984",
+   "multi": "2882"
+  },
+  "wildlifeExtreme": "1025",
+  "steelNomadLite": "302",
+  "cpu": {
+   "specs": "1x Cortex-A77 @ 2.40 GHz + 3x Cortex-A77 @ 2.19 GHz + 4x Cortex-A55 @ 1.84 GHz",
+   "l2Cache": "512KB (A77) + 3x 256KB (A77) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G610 MP4 (864 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G",
+  "memory": "16-bits Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "HiSilicon Kirin 820",
+  "geekbench6": {
+   "single": "850",
+   "multi": "2400"
+  },
+  "wildlifeExtreme": "650",
+  "partNumber": "Hi6920(L)V100/V110",
+  "releaseDate": "2020.03",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "71.5mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x Cortex-A76 @ 2.36 GHz + 3x Cortex-A76 @ 2.22 GHz + 4x Cortex-A55 @ 1.84 GHz",
+   "l2Cache": "512KB (A76) + 3x 256KB (A76) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "2MB",
+  "gpu": "ARM Mali-G57 MP6 (850MHz)",
+  "npu": "Dual-core (Da Vinci)",
+  "modem": "Balong 5000",
+  "memory": "16-bit Quad-channel LPDDR4X 4266"
+ },
+ {
+  "name": "HiSilicon Kirin 810",
+  "geekbench6": {
+   "single": "750",
+   "multi": "2000"
+  },
+  "wildlifeExtreme": "450",
+  "partNumber": "Hi6280V100",
+  "releaseDate": "2019.06",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "46.2mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.27 GHz + 6x Cortex-A55 @ 1.88 GHz",
+   "l2Cache": "2x 256KB (A76) + 6x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G52 MP6 (820 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 750 4G",
+  "memory": "16-bits Dual-channel LPDDR4X 4266"
+ }
+]

@@ -1,0 +1,521 @@
+[
+ {
+  "name": "Snapdragon 6 Gen 5",
+  "process": "4nm",
+  "codename": "Skyros",
+  "partNumber": "SM6850",
+  "cpu": {
+   "specs": "4x Cortex-A78 2.6GHz + 4x Cortex-A55 2.0GHz"
+  },
+  "geekbench6": {
+   "single": "1096",
+   "multi": "3381"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 812",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon 5G sub-6 Rel.17",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 6400MT"
+ },
+ {
+  "name": "Snapdragon 6 Gen 4",
+  "geekbench6": {
+   "single": "1113",
+   "multi": "3324"
+  },
+  "wildlifeExtreme": "1059",
+  "codename": "volcano",
+  "partNumber": "SM6650",
+  "releaseDate": "2025.02",
+  "process": "TSMC 4nm (N4)",
+  "dieSize": "unknown",
+  "architecture": "ARMv9.2-A",
+  "cpu": {
+   "specs": "1x Cortex-A720 @ 2.30 GHz + 3x Cortex-A720 @ 2.20 GHz + 4x Cortex-A520 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Adreno 810 (895 MHz)",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X51 5G (Up to 2.9 Gbps)",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 3200 MHz"
+ },
+ {
+  "name": "Snapdragon 6s Gen 4",
+  "geekbench6": {
+   "single": "1004",
+   "multi": "2858"
+  },
+  "wildlifeExtreme": "789",
+  "codename": "parrot",
+  "partNumber": "SM6435-AA",
+  "releaseDate": "2024.10",
+  "process": "Samsung 4nm (4LPX)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.40 GHz + 4x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Adreno 710 (940 MHz)",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X62 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 3200 MHz"
+ },
+ {
+  "name": "Snapdragon 6 Gen 3",
+  "geekbench6": {
+   "single": "1020",
+   "multi": "2950"
+  },
+  "wildlifeExtreme": "1250",
+  "codename": "parrot",
+  "partNumber": "SM6475-AB",
+  "releaseDate": "2024.08",
+  "process": "Samsung 4nm (4LPX)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.40 GHz + 4x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Adreno 710 (940 MHz)",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X62 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 3200 MHz"
+ },
+ {
+  "name": "Snapdragon 6 Gen 1",
+  "geekbench6": {
+   "single": "930",
+   "multi": "2750"
+  },
+  "wildlifeExtreme": "613",
+  "codename": "parrot",
+  "partNumber": "SM6450",
+  "releaseDate": "2022.09",
+  "process": "Samsung 4nm (4LPX)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.21 GHz + 4x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Adreno 710 (676 MHz)",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X62 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 2750 MHz"
+ },
+ {
+  "name": "Snapdragon 6s 4G Gen 2",
+  "binnedOf": "Snapdragon 680",
+  "geekbench6": {
+   "single": "490",
+   "multi": "1519"
+  },
+  "wildlifeExtreme": "134",
+  "codename": "divar",
+  "partNumber": "SM6225-AF",
+  "releaseDate": "2025.12",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 2.90 GHz + 4x Cortex-A53 @ 1.90 GHz (Kryo 265)",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 610 (1114 MHz)",
+  "npu": "Qualcomm Hexagon 686",
+  "modem": "Snapdragon X11 LTE",
+  "dsp": "Qualcomm Hexagon 686",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 6s 4G Gen 1",
+  "binnedOf": "Snapdragon 665",
+  "geekbench6": {
+   "single": "310",
+   "multi": "1332"
+  },
+  "wildlifeExtreme": "112",
+  "codename": "bengal",
+  "partNumber": "SM6115",
+  "releaseDate": "2024.05",
+  "process": "Samsung 11nm (11LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 2.10 GHz + 4x Cortex-A53 @ 1.80 GHz (Kryo 260)",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 610 (1050 MHz)",
+  "npu": "Qualcomm Hexagon 662",
+  "modem": "Snapdragon X11 LTE",
+  "dsp": "Qualcomm Hexagon 662",
+  "memory": "16-bit Dual-channel LPDDR4X 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 695 5G",
+  "geekbench6": {
+   "single": "910",
+   "multi": "2149"
+  },
+  "wildlifeExtreme": "361",
+  "codename": "blair",
+  "partNumber": "SM6375",
+  "releaseDate": "2021.10",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.20 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Adreno 619 (840 MHz)",
+  "npu": "Qualcomm Hexagon 686",
+  "modem": "Snapdragon X51 5G",
+  "dsp": "Qualcomm Hexagon 686",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 690 5G",
+  "geekbench6": {
+   "single": "850",
+   "multi": "1900"
+  },
+  "wildlifeExtreme": "350",
+  "codename": "lagoon",
+  "partNumber": "SM6350",
+  "releaseDate": "2020.06",
+  "process": "Samsung 8nm (8LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A77 @ 2.00 GHz + 6x Cortex-A55 @ 1.70 GHz (Kryo 560)",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Adreno 619L (565 MHz)",
+  "npu": "Qualcomm Hexagon 692 (5 TOPS)",
+  "modem": "Snapdragon X51 5G",
+  "dsp": "Qualcomm Hexagon 692",
+  "memory": "16-bit Dual-channel LPDDR4X 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 680 / 685",
+  "geekbench6": {
+   "single": "417",
+   "multi": "1454"
+  },
+  "wildlifeExtreme": "122",
+  "codename": "Bengal / Khaje",
+  "partNumber": "SM6225",
+  "releaseDate": "2021.10 / 2023.3",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "32.45mm²",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 2.40 / 2.80 GHz + 4x Cortex-A53 @ 1.90 GHz (Kryo 265)",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 610 (1114 MHz/ 1260MHz)",
+  "npu": "Qualcomm Hexagon 686",
+  "modem": "Snapdragon X11 LTE",
+  "dsp": "Qualcomm Hexagon 686",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 675",
+  "binnedOf": null,
+  "codename": "trinket",
+  "partNumber": "SM6150",
+  "releaseDate": "2018.10",
+  "process": "Samsung 11nm (11LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.02 / 2.2 GHz + 6x Cortex-A55 @ 1.71 GHz",
+   "l2Cache": "2x 256 KB (A76) + 6x 64 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "geekbench6": {
+   "single": "671",
+   "multi": "1695"
+  },
+  "wildlifeExtreme": "120",
+  "slc": "N/A",
+  "gpu": "Adreno 612 (845 MHz / 895 MHz)",
+  "npu": "Qualcomm Hexagon 685",
+  "modem": "Snapdragon X12 LTE",
+  "dsp": "Qualcomm Hexagon 685",
+  "memory": "16-bit Dual-channel LPDDR4X 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 670",
+  "codename": "sdmbat",
+  "partNumber": "SDM670",
+  "releaseDate": "2018.08",
+  "process": "Samsung 10nm (10LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "2x Cortex-A75 @ 2.00 GHz + 6x Cortex-A55 @ 1.70 GHz (Kryo 360)",
+   "l2Cache": "2x 256 KB (A75) + 6x 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 615 (430 MHz)",
+  "npu": "Qualcomm Hexagon 685",
+  "modem": "Snapdragon X12 LTE",
+  "dsp": "Qualcomm Hexagon 685",
+  "memory": "16-bit Dual-channel LPDDR4X 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 665",
+  "geekbench6": {
+   "single": "337",
+   "multi": "1190"
+  },
+  "wildlifeExtreme": "108",
+  "codename": "trinket",
+  "partNumber": "SM6125",
+  "releaseDate": "2019.04 / 2020.01",
+  "process": "Samsung 11nm (11LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 2.00 GHz + 4x Cortex-A53 @ 1.80 GHz (Kryo 260)",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 610 (950 MHz)",
+  "npu": "Qualcomm Hexagon 686",
+  "modem": "Snapdragon X12 / X11 LTE",
+  "dsp": "Qualcomm Hexagon 686",
+  "memory": "16-bit Dual-channel LPDDR4X 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 660",
+  "codename": "msmtriton",
+  "partNumber": "SDM660",
+  "releaseDate": "2017.05",
+  "process": "Samsung 14nm (14LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 2.20 GHz + 4x Cortex-A53 @ 1.84 GHz (Kryo 260)",
+   "l2Cache": "1 MB (A73 cluster), 1 MB (A53 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 512 (647 MHz)",
+  "npu": "Qualcomm Hexagon 680",
+  "modem": "Snapdragon X12 LTE",
+  "dsp": "Qualcomm Hexagon 680",
+  "memory": "16-bit Dual-channel LPDDR4 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 650",
+  "codename": "eldarion",
+  "partNumber": "MSM8956",
+  "releaseDate": "2015.02",
+  "process": "TSMC 28nm (28HPM)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "2x Cortex-A72 @ 1.8 GHz + 4x Cortex-A53 @ 1.4 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 510 (600 MHz)",
+  "npu": "N/A",
+  "modem": "X8 LTE",
+  "dsp": "Qualcomm Hexagon V56",
+  "memory": "32-bit Single-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "Snapdragon 652",
+  "binnedOf": "Snapdragon 650",
+  "codename": "eldarion",
+  "partNumber": "MSM8976",
+  "releaseDate": "2015.02",
+  "process": "TSMC 28nm (28HPM)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A72 @ 1.8 GHz + 4x Cortex-A53 @ 1.4 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 510 (600 MHz)",
+  "npu": "N/A",
+  "modem": "X8 LTE",
+  "dsp": "Qualcomm Hexagon V56",
+  "memory": "32-bit Single-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "Snapdragon 653",
+  "binnedOf": "Snapdragon 650",
+  "codename": "eldarion",
+  "partNumber": "MSM8976 Pro",
+  "releaseDate": "2016.10",
+  "process": "TSMC 28nm (28HPM)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A72 @ 1.95 GHz + 4x Cortex-A53 @ 1.4 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 510 (621 MHz)",
+  "npu": "N/A",
+  "modem": "X9 LTE",
+  "dsp": "Qualcomm Hexagon V56",
+  "memory": "32-bit Single-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "Snapdragon 636",
+  "codename": "unknown",
+  "partNumber": "SDM636",
+  "releaseDate": "2017.10",
+  "process": "Samsung 14nm (14LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 1.80 GHz + 4x Cortex-A53 @ 1.61 GHz (Kryo 260)",
+   "l2Cache": "1 MB (A73 cluster), 1 MB (A53 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 509 (430 MHz)",
+  "npu": "Qualcomm Hexagon 680",
+  "modem": "Snapdragon X12 LTE",
+  "dsp": "Qualcomm Hexagon 680",
+  "memory": "16-bit Dual-channel LPDDR4 1333 MHz"
+ },
+ {
+  "name": "Snapdragon 632",
+  "codename": "unknown",
+  "partNumber": "SDM632",
+  "releaseDate": "2018.06",
+  "process": "Samsung 14nm (14LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 1.80 GHz + 4x Cortex-A53 @ 1.80 GHz (Kryo 250)",
+   "l2Cache": "1 MB (A73 cluster), 1 MB (A53 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 506 (725 MHz)",
+  "npu": "Qualcomm Hexagon 546",
+  "modem": "Snapdragon X9 LTE",
+  "dsp": "Qualcomm Hexagon 546",
+  "memory": "16-bit Single-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "Snapdragon 625",
+  "codename": "msmtitanium",
+  "partNumber": "MSM8953",
+  "releaseDate": "2016.02",
+  "process": "Samsung 14nm (14LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "8x Cortex-A53 @ 2.02 GHz",
+   "l2Cache": "1 MB (Shared)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 506 (650 MHz)",
+  "npu": "unknown",
+  "modem": "Snapdragon X9 LTE",
+  "dsp": "Qualcomm Hexagon 546",
+  "memory": "16-bit Single-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "Snapdragon 615",
+  "codename": "unknown",
+  "partNumber": "MSM8936",
+  "releaseDate": "2014.02",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.70 GHz + 4x Cortex-A53 @ 1.10 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 405 (550 MHz)",
+  "npu": "N/A",
+  "modem": "X5 LTE",
+  "dsp": "Qualcomm Hexagon V50",
+  "memory": "32-bit Single-channel LPDDR3 800 MHz"
+ },
+ {
+  "name": "Snapdragon 610",
+  "codename": "unknown",
+  "partNumber": "MSM8936",
+  "releaseDate": "2014.02",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.70 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 405 (550 MHz)",
+  "npu": "N/A",
+  "modem": "X5 LTE",
+  "dsp": "Qualcomm Hexagon V50",
+  "memory": "32-bit Single-channel LPDDR3 800 MHz"
+ },
+ {
+  "name": "Snapdragon 600",
+  "codename": "N/A",
+  "partNumber": "APQ8064T",
+  "releaseDate": "2013.01",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "88.1mm²",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Krait 300 @ 1.50 / 1.70 / 1.90 GHz",
+   "l2Cache": "2 MB",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 320 (400 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Qualcomm Hexagon QDSP6 V4",
+  "memory": "32-bit Dual-channel LPDDR3 533 MHz"
+ }
+]

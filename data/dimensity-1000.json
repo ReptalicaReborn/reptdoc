@@ -1,0 +1,162 @@
+[
+ {
+  "name": "MediaTek Dimensity 1300",
+  "binnedOf": "MediaTek Dimensity 1200",
+  "partNumber": "MT6893Z",
+  "releaseDate": "2022.04",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "95.78mm²",
+  "architecture": "ARMv8.2-A",
+  "geekbench6": {
+   "single": "1105",
+   "multi": "3252"
+  },
+  "wildlifeExtreme": "1325",
+  "cpu": {
+   "specs": "1x Cortex-A78 @ 3.0 GHz + 3x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512 KB (A78) + 4x 128 KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G77 MC9 (886 MHz)",
+  "npu": "MediaTek APU 3.0",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Dimensity 1200",
+  "partNumber": "MT6893",
+  "releaseDate": "2021.01",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "95.78mm²",
+  "geekbench6": {
+   "single": "1105",
+   "multi": "3252"
+  },
+  "wildlifeExtreme": "1325",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x Cortex-A78 @ 3.0 GHz + 3x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512 KB (A78) + 4x 128 KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G77 MC9 (886 MHz)",
+  "npu": "MediaTek APU 3.0",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Dimensity 1100",
+  "binnedOf": "MediaTek Dimensity 1200",
+  "partNumber": "MT6891Z",
+  "releaseDate": "2021.01",
+  "geekbench6": {
+   "single": "1043",
+   "multi": "3103"
+  },
+  "wildlifeExtreme": "1228",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "95.78mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512 KB (A78) + 4x 128 KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G77 MC9 (836 MHz)",
+  "npu": "MediaTek APU 3.0",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Dimensity 1080",
+  "geekbench6": {
+   "single": "967",
+   "multi": "2271"
+  },
+  "wildlifeExtreme": "636",
+  "partNumber": "MT6877",
+  "releaseDate": "2023",
+  "process": "TSMC 6nm",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.6 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G68 MC4 (950MHz)",
+  "npu": "MediaTek NPU 550",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 1000+",
+  "binnedOf": "MediaTek Dimensity 1000",
+  "partNumber": "MT6889Z",
+  "releaseDate": "2020.05",
+  "geekbench6": {
+   "single": "992",
+   "multi": "3053"
+  },
+  "wildlifeExtreme": "1228",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "95.78mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A77 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512 KB (A77) + 4x 128 KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G77 MC9 (836 MHz)",
+  "npu": "MediaTek APU 3.0",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Dimensity 1000L",
+  "binnedOf": "MediaTek Dimensity 1000",
+  "partNumber": "MT6885Z",
+  "releaseDate": "2019.12",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "95.78mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A77 @ 2.2 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512 KB (A77) + 4x 128 KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G77 MC7 (695 MHz)",
+  "npu": "MediaTek APU 3.0",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Dimensity 1000",
+  "partNumber": "MT6889",
+  "releaseDate": "2019.11",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "95.78mm²",
+  "geekbench6": {
+   "single": "992",
+   "multi": "3053"
+  },
+  "wildlifeExtreme": "1228",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A77 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512 KB (A77) + 4x 128 KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G77 MC9 (836 MHz)",
+  "npu": "MediaTek APU 3.0",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "LPDDR4X 2133 MHz"
+ }
+]
