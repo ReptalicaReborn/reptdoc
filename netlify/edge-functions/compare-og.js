@@ -84,13 +84,21 @@ export default async (request, context) => {
   if (a && b) lines.push(`Process: ${a.process || '—'} vs ${b.process || '—'}`);
   const description = lines.join('\n') || 'Compare SoC specs and benchmarks on ReptDoc';
 
+  // Rendered by netlify/functions/compare-card.mjs; needs both chips, else fall back to the logo
+  const image = a && b
+    ? escapeHtml(`${url.origin}/og/compare.png?chip1=${encodeURIComponent(a.name)}&chip2=${encodeURIComponent(b.name)}`)
+    : `${url.origin}/favicon.png`;
+
   const tags = [
     `<meta property="og:title" content="${escapeHtml(title)} | ReptDoc">`,
     `<meta property="og:description" content="${escapeHtml(description)}">`,
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="ReptDoc">`,
-    `<meta property="og:image" content="${url.origin}/favicon.png">`,
-    `<meta name="twitter:card" content="summary">`,
+    `<meta property="og:image" content="${image}">`,
+    `<meta property="og:image:width" content="1200">`,
+    `<meta property="og:image:height" content="630">`,
+    `<meta name="twitter:card" content="${a && b ? 'summary_large_image' : 'summary'}">`,
+    `<meta name="twitter:image" content="${image}">`,
   ].join('\n    ');
 
   const html = (await response.text()).replace('</head>', `    ${tags}\n</head>`);
