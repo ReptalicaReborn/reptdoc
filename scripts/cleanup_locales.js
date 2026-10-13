@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const localesDir = 'c:/Users/null_rainfield/Desktop/slop/locales';
+const localesDir = path.join(__dirname, '..', 'locales');
 const files = fs.readdirSync(localesDir);
 
 files.forEach(file => {

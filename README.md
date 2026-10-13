@@ -25,8 +25,7 @@ Because ReptDoc is built as a static client-side web application using HTML, CSS
 ReptDoc fully supports community-driven translations. You don't need to know how to code to help translate the interface! The link is https://hosted.weblate.org/projects/reptdoc/
 
 Head over to the localization setup connected via **Weblate** |or submit a direct Pull Request to the `/locales/` directory.
-Currently supported languages out-of-the-box:
-- 🇺🇸 English (`en`) - 🇻🇳 Tiếng Việt (`vi`)
+Locale files live in `/locales/` (English is the base; untranslated keys fall back to it). Helper scripts for bulk-editing them are in `/scripts/`.
 ## <a href="https://hosted.weblate.org/engage/reptdoc/"><img src="https://hosted.weblate.org/widget/reptdoc/open-graph.png" alt="Translation status"></a>
 ### Translation Credits 💖
 Massive thanks to the awesome community members helping bringing ReptDoc to their local languages!

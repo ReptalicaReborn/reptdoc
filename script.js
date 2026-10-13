@@ -7761,6 +7761,7 @@ window.toggleCardDetails = function (index) {
 window.toggleNavGroup = function (header) {
     const group = header.parentElement;
     group.classList.toggle('expanded');
+    header.setAttribute('aria-expanded', group.classList.contains('expanded'));
 };
 
 // Update breadcrumb text
@@ -8452,18 +8453,23 @@ if (!currentLang) {
 let loadedTranslations = {};
 
 async function loadLocales() {
+    // Always load English as the base so untranslated keys fall back to it
+    // instead of showing the raw key.
+    let base = {};
+    try {
+        const enResponse = await fetch('locales/en.json');
+        if (enResponse.ok) base = await enResponse.json();
+    } catch (e) {
+        console.error('Failed to load fallback locale:', e);
+    }
+    loadedTranslations = base;
+    if (currentLang === 'en') return;
     try {
         const response = await fetch(`locales/${currentLang}.json`);
         if (!response.ok) throw new Error('Locale not found');
-        loadedTranslations = await response.json();
+        loadedTranslations = Object.assign({}, base, await response.json());
     } catch (e) {
         console.error('Failed to load locale:', e);
-        try {
-            const fallbackResponse = await fetch(`locales/en.json`);
-            loadedTranslations = await fallbackResponse.json();
-        } catch (e2) {
-            console.error('Failed to load fallback locale:', e2);
-        }
     }
 }
 
@@ -9070,6 +9076,12 @@ function initNavigation() {
     document.querySelectorAll('.nav-group-header').forEach(header => {
         header.addEventListener('click', () => {
             toggleNavGroup(header);
+        });
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleNavGroup(header);
+            }
         });
     });
 
