@@ -45,17 +45,36 @@ const escapeHtml = (s) =>
 
 const num = (v) => (v === undefined || v === null || v === '' ? null : String(v));
 
+const parse = (v) => {
+  const n = parseInt(String(v ?? '').replace(/[^0-9]/g, ''), 10);
+  return Number.isFinite(n) ? n : null;
+};
+
+// Signed % difference of the first chip relative to the second, e.g. "+24%"
+function pct(x, y) {
+  if (x === null || y === null || y === 0) return null;
+  const p = Math.round(((x - y) / y) * 100);
+  return `${p > 0 ? '+' : ''}${p}%`;
+}
+
 function scoreLines(a, b) {
   const rows = [
-    ['Geekbench 7', (c) => c.geekbench7 && num(c.geekbench7.single) && `${c.geekbench7.single} / ${c.geekbench7.multi}`],
-    ['Geekbench 6', (c) => c.geekbench6 && num(c.geekbench6.single) && `${c.geekbench6.single} / ${c.geekbench6.multi}`],
-    ['Wild Life Extreme', (c) => num(c.wildlifeExtreme)],
-    ['Steel Nomad Lite', (c) => num(c.steelNomadLite)],
+    ['Geekbench 7', (c) => c.geekbench7 && num(c.geekbench7.single) ? [c.geekbench7.single, c.geekbench7.multi] : null],
+    ['Geekbench 6', (c) => c.geekbench6 && num(c.geekbench6.single) ? [c.geekbench6.single, c.geekbench6.multi] : null],
+    ['Wild Life Extreme', (c) => num(c.wildlifeExtreme) ? [c.wildlifeExtreme] : null],
+    ['Steel Nomad Lite', (c) => num(c.steelNomadLite) ? [c.steelNomadLite] : null],
   ];
   const lines = [];
   for (const [label, get] of rows) {
     const va = get(a), vb = get(b);
-    if (va || vb) lines.push(`${label}: ${va || '—'} vs ${vb || '—'}`);
+    if (!va && !vb) continue;
+    const show = (v) => (v ? v.join(' / ') : '—');
+    let line = `${label}: ${show(va)} vs ${show(vb)}`;
+    if (va && vb) {
+      const diffs = va.map((x, i) => pct(parse(x), parse(vb[i])));
+      if (diffs.every(Boolean)) line += ` (${diffs.join(' / ')})`;
+    }
+    lines.push(line);
   }
   return lines;
 }

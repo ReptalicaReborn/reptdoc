@@ -83,12 +83,24 @@ function buildRows(a, b) {
 
 const h = (type, style, children) => ({ type, props: { style, children } });
 
-function valueCell(value, other, align) {
-  const win = value !== null && (other === null || value > other);
-  return h('div', { display: 'flex', width: 220, justifyContent: align === 'left' ? 'flex-start' : 'flex-end',
-    fontSize: 40, fontWeight: 700, color: win ? COLORS.accent : COLORS.muted }, value === null ? '—' : value.toLocaleString('en-US'));
+// Signed % difference of `value` relative to `other`, e.g. "+24%"; null if not comparable
+function pctDiff(value, other) {
+  if (value === null || other === null || other === 0) return null;
+  const pct = Math.round(((value - other) / other) * 100);
+  return pct === 0 ? null : `${pct > 0 ? '+' : ''}${pct}%`;
 }
 
+function valueCell(value, other, align) {
+  const win = value !== null && (other === null || value > other);
+  const pct = win ? pctDiff(value, other) : null;
+  const number = h('div', { display: 'flex', fontSize: 40, fontWeight: 700, color: win ? COLORS.accent : COLORS.muted },
+    value === null ? '—' : value.toLocaleString('en-US'));
+  const badge = pct && h('div', { display: 'flex', fontSize: 22, fontWeight: 700, color: COLORS.bg, backgroundColor: COLORS.accent,
+    borderRadius: 14, padding: '2px 10px', margin: align === 'left' ? '0 0 0 12px' : '0 12px 0 0' }, pct);
+  const parts = align === 'left' ? [number, badge] : [badge, number];
+  return h('div', { display: 'flex', alignItems: 'center', width: 290, justifyContent: align === 'left' ? 'flex-start' : 'flex-end' },
+    parts.filter(Boolean));
+}
 
 function row(r) {
   const max = Math.max(r.a || 0, r.b || 0);
