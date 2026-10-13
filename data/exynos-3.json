@@ -1,0 +1,42 @@
+[
+ {
+  "name": "Exynos 3 Quad 3470",
+  "codename": "Garda",
+  "partNumber": "S5E3470",
+  "releaseDate": "2014.07",
+  "process": "Samsung 28nm HKMG",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A7 @ 1.4 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-400 MP4 (440 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Exynos DSP",
+  "memory": "32-bit Dual-channel LPDDR3 533 MHz"
+ },
+ {
+  "name": "Exynos 3 Single 3110 / Hummingbird",
+  "codename": "Hummingbird",
+  "partNumber": "S5PC110",
+  "releaseDate": "2010.06",
+  "process": "Samsung 45nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "1x Cortex-A8 @ 1.00 GHz",
+   "l2Cache": "512 KB",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "PowerVR SGX540 (200 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Exynos DSP",
+  "memory": "32-bit Dual-channel LPDDR2 200 MHz"
+ }
+]

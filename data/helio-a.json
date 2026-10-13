@@ -1,0 +1,57 @@
+[
+ {
+  "name": "MediaTek Helio A25",
+  "partNumber": "MT6762V",
+  "releaseDate": "2020.02",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.8 GHz + 4x Cortex-A53 @ 1.5 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8320 (600 MHz)",
+  "npu": "MediaTek NeuroPilot",
+  "modem": "4G LTE Cat-4",
+  "memory": "LPDDR4X 1600 MHz"
+ },
+ {
+  "name": "MediaTek Helio A22",
+  "binnedOf": "MediaTek Helio A25",
+  "partNumber": "MT6761 / MT6762M",
+  "releaseDate": "2018.06",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8320 (650 MHz)",
+  "npu": "MediaTek NeuroPilot",
+  "modem": "4G LTE Cat-7 (DL) / Cat-13 (UL)",
+  "memory": "LPDDR4X 1600 MHz"
+ },
+ {
+  "name": "MediaTek Helio A20",
+  "partNumber": "MT6761D",
+  "releaseDate": "2020.02",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.8 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8300 (550 MHz)",
+  "npu": "MediaTek NeuroPilot",
+  "modem": "4G LTE Cat-6 (DL) / Cat-5 (UL)",
+  "memory": "LPDDR4X 1200 MHz"
+ }
+]

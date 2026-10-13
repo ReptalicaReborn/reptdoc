@@ -1,0 +1,174 @@
+[
+ {
+  "name": "Exynos 2800",
+  "codename": "Vanguard",
+  "process": "Samsung SF2P (2nm+)"
+ },
+ {
+  "name": "Exynos 2700",
+  "codename": "Ulysses",
+  "partNumber": "S5E9975",
+  "process": "Samsung 2nm (SF2)",
+  "dieSize": "Unknown",
+  "architecture": "ARMv9.3-A",
+  "cpu": {
+   "specs": "1x C2-Ultra + 5x C2-Pro High Clock + 4x C2-Pro Low Clock"
+  },
+  "gpu": "Samsung Xclipse 970 (AMD RDNA, 8WGP)"
+ },
+ {
+  "name": "Exynos 2600",
+  "codename": "thetis",
+  "geekbench6": {
+   "single": "3410",
+   "multi": "11689"
+  },
+  "wildlifeExtreme": "6868",
+  "steelNomadLite": "3231",
+  "partNumber": "S5E9965",
+  "releaseDate": "2025.12",
+  "process": "Samsung 2nm (SF2)",
+  "dieSize": "141.58mm²",
+  "architecture": "ARMv9.3-A",
+  "cpu": {
+   "specs": "1x C1-Ultra @ 3.80 GHz + 3x C1-Pro @ 3.25 GHz + 3x C1-Pro @ 0.672 - 2.75 GHz + 3x C1-Pro @ 0.4 - 2.75 GHz",
+   "l2Cache": "3MB (C1-Ultra) + 9x 1MB (C1-Pro)",
+   "l3Cache": "16MB"
+  },
+  "slc": "16MB",
+  "gpu": "Samsung Xclipse 960 (8WGP 980 MHz)",
+  "npu": "Samsung Quad core NPU (1.2GHz)",
+  "modem": "N/A",
+  "memory": "16-bit Quad-channel LPDDR5X 10667"
+ },
+ {
+  "name": "Exynos 2500",
+  "geekbench6": {
+   "single": "2569",
+   "multi": "8492"
+  },
+  "wildlifeExtreme": "5212",
+  "steelNomadLite": "2291",
+  "codename": "solomon",
+  "partNumber": "S5E9955",
+  "releaseDate": "2025.07",
+  "process": "Samsung 3nm (SF3)",
+  "dieSize": "141.58mm²",
+  "architecture": "ARMv9.2-A",
+  "cpu": {
+   "specs": "1x Cortex-X925 @ 3.30 GHz + 2x Cortex-A725 @ 2.74 GHz + 5x Cortex-A725 @ 2.36 GHz + 2x Cortex-A520 @ 1.80 GHz",
+   "l2Cache": "2 MB (X925) + 7x 512KB (A725) + 512 KB (2x A520)",
+   "l3Cache": "12 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "Samsung Xclipse 950 (AMD RDNA 3.5, 8WGP, 999 MHz)",
+  "npu": "Samsung NPU",
+  "modem": "Exynos Shannon 5400",
+  "memory": "16-bit Quad-channel LPDDR5X 9600"
+ },
+ {
+  "name": "Exynos 2400e",
+  "geekbench6": {
+   "single": "2000",
+   "multi": "6400"
+  },
+  "geekbench7": {
+   "single": "1749",
+   "multi": "5987"
+  },
+  "wildlifeExtreme": "4100",
+  "codename": "root",
+  "partNumber": "S5E9945",
+  "releaseDate": "2024.09",
+  "process": "Samsung 4nm (SF4P)",
+  "dieSize": "137.4 mm²",
+  "architecture": "ARMv9.2-A",
+  "cpu": {
+   "specs": "1x Cortex-X4 @ 3.11 GHz + 2x Cortex-A720 @ 2.90 GHz + 3x Cortex-A720 @ 2.59 GHz + 4x Cortex-A520 @ 1.96 GHz",
+   "l2Cache": "2 MB (X4) + 5x 512 KB (A720) + 2x 512 KB (4x A520)",
+   "l3Cache": "8 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Samsung Xclipse 940 (AMD RDNA 3, 1000 MHz)",
+  "npu": "Samsung NPU (44 TOPS)",
+  "modem": "Exynos Shannon 5400",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
+  "name": "Exynos 2400",
+  "binnedOf": "Exynos 2400e",
+  "geekbench6": {
+   "single": "2067",
+   "multi": "6520"
+  },
+  "geekbench7": {
+   "single": "1862",
+   "multi": "6399"
+  },
+  "wildlifeExtreme": "4259",
+  "codename": "root",
+  "partNumber": "S5E9945",
+  "releaseDate": "2023.10",
+  "process": "Samsung 4nm (SF4P)",
+  "dieSize": "137.4 mm²",
+  "architecture": "ARMv9.2-A",
+  "cpu": {
+   "specs": "1x Cortex-X4 @ 3.21 GHz + 2x Cortex-A720 @ 2.90 GHz + 3x Cortex-A720 @ 2.59 GHz + 4x Cortex-A520 @ 1.96 GHz",
+   "l2Cache": "2 MB (X4) + 5x 512 KB (A720) + 2x 512 KB (4x A520)",
+   "l3Cache": "8 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Samsung Xclipse 940 (AMD RDNA 3, 1095 MHz)",
+  "npu": "Samsung NPU (44 TOPS)",
+  "modem": "Exynos Shannon 5400",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
+  "name": "Exynos 2200",
+  "geekbench6": {
+   "single": "1550",
+   "multi": "3700"
+  },
+  "wildlifeExtreme": "2300",
+  "codename": "pamir",
+  "partNumber": "S5E9925",
+  "releaseDate": "2022.01",
+  "process": "Samsung 4nm (SF4E)",
+  "dieSize": "104.65 mm²",
+  "architecture": "ARMv9-A",
+  "cpu": {
+   "specs": "1x Cortex-X2 @ 2.80 GHz + 3x Cortex-A710 @ 2.52 GHz + 4x Cortex-A510 @ 1.82 GHz",
+   "l2Cache": "2 MB (X2) + 3x 512 KB (A710) + 2x 512 KB (4x A510)",
+   "l3Cache": "4 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Samsung Xclipse 920 (AMD RDNA 2, 1306 MHz)",
+  "npu": "Samsung Dual-core NPU",
+  "modem": "Exynos Shannon 5300",
+  "memory": "16-bit Quad-channel LPDDR5 6400"
+ },
+ {
+  "name": "Exynos 2100",
+  "geekbench6": {
+   "single": "1400",
+   "multi": "3500"
+  },
+  "wildlifeExtreme": "1800",
+  "codename": "olympus",
+  "partNumber": "S5E9840",
+  "releaseDate": "2021.01",
+  "process": "Samsung 5nm (SF5E)",
+  "dieSize": "128.01 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x Cortex-X1 @ 2.91 GHz + 3x Cortex-A78 @ 2.81 GHz + 4x Cortex-A55 @ 2.21 GHz",
+   "l2Cache": "512 KB (X1) + 3x 512 KB (A78) + 4x 64 KB (A55)",
+   "l3Cache": "4 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "ARM Mali-G78 MP14 (854 MHz)",
+  "npu": "Samsung Triple-core NPU (26 TOPS)",
+  "modem": "Exynos Shannon 5123",
+  "memory": "16-bit Quad-channel LPDDR5 6400"
+ }
+]

@@ -1,0 +1,611 @@
+[
+ {
+  "name": "HiSilicon Kirin 9050",
+  "partNumber": "Hi36E0 GPCV100",
+  "releaseDate": "2026.10",
+  "process": "SMIC N+3 (6nm+) & SMIC N+2, stacked",
+  "geekbench6": {
+   "single": "1813",
+   "multi": "6115"
+  },
+  "wildlifeExtreme": "3263",
+  "steelNomadLite": "993",
+  "dieSize": "128.23mm² x2",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 3GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
+   "l2Cache": "2MB (Taishan Prime) + 2MB (Taishan Little shared)",
+   "l3Cache": "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
+  },
+  "slc": "12MB",
+  "gpu": "Huawei Maleoon 955A (5CUs)",
+  "npu": "Ascend NPU (4x Tensor + 2x Vector)",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "24-bit Quad-channel LPDDR6 10677"
+ },
+ {
+  "name": "HiSilicon Kirin 9050 Pro",
+  "partNumber": "Hi36E0 GPCV100",
+  "releaseDate": "2026.09",
+  "process": "SMIC N+3 (6nm+) & SMIC N+2, stacked",
+  "geekbench6": {
+   "single": "1813",
+   "multi": "6115"
+  },
+  "wildlifeExtreme": "3263",
+  "steelNomadLite": "993",
+  "dieSize": "128.23mm² x2",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 3.1GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
+   "l2Cache": "2MB (Taishan Prime) + 2MB (Taishan Little shared)",
+   "l3Cache": "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
+  },
+  "slc": "12MB",
+  "gpu": "Huawei Maleoon 955 (6CUs)",
+  "npu": "Ascend NPU (4x Tensor + 2x Vector)",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "24-bit Quad-channel LPDDR6 10677"
+ },
+ {
+  "name": "HiSilicon Kirin 9030S",
+  "partNumber": "unknown",
+  "releaseDate": "2026.4",
+  "process": "SMIC N+2 (7nm+)",
+  "diesize": "122mm²",
+  "geekbench6": {
+   "single": "1808",
+   "multi": "5124"
+  },
+  "wildlifeExtreme": "1589",
+  "steelNomadLite": "507",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.69GHz (Taishan Prime) + 3x 2.15GHz (Taishan Large) + 4x 1.62GHz (Taishan Little)",
+   "l2Cache": "1 MB (TP) + 2 MB (4x Little)",
+   "l3Cache": "4 MB (shared between Prime and Large)"
+  },
+  "slc": "6MB",
+  "gpu": "Maleoon 935F 933MHz 3CUs",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Dual-channel LPDDR5X"
+ },
+ {
+  "name": "HiSilicon Kirin 9030 Pro",
+  "partNumber": "Hi3D60 GFCV120",
+  "releaseDate": "2025.11",
+  "process": "SMIC N+3 (6nm+)",
+  "geekbench6": {
+   "single": "1856",
+   "multi": "6115"
+  },
+  "wildlifeExtreme": "3263",
+  "steelNomadLite": "1037",
+  "dieSize": "140.3mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.75GHz (Taishan Prime) + 4x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
+   "l2Cache": "2 MB (TP) + 4 MB (4x Little)",
+   "l3Cache": "12 MB (shared between Prime and Large)"
+  },
+  "slc": "12 MB",
+  "gpu": "Huawei Maleoon 935 6CUs (933 MHz) 1MB + Ray Tracing",
+  "npu": "Ascend NPU (4x Tensor + 2x Vector)",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 9600"
+ },
+ {
+  "name": "HiSilicon Kirin 9030",
+  "binnedOf": "HiSilicon Kirin 9030 Pro",
+  "partNumber": "Hi3D60 GFCV110",
+  "releaseDate": "2025.11",
+  "process": "SMIC N+3 (6nm+)",
+  "dieSize": "140.3mm²",
+  "architecture": "ARMv8-A compatible",
+  "geekbench6": {
+   "single": "1808",
+   "multi": "5124"
+  },
+  "wildlifeExtreme": "2932",
+  "steelNomadLite": "836",
+  "cpu": {
+   "specs": "1x 2.695GHz (Taishan Prime) + 3x 2.27GHz (Taishan Large) + 4x 1.72GHz (Taishan Little)",
+   "l2Cache": "2 MB (TP) + 4 MB (4x Little)",
+   "l3Cache": "12 MB (shared between Prime and Large)"
+  },
+  "slc": "12MB",
+  "gpu": "Huawei Maleoon 935A 5CUs (933 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 9600"
+ },
+ {
+  "name": "HiSilicon Kirin 9020",
+  "geekbench6": {
+   "single": "1477",
+   "multi": "4487"
+  },
+  "wildlifeExtreme": "1894",
+  "steelNomadLite": "548",
+  "partNumber": "Hi36B0",
+  "releaseDate": "2024.11",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "140.5 mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.5 GHz (Taishan Prime) + 3x 2.15 GHz (Taishan Large) + 4x 1.6 GHz (Taishan Little)",
+   "l2Cache": "1 MB (TP) + 3x 1 MB (TL) + 1 MB (4x Little)",
+   "l3Cache": "10 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Huawei Maleoon 920 4CUs (840 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
+  "name": "HiSilicon Kirin 9010S",
+  "partNumber": "unknown",
+  "releaseDate": "2025.06",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.5GHz (Taishan Prime) + 3x 2.05GHz (Taishan Large) + 4x 1.5GHz (Taishan Little)",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Huawei Maleoon 920C 2CUs (840 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
+  "name": "HiSilicon Kirin 9010",
+  "binnedOf": "HiSilicon Kirin 9010L",
+  "geekbench6": {
+   "single": "1446",
+   "multi": "4524"
+  },
+  "wildlifeExtreme": "1578",
+  "partNumber": "Hi36A0 V121",
+  "releaseDate": "2024.04",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "136.6 mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.3 GHz (Taishan Prime) + 3x 2.18 GHz (Taishan Large) + 4x 1.55 GHz (A510)",
+   "l2Cache": "1 MB (TP) + 3x 512 KB (TL) + 2x 256 KB (4x A510)",
+   "l3Cache": "8 MB"
+  },
+  "slc": "4 MB (System Level Cache)",
+  "gpu": "Huawei Maleoon 910 4CUs (750 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
+  "name": "HiSilicon Kirin 9010L",
+  "partNumber": "Hi36A0V121",
+  "releaseDate": "2024.Q2",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "136.6 mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x Taishan Prime 2.19GHz + 2x Taishan Large 2.18 GHz + 3x Cortex-A510 1.4 GHz",
+   "l2Cache": "1MB (Taishan Prime) + 2x 512KB (Taishan Large) + 2x 256KB (3x A510)",
+   "l3Cache": "8 MB"
+  },
+  "slc": "4 MB (System Level Cache)",
+  "gpu": "Huawei Maleoon 910 4CUs (750 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
+  "name": "HiSilicon Kirin 9000S1",
+  "partNumber": "Hi36A0V120",
+  "releaseDate": "2024.04",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "111.28 mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x Taishan Large 2.49GHz + 3x Taishan Large 2.15GHz + 4x Cortex-A510 1.53GHz",
+   "l2Cache": "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+   "l3Cache": "4 MB"
+  },
+  "slc": "4 MB",
+  "gpu": "Huawei Maleoon 910 4CUs (750 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5 6400"
+ },
+ {
+  "name": "HiSilicon Kirin 9000S",
+  "binnedOf": "HiSilicon Kirin 9000S1",
+  "geekbench6": {
+   "single": "1350",
+   "multi": "4200"
+  },
+  "wildlifeExtreme": "1532",
+  "partNumber": "Hi36A0 V120",
+  "releaseDate": "2023.08",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "111.28 mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.62 GHz (Taishan Large) + 3x 2.15 GHz (Taishan Large) + 4x 1.53 GHz (Cortex-A510)",
+   "l2Cache": "1 MB (TL) + 3x 512 KB (TL) + 2x 256 KB (4x A510)",
+   "l3Cache": "4 MB"
+  },
+  "slc": "4 MB",
+  "gpu": "Huawei Maleoon 910 4CUs (750 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5 6400"
+ },
+ {
+  "name": "HiSilicon Kirin 9000",
+  "geekbench6": {
+   "single": "1250",
+   "multi": "3600"
+  },
+  "wildlifeExtreme": "1800",
+  "partNumber": "Hi36A0",
+  "releaseDate": "2020.10",
+  "process": "TSMC 5nm (N5 EUV)",
+  "dieSize": "108 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x 3.13 GHz (A77) + 3x 2.54 GHz (A77) + 4x 2.05 GHz (A55)",
+   "l2Cache": "1x 512KB + 3x 256KB + 4x 128KB",
+   "l3Cache": "4 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Mali-G78 MP24 (759 MHz)",
+  "npu": "2 Big + 1 Tiny Core (Da Vinci 2.0)",
+  "modem": "Balong 8000",
+  "memory": "16-bits Quad-channel LPDDR5 5500"
+ },
+ {
+  "name": "HiSilicon Kirin 9000E",
+  "binnedOf": "HiSilicon Kirin 9000",
+  "geekbench6": {
+   "single": "1150",
+   "multi": "3500"
+  },
+  "wildlifeExtreme": "1600",
+  "partNumber": "Hi36A0",
+  "releaseDate": "2020.10",
+  "process": "TSMC 5nm (N5 EUV)",
+  "dieSize": "108 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x 3.13 GHz (A77) + 3x 2.54 GHz (A77) + 4x 2.05 GHz (A55)",
+   "l2Cache": "1x 512KB + 3x 256KB + 4x 128KB",
+   "l3Cache": "4 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Mali-G78 MP22 (759 MHz)",
+  "npu": "1 Big + 1 Tiny Core (Da Vinci 2.0)",
+  "modem": "Balong 8000",
+  "memory": "16-bits Quad-channel LPDDR5 5500"
+ },
+ {
+  "name": "HiSilicon Kirin 9000L",
+  "binnedOf": "HiSilicon Kirin 9000",
+  "partNumber": "Hi36A0",
+  "releaseDate": "2020.10",
+  "process": "TSMC 5nm (N5 EUV)",
+  "dieSize": "108 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x 2.86 GHz (A77) + 2x 2.54 GHz (A77) + 3x 2.05 GHz (A55)",
+   "l2Cache": "1x 512KB + 2x 256KB + 3x 128KB",
+   "l3Cache": "4 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Mali-G78 MP20 (759 MHz)",
+  "npu": "1 Big + 2 Tiny Cores (Da Vinci 2.0)",
+  "modem": "Balong 8000",
+  "memory": "16-bits Quad-channel LPDDR5 5500"
+ },
+ {
+  "name": "HiSilicon Kirin 990 5G",
+  "geekbench6": {
+   "single": "950",
+   "multi": "2900"
+  },
+  "wildlifeExtreme": "1050",
+  "partNumber": "Hi3690",
+  "releaseDate": "2019.09",
+  "process": "TSMC N7+ (7nm+)",
+  "dieSize": "107.07 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x 2.86 GHz (A76) + 2x 2.36 GHz (A76) + 4x 1.95 GHz (A55)",
+   "l2Cache": "4x 512KB (A76), 4x 128KB (A55)",
+   "l3Cache": "4MB"
+  },
+  "slc": "4MB",
+  "gpu": "Mali-G76 MP16 (700 MHz)",
+  "npu": "1 Big + 1 Tiny Core (Da Vinci)",
+  "modem": "Balong 5000 (5G)",
+  "memory": "16-bit Quad-channel LPDDR4X 4266"
+ },
+ {
+  "name": "HiSilicon Kirin 990",
+  "binnedOf": "HiSilicon Kirin 990 5G",
+  "geekbench6": {
+   "single": "950",
+   "multi": "2900"
+  },
+  "wildlifeExtreme": "1050",
+  "partNumber": "Hi3690",
+  "releaseDate": "2019.09",
+  "process": "TSMC N7 (7nm)",
+  "dieSize": "99.04 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x 2.86 GHz (A76) + 2x 2.09 GHz (A76) + 4x 1.86 GHz (A55)",
+   "l2Cache": "4x 512KB (A76), 4x 128KB (A55)",
+   "l3Cache": "4MB"
+  },
+  "slc": "4MB",
+  "gpu": "Mali-G76 MP16 (600 MHz)",
+  "npu": "2 Big + 1 Tiny Core (Da Vinci)",
+  "modem": "Balong 765 (4G)",
+  "memory": "16-bit Quad-channel LPDDR4X 4266"
+ },
+ {
+  "name": "HiSilicon Kirin 985",
+  "geekbench6": {
+   "single": "900",
+   "multi": "2500"
+  },
+  "wildlifeExtreme": "900",
+  "partNumber": "Hi6290",
+  "releaseDate": "2020.04",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "71.5mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "1x 2.58 GHz (A76) + 3x 2.40 GHz (A76) + 4x 1.84 GHz (A55)",
+   "l2Cache": "512KB (A76) + 3x 256KB (A76) 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "2MB",
+  "gpu": "Mali-G77 MP8 (700 MHz)",
+  "npu": "Dual-core (Da Vinci)",
+  "modem": "Balong 5000",
+  "memory": "16-bit Quad-channel LPDDR4X 4266"
+ },
+ {
+  "name": "HiSilicon Kirin 980",
+  "partNumber": "Hi3680",
+  "releaseDate": "2018.08",
+  "geekbench6": {
+   "single": "906",
+   "multi": "2848"
+  },
+  "wildlifeExtreme": "728",
+  "process": "TSMC 7nm (N7)",
+  "dieSize": "77.8 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x 2.6 GHz (A76) + 2x 1.92 GHz (A76) + 4x 1.8 GHz (A55)",
+   "l2Cache": "4x 512KB (A76), 4x 128KB (A55)",
+   "l3Cache": "4 MB"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-G76 MP10 (720 MHz)",
+  "modem": "Balong 4G",
+  "npu": "Dual-core (Cambricon)",
+  "memory": "16-bit Quad-channel LPDDR4X 4266"
+ },
+ {
+  "name": "HiSilicon Kirin 970",
+  "partNumber": "Hi3670",
+  "releaseDate": "2017.09",
+  "process": "TSMC 10nm",
+  "dieSize": "107 mm²",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x 2.36 GHz (A73) + 4x 1.84 GHz (A53)",
+   "l2Cache": "2MB (A73 cluster) + 1MB (A53 cluster)",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-G72 MP12 (746 MHz)",
+  "modem": "Balong 750",
+  "npu": "Cambricon-1A",
+  "memory": "16-bit Quad-channel LPDDR4X 3732"
+ },
+ {
+  "name": "HiSilicon Kirin 960",
+  "partNumber": "Hi3660",
+  "releaseDate": "2016.10",
+  "process": "TSMC 16nm",
+  "dieSize": "117.22 mm²",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x 2.36 GHz (A73) + 4x 1.84 GHz (A53)",
+   "l2Cache": "2MB (A73 cluster) + 1MB (A53 cluster)",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-G71 MP8 (1037 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "16-bit Quad-channel LPDDR4X 3732"
+ },
+ {
+  "name": "HiSilicon Kirin 950",
+  "partNumber": "Hi3650",
+  "releaseDate": "2015.11",
+  "process": "TSMC 16nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x 2.3 GHz (A72) + 4x 1.8 GHz (A53)",
+   "l2Cache": "2MB (A72 cluster) + 512KB (A53 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T880 MP4 (900 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "LPDDR4"
+ },
+ {
+  "name": "HiSilicon Kirin 955",
+  "binnedOf": "HiSilicon Kirin 950",
+  "partNumber": "Hi3650",
+  "releaseDate": "2016.06",
+  "process": "TSMC 16nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x 2.5 GHz (A72) + 4x 1.8 GHz (A53)",
+   "l2Cache": "2MB (A72 cluster) + 512KB (A53 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T880 MP4 (900 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "LPDDR4"
+ },
+ {
+  "name": "HiSilicon Kirin 930",
+  "partNumber": "Hi3635",
+  "releaseDate": "2015.03",
+  "process": "TSMC 28nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x 2.0 GHz (A53e) + 4x 1.5 GHz (A53)",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T628 MP4 (680 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "LPDDR3 1600 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 935",
+  "binnedOf": "HiSilicon Kirin 930",
+  "partNumber": "Hi3635",
+  "releaseDate": "2015.03",
+  "process": "TSMC 28nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x 2.2 GHz (A53e) + 4x 1.5 GHz (A53)",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T628 MP4 (680 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "LPDDR3 1600 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 928",
+  "binnedOf": "HiSilicon Kirin 920",
+  "partNumber": "Hi3630",
+  "releaseDate": "2014.06",
+  "process": "TSMC 28nm",
+  "dieSize": "125mm²",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x 2.0 GHz (A15) + 4x 1.3 GHz (A7)",
+   "l2Cache": "2MB (A15 cluster) + 512KB (A7 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T628 MP4 (600 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "32-bit LPDDR3 1600 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 925",
+  "binnedOf": "HiSilicon Kirin 920",
+  "partNumber": "Hi3630",
+  "releaseDate": "2014.06",
+  "process": "TSMC 28nm",
+  "dieSize": "125mm²",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x 1.8 GHz (A15) + 4x 1.3 GHz (A7)",
+   "l2Cache": "2MB (A15 cluster) + 512KB (A7 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T628 MP4 (600 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "32-bit LPDDR3 1600 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 920",
+  "partNumber": "Hi3630",
+  "releaseDate": "2014.06",
+  "process": "TSMC 28nm",
+  "dieSize": "125mm²",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x 1.7 GHz (A15) + 4x 1.3 GHz (A7)",
+   "l2Cache": "2MB (A15 cluster) + 512KB (A7 cluster)",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T628 MP4 (600 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "32-bit LPDDR3 1600 MHz"
+ },
+ {
+  "name": "HiSilicon Kirin 910T",
+  "binnedOf": "HiSilicon Kirin 910",
+  "partNumber": "Hi6620",
+  "releaseDate": "2014.01",
+  "process": "TSMC 28nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A9 @ 1.8 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-450 MP4 (700 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "LPDDR3"
+ },
+ {
+  "name": "HiSilicon Kirin 910",
+  "binnedOf": "HiSilicon Kirin 910T",
+  "partNumber": "Hi6620",
+  "releaseDate": "2014.01",
+  "process": "TSMC 28nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A9 @ 1.6 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-450 MP4 (533 MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G modem",
+  "memory": "LPDDR3"
+ }
+]

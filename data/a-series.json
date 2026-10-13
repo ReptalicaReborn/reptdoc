@@ -1,0 +1,501 @@
+[
+ {
+  "name": "A20 Pro",
+  "geekbench6": {
+   "single": "4768",
+   "multi": "13044"
+  },
+  "wildlifeExtreme": "9006",
+  "steelNomadLite": "4263",
+  "codename": "Borneo",
+  "partNumber": "T8160",
+  "releaseDate": "2026.09",
+  "process": "TSMC N2 (2nm)",
+  "dieSize": "98.8 mm²",
+  "cpu": {
+   "specs": "2x 4.93 GHz (Everest V4) + 4x 2.64 GHz (Sawtooth V4)",
+   "l2Cache": "16 MB (P-Core) + 8 MB (E-Core)"
+  },
+  "slc": "32 MB",
+  "memory": "96-bit LPDDR5X-9600",
+  "gpu": "Apple 7-core 1620mHz (G19P)",
+  "npu": "Dual 16-core Neural Engine (Gen 9)",
+  "architecture": "64-bit ARMv9.x-A"
+ },
+ {
+  "name": "A19 Pro",
+  "geekbench6": {
+   "single": "4019",
+   "multi": "11054"
+  },
+  "wildlifeExtreme": "6557",
+  "steelNomadLite": "3004",
+  "codename": "Thera",
+  "partNumber": "APL1V12 / T8150",
+  "releaseDate": "2025.09",
+  "process": "TSMC N3P (3nm)",
+  "dieSize": "98.69 mm²",
+  "cpu": {
+   "specs": "2x 4.26 GHz (Everest V4) + 4x 2.59 GHz (Sawtooth V4)",
+   "l2Cache": "16 MB (P-Core) + 6 MB (E-Core)"
+  },
+  "slc": "32 MB",
+  "memory": "LPDDR5X-8533/9600",
+  "gpu": "Apple 6-core (G18P) - Hardware Ray Tracing",
+  "npu": "16-core Neural Engine (Gen 8)",
+  "architecture": "64-bit ARMv9.x-A"
+ },
+ {
+  "name": "A19",
+  "geekbench6": {
+   "single": "3849",
+   "multi": "10307"
+  },
+  "wildlifeExtreme": "5736",
+  "steelNomadLite": "2598",
+  "codename": "Tilos",
+  "partNumber": "APL1V12 / T8150",
+  "releaseDate": "2025.09",
+  "process": "TSMC N3P (3nm)",
+  "dieSize": "83 mm²",
+  "cpu": {
+   "specs": "2x 4.26 GHz (Everest V4) + 4x 2.59 GHz (Sawtooth V4)",
+   "l2Cache": "8 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "12 MB",
+  "memory": "LPDDR5X-8533",
+  "gpu": "Apple 5-core (G18P) - Hardware Ray Tracing",
+  "npu": "16-core Neural Engine (35 TOPS)",
+  "architecture": "64-bit ARMv9.2-A"
+ },
+ {
+  "name": "A18 Pro",
+  "geekbench6": {
+   "single": "3429",
+   "multi": "8790"
+  },
+  "geekbench7": {
+   "single": "3088",
+   "multi": "7954"
+  },
+  "wildlifeExtreme": "5148",
+  "steelNomadLite": "2132",
+  "codename": "Tahiti",
+  "partNumber": "APL1V07 / T8140",
+  "releaseDate": "2024.09",
+  "process": "TSMC N3E (3nm)",
+  "dieSize": "109.72 mm²",
+  "cpu": {
+   "specs": "2x 4.04 GHz (Everest V3) + 4x 2.44 GHz (Sawtooth V3)",
+   "l2Cache": "16 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "24 MB",
+  "memory": "LPDDR5X-7500",
+  "gpu": "Apple 6-core (G17P) - Hardware Ray Tracing",
+  "npu": "16-core Neural Engine (35 TOPS)",
+  "architecture": "64-bit ARMv9.2-A"
+ },
+ {
+  "name": "A18",
+  "geekbench6": {
+   "single": "3300",
+   "multi": "8000"
+  },
+  "wildlifeExtreme": "4500",
+  "codename": "Tupai",
+  "partNumber": "APL1V08 / T8140",
+  "releaseDate": "2024.09",
+  "process": "TSMC N3E (3nm)",
+  "dieSize": "92.43 mm²",
+  "cpu": {
+   "specs": "2x 4.04 GHz (Everest V3) + 4x 2.20 GHz (Sawtooth V3)",
+   "l2Cache": "8 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "12 MB",
+  "memory": "LPDDR5X-7500",
+  "gpu": "Apple 5-core (G17P) - Hardware Ray Tracing",
+  "npu": "16-core Neural Engine (35 TOPS)",
+  "architecture": "64-bit ARMv9.2-A"
+ },
+ {
+  "name": "A17 Pro",
+  "geekbench6": {
+   "single": "2950",
+   "multi": "7258"
+  },
+  "wildlifeExtreme": "4389",
+  "codename": "Coll",
+  "partNumber": "APL1V02 / T8130",
+  "releaseDate": "2023.09",
+  "process": "TSMC N3B (3nm)",
+  "dieSize": "103.8 mm²",
+  "cpu": {
+   "specs": "2x 3.78 GHz (Everest) + 4x 2.11 GHz (Sawtooth)",
+   "l2Cache": "16 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "24 MB",
+  "memory": "LPDDR5-6400",
+  "gpu": "Apple 6-core (G16P) - Hardware Ray Tracing",
+  "npu": "16-core Neural Engine (35 TOPS)",
+  "architecture": "64-bit ARMv8.6-A"
+ },
+ {
+  "name": "A16 Bionic",
+  "geekbench6": {
+   "single": "2560",
+   "multi": "6450"
+  },
+  "wildlifeExtreme": "3360",
+  "codename": "Crete",
+  "partNumber": "APL1W10 / T8120",
+  "releaseDate": "2022.09",
+  "process": "TSMC N4 (4nm)",
+  "dieSize": "115.4 mm²",
+  "cpu": {
+   "specs": "2x 3.46 GHz (Everest) + 4x 2.02 GHz (Sawtooth)",
+   "l2Cache": "16 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "24 MB",
+  "memory": "LPDDR5-6400",
+  "gpu": "Apple 5-core (G15P)",
+  "npu": "16-core Neural Engine (17 TOPS)",
+  "architecture": "64-bit ARMv8.6-A"
+ },
+ {
+  "name": "A15 Bionic",
+  "geekbench6": {
+   "single": "2340",
+   "multi": "5800"
+  },
+  "wildlifeExtreme": "2960",
+  "codename": "Ellis",
+  "partNumber": "APL1W07 / T8110",
+  "releaseDate": "2021.09",
+  "process": "TSMC N5P (5nm)",
+  "dieSize": "107.7 mm²",
+  "cpu": {
+   "specs": "2x 3.23 GHz (Avalanche) + 4x 2.01 GHz (Blizzard)",
+   "l2Cache": "12 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "32 MB",
+  "memory": "LPDDR4X-4266",
+  "gpu": "Apple 5-core (G14P)",
+  "npu": "16-core Neural Engine (15.8 TOPS)",
+  "architecture": "64-bit ARMv8.5-A"
+ },
+ {
+  "name": "A14 Bionic",
+  "geekbench6": {
+   "single": "2120",
+   "multi": "5000"
+  },
+  "wildlifeExtreme": "2180",
+  "codename": "Sicily",
+  "partNumber": "APL1W01 / T8101",
+  "releaseDate": "2020.09",
+  "process": "TSMC N5 (5nm)",
+  "dieSize": "88.0 mm²",
+  "cpu": {
+   "specs": "2x 3.09 GHz (Firestorm) + 4x 1.82 GHz (Icestorm)",
+   "l2Cache": "8 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "16 MB",
+  "memory": "LPDDR4X-4266",
+  "gpu": "Apple 4-core (G13P)",
+  "npu": "16-core Neural Engine (11 TOPS)",
+  "architecture": "64-bit ARMv8.4-A"
+ },
+ {
+  "name": "A13 Bionic",
+  "geekbench6": {
+   "single": "1750",
+   "multi": "4200"
+  },
+  "wildlifeExtreme": "1884",
+  "codename": "Cebu",
+  "partNumber": "APL1W85 / T8030",
+  "releaseDate": "2019.09",
+  "process": "TSMC N7P (7nm+)",
+  "dieSize": "98.48 mm²",
+  "cpu": {
+   "specs": "2x 2.65 GHz (Lightning) + 4x 1.73 GHz (Thunder)",
+   "l2Cache": "8 MB (P-Core) + 4 MB (E-Core)"
+  },
+  "slc": "16 MB",
+  "memory": "LPDDR4X-4266",
+  "gpu": "Apple 4-core (G12P)",
+  "npu": "8-core Neural Engine (6 TOPS)",
+  "architecture": "64-bit ARMv8.4-A"
+ },
+ {
+  "name": "A12 Bionic",
+  "geekbench6": {
+   "single": "1480",
+   "multi": "3300"
+  },
+  "wildlifeExtreme": "1414",
+  "codename": "Cyprus",
+  "partNumber": "APL1W81 / T8020",
+  "releaseDate": "2018.09",
+  "process": "TSMC N7 (7nm)",
+  "dieSize": "83.27 mm²",
+  "cpu": {
+   "specs": "2x 2.49 GHz (Vortex) + 4x 1.59 GHz (Tempest)",
+   "l2Cache": "8 MB (P-Core) + 2 MB (E-Core)"
+  },
+  "slc": "8 MB",
+  "memory": "LPDDR4X-4266",
+  "gpu": "Apple 4-core (G11P)",
+  "npu": "8-core Neural Engine (5 TOPS)",
+  "architecture": "64-bit ARMv8.3-A"
+ },
+ {
+  "name": "A12X / A12Z Bionic",
+  "binnedOf": "A12Z Bionic",
+  "geekbench6": {
+   "single": "1490",
+   "multi": "4800"
+  },
+  "wildlifeExtreme": "2100",
+  "codename": "Vortex / Tempest",
+  "partNumber": "APL1083 (X) / APL1087 (Z)",
+  "releaseDate": "2018.10 / 2020.03",
+  "process": "TSMC N7 (7nm)",
+  "dieSize": "122 mm²",
+  "cpu": {
+   "specs": "4x 2.49 GHz Vortex + 4x 1.59 GHz Tempest",
+   "l2Cache": "8 MB (P-Core) + 2 MB (E-Core)"
+  },
+  "slc": "8 MB",
+  "memory": "LPDDR4X-4266",
+  "gpu": "Apple 7-core (X) / 8-core (Z)",
+  "npu": "8-core Neural Engine (5 TOPS)",
+  "architecture": "64-bit ARMv8.3-A"
+ },
+ {
+  "name": "A11 Bionic",
+  "codename": "Skye",
+  "partNumber": "APL1W72 / T8015",
+  "releaseDate": "2017.09",
+  "process": "TSMC 10FF (10nm)",
+  "dieSize": "87.66 mm²",
+  "cpu": {
+   "specs": "2x 2.39 GHz (Monsoon) + 4x 1.19 GHz (Mistral)",
+   "l2Cache": "8 MB (P-Core)"
+  },
+  "slc": "4 MB",
+  "memory": "LPDDR4X-4266",
+  "gpu": "Apple 3-core (G10P)",
+  "npu": "2-core Neural Engine (0.6 TOPS)",
+  "architecture": "64-bit ARMv8.2-A"
+ },
+ {
+  "name": "A10X Fusion",
+  "geekbench6": {
+   "single": "950",
+   "multi": "2100"
+  },
+  "wildlifeExtreme": "1135",
+  "codename": "Myst",
+  "partNumber": "APL1071 / T8011",
+  "releaseDate": "2017.06",
+  "process": "TSMC 10nm FinFET",
+  "dieSize": "96.4 mm²",
+  "cpu": {
+   "specs": "3x 2.38 GHz Hurricane + 3x 1.3 GHz Zephyr",
+   "l2Cache": "8 MB"
+  },
+  "slc": "N/A (8 MB L2 Cache)",
+  "memory": "LPDDR4-3200",
+  "gpu": "PowerVR GT7600 Plus (12-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8.1-A"
+ },
+ {
+  "name": "A10 Fusion",
+  "codename": "Cayman",
+  "partNumber": "APL1W24 / T8010",
+  "releaseDate": "2016.09",
+  "process": "TSMC 16FFC (16nm)",
+  "dieSize": "125 mm²",
+  "cpu": {
+   "specs": "2x 2.34 GHz (Hurricane) + 2x 1.05 GHz (Zephyr)",
+   "l2Cache": "3 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR4-3200",
+  "gpu": "PowerVR GT7600 Plus (6-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8.1-A"
+ },
+ {
+  "name": "A9X",
+  "codename": "Elba",
+  "partNumber": "APL1021 / S8001",
+  "releaseDate": "2015.11",
+  "process": "TSMC 16nm FinFET+",
+  "dieSize": "147 mm²",
+  "cpu": {
+   "specs": "2x 2.26 GHz Twister",
+   "l2Cache": "3 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR4-3200",
+  "gpu": "PowerVR Series 7XT (12-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8-A"
+ },
+ {
+  "name": "A9",
+  "codename": "Maui",
+  "partNumber": "APL0898 (Samsung) / APL1022 (TSMC)",
+  "releaseDate": "2015.09",
+  "process": "Samsung 14nm LPE / TSMC 16nm FinFET",
+  "dieSize": "96 mm² (Samsung) / 104.5 mm² (TSMC)",
+  "cpu": {
+   "specs": "2x 1.85 GHz (Twister)",
+   "l2Cache": "3 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR4-3200",
+  "gpu": "PowerVR GT7600 (6-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8-A"
+ },
+ {
+  "name": "A8X",
+  "codename": "Capri",
+  "partNumber": "APL1012 / T7001",
+  "releaseDate": "2014.10",
+  "process": "TSMC 20nm HKMG",
+  "dieSize": "128 mm²",
+  "cpu": {
+   "specs": "3x 1.5 GHz Typhoon",
+   "l2Cache": "2 MB"
+  },
+  "slc": "4 MB (L3 Cache)",
+  "memory": "LPDDR3-1600",
+  "gpu": "PowerVR GXA6850 (8-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8-A"
+ },
+ {
+  "name": "A8",
+  "codename": "Fiji",
+  "partNumber": "APL1011 / T7000",
+  "releaseDate": "2014.09",
+  "process": "TSMC 20nm HKMG",
+  "dieSize": "89 mm²",
+  "cpu": {
+   "specs": "2x 1.4 GHz (Typhoon)",
+   "l2Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR3-1600",
+  "gpu": "PowerVR GX6450 (4-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8-A"
+ },
+ {
+  "name": "A7",
+  "codename": "Alcatraz",
+  "partNumber": "APL0698 / S5L8960",
+  "releaseDate": "2013.09",
+  "process": "Samsung 28nm HKMG",
+  "dieSize": "102 mm²",
+  "cpu": {
+   "specs": "2x 1.3 GHz (Cyclone)",
+   "l2Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR3-1600",
+  "gpu": "PowerVR G6430 (4-core)",
+  "npu": "N/A",
+  "architecture": "64-bit ARMv8-A (First 64-bit Mobile SoC)"
+ },
+ {
+  "name": "A6X",
+  "codename": "H5G",
+  "partNumber": "APL5598 / S5L8955",
+  "releaseDate": "2012.11",
+  "process": "Samsung 32nm HKMG",
+  "dieSize": "123 mm²",
+  "cpu": {
+   "specs": "2x 1.4 GHz Swift",
+   "l2Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR2-1066",
+  "gpu": "PowerVR SGX554MP4 (4-core)",
+  "npu": "N/A",
+  "architecture": "32-bit ARMv7s"
+ },
+ {
+  "name": "A6",
+  "codename": "Bali",
+  "partNumber": "APL0598 / S5L8950",
+  "releaseDate": "2012.09",
+  "process": "Samsung 32nm HKMG",
+  "dieSize": "96.7 mm²",
+  "cpu": {
+   "specs": "2x 1.3 GHz (Swift)",
+   "l2Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR2-1066",
+  "gpu": "PowerVR SGX543MP3 (3-core)",
+  "npu": "N/A",
+  "architecture": "32-bit ARMv7s"
+ },
+ {
+  "name": "A5X",
+  "codename": "S5L8945",
+  "partNumber": "APL5498 / S5L8945",
+  "releaseDate": "2012.03",
+  "process": "Samsung 45nm LP",
+  "dieSize": "165 mm²",
+  "cpu": {
+   "specs": "2x 1.0 GHz Cortex-A9",
+   "l2Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR2-800",
+  "gpu": "PowerVR SGX543MP4 (4-core)",
+  "npu": "N/A",
+  "architecture": "32-bit ARMv7"
+ },
+ {
+  "name": "A5",
+  "codename": "N/A",
+  "partNumber": "APL0498 / S5L8940",
+  "releaseDate": "2011.03",
+  "process": "Samsung 45nm / 32nm",
+  "dieSize": "122 mm² (45nm) / 69 mm² (32nm)",
+  "cpu": {
+   "specs": "2x 0.8-1.0 GHz (ARM Cortex-A9)",
+   "l2Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR2-800",
+  "gpu": "PowerVR SGX543MP2 (2-core)",
+  "npu": "N/A",
+  "architecture": "32-bit ARMv7"
+ },
+ {
+  "name": "A4",
+  "codename": "N/A",
+  "partNumber": "APL0398 / S5L8930",
+  "releaseDate": "2010.04",
+  "process": "Samsung 45nm",
+  "dieSize": "53.3 mm²",
+  "cpu": {
+   "specs": "1x 0.8-1.0 GHz (ARM Cortex-A8)",
+   "l2Cache": "512 KB"
+  },
+  "slc": "N/A",
+  "memory": "LPDDR-400",
+  "gpu": "PowerVR SGX535",
+  "npu": "N/A",
+  "architecture": "32-bit ARMv7"
+ }
+]
