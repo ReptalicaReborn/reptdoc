@@ -1,0 +1,315 @@
+[
+ {
+  "name": "MediaTek Dimensity 7500",
+  "partNumber": "MT6881",
+  "releaseDate": "2026.05",
+  "process": "TSMC N4",
+  "dieSize": "Unknown",
+  "architecture": "ARMv9.3-A",
+  "geekbench6": {
+   "single": "1255",
+   "multi": "3569"
+  },
+  "cpu": {
+   "specs": "4x C1-Pro @ 2.6 GHz + 4x C1-Nano @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G625 MC2",
+  "npu": "MediaTek NPU 850",
+  "modem": "MediaTek 5G R17 Modem",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7450",
+  "partNumber": "unknown",
+  "releaseDate": "2026.04",
+  "process": "TSMC N4",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.8 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512KB (A78) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G615 MC2",
+  "npu": "MediaTek NPU 655",
+  "modem": "MediaTek 5G R17 Modem",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7300e",
+  "binnedOf": "MediaTek Dimensity 7100",
+  "partNumber": "MT6858T",
+  "releaseDate": "2026.4",
+  "process": "TSMC N6",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "geekbench6": {
+   "single": "1001",
+   "multi": "2901"
+  },
+  "wildlifeExtreme": "709",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-G610 MC2 1GHz",
+  "npu": "MediaTek NPU 550",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 7100",
+  "partNumber": "MT6858",
+  "releaseDate": "2025.Q4",
+  "process": "TSMC N6",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "geekbench6": {
+   "single": "984",
+   "multi": "2877"
+  },
+  "wildlifeExtreme": "709",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.4 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-G610 MC2 1GHz",
+  "npu": "MediaTek NPU 550",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 7400",
+  "partNumber": "MT6878V/TZA / MT6878V/TFZA",
+  "releaseDate": "2024",
+  "process": "TSMC N4",
+  "geekbench6": {
+   "single": "1080",
+   "multi": "3071"
+  },
+  "wildlifeExtreme": "902",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512KB (A78) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G615 MC2 (1.3GHz)",
+  "npu": "MediaTek NPU 655",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7360",
+  "binnedOf": "MediaTek Dimensity 7300",
+  "partNumber": "MT6878",
+  "releaseDate": "2025.9",
+  "process": "TSMC N4",
+  "dieSize": "Unknown",
+  "geekbench6": {
+   "single": "1041",
+   "multi": "3031"
+  },
+  "wildlifeExtreme": "892",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512KB (A78) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G615 MC2 (1047MHz)",
+  "npu": "MediaTek NPU 655",
+  "modem": "MediaTek 5G Modem (Sub-6 3.27 Gbps)",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7350",
+  "geekbench6": {
+   "single": "1220",
+   "multi": "3100"
+  },
+  "wildlifeExtreme": "1212",
+  "partNumber": "MT6886V/TCZA",
+  "releaseDate": "2024",
+  "process": "TSMC N4P",
+  "dieSize": "Unknown",
+  "architecture": "ARMv9-A",
+  "cpu": {
+   "specs": "2x Cortex-A715 @ 3.0 GHz + 6x Cortex-A510 @ 2.0 GHz",
+   "l2Cache": "2x 512KB (A715) + 3x 128KB (2x A510)",
+   "l3Cache": "2 MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G610 MC4 (1300 MHz)",
+  "npu": "MediaTek NPU 650",
+  "modem": "MediaTek M70 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7300",
+  "partNumber": "MT6878",
+  "releaseDate": "2024",
+  "process": "TSMC N4",
+  "dieSize": "Unknown",
+  "geekbench6": {
+   "single": "1041",
+   "multi": "3031"
+  },
+  "geekbench7": {
+   "single": "896",
+   "multi": "3041"
+  },
+  "wildlifeExtreme": "892",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A78 @ 2.5 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "4x 512KB (A78) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G615 MC2 (1047MHz)",
+  "npu": "MediaTek NPU 655",
+  "modem": "MediaTek 5G Modem (Sub-6 3.27 Gbps)",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7200",
+  "binnedOf": "MediaTek Dimensity 7350",
+  "geekbench6": {
+   "single": "1239",
+   "multi": "2621"
+  },
+  "wildlifeExtreme": "1150",
+  "partNumber": "MT6886",
+  "releaseDate": "2023.02",
+  "process": "TSMC N4P",
+  "dieSize": "Unknown",
+  "architecture": "ARMv9-A",
+  "cpu": {
+   "specs": "2x Cortex-A715 @ 2.80 GHz + 6x Cortex-A510 @ 2.00 GHz",
+   "l2Cache": "2x 512KB (A715) + 3x 128KB (2x A510)",
+   "l3Cache": "2 MB"
+  },
+  "slc": "Not specified",
+  "gpu": "ARM Mali-G610 MC4 (1130 MHz)",
+  "npu": "MediaTek NPU 650",
+  "modem": "MediaTek M70 5G Modem (Sub-6 4.77 Gbps)",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
+  "name": "MediaTek Dimensity 7060",
+  "partNumber": "MT6855B",
+  "releaseDate": "2025.06",
+  "process": "TSMC 6nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.60 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "IMG BXM-8-256 @ 950 MHz",
+  "npu": "MediaTek NPU 550",
+  "modem": "MediaTek 5G Modem (Sub-6 2.77 Gbps)",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 7050",
+  "geekbench6": {
+   "single": "967",
+   "multi": "2271"
+  },
+  "wildlifeExtreme": "636",
+  "partNumber": "MT6877",
+  "releaseDate": "2023",
+  "process": "TSMC 6nm",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.6 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G68 MC4 (950MHz)",
+  "npu": "MediaTek NPU 550",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 7030",
+  "geekbench6": {
+   "single": "1050",
+   "multi": "2500"
+  },
+  "wildlifeExtreme": "680",
+  "partNumber": "MT6855 (Renamed Dimensity 1050)",
+  "releaseDate": "2023",
+  "process": "TSMC 6nm",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.5 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G610 MC3 (1GHz)",
+  "npu": "MediaTek APU 550",
+  "modem": "MediaTek 5G Modem (mmWave + Sub-6)",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 7025",
+  "geekbench6": {
+   "single": "1020",
+   "multi": "2450"
+  },
+  "wildlifeExtreme": "327",
+  "partNumber": "MT6855V/ATZA",
+  "releaseDate": "2024",
+  "process": "TSMC 6nm",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.5 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "IMG BXM-8-256 (950MHz)",
+  "npu": "MediaTek APU 550",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ },
+ {
+  "name": "MediaTek Dimensity 7020 / 930",
+  "partNumber": "MT6855",
+  "releaseDate": "2023",
+  "process": "TSMC 6nm",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.2 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Not specified",
+  "gpu": "IMG BXM-8-256",
+  "npu": "Not specified",
+  "modem": "MediaTek 5G Modem",
+  "memory": "16-bit Dual-channel LPDDR5 5500"
+ }
+]

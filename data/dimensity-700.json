@@ -1,0 +1,43 @@
+[
+ {
+  "name": "MediaTek Dimensity 720",
+  "partNumber": "MT6853V/NZA",
+  "releaseDate": "2020.07",
+  "process": "TSMC 7nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.0 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G57 MC3 (730 MHz)",
+  "npu": "unknown",
+  "modem": "MediaTek 5G Modem",
+  "memory": "LPDDR4X"
+ },
+ {
+  "name": "MediaTek Dimensity 700",
+  "partNumber": "MT6833",
+  "releaseDate": "2020.11",
+  "geekbench6": {
+   "single": "702",
+   "multi": "1821"
+  },
+  "wildlifeExtreme": "328",
+  "process": "TSMC N7",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.2 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "256 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G57 MC2 (950 MHz)",
+  "npu": "unknown",
+  "modem": "MediaTek 5G Modem",
+  "memory": "LPDDR4X"
+ }
+]

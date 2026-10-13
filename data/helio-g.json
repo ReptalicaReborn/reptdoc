@@ -1,0 +1,360 @@
+[
+ {
+  "name": "MediaTek Helio G200",
+  "binnedOf": "MediaTek Helio G99",
+  "geekbench6": {
+   "single": "812",
+   "multi": "2121"
+  },
+  "wildlifeExtreme": "370",
+  "partNumber": "MT6789T",
+  "releaseDate": "2025.05",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "29mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "256 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G57 MC2 (1100 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-13",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G100",
+  "binnedOf": "MediaTek Helio G99",
+  "geekbench6": {
+   "single": "792",
+   "multi": "2028"
+  },
+  "wildlifeExtreme": "360",
+  "partNumber": "MT6789H",
+  "releaseDate": "2024.08",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "29mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "256 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G57 MC2 (1000 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-13",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G99",
+  "geekbench6": {
+   "single": "732",
+   "multi": "1984"
+  },
+  "wildlifeExtreme": "347",
+  "partNumber": "MT6789",
+  "releaseDate": "2022.05",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "29mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "256 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G57 MC2 (950 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-13",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G96",
+  "geekbench6": {
+   "single": "700",
+   "multi": "1900"
+  },
+  "wildlifeExtreme": "320",
+  "partNumber": "MT6781",
+  "releaseDate": "2021.06",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.05 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "512 KB (A76), 128 KB (A55)",
+   "l3Cache": "2 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G57 MC2 (950 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-13",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G95",
+  "geekbench6": {
+   "single": "680",
+   "multi": "1850"
+  },
+  "wildlifeExtreme": "420",
+  "partNumber": "MT6785V/CD",
+  "releaseDate": "2020.09",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.05 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "512 KB (A76), 128 KB (A55)",
+   "l3Cache": "2 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G76 MC4 (900 MHz)",
+  "npu": "MediaTek APU 2.0 (1 TMACs)",
+  "modem": "Integrated 4G LTE Cat-12",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G90T",
+  "binnedOf": "MediaTek Helio G95",
+  "geekbench6": {
+   "single": "650",
+   "multi": "1750"
+  },
+  "wildlifeExtreme": "400",
+  "partNumber": "MT6785V/CC",
+  "releaseDate": "2019.07",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.05 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "512 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G76 MC4 (800 MHz)",
+  "npu": "MediaTek APU 2.0 (1 TMACs)",
+  "modem": "Integrated 4G LTE Cat-12",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G90",
+  "binnedOf": "MediaTek Helio G95",
+  "geekbench6": {
+   "single": "640",
+   "multi": "1700"
+  },
+  "wildlifeExtreme": "380",
+  "partNumber": "MT6785",
+  "releaseDate": "2019.07",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.00 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "512 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G76 MC4 (720 MHz)",
+  "npu": "MediaTek APU 2.0 (1 TMACs)",
+  "modem": "Integrated 4G LTE Cat-12",
+  "memory": "LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "MediaTek Helio G91",
+  "geekbench6": {
+   "single": "430",
+   "multi": "1400"
+  },
+  "wildlifeExtreme": "180",
+  "partNumber": "Unknown",
+  "releaseDate": "2024.02",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A75 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "256 KB (A75), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G52 MC2 (1000 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1800 MHz"
+ },
+ {
+  "name": "MediaTek Helio G88",
+  "geekbench6": {
+   "single": "420",
+   "multi": "1350"
+  },
+  "wildlifeExtreme": "180",
+  "partNumber": "MT6769H",
+  "releaseDate": "2021.07",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A75 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "256 KB (A75), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G52 MC2 (1000 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1800 MHz"
+ },
+ {
+  "name": "MediaTek Helio G85",
+  "binnedOf": "MediaTek Helio G88",
+  "geekbench6": {
+   "single": "413",
+   "multi": "1402"
+  },
+  "wildlifeExtreme": "183",
+  "partNumber": "MT6769Z",
+  "releaseDate": "2020.05",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A75 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "256 KB (A75), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G52 MC2 (1000 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1800 MHz"
+ },
+ {
+  "name": "MediaTek Helio G80",
+  "binnedOf": "MediaTek Helio G88",
+  "geekbench6": {
+   "single": "400",
+   "multi": "1300"
+  },
+  "wildlifeExtreme": "170",
+  "partNumber": "MT6769V/CU",
+  "releaseDate": "2020.02",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A75 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "256 KB (A75), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G52 MC2 (950 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1800 MHz"
+ },
+ {
+  "name": "MediaTek Helio G70",
+  "binnedOf": "MediaTek Helio G88",
+  "geekbench6": {
+   "single": "390",
+   "multi": "1250"
+  },
+  "wildlifeExtreme": "160",
+  "partNumber": "MT6769V/CB",
+  "releaseDate": "2020.01",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A75 @ 2.00 GHz + 6x Cortex-A55 @ 1.70 GHz",
+   "l2Cache": "256 KB (A75), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G52 MC2 (820 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1800 MHz"
+ },
+ {
+  "name": "MediaTek Helio G50",
+  "partNumber": "MT6765V/XAA",
+  "releaseDate": "2023.02",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.2 GHz + 4x Cortex-A53 @ 1.6/1.7 GHz",
+   "l2Cache": "512 KB",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8320 (680 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1600 MHz"
+ },
+ {
+  "name": "MediaTek Helio G36",
+  "binnedOf": "MediaTek Helio G50",
+  "partNumber": "MT6765V/XAA",
+  "releaseDate": "2023.02",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.2 GHz + 4x Cortex-A53 @ 1.6/1.7 GHz",
+   "l2Cache": "512 KB",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8320 (680 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1600 MHz"
+ },
+ {
+  "name": "MediaTek Helio G35",
+  "binnedOf": "MediaTek Helio G50",
+  "partNumber": "MT6765G",
+  "releaseDate": "2020.06",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.30 GHz + 4x Cortex-A53 @ 1.80 GHz",
+   "l2Cache": "512 KB",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8320 (680 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-7",
+  "memory": "LPDDR4X 1600 MHz"
+ },
+ {
+  "name": "MediaTek Helio G25",
+  "binnedOf": "MediaTek Helio G50",
+  "partNumber": "MT6762G",
+  "releaseDate": "2020.06",
+  "process": "TSMC 12nm FinFET",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.00 GHz + 4x Cortex-A53 @ 1.50 GHz",
+   "l2Cache": "512 KB",
+   "l3Cache": "Unknown"
+  },
+  "slc": "Unknown",
+  "gpu": "IMG PowerVR GE8320 (650 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-4",
+  "memory": "LPDDR4X 1600 MHz"
+ }
+]

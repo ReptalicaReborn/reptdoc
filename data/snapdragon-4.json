@@ -1,0 +1,434 @@
+[
+ {
+  "name": "Snapdragon 4 Gen (tentative name)",
+  "codename": "unknown",
+  "process": "Samsung 4nm (4LPX)",
+  "partNumber": "SM4875",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 + 6x Cortex-A55",
+   "l2Cache": "2x 256KB (A78) + 6x 64KB (A55)",
+   "l3Cache": "1MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon 5G sub-6 Rel.17",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 3200 MHz"
+ },
+ {
+  "name": "Snapdragon 4 Gen 5",
+  "codename": "Aldabra",
+  "process": "Samsung 4nm (4LPX)",
+  "partNumber": "SM4850",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 2.4GHz + 6x Cortex-A55 2.0GHz",
+   "l2Cache": "2x 256KB (A78) + 6x 64KB (A55)",
+   "l3Cache": "1MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon 5G sub-6 Rel.17",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 4 Gen 4",
+  "geekbench6": {
+   "single": "1035",
+   "multi": "2232"
+  },
+  "wildlifeExtreme": "371",
+  "codename": "Clarence / Ravelin",
+  "partNumber": "SM4450-AF",
+  "releaseDate": "2025.12",
+  "process": "Samsung 4nm (4LPX)",
+  "dieSize": "40mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.30 GHz + 6x Cortex-A55 @ 2.00 GHz (Kryo)",
+   "l2Cache": "2x 256KB (A78) + 6x 64KB (A55)",
+   "l3Cache": "1MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 613",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X61 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 3200 MHz"
+ },
+ {
+  "name": "Snapdragon 4s Gen 2",
+  "geekbench6": {
+   "single": "857",
+   "multi": "1911"
+  },
+  "wildlifeExtreme": "360",
+  "codename": "Kalpeni",
+  "partNumber": "SM4635",
+  "releaseDate": "2024.07",
+  "process": "Samsung 4nm (4LPX)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz (Kryo)",
+   "l2Cache": "2x 256KB (A78) + 6x 64KB (A55)",
+   "l3Cache": "1MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 611",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon 5G Modem-RF (1 Gbps DL)",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 4 Gen 2",
+  "geekbench6": {
+   "single": "927",
+   "multi": "2128"
+  },
+  "wildlifeExtreme": "366",
+  "codename": "Clarence / Ravelin",
+  "partNumber": "SM4450",
+  "releaseDate": "2023.06",
+  "process": "Samsung 4nm (4LPX)",
+  "dieSize": "40mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.20 GHz / 2.30GHz (AE) + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "2x 256KB (A78) + 6x 64KB (A55)",
+   "l3Cache": "1MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 613 (955 MHz / 1010MHz AE)",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X61 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "Dual-channel LPDDR5 3200 / LPDDR4X 2133"
+ },
+ {
+  "name": "Snapdragon 4 Gen 1",
+  "geekbench6": {
+   "single": "844",
+   "multi": "2087"
+  },
+  "wildlifeExtreme": "350",
+  "codename": "Baikal",
+  "partNumber": "SM4375",
+  "releaseDate": "2022.09",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A78 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "2x 256KB (A78) + 6x 64KB (A55)",
+   "l3Cache": "1MB"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 619 (700 MHz)",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X51 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 480+ 5G",
+  "binnedOf": "Snapdragon 480 5G",
+  "geekbench6": {
+   "single": "750",
+   "multi": "1950"
+  },
+  "wildlifeExtreme": "280",
+  "codename": "Holi",
+  "partNumber": "SM4350-AC",
+  "releaseDate": "2021.10",
+  "process": "Samsung 8nm (8LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 1.90 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 619 (650 MHz)",
+  "npu": "Qualcomm Hexagon 686",
+  "modem": "Snapdragon X51 5G",
+  "dsp": "Qualcomm Hexagon 686",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 480 5G",
+  "geekbench6": {
+   "single": "740",
+   "multi": "1900"
+  },
+  "wildlifeExtreme": "280",
+  "codename": "Holi",
+  "partNumber": "SM4350",
+  "releaseDate": "2021.01",
+  "process": "Samsung 8nm (8LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.00 GHz + 6x Cortex-A55 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 619 (650 MHz)",
+  "npu": "Qualcomm Hexagon 686",
+  "modem": "Snapdragon X51 5G",
+  "dsp": "Qualcomm Hexagon 686",
+  "memory": "16-bit Dual-channel LPDDR4X 2133 MHz"
+ },
+ {
+  "name": "Snapdragon 460",
+  "geekbench6": {
+   "single": "300",
+   "multi": "1200"
+  },
+  "wildlifeExtreme": "70",
+  "codename": "bengal",
+  "partNumber": "SM4250-AA",
+  "releaseDate": "2020.01",
+  "process": "Samsung 11nm (11LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A73 @ 1.80 GHz + 4x Cortex-A53 @ 1.6 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 610 (600 MHz)",
+  "npu": "Qualcomm Hexagon 683",
+  "modem": "Snapdragon X11 LTE",
+  "dsp": "Qualcomm Hexagon 683",
+  "memory": "16-bit Dual-channel LPDDR4X 1866 MHz"
+ },
+ {
+  "name": "Snapdragon 450",
+  "codename": "msmtitanium",
+  "partNumber": "SDM450",
+  "releaseDate": "2017.06",
+  "process": "Samsung 14nm (14LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "8x Cortex-A53 @ 1.80 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 506 (600 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X9 LTE",
+  "dsp": "Qualcomm Hexagon 546",
+  "memory": "16-bit Single-channel LPDDR3 933 MHz"
+ },
+ {
+  "name": "Snapdragon 439",
+  "codename": "unknown",
+  "partNumber": "SDM439",
+  "releaseDate": "2018.06",
+  "process": "TSMC 12nm (FinFET)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.00 GHz + 4x Cortex-A53 @ 1.45 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 505 (650 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X6 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "16-bit Single-channel LPDDR3 800 MHz"
+ },
+ {
+  "name": "Snapdragon 435",
+  "codename": "MSM8940",
+  "partNumber": "MSM8940",
+  "releaseDate": "2016.02",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.40 GHz + 4x Cortex-A53 @ 1.10 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 505 (450 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X9 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "32-bit Single-channel LPDDR3 800 MHz"
+ },
+ {
+  "name": "Snapdragon 430",
+  "codename": "MSM8937",
+  "partNumber": "MSM8937",
+  "releaseDate": "2015.09",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "65.95mm²",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.40 GHz + 4x Cortex-A53 @ 1.10 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 505 (450 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X6 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "32-bit Single-channel LPDDR3 800 MHz"
+ },
+ {
+  "name": "Snapdragon 429",
+  "codename": "SDA429 / SDM429",
+  "partNumber": "SDM429",
+  "releaseDate": "2018.06",
+  "process": "TSMC 12nm (FinFET)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.02 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 504 (320 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X6 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "16-bit Single-channel LPDDR3 800 MHz"
+ },
+ {
+  "name": "Snapdragon 427",
+  "codename": "MSM8920",
+  "partNumber": "MSM8920",
+  "releaseDate": "2016.10",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.40 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 308 (598 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X9 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "32-bit Single-channel LPDDR3 667 MHz"
+ },
+ {
+  "name": "Snapdragon 425",
+  "codename": "MSM8917",
+  "partNumber": "MSM8917",
+  "releaseDate": "2016.02",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.40 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 308 (598 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X6 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "32-bit Single-channel LPDDR3 667 MHz"
+ },
+ {
+  "name": "Snapdragon 415",
+  "codename": "MSM8929",
+  "partNumber": "MSM8929",
+  "releaseDate": "2015.02",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.36 GHz + 4x Cortex-A53 @ 1 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 405 (465 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X5 LTE",
+  "dsp": "Qualcomm Hexagon 536",
+  "memory": "32-bit Single-channel LPDDR3 667 MHz"
+ },
+ {
+  "name": "Snapdragon 412",
+  "codename": "MSM8916 v2",
+  "partNumber": "MSM8916-v2",
+  "releaseDate": "2015.08",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.40 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 306 (450 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X5 LTE",
+  "dsp": "Qualcomm Hexagon QDSP6 V5",
+  "memory": "32-bit Single-channel LPDDR3 600 MHz"
+ },
+ {
+  "name": "Snapdragon 410",
+  "codename": "MSM8916",
+  "partNumber": "MSM8916",
+  "releaseDate": "2013.12",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 1.20 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 306 (450 MHz)",
+  "npu": "N/A",
+  "modem": "Snapdragon X5 LTE",
+  "dsp": "Qualcomm Hexagon QDSP6 V5",
+  "memory": "32-bit Single-channel LPDDR2/3 533 MHz"
+ },
+ {
+  "name": "Snapdragon 400",
+  "codename": "MSM8226 / MSM8926",
+  "partNumber": "MSM8926",
+  "releaseDate": "2013.12",
+  "process": "TSMC 28nm (28LP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A7 @ 1.20 to 1.6 GHz",
+   "l2Cache": "2MB",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Adreno 305/306 (400 to 450 MHz)",
+  "npu": "N/A",
+  "modem": "Qualcomm Gobi / Snapdragon X5 LTE",
+  "dsp": "Qualcomm Hexagon QDSP6 V4",
+  "memory": "32-bit Single-channel LPDDR3 533 MHz"
+ }
+]

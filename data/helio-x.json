@@ -1,0 +1,53 @@
+[
+ {
+  "name": "MediaTek Helio X30",
+  "partNumber": "MT6799",
+  "releaseDate": "2017.02",
+  "process": "TSMC 10nm",
+  "dieSize": "75.715mm²",
+  "cpu": {
+   "specs": "2x A73 (2.6GHz) + 4x A53 (2.2GHz) + 4x A35 (1.9GHz)",
+   "l2Cache": "1MB (A73 cluster) + 512KB (A53 cluster) + 512KB (A35 cluster)",
+   "l3Cache": "75mm²"
+  },
+  "slc": "N/A",
+  "gpu": "PowerVR 7XTP-MT4 (800MHz)",
+  "npu": "N/A",
+  "modem": "4G LTE Cat-10",
+  "memory": "LPDDR4X quad-channel 16-bit 1866 MHz"
+ },
+ {
+  "name": "MediaTek Helio X20 / X23 / X25 / X27",
+  "partNumber": "MT6797/D/T/X",
+  "releaseDate": "2016",
+  "process": "TSMC 20nm",
+  "dieSize": "103.93mm²",
+  "cpu": {
+   "specs": "2x A72 (2.1GHz-2.5GHz) + 4x A53 (1.85GHz) + 4x A53 (1.4GHz)",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "Mali-T880 MP4 (780MHz-850MHz)",
+  "npu": "N/A",
+  "modem": "4G LTE Cat-6",
+  "memory": "LPDDR3 32-bit 800MHz"
+ },
+ {
+  "name": "MediaTek X10",
+  "partNumber": "MT6795",
+  "releaseDate": "2015",
+  "process": "TSMC 28nm",
+  "dieSize": "91.75mm²",
+  "cpu": {
+   "specs": "4x Cortex-A53 @ 2.0/2.2 GHz + 4x Cortex-A53 @ 1.2 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "PowerVR G6200 @ 550/700 MHz",
+  "npu": "N/A",
+  "modem": "4G LTE",
+  "memory": "LPDDR3 32-bit 933MHz"
+ }
+]

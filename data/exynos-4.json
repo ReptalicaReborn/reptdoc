@@ -1,0 +1,82 @@
+[
+ {
+  "name": "Exynos 4 Quad 4415",
+  "codename": "unknown",
+  "partNumber": "S5E4415",
+  "releaseDate": "2014.09",
+  "process": "Samsung 28nm",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A9 @ 1.5 GHz",
+   "l2Cache": "2 MB",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-400 MP4 (533 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Exynos DSP",
+  "memory": "32-bit Dual-channel LPDDR2 400 MHz"
+ },
+ {
+  "name": "Exynos 4 Quad 4412",
+  "codename": "Pegasus",
+  "partNumber": "S5E4412",
+  "releaseDate": "2012.05",
+  "process": "Samsung 32nm (32HKMG)",
+  "dieSize": "84 mm²",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "4x Cortex-A9 @ 1.40 - 1.60 GHz",
+   "l2Cache": "2 MB",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-400 MP4 (440 - 533 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Exynos DSP",
+  "memory": "32-bit Dual-channel LPDDR2 400 MHz"
+ },
+ {
+  "name": "Exynos 4 Dual 4212",
+  "codename": "unknown",
+  "partNumber": "S5E4212",
+  "releaseDate": "2011.09",
+  "process": "Samsung 32nm (32HKMG)",
+  "dieSize": "unknown",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "2x Cortex-A9 @ 1.50 GHz",
+   "l2Cache": "1 MB",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-400 MP4 (400 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Exynos DSP",
+  "memory": "32-bit Dual-channel LPDDR2 400 MHz"
+ },
+ {
+  "name": "Exynos 4 Dual 4210",
+  "codename": "Orion",
+  "partNumber": "S5PC210",
+  "releaseDate": "2011.01",
+  "process": "Samsung 45nm",
+  "dieSize": "118 mm²",
+  "architecture": "ARMv7-A",
+  "cpu": {
+   "specs": "2x Cortex-A9 @ 1.20 GHz",
+   "l2Cache": "1 MB",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "ARM Mali-400 MP4 (266 MHz)",
+  "npu": "unknown",
+  "modem": "unknown (External)",
+  "dsp": "Exynos DSP",
+  "memory": "32-bit Dual-channel LPDDR2 400 MHz"
+ }
+]
