@@ -1,0 +1,38 @@
+[
+ {
+  "name": "HiSilicon K3V2",
+  "partNumber": "Hi3620",
+  "releaseDate": "2012.Q1",
+  "process": "TSMC 40nm",
+  "dieSize": "70.6mm²",
+  "architecture": "ARMv7",
+  "cpu": {
+   "specs": "4x Cortex-A9 @ 1.4 GHz",
+   "l2Cache": "1MB",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Vivante GC4000 (240MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.6",
+  "memory": "32-bits Dual-channel LPDDR2 1066"
+ },
+ {
+  "name": "HiSilicon K3V2E",
+  "partNumber": "Hi3620",
+  "releaseDate": "2012.Q1",
+  "process": "TSMC 40nm",
+  "dieSize": "70.6mm²",
+  "architecture": "ARMv7",
+  "cpu": {
+   "specs": "4x Cortex-A9 @ 1.5 GHz",
+   "l2Cache": "1MB",
+   "l3Cache": "N/A"
+  },
+  "slc": "N/A",
+  "gpu": "Vivante GC4000 (240MHz)",
+  "npu": "N/A",
+  "modem": "Balong 4G LTE Cat.6",
+  "memory": "32-bits Dual-channel LPDDR2 1066"
+ }
+]

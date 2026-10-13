@@ -1,0 +1,88 @@
+[
+ {
+  "name": "Exynos 9825",
+  "geekbench6": {
+   "single": "830",
+   "multi": "2300"
+  },
+  "wildlifeExtreme": "850",
+  "codename": "DaVinci",
+  "partNumber": "S5E9825",
+  "releaseDate": "2019.08",
+  "process": "Samsung 7nm EUV (7LPP)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Mongoose M4 @ 2.73 GHz + 2x Cortex-A75 @ 2.40 GHz + 4x Cortex-A55 @ 1.95 GHz",
+   "l2Cache": "2x 512KB (M4) + 2x 256KB (A75) + 4x 64KB (A55)",
+   "l3Cache": "3MB (M4 cluster) + 1MB (A75 + A55 cluster)"
+  },
+  "slc": "2 MB",
+  "gpu": "ARM Mali-G76 MP12 (754 MHz)",
+  "npu": "Samsung NPU (1.9 TOPS)",
+  "modem": "Shannon 5000 LTE / Exynos Modem 5100 (External 5G)",
+  "dsp": "Exynos DSP",
+  "memory": "16-bit Quad-channel LPDDR4X 2093 MHz"
+ },
+ {
+  "name": "Exynos 9820",
+  "binnedOf": "Exynos 9825",
+  "codename": "makalu",
+  "partNumber": "S5E9820",
+  "releaseDate": "2018.11",
+  "process": "Samsung 8nm (8LPP)",
+  "dieSize": "127 mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Mongoose M4 @ 2.73 GHz + 2x Cortex-A75 @ 2.31 GHz + 4x Cortex-A55 @ 1.95 GHz",
+   "l2Cache": "2x 512KB (M4) + 2x 256KB (A75) + 4x 64KB (A55)",
+   "l3Cache": "3MB (M4 cluster) + 1MB (A75 + A55 cluster)"
+  },
+  "slc": "2 MB",
+  "gpu": "ARM Mali-G76 MP12 (702 MHz)",
+  "npu": "Samsung NPU (1.9 TOPS)",
+  "modem": "Shannon 5000 LTE (2.0 Gbps DL)",
+  "dsp": "Exynos DSP",
+  "memory": "16-bit Quad-channel LPDDR4X 2093 MHz"
+ },
+ {
+  "name": "Exynos 9810",
+  "codename": "lhotse",
+  "partNumber": "S5E9810",
+  "releaseDate": "2018.01",
+  "process": "Samsung 10nm (10LPP)",
+  "dieSize": "118.9 mm²",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Mongoose M3 @ 2.90 GHz + 4x Cortex-A55 @ 1.90 GHz",
+   "l2Cache": "4x 512KB (M3) + 4x 64KB (A55)",
+   "l3Cache": "4 MB (M3 cluster) + 512KB (A55 cluster)"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G72 MP18 (572 MHz)",
+  "npu": "N/A",
+  "modem": "Shannon 360 LTE (1.2 Gbps DL)",
+  "dsp": "Exynos DSP",
+  "memory": "16-bit Quad-channel LPDDR4X 1794 MHz"
+ },
+ {
+  "name": "Exynos 8895",
+  "codename": "Kanchen",
+  "partNumber": "S5E8895",
+  "releaseDate": "2017.02",
+  "process": "Samsung 10nm (10LPE)",
+  "dieSize": "103.6 mm²",
+  "architecture": "ARMv8-A",
+  "cpu": {
+   "specs": "4x Mongoose M2 @ 2.30 GHz + 4x Cortex-A53 @ 1.70 GHz",
+   "l2Cache": "2x 512KB (M2) + 512KB (A53 cluster)",
+   "l3Cache": "2x 1MB (M2) cluster"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G71 MP20 (546 MHz)",
+  "npu": "Vision Processing Unit (VPU)",
+  "modem": "Shannon 355 LTE (1.0 Gbps DL)",
+  "dsp": "Exynos DSP",
+  "memory": "16-bit Quad-channel LPDDR4X 1794 MHz"
+ }
+]

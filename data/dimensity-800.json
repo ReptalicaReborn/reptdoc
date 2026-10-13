@@ -1,0 +1,70 @@
+[
+ {
+  "name": "MediaTek Dimensity 820",
+  "partNumber": "MT6875",
+  "releaseDate": "2020.05",
+  "process": "TSMC 7nm",
+  "geekbench6": {
+   "single": "843",
+   "multi": "2574"
+  },
+  "dieSize": "67.12mm²",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "4x Cortex-A76 @ 2.6 GHz + 4x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G57 MC5 (900 MHz)",
+  "npu": "unknown",
+  "modem": "MediaTek 5G Modem",
+  "memory": "LPDDR4X"
+ },
+ {
+  "name": "MediaTek Dimensity 810",
+  "partNumber": "MT6833P/T",
+  "releaseDate": "2021.08",
+  "geekbench6": {
+   "single": "759",
+   "multi": "1963"
+  },
+  "wildlifeExtreme": "369",
+  "process": "TSMC N6",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G57 MC2 (1068 MHz)",
+  "npu": "unknown",
+  "modem": "MediaTek 5G Modem",
+  "memory": "LPDDR4X"
+ },
+ {
+  "name": "MediaTek Dimensity 800U",
+  "partNumber": "MT6853",
+  "releaseDate": "2020.08",
+  "geekbench6": {
+   "single": "796",
+   "multi": "1918"
+  },
+  "wildlifeExtreme": "483",
+  "process": "TSMC N6",
+  "dieSize": "unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.4 GHz + 6x Cortex-A55 @ 2.0 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G57 MC3 (850 MHz)",
+  "npu": "unknown",
+  "modem": "MediaTek 5G Modem",
+  "memory": "LPDDR4X"
+ }
+]
