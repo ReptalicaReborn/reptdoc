@@ -2415,11 +2415,11 @@ const CHIP_TIER_OVERRIDES = {
 };
 const chipTier = c => CHIP_TIER_OVERRIDES[c.name] || SERIES_TIERS[c.seriesKey];
 
-// Rough lineup position from the name: Extreme/Ultra > Pro/Max/Elite/+ > base > cut-down (8s, 9600m, 2400e, Lite)
+// Rough lineup position from the name: Extreme/Ultra > Pro/Max/Elite/+ > base > cut-down (8s, 9600m, 2400e, 9010L, Lite)
 function variantRank(name) {
     if (/\b(Extreme|Ultra)\b/i.test(name)) return 2;
     if (/\b(Pro|Max|Elite)\b|\+/i.test(name)) return 1;
-    if (/\d[sem]\b|\bLite\b/i.test(name)) return -1;
+    if (/\d[seml]\b|\bLite\b/i.test(name)) return -1;
     return 0;
 }
 
@@ -2447,16 +2447,30 @@ function getQuickPicks(chip) {
         if (c && c !== chip && !picks.some(p => p.chip === c)) picks.push({ chip: c, label });
     };
 
-    // Closest older and newer chip in the same series, by release date
+    // Older/newer in the series: skip binned variants of the same chip and mid-cycle
+    // cut-downs, and prefer the chip in the same spot of the previous/next generation
+    // (Kirin 9050 -> 9030, Kirin 9050 Pro -> 9030 Pro)
     const parseDate = compareRules.releaseDate.parse;
     const dateOf = c => c.releaseDate ? parseDate(c.releaseDate) : null;
     const myDate = dateOf(chip);
     if (myDate !== null) {
-        const sameSeries = all.filter(c => c.seriesKey === chip.seriesKey && dateOf(c) !== null);
-        const older = sameSeries.filter(c => dateOf(c) < myDate).sort((a, b) => dateOf(b) - dateOf(a))[0];
-        const newer = sameSeries.filter(c => dateOf(c) > myDate).sort((a, b) => dateOf(a) - dateOf(b))[0];
-        add(older, t('cmp_pick_predecessor'));
-        add(newer, t('cmp_pick_successor'));
+        const family = c => c.binnedOf || c.name;
+        const sameSeries = all.filter(c => c.seriesKey === chip.seriesKey && dateOf(c) !== null
+            && family(c) !== family(chip));
+        // Lower is closer: lineup position (Extreme/Pro/base/cut-down), binned or not,
+        // and time apart (6 months weighs as much as one lineup step)
+        const cost = c => Math.abs(variantRank(c.name) - variantRank(chip.name))
+            + (variantRank(c.name) < 0 && variantRank(chip.name) >= 0 ? 2 : 0) // full chip -> cut-down
+            + (!c.binnedOf !== !chip.binnedOf ? 1 : 0)
+            + Math.abs(dateOf(c) - myDate) / 6;
+        const nearest = (older) => {
+            const side = sameSeries.filter(c => older ? dateOf(c) < myDate : dateOf(c) > myDate);
+            const recent = side.filter(c => Math.abs(dateOf(c) - myDate) <= 24);
+            const pool = recent.length ? recent : side;
+            return pool.sort((a, b) => cost(a) - cost(b))[0];
+        };
+        add(nearest(true), t('cmp_pick_predecessor'));
+        add(nearest(false), t('cmp_pick_successor'));
     }
 
     // Rivals: an explicit "rivals" list in the data wins
