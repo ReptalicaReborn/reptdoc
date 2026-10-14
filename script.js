@@ -336,7 +336,7 @@ function renderTable(dataRaw, isSearch, fullData) {
         }
 
         const cardHtml = `
-            <div class="chip-card" id="card-${index}" style="animation: fadeIn 0.4s ease both; animation-delay: ${index * 0.05}s;" data-action="toggleCard" data-index="${index}" data-variants='${JSON.stringify(allChips.map(c => c.name)).replace(/'/g, "&#39;")}'>
+            <div class="chip-card" id="card-${index}" style="animation: fadeIn 0.4s ease both; animation-delay: ${Math.min(index, 12) * 0.04}s;" data-action="toggleCard" data-index="${index}" data-variants='${JSON.stringify(allChips.map(c => c.name)).replace(/'/g, "&#39;")}'>
                 <div class="chip-card-header">
                     <div class="chip-card-icon">${iconHtml}</div>
                     <div class="chip-card-title-group">
@@ -356,9 +356,7 @@ function renderTable(dataRaw, isSearch, fullData) {
                     <span class="view-specs-text">${t('view_full_specs') || 'View Full Specs'}</span>
                     <span class="material-icons-round expand-icon" id="icon-expand-${index}">expand_more</span>
                 </div>
-                <div class="chip-card-body" id="card-body-${index}">
-                     ${generateMobileDetails(chip)}
-                </div>
+                <div class="chip-card-body" id="card-body-${index}"></div>
             </div>
         `;
 
@@ -368,6 +366,19 @@ function renderTable(dataRaw, isSearch, fullData) {
     gridHtml += '</div>';
 
     container.innerHTML = gridHtml;
+    hydrateDieshotBadges();
+}
+
+// Full specs are built on first expand, so searches don't render hundreds of hidden spec sheets
+function fillCardBody(index) {
+    const body = document.getElementById(`card-body-${index}`);
+    if (!body || body.dataset.filled) return;
+    const card = document.getElementById(`card-${index}`);
+    const active = card && card.querySelector('.variant-chip.active');
+    const chip = (_cardVariants[`card-${index}`] || [])[active ? parseInt(active.dataset.variantIndex) : 0];
+    if (!chip) return;
+    body.innerHTML = generateMobileDetails(chip);
+    body.dataset.filled = 'true';
     hydrateDieshots();
 }
 
@@ -433,6 +444,7 @@ window.switchVariant = function (cardId, variantIndex) {
     const bodyContainer = document.getElementById(`card-body-${chipIndex}`);
     if (bodyContainer) {
         bodyContainer.innerHTML = generateMobileDetails(chip);
+        bodyContainer.dataset.filled = 'true';
         hydrateDieshots();
     }
 };
@@ -477,20 +489,7 @@ async function hydrateDieshots() {
         slot.dataset.ready = 'true';
         // Binned variants share the die of the chip they are cut from, unless they have their own shot
         const shots = byChip.get(slot.dataset.chip) || (slot.dataset.base && byChip.get(slot.dataset.base)) || [];
-        const card = slot.closest('.chip-card');
-        const header = card ? card.querySelector('.chip-card-header') : null;
-        if (header) {
-            const oldBadge = header.querySelector('.dieshot-badge');
-            if (oldBadge) oldBadge.remove();
-            if (shots.length > 0) {
-                const compareBtn = header.querySelector('.chip-card-compare-btn');
-                const badge = document.createElement('span');
-                badge.className = 'material-icons-round dieshot-badge';
-                badge.textContent = 'photo_camera';
-                badge.title = t('dieshot_available');
-                header.insertBefore(badge, compareBtn);
-            }
-        }
+        setDieshotBadge(slot.closest('.chip-card'), shots.length > 0);
         if (shots.length === 0) {
             slot.innerHTML = '';
             return;
@@ -505,6 +504,29 @@ async function hydrateDieshots() {
                         <span class="dieshot-thumb-label">${escapeHtml(shot.title)}</span>
                     </button>`).join('')}
             </div>`;
+    });
+}
+
+function setDieshotBadge(card, hasShots) {
+    const header = card ? card.querySelector('.chip-card-header') : null;
+    if (!header) return;
+    const oldBadge = header.querySelector('.dieshot-badge');
+    if (oldBadge) oldBadge.remove();
+    if (!hasShots) return;
+    const badge = document.createElement('span');
+    badge.className = 'material-icons-round dieshot-badge';
+    badge.textContent = 'photo_camera';
+    badge.title = t('dieshot_available');
+    header.insertBefore(badge, header.querySelector('.chip-card-compare-btn'));
+}
+
+// Header badges for cards whose body (and dieshot slot) hasn't been built yet
+async function hydrateDieshotBadges() {
+    const { byChip } = await loadDieshots();
+    document.querySelectorAll('.chip-card').forEach(card => {
+        const chip = (_cardVariants[card.id] || [])[0];
+        if (!chip) return;
+        setDieshotBadge(card, byChip.has(chip.name) || (chip.binnedOf && byChip.has(chip.binnedOf)));
     });
 }
 
@@ -616,6 +638,7 @@ window.toggleCardDetails = function (index) {
     }
 
     // Toggle current card
+    if (!isExpanded) fillCardBody(index);
     if (isExpanded) {
         card.classList.remove('expanded');
     } else {
