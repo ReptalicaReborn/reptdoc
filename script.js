@@ -168,6 +168,88 @@ function formatGpuSpec(specString) {
     `;
 }
 
+/**
+ * Cache spec parser
+ * Turns strings like "1MB (X4) + 3x 512 KB (A720), 2x 256KB (4x A510)" into parts
+ * ({ count, kb, label }) so they can be shown one per line with a total.
+ * Returns null when any part can't be read, so the raw text is shown instead.
+ */
+const CACHE_LABEL_SHORTHANDS = { TP: 'Taishan Prime', TL: 'Taishan Large', TM: 'Taishan Medium', TLi: 'Taishan Little' };
+
+function parseCacheSpec(value) {
+    if (typeof value !== 'string') return null;
+    const text = value.trim();
+    if (!/\d\s*(KB|MB)/i.test(text)) return null;
+
+    // Split on "+" or "," outside parentheses, and before an "Nx" that follows a ")"
+    const pieces = [];
+    let depth = 0, current = '';
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (ch === '(') depth++;
+        if (ch === ')') depth = Math.max(0, depth - 1);
+        const missingPlus = depth === 0 && ch === ' ' && /\)\s*$/.test(current) && /^\s*\d+x\s/i.test(text.slice(i));
+        if (depth === 0 && (ch === '+' || ch === ',' || missingPlus)) {
+            pieces.push(current);
+            current = '';
+            continue;
+        }
+        current += ch;
+    }
+    pieces.push(current);
+
+    const parts = [];
+    for (const raw of pieces.map(p => p.trim()).filter(Boolean)) {
+        const m = raw.match(/^(?:(\d+)\s*x\s*)?(\d+(?:\.\d+)?)\s*(KB|MB)\b\s*(?:L[23]\b)?\s*(?:\((.*)\))?\s*(.*)$/i);
+        if (!m) return null;
+        const [, count, size, unit, inner, trailing] = m;
+        let label = [inner, trailing].filter(Boolean).join(' ').trim();
+        if (CACHE_LABEL_SHORTHANDS[label]) label = CACHE_LABEL_SHORTHANDS[label];
+        // "(4x A510)" means one cache shared by those cores
+        const shared = label.match(/^(\d+)\s*x\s*(.+)$/i);
+        if (shared) {
+            const cores = CACHE_LABEL_SHORTHANDS[shared[2]] || shared[2];
+            label = `${t('cache_shared_by')} ${shared[1]}× ${cores}`;
+        }
+        parts.push({
+            count: count ? parseInt(count) : 1,
+            kb: parseFloat(size) * (unit.toUpperCase() === 'MB' ? 1024 : 1),
+            label
+        });
+    }
+    return parts.length ? parts : null;
+}
+
+function formatCacheSize(kb) {
+    if (kb >= 1024) return `${parseFloat((kb / 1024).toFixed(2))} MB`;
+    return `${parseFloat(kb.toFixed(1))} KB`;
+}
+
+// Total size in KB, or null when the value can't be read
+function cacheTotalKb(value) {
+    const parts = parseCacheSpec(value);
+    return parts ? parts.reduce((sum, p) => sum + p.count * p.kb, 0) : null;
+}
+
+function formatCacheSpec(value) {
+    const parts = parseCacheSpec(value);
+    if (!parts) return formatValue(value);
+    // A single plain size: just tidy the spacing
+    if (parts.length === 1 && parts[0].count === 1 && !parts[0].label) {
+        return escapeHtml(formatCacheSize(parts[0].kb));
+    }
+    const rows = parts.map(p => `
+        <div class="cache-part">
+            <span class="cache-size">${p.count > 1 ? `${p.count}× ` : ''}${formatCacheSize(p.kb)}</span>
+            ${p.label ? `<span class="cache-label">${escapeHtml(p.label)}</span>` : ''}
+        </div>`).join('');
+    const total = parts.reduce((sum, p) => sum + p.count * p.kb, 0);
+    const showTotal = parts.length > 1 || parts[0].count > 1;
+    return `<div class="cache-parts">${rows}${showTotal ? `<div class="cache-total">${t('cache_total')} ${formatCacheSize(total)}</div>` : ''}</div>`;
+}
+
+const CACHE_KEYS = ['cpu.l2Cache', 'cpu.l3Cache', 'slc'];
+
 // Current active series
 let currentSeries = 'a-series';
 let isWelcomeState = false; // Will be set to true on load if renderWelcomePage is called
@@ -592,7 +674,8 @@ function generateMobileDetails(chip) {
             if (activeManufacturer === 'Global') activeManufacturer = chip.manufacturer || 'Global';
 
             const isKirinHidden = (row.key === 'dsp' || row.key === 'codename') && activeManufacturer === 'HiSilicon';
-            return val && val !== '-' && val !== 'N/A' && !duplicateKeys.includes(row.key) && !isKirinHidden;
+            // Part number is already in the card header
+            return val && val !== '-' && val !== 'N/A' && !duplicateKeys.includes(row.key) && row.key !== 'partNumber' && !isKirinHidden;
         });
 
         if (visibleRows.length === 0) return;
@@ -606,7 +689,8 @@ function generateMobileDetails(chip) {
             if (row.key === 'partNumber') return;
 
             const val = getNestedValue(chip, row.key);
-            const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val) : formatValue(val);
+            const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val)
+                : CACHE_KEYS.includes(row.key) ? formatCacheSpec(val) : formatValue(val);
             const extraStyle = row.key === 'cpu.specs' ? ' style="grid-column: 1 / -1;"' : '';
 
             let labelHtml = t(row.label);
@@ -686,6 +770,7 @@ const changelogData = [
                 "Redesigned the compare table: chip names stay pinned while you scroll, specs stack neatly on phones, the better value is highlighted, CPUs show a core and clock summary, and you can hide identical rows",
                 "New look across the whole site, matching the Language & Theme card: softer cards, specs shown as tiles, and a gold outline for whatever's selected",
                 "Compare page: picked chips take up less space, and once you pick one you get quick picks for the chip before/after it and its closest rivals",
+                "CPU caches are now broken down one part per line with a total, so they're easier to read and compare",
                 "Fixed the Language & Theme button on the compare page doing nothing",
                 "Fixed square corners on the credits box in the trans theme",
                 "A few new easter eggs to find 👀"
@@ -2257,7 +2342,7 @@ const COMPARE_CATEGORY_ICONS = {
 };
 
 function isEmptySpecValue(v) {
-    return !v || v === '-' || v === 'N/A' || v === 'unknown';
+    return !v || ['-', 'n/a', 'unknown', 'unspecified', 'not specified'].includes(String(v).trim().toLowerCase());
 }
 
 // Comparable numbers for the few specs where "better" is unambiguous.
@@ -2281,17 +2366,10 @@ const compareRules = {
             return n ? parseFloat(n[1]) : null;
         }
     },
-    'cpu.l2Cache': { better: 'higher', tag: 'cmp_larger', parse: v => parseCacheSize(v) },
-    'cpu.l3Cache': { better: 'higher', tag: 'cmp_larger', parse: v => parseCacheSize(v) },
-    slc: { better: 'higher', tag: 'cmp_larger', parse: v => parseCacheSize(v) }
+    'cpu.l2Cache': { better: 'higher', tag: 'cmp_larger', parse: v => cacheTotalKb(v) },
+    'cpu.l3Cache': { better: 'higher', tag: 'cmp_larger', parse: v => cacheTotalKb(v) },
+    slc: { better: 'higher', tag: 'cmp_larger', parse: v => cacheTotalKb(v) }
 };
-
-// Only plain "16 MB" / "512KB" values; anything with per-cluster breakdowns is skipped.
-function parseCacheSize(v) {
-    const m = String(v).trim().match(/^(\d+(?:\.\d+)?)\s*(MB|KB)$/i);
-    if (!m) return null;
-    return parseFloat(m[1]) * (m[2].toUpperCase() === 'MB' ? 1024 : 1);
-}
 
 // Returns 1 or 2 for the winning slot, 0 for no clear winner.
 function getSpecWinner(key, v1, v2) {
@@ -2335,6 +2413,8 @@ function renderCompareCell(slot, key, value, winner) {
     } else if (key === 'cpu.specs' && typeof value === 'string' && !isEmptySpecValue(value)) {
         const summary = getCpuSummary(value);
         inner = (summary ? `<div class="cmp-cpu-summary">${escapeHtml(summary)}</div>` : '') + formatCpuSpecs(value);
+    } else if (CACHE_KEYS.includes(key) && cacheTotalKb(value) !== null) {
+        inner = formatCacheSpec(value);
     } else {
         const empty = isEmptySpecValue(value);
         inner = `<span class="${empty ? 'cmp-empty' : 'cmp-text'}">${formatValue(value)}</span>`;

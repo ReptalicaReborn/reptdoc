@@ -4794,3 +4794,48 @@ button.cmp-head-chip.is-placeholder:hover {
         height: 28px;
     }
 }
+
+/* ---------- Cache breakdown (L2 / L3 / SLC) ---------- */
+.cache-parts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.cache-part {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+}
+
+.cache-size {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--md-sys-color-primary);
+    background: color-mix(in srgb, var(--md-sys-color-primary) 14%, transparent);
+}
+
+.cache-label {
+    font-size: 0.88rem;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.cache-total {
+    margin-top: 2px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--ui-section-border);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+}
+
+.cmp-val .cache-size {
+    color: var(--cmp-color);
+    background: color-mix(in srgb, var(--cmp-color) 14%, transparent);
+}

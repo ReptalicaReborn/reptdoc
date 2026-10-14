@@ -71,6 +71,8 @@
     "accent_color": "Accent color",
     "accent_color_desc": "Customize the primary color to match your style",
     "cluster": "Cluster",
+    "cache_total": "Total",
+    "cache_shared_by": "shared by",
     "cmp_cores": "cores",
     "cmp_up_to": "up to",
     "cmp_newer": "Newer",
