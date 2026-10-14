@@ -255,7 +255,7 @@ window.toggleTheme = function (clickedElement) {
     const isLight = document.body.classList.contains('light-mode');
 
     // Update all theme-related icons in the app (header and settings modal)
-    document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round').forEach(i => {
+    document.querySelectorAll('#theme-toggle .material-icons-round, #modal-theme-toggle .material-icons-round, #compare-theme-icon').forEach(i => {
         i.textContent = isLight ? 'light_mode' : 'dark_mode';
     });
 
