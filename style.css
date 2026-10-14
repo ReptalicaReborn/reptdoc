@@ -2245,6 +2245,46 @@ body.light-mode .cpu-cluster:hover {
 }
 
 
+/* Light mode: clean near-white rows with soft pastel tints, instead of
+   mixing the dark accent into the beige containers (looked muddy) */
+body.light-mode #comparison-table-wrapper {
+    background-color: var(--md-sys-color-surface-container-low);
+}
+
+body.light-mode .cmp-head {
+    background-color: color-mix(in srgb, var(--md-sys-color-surface-container-low) 88%, transparent);
+}
+
+body.light-mode .cmp-row,
+body.light-mode .benchmark-comparison {
+    background: color-mix(in srgb, #FFFFFF 75%, var(--md-sys-color-surface-container-lowest));
+}
+
+body.light-mode .cmp-head-chip {
+    background: color-mix(in srgb, var(--cmp-color) 22%, #FFFFFF);
+}
+
+body.light-mode .cmp-val.is-win {
+    background: color-mix(in srgb, var(--cmp-color) 15%, #FFFFFF);
+}
+
+body.light-mode .cmp-head-chip.is-placeholder {
+    background: color-mix(in srgb, #FFFFFF 75%, var(--md-sys-color-surface-container-lowest));
+}
+
+body.light-mode .cmp-head-logo {
+    background: #FFFFFF;
+}
+
+body.light-mode .cmp-val .cpu-cluster {
+    background: var(--md-sys-color-surface-container-lowest);
+}
+
+body.light-mode .cmp-group-icon {
+    background: color-mix(in srgb, var(--md-sys-color-primary) 22%, #FFFFFF);
+    color: var(--md-sys-color-primary);
+}
+
 /* Benchmark Comparison Styles */
 .benchmark-comparison {
     background-color: var(--md-sys-color-surface-container-high);
