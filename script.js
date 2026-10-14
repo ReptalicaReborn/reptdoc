@@ -665,14 +665,11 @@ const changelogData = [
                 "A few new easter eggs to find 👀"
             ],
             vi: [
-                "Chủ đề pride mới: non-binary, gay, lesbian, bisexual và pansexual cùng với chủ đề trans, mỗi chủ đề có màu cờ riêng ở chế độ tối và sáng",
-                "Làm mới thẻ Ngôn ngữ & Giao diện: ô xem trước chế độ tối và sáng, nhóm màu và cờ pride, cùng lưới chọn ngôn ngữ",
-                "Liên kết so sánh khi chia sẻ giờ dùng giao diện của bạn, nên thẻ embed khớp màu của bạn (kể cả chủ đề pride với hiệu ứng chuyển màu)",
-                "Tìm kiếm giờ hiển thị các biến thể binned, gộp dưới chip chính kèm nút chuyển biến thể",
-                "Các biến thể binned giờ hiển thị ảnh die shot của chip gốc",
-                "Sửa nút Ngôn ngữ & Giao diện trên trang so sánh không hoạt động",
-                "Sửa góc vuông của ô cảm ơn trong chủ đề trans",
-                "Thêm vài easter egg mới để bạn tìm 👀"
+                "Theme Dam dong tinh me may: non-binary, gay, lesbian, bisexual và pansexual với reworked trans theme",
+                "Ngôn ngữ & Giao diện - đã sửa",
+                "Embed share dùng theme bạn đang dùng",
+                "Tìm kiếm cho mày chip đã bin",
+                "Thêm bear và phô mai"
             ],
         }
     },
