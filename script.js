@@ -2415,6 +2415,29 @@ const CHIP_TIER_OVERRIDES = {
 };
 const chipTier = c => CHIP_TIER_OVERRIDES[c.name] || SERIES_TIERS[c.seriesKey];
 
+// Rough lineup position from the name: Extreme/Ultra > Pro/Max/Elite/+ > base > cut-down (8s, 9600m, 2400e, Lite)
+function variantRank(name) {
+    if (/\b(Extreme|Ultra)\b/i.test(name)) return 2;
+    if (/\b(Pro|Max|Elite)\b|\+/i.test(name)) return 1;
+    if (/\d[sem]\b|\bLite\b/i.test(name)) return -1;
+    return 0;
+}
+
+// Strongest first: Geekbench 6 multi-core when both have a different score, else the name
+function compareStrength(a, b) {
+    const sa = a.geekbench6 ? parseInt(a.geekbench6.multi) || 0 : 0;
+    const sb = b.geekbench6 ? parseInt(b.geekbench6.multi) || 0 : 0;
+    if (sa && sb && sa !== sb) return sb - sa;
+    return variantRank(b.name) - variantRank(a.name);
+}
+
+// Which brands to suggest first when several are equally close
+const RIVAL_BRAND_ORDER = ['Qualcomm', 'MediaTek', 'Apple Silicon', 'Exynos', 'HiSilicon', 'Google', 'Xiaomi', 'Unisoc'];
+const brandOrder = m => {
+    const i = RIVAL_BRAND_ORDER.indexOf(m);
+    return i === -1 ? RIVAL_BRAND_ORDER.length : i;
+};
+
 // Suggestions for the empty slot once the other one is filled:
 // the chip before/after it in its series, plus close rivals from other brands
 function getQuickPicks(chip) {
@@ -2436,26 +2459,41 @@ function getQuickPicks(chip) {
         add(newer, t('cmp_pick_successor'));
     }
 
-    // Rivals: other brands in the same class (flagship vs flagship), released around
-    // the same time, closest Geekbench 6 multi-core score when both have one
+    // Rivals: an explicit "rivals" list in the data wins
+    if (Array.isArray(chip.rivals) && chip.rivals.length) {
+        chip.rivals.forEach(name => add(all.find(c => c.name === name), t('cmp_pick_rival')));
+        return picks;
+    }
+
+    // Otherwise: same class (flagship vs flagship), same generation, same spot in the
+    // lineup — e.g. a brand's top chip meets the other brands' top chips
     const tier = chipTier(chip);
-    const score = c => c.geekbench6 ? parseInt(c.geekbench6.multi) || 0 : 0;
-    const myScore = score(chip);
-    if (tier && myDate !== null) {
-        const pool = all.filter(c => c.manufacturer !== chip.manufacturer
-            && chipTier(c) === tier
-            && dateOf(c) !== null);
-        const gap = c => Math.abs(dateOf(c) - myDate);
-        const closeness = c => (myScore && score(c))
-            ? Math.abs(Math.log(score(c) / myScore))
-            : 10 + gap(c); // no scores to compare: fall back to release date
-        // Widen the window for older chips with fewer contemporaries
-        for (const window of [12, 24]) {
-            const rivals = pool.filter(c => gap(c) <= window).sort((a, b) => closeness(a) - closeness(b));
-            if (rivals.length >= 2 || window === 24) {
-                rivals.slice(0, 2).forEach(c => add(c, t('cmp_pick_rival')));
-                break;
-            }
+    if (!tier || myDate === null) return picks;
+
+    const sameClass = all.filter(c => chipTier(c) === tier && dateOf(c) !== null);
+    // A brand's latest generation around our chip's launch (its newest chip then, plus
+    // anything from the 6 months before it), strongest first
+    const lineup = (brand, back, ahead) => {
+        const out = sameClass.filter(c => c.manufacturer === brand
+            && dateOf(c) > myDate - back && dateOf(c) <= myDate + ahead);
+        if (!out.length) return [];
+        const newest = Math.max(...out.map(dateOf));
+        return out.filter(c => dateOf(c) >= newest - 6).sort(compareStrength);
+    };
+    const brands = [...new Set(sameClass.map(c => c.manufacturer))]
+        .filter(m => m !== chip.manufacturer)
+        .sort((x, y) => brandOrder(x) - brandOrder(y));
+
+    // Widen the window for older chips with fewer contemporaries
+    for (const [back, ahead] of [[12, 3], [24, 6]]) {
+        const myRank = Math.max(0, lineup(chip.manufacturer, back, ahead).indexOf(chip));
+        const rivals = brands
+            .map(brand => lineup(brand, back, ahead))
+            .filter(theirs => theirs.length)
+            .map(theirs => theirs[Math.min(myRank, theirs.length - 1)]);
+        if (rivals.length >= 2 || back === 24) {
+            rivals.slice(0, 2).forEach(c => add(c, t('cmp_pick_rival')));
+            break;
         }
     }
     return picks;
