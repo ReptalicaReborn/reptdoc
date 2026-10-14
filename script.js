@@ -635,6 +635,24 @@ function updateBreadcrumb(manufacturer, seriesName) {
 
 const changelogData = [
     {
+        version: 'v1.1 "Seashore"',
+        date: "2026-10-14",
+        changes: {
+            en: [
+                "Binned variants: chips that are cut-down versions of another chip now share one card, with buttons to switch between variants",
+                "Die shots: annotated die shots now appear on chip cards (look for the camera icon) and open in a viewer right here, no need to leave ReptDoc",
+                "Link embeds: compare links now show a side-by-side card with scores and percentage differences when shared on Discord and other apps",
+                "Geekbench 7 CPU scores added, with a toggle to switch back to Geekbench 6"
+            ],
+            vi: [
+                "Biến thể binned: các chip là bản cắt giảm của chip khác giờ dùng chung một thẻ, có nút để chuyển đổi giữa các biến thể",
+                "Ảnh die shot: ảnh die shot có chú thích giờ xuất hiện trên thẻ chip (tìm biểu tượng máy ảnh) và mở ngay trong ReptDoc, không cần rời trang",
+                "Embed liên kết: liên kết so sánh giờ hiển thị thẻ so sánh song song với điểm số và phần trăm chênh lệch khi chia sẻ trên Discord và các ứng dụng khác",
+                "Thêm điểm CPU Geekbench 7, có nút chuyển về Geekbench 6"
+            ],
+        }
+    },
+    {
         version: "stable-v1.0.0",
         date: "2026-03-31",
         changes: {
