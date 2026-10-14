@@ -350,6 +350,7 @@ function renderTable(dataRaw, isSearch) {
     gridHtml += '</div>';
 
     container.innerHTML = gridHtml;
+    hydrateDieshots();
 }
 
 window.switchVariant = function (cardId, variantIndex) {
@@ -417,11 +418,130 @@ window.switchVariant = function (cardId, variantIndex) {
     const bodyContainer = document.getElementById(`card-body-${chipIndex}`);
     if (bodyContainer) {
         bodyContainer.innerHTML = generateMobileDetails(chip);
+        hydrateDieshots();
     }
 };
 
+// ===== Die shots =====
+// Images live in assets/dieshots/<id>.webp and are described in data/dieshots.json
+// (one entry per shot, listing the chips it applies to).
+let dieshotIndexPromise = null;
+function loadDieshots() {
+    if (!dieshotIndexPromise) {
+        dieshotIndexPromise = fetch('data/dieshots.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load data/dieshots.json');
+                return response.json();
+            })
+            .then(shots => {
+                const byChip = new Map();
+                const byId = new Map();
+                shots.forEach(shot => {
+                    byId.set(shot.id, shot);
+                    shot.chips.forEach(name => {
+                        if (!byChip.has(name)) byChip.set(name, []);
+                        byChip.get(name).push(shot);
+                    });
+                });
+                return { byChip, byId };
+            })
+            .catch(err => {
+                console.error(err);
+                return { byChip: new Map(), byId: new Map() };
+            });
+    }
+    return dieshotIndexPromise;
+}
+
+// Fill every pending .dieshot-slot with thumbnails for its chip (or remove it if there are none)
+async function hydrateDieshots() {
+    const slots = document.querySelectorAll('.dieshot-slot:not([data-ready])');
+    if (slots.length === 0) return;
+    const { byChip } = await loadDieshots();
+    slots.forEach(slot => {
+        slot.dataset.ready = 'true';
+        const shots = byChip.get(slot.dataset.chip) || [];
+        const card = slot.closest('.chip-card');
+        const header = card ? card.querySelector('.chip-card-header') : null;
+        if (header) {
+            const oldBadge = header.querySelector('.dieshot-badge');
+            if (oldBadge) oldBadge.remove();
+            if (shots.length > 0) {
+                const compareBtn = header.querySelector('.chip-card-compare-btn');
+                const badge = document.createElement('span');
+                badge.className = 'material-icons-round dieshot-badge';
+                badge.textContent = 'photo_camera';
+                badge.title = t('dieshot_available');
+                header.insertBefore(badge, compareBtn);
+            }
+        }
+        if (shots.length === 0) {
+            slot.innerHTML = '';
+            return;
+        }
+        slot.style.gridColumn = '1 / -1';
+        slot.innerHTML = `
+            <h4 class="dieshot-heading">${escapeHtml(t('dieshot'))}</h4>
+            <div class="dieshot-thumbs">
+                ${shots.map(shot => `
+                    <button type="button" class="dieshot-thumb" data-action="openDieshot" data-shot-id="${escapeHtml(shot.id)}">
+                        <img src="assets/dieshots/${encodeURIComponent(shot.id)}.webp" alt="${escapeHtml(shot.title)} die shot" loading="lazy" decoding="async">
+                        <span class="dieshot-thumb-label">${escapeHtml(shot.title)}</span>
+                    </button>`).join('')}
+            </div>`;
+    });
+}
+
+// Lightbox so users can view a die shot without leaving ReptDoc
+let dieshotLastFocus = null;
+async function openDieshot(shotId) {
+    const { byId } = await loadDieshots();
+    const shot = byId.get(shotId);
+    if (!shot) return;
+    let box = document.getElementById('dieshot-lightbox');
+    if (!box) {
+        box = document.createElement('div');
+        box.id = 'dieshot-lightbox';
+        box.className = 'dieshot-lightbox';
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        document.body.appendChild(box);
+    }
+    box.innerHTML = `
+        <div class="dieshot-lightbox-backdrop" data-action="closeDieshot"></div>
+        <figure class="dieshot-lightbox-figure">
+            <button type="button" class="dieshot-lightbox-close" data-action="closeDieshot" aria-label="${escapeHtml(t('close'))}">
+                <span class="material-icons-round">close</span>
+            </button>
+            <img src="assets/dieshots/${encodeURIComponent(shot.id)}.webp" alt="${escapeHtml(shot.title)} die shot">
+            <figcaption>
+                <div class="dieshot-lightbox-title">${escapeHtml(shot.title)}</div>
+                <div class="dieshot-lightbox-brand">${escapeHtml(shot.brand)}</div>
+                <p>${escapeHtml(shot.desc)}</p>
+                <a class="dieshot-credit" href="https://github.com/ReptalicaReborn/reptalica" target="_blank" rel="noopener">${escapeHtml(t('dieshot_credit'))}</a>
+            </figcaption>
+        </figure>`;
+    box.setAttribute('aria-label', `${shot.title} ${t('dieshot')}`);
+    dieshotLastFocus = document.activeElement;
+    // Next frame so the transition runs
+    requestAnimationFrame(() => box.classList.add('active'));
+    box.querySelector('.dieshot-lightbox-close').focus();
+}
+
+function closeDieshot() {
+    const box = document.getElementById('dieshot-lightbox');
+    if (!box) return;
+    box.classList.remove('active');
+    if (dieshotLastFocus && dieshotLastFocus.focus) dieshotLastFocus.focus();
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDieshot();
+});
+
 function generateMobileDetails(chip) {
-    let html = '';
+    // Filled in by hydrateDieshots() once data/dieshots.json has loaded
+    let html = `<div class="dieshot-slot" data-chip="${escapeHtml(chip.name)}"></div>`;
     const duplicateKeys = ['releaseDate', 'process', 'cpu.specs', 'cpu', 'gpu'];
 
     tableStructure.forEach(group => {
@@ -2079,6 +2199,13 @@ document.addEventListener('click', (e) => {
     const action = target.dataset.action;
 
     switch (action) {
+        case 'openDieshot':
+            e.stopPropagation();
+            openDieshot(target.dataset.shotId);
+            break;
+        case 'closeDieshot':
+            closeDieshot();
+            break;
         case 'toggleCard':
             e.stopPropagation();
             toggleCardDetails(parseInt(target.dataset.index));
