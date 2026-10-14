@@ -2105,7 +2105,8 @@ function initCompareSearch(id) {
                 const chipsWithMeta = info.data.map(chip => ({
                     ...chip,
                     manufacturer: info.manufacturer, // Ensure manufacturer is set
-                    seriesLabel: info.label
+                    seriesLabel: info.label,
+                    seriesKey: key
                 }));
                 window.allChipsFlat = window.allChipsFlat.concat(chipsWithMeta);
             });
@@ -2391,36 +2392,71 @@ window.toggleCompareDiffOnly = function () {
     if (sw) sw.setAttribute('aria-checked', window.compareDiffOnly ? 'true' : 'false');
 };
 
+// Market class of each series, so rivals are matched flagship vs flagship
+const SERIES_TIERS = {
+    'a-series': 'flagship', 'snapdragon-8': 'flagship', 'dimensity-9000': 'flagship',
+    'dimensity-1000': 'flagship', 'kirin-9000': 'flagship', 'exynos-2000': 'flagship',
+    'exynos-9': 'flagship', 'exynos-8': 'flagship', 'tensor': 'flagship', 'xiaomi': 'flagship',
+    'helio-x': 'flagship', 'kirin-past': 'flagship', 'exynos-5': 'flagship', 'exynos-4': 'flagship',
+    'exynos-3': 'flagship',
+    'snapdragon-7': 'upper', 'dimensity-8000': 'upper', 'kirin-800': 'upper',
+    'exynos-1000': 'upper', 'exynos-900': 'upper', 'dimensity-900': 'upper',
+    'snapdragon-6': 'mid', 'dimensity-7000': 'mid', 'dimensity-800': 'mid', 'dimensity-700': 'mid',
+    'kirin-700': 'mid', 'kirin-600': 'mid', 'exynos-800': 'mid', 'exynos-7': 'mid',
+    'helio-g': 'mid', 'helio-p': 'mid', 'unisoc': 'mid',
+    'snapdragon-4': 'entry', 'snapdragon-2': 'entry', 'dimensity-6000': 'entry', 'helio-a': 'entry',
+    'm-series': 'pc', 'snapdragon-x': 'pc', 'loongson-3a': 'pc', 'kirin-tablet': 'tablet'
+};
+
+// Chips filed under a series of a different class
+const CHIP_TIER_OVERRIDES = {
+    'Exynos 7872': 'mid', 'Exynos 7 Octa 7420': 'flagship', 'Exynos 7 Octa 5433': 'flagship',
+    'Xiaomi Surge S1': 'mid', 'MediaTek Dimensity 1080': 'mid'
+};
+const chipTier = c => CHIP_TIER_OVERRIDES[c.name] || SERIES_TIERS[c.seriesKey];
+
 // Suggestions for the empty slot once the other one is filled:
 // the chip before/after it in its series, plus close rivals from other brands
 function getQuickPicks(chip) {
     const all = window.allChipsFlat || [];
-    const idx = all.indexOf(chip);
     const picks = [];
     const add = (c, label) => {
         if (c && c !== chip && !picks.some(p => p.chip === c)) picks.push({ chip: c, label });
     };
 
-    // Series data is listed newest first
-    const prev = all[idx + 1];
-    const next = all[idx - 1];
-    if (prev && prev.seriesLabel === chip.seriesLabel) add(prev, t('cmp_pick_predecessor'));
-    if (next && next.seriesLabel === chip.seriesLabel) add(next, t('cmp_pick_successor'));
-
-    // Rivals: other brands, released within a year, closest Geekbench 6 multi-core score
+    // Closest older and newer chip in the same series, by release date
     const parseDate = compareRules.releaseDate.parse;
+    const dateOf = c => c.releaseDate ? parseDate(c.releaseDate) : null;
+    const myDate = dateOf(chip);
+    if (myDate !== null) {
+        const sameSeries = all.filter(c => c.seriesKey === chip.seriesKey && dateOf(c) !== null);
+        const older = sameSeries.filter(c => dateOf(c) < myDate).sort((a, b) => dateOf(b) - dateOf(a))[0];
+        const newer = sameSeries.filter(c => dateOf(c) > myDate).sort((a, b) => dateOf(a) - dateOf(b))[0];
+        add(older, t('cmp_pick_predecessor'));
+        add(newer, t('cmp_pick_successor'));
+    }
+
+    // Rivals: other brands in the same class (flagship vs flagship), released around
+    // the same time, closest Geekbench 6 multi-core score when both have one
+    const tier = chipTier(chip);
     const score = c => c.geekbench6 ? parseInt(c.geekbench6.multi) || 0 : 0;
     const myScore = score(chip);
-    const myDate = chip.releaseDate ? parseDate(chip.releaseDate) : null;
-    if (myScore && myDate !== null) {
-        all.filter(c => {
-            if (c.manufacturer === chip.manufacturer || !score(c) || !c.releaseDate) return false;
-            const d = parseDate(c.releaseDate);
-            return d !== null && Math.abs(d - myDate) <= 12;
-        })
-            .sort((a, b) => Math.abs(Math.log(score(a) / myScore)) - Math.abs(Math.log(score(b) / myScore)))
-            .slice(0, 2)
-            .forEach(c => add(c, t('cmp_pick_rival')));
+    if (tier && myDate !== null) {
+        const pool = all.filter(c => c.manufacturer !== chip.manufacturer
+            && chipTier(c) === tier
+            && dateOf(c) !== null);
+        const gap = c => Math.abs(dateOf(c) - myDate);
+        const closeness = c => (myScore && score(c))
+            ? Math.abs(Math.log(score(c) / myScore))
+            : 10 + gap(c); // no scores to compare: fall back to release date
+        // Widen the window for older chips with fewer contemporaries
+        for (const window of [12, 24]) {
+            const rivals = pool.filter(c => gap(c) <= window).sort((a, b) => closeness(a) - closeness(b));
+            if (rivals.length >= 2 || window === 24) {
+                rivals.slice(0, 2).forEach(c => add(c, t('cmp_pick_rival')));
+                break;
+            }
+        }
     }
     return picks;
 }
