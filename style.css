@@ -2775,39 +2775,39 @@ body.light-mode .cpu-cluster:hover {
 .toggle-switch {
     position: relative;
     display: inline-block;
+    flex: 0 0 52px;
     width: 52px;
-    height: 28px;
+    height: 30px;
 }
 
 .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
+    position: absolute;
 }
 
 .toggle-slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--md-sys-color-outline-variant);
-    opacity: 0.8;
-    border: 2px solid transparent;
-    transition: 0.3s;
-    border-radius: 28px;
+    inset: 0;
+    box-sizing: border-box;
+    background-color: var(--md-sys-color-surface-container-highest);
+    border: 2px solid var(--md-sys-color-outline);
+    transition: background-color 0.3s, border-color 0.3s;
+    border-radius: 30px;
 }
 
 .toggle-slider:before {
     position: absolute;
     content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
+    height: 14px;
+    width: 14px;
+    left: 6px;
+    top: 50%;
+    margin-top: -7px;
     background-color: var(--md-sys-color-outline);
-    transition: 0.3s;
+    transition: transform 0.3s, height 0.3s, width 0.3s, left 0.3s, margin-top 0.3s, background-color 0.3s;
     border-radius: 50%;
 }
 
@@ -2817,8 +2817,17 @@ body.light-mode .cpu-cluster:hover {
 }
 
 .toggle-switch input:checked+.toggle-slider:before {
-    transform: translateX(24px);
+    height: 22px;
+    width: 22px;
+    margin-top: -11px;
+    left: 2px;
+    transform: translateX(22px);
     background-color: var(--md-sys-color-on-primary);
+}
+
+.toggle-switch input:focus-visible+.toggle-slider {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
 }
 
 /* ---------- Settings: Language & Theme card ---------- */
