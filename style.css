@@ -122,26 +122,26 @@ body.light-mode {
     --md-sys-color-on-tertiary-container: #001D36;
 
     /* Surfaces - Clean Soft Tinted White */
-    --md-sys-color-background: #F6F4EF;
+    --md-sys-color-background: #E6E2D6;
     --md-sys-color-on-background: #1A1C1E;
 
-    --md-sys-color-surface: #F6F4EF;
+    --md-sys-color-surface: #E6E2D6;
     --md-sys-color-on-surface: #1A1C1E;
     --md-sys-color-on-surface-variant: #44474E;
 
     /* Surface Containers - Better definition */
-    --md-sys-color-surface-container-lowest: #FFFFFF;
-    --md-sys-color-surface-container-low: #F0EEE7;
-    --md-sys-color-surface-container: #EAE6DB;
-    --md-sys-color-surface-container-high: #E4DECF;
-    --md-sys-color-surface-container-highest: #DDD6C3;
+    --md-sys-color-surface-container-lowest: #F2EFE6;
+    --md-sys-color-surface-container-low: #EBE7DB;
+    --md-sys-color-surface-container: #DFDACB;
+    --md-sys-color-surface-container-high: #D6D0BD;
+    --md-sys-color-surface-container-highest: #CCC5AF;
 
     /* Outlines */
-    --md-sys-color-outline: #74777F;
-    --md-sys-color-outline-variant: #C4C7D0;
+    --md-sys-color-outline: #6A6D75;
+    --md-sys-color-outline-variant: #B4B7BF;
 
     /* Gradient for light mode - Soft and subtle */
-    --gradient-surface: radial-gradient(circle at top right, #EBF0F8, var(--md-sys-color-background) 70%);
+    --gradient-surface: radial-gradient(circle at top right, #D9DFE8, var(--md-sys-color-background) 70%);
 
     /* Force native UI (like select dropdowns) to light mode */
     color-scheme: light;
@@ -198,7 +198,7 @@ body.light-mode .logo-area h2 {
 
 /* Breadcrumbs */
 body.light-mode .breadcrumbs {
-    background: color-mix(in srgb, var(--md-sys-color-primary) 5%, #FFFFFF);
+    background: color-mix(in srgb, var(--md-sys-color-primary) 5%, var(--md-sys-color-surface-container-lowest));
     border-color: rgba(0, 0, 0, 0.08);
     color: #1A1C1E;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -218,7 +218,7 @@ body.light-mode .search-box {
 }
 
 body.light-mode .search-box:focus-within {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
 }
 
 /* Tables */
@@ -238,7 +238,7 @@ body.light-mode .chip-table .row-header {
 
 /* Welcome Cards */
 body.light-mode .welcome-card {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     border-color: rgba(0, 0, 0, 0.06);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
@@ -266,13 +266,13 @@ body.light-mode .selector-card {
 }
 
 body.light-mode .selector-card:hover {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     border-color: var(--md-sys-color-primary);
 }
 
 body.light-mode .autocomplete-results {
-    background: #FFFFFF;
+    background: var(--md-sys-color-surface-container-lowest);
     border-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
@@ -309,7 +309,7 @@ body.light-mode .quick-spec-value {
 
 /* Comparison Table */
 body.light-mode #comparison-table-wrapper {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     border-color: #C4C7D0;
 }
@@ -340,7 +340,7 @@ body.light-mode .search-box {
 }
 
 body.light-mode .selector-card {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     border-color: rgba(0, 0, 0, 0.08);
 }
 
@@ -349,11 +349,11 @@ body.light-mode .selector-search-box {
 }
 
 body.light-mode .selector-search-box:focus-within {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
 }
 
 body.light-mode .modal-content {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
 }
 
@@ -362,7 +362,7 @@ body.light-mode .modal-header {
 }
 
 body.light-mode .setting-control select {
-    background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238F4E00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 8px center / 16px;
+    background: var(--md-sys-color-surface-container-lowest) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238F4E00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 8px center / 16px;
     border-color: #E2E5EB;
     color: #1A1C1E;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -374,7 +374,7 @@ body.light-mode .setting-control select:hover {
 
 /* Changelog Modal */
 body.light-mode .changelog-content {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
 }
 
 /* Scrollbar for light mode */
@@ -388,7 +388,7 @@ body.light-mode .modal-body::-webkit-scrollbar-thumb:hover {
 
 /* Nav Back Home Button */
 body.light-mode .nav-back-home {
-    background: #FFFFFF !important;
+    background: var(--md-sys-color-surface-container-lowest) !important;
     border-color: #E2E5EB !important;
     color: #44474E !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -408,13 +408,13 @@ body.light-mode .brand-logo-apple {
 
 /* Light mode chip-card styling for all screens */
 body.light-mode .chip-card {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     border-color: rgba(0, 0, 0, 0.08);
 }
 
 body.light-mode .chip-card:hover {
-    background-color: #FFFFFF;
+    background-color: var(--md-sys-color-surface-container-lowest);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
     border-color: var(--md-sys-color-primary);
 }
@@ -436,7 +436,7 @@ body.light-mode .chip-card-body {
 /* Mobile sidebar shadow in light mode */
 @media (max-width: 768px) {
     body.light-mode .sidebar {
-        background-color: #FFFFFF;
+        background-color: var(--md-sys-color-surface-container-lowest);
         box-shadow: 8px 0 32px rgba(0, 0, 0, 0.1);
     }
 }
@@ -2775,39 +2775,39 @@ body.light-mode .cpu-cluster:hover {
 .toggle-switch {
     position: relative;
     display: inline-block;
+    flex: 0 0 52px;
     width: 52px;
-    height: 28px;
+    height: 30px;
 }
 
 .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
+    position: absolute;
 }
 
 .toggle-slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--md-sys-color-outline-variant);
-    opacity: 0.8;
-    border: 2px solid transparent;
-    transition: 0.3s;
-    border-radius: 28px;
+    inset: 0;
+    box-sizing: border-box;
+    background-color: var(--md-sys-color-surface-container-highest);
+    border: 2px solid var(--md-sys-color-outline);
+    transition: background-color 0.3s, border-color 0.3s;
+    border-radius: 30px;
 }
 
 .toggle-slider:before {
     position: absolute;
     content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
+    height: 14px;
+    width: 14px;
+    left: 6px;
+    top: 50%;
+    margin-top: -7px;
     background-color: var(--md-sys-color-outline);
-    transition: 0.3s;
+    transition: transform 0.3s, height 0.3s, width 0.3s, left 0.3s, margin-top 0.3s, background-color 0.3s;
     border-radius: 50%;
 }
 
@@ -2817,8 +2817,17 @@ body.light-mode .cpu-cluster:hover {
 }
 
 .toggle-switch input:checked+.toggle-slider:before {
-    transform: translateX(24px);
+    height: 22px;
+    width: 22px;
+    margin-top: -11px;
+    left: 2px;
+    transform: translateX(22px);
     background-color: var(--md-sys-color-on-primary);
+}
+
+.toggle-switch input:focus-visible+.toggle-slider {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
 }
 
 /* ---------- Settings: Language & Theme card ---------- */
