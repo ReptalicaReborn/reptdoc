@@ -84,7 +84,7 @@
   "id": "exynos-1580",
   "title": "Exynos 1580",
   "brand": "Samsung",
-  "desc": "AP released in 2025, Samsung SF4P. Used in higher end A/M/F series phones.",
+  "desc": "AP released in 2025, Samsung SF4P. 1+3 Cortex-A720 + 4 Cortex-A520 with 4 MB L3, Xclipse 540 (2 WGP RDNA 3) GPU and an integrated Shannon 5338 modem. Used in higher end A/M/F series phones.",
   "chips": [
    "Exynos 1580"
   ]
@@ -202,6 +202,17 @@
   ]
  },
  {
+  "id": "qualcomm-snapdragon-x2-elite",
+  "title": "Snapdragon X2 Elite",
+  "brand": "Qualcomm",
+  "desc": "Second-gen Snapdragon X PC processor (Glymur), 2025, TSMC N3P. 12 Oryon-P + 6 Oryon-M cores with 16 + 16 + 12 MB L2, 9 MB SLC (6x 1.5 MB) and an Adreno X2-90 GPU.",
+  "chips": [
+   "Snapdragon X2 Elite Extreme (X2E-96-100)",
+   "Snapdragon X2 Elite (X2E-88-100)",
+   "Snapdragon X2 Elite (X2E-80-100)"
+  ]
+ },
+ {
   "id": "snapdragon-778g",
   "title": "Snapdragon 778G",
   "brand": "Qualcomm",
@@ -249,6 +260,15 @@
   ]
  },
  {
+  "id": "snapdragon-7-gen-4",
+  "title": "Snapdragon 7 Gen 4",
+  "brand": "Qualcomm",
+  "desc": "Upper mid-range AP released in 2025, TSMC N4, 70.35 mm². 1+4 Cortex-A720 + 3 Cortex-A520 with 3 MB L3, Adreno 722 GPU and an integrated Snapdragon X63 modem.",
+  "chips": [
+   "Snapdragon 7 Gen 4"
+  ]
+ },
+ {
   "id": "snapdragon-4-gen-2-4",
   "title": "Snapdragon 4 Gen 2/4",
   "brand": "Qualcomm",
@@ -265,6 +285,15 @@
   "desc": "Quad-core desktop processor released in 2023, 12nm. Based on LoongArch (LA664).",
   "chips": [
    "Loongson 3A6000"
+  ]
+ },
+ {
+  "id": "xiaomi-xring-o3",
+  "title": "XRing O3",
+  "brand": "Xiaomi",
+  "desc": "SoC released in 2026, TSMC N3P, 138.35 mm². 2x C1-Ultra + 4x C1-Premium + 4x C1-Pro, 16 MB L3 + 16 MB SLC, Mali G2-Ultra-NX MC16 and a quad-core NPU.",
+  "chips": [
+   "Xiaomi XRing o3"
   ]
  },
  {
@@ -499,6 +528,15 @@
   "desc": "Pro-tier Apple Silicon, 2023, TSMC N5P. Up to 12-core CPU + 19-core GPU, powered MacBook Pro 14\"/16\" and Mac mini.",
   "chips": [
    "M2 Pro"
+  ]
+ },
+ {
+  "id": "apple-m1",
+  "title": "Apple M1",
+  "brand": "Apple",
+  "desc": "First-gen Apple Silicon for Macs, 2020, TSMC N5, 123.04 mm². 4 Firestorm + 4 Icestorm cores with 12 MB + 4 MB L2, 8 MB SLC, 8-core GPU and 16-core Neural Engine.",
+  "chips": [
+   "M1"
   ]
  },
  {

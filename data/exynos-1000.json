@@ -71,11 +71,11 @@
   "architecture": "ARMv9.2-A",
   "cpu": {
    "specs": "1x Cortex-A720 @ 2.91 GHz + 3x Cortex-A720 @ 2.6 GHz + 4x Cortex-A520 @ 1.95 GHz",
-   "l2Cache": "unknown",
-   "l3Cache": "unknown"
+   "l2Cache": "512KB (A720) + 3x 256KB (A720) + 2x 256KB (2x A520)",
+   "l3Cache": "4MB"
   },
   "slc": "unknown",
-  "gpu": "Samsung Xclipse 540 RDNA2 2WGP 1.2GHz",
+  "gpu": "Samsung Xclipse 540 RDNA3 2WGP 1.3GHz",
   "npu": "Samsung NPU (2MB cache 14.7TOPS)",
   "modem": "Exynos Shannon 5338",
   "memory": "16-bit Dual-channel LPDDR5 6400"

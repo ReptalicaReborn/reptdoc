@@ -5,14 +5,14 @@
   "partNumber": "V11101C",
   "releaseDate": "2026.08",
   "process": "TSMC N3P",
-  "dieSize": "133mm²",
+  "dieSize": "138.35mm²",
   "architecture": "ARMv9.2-A",
   "cpu": {
    "specs": "2x C1 Ultra @ 4.35 GHz + 4x C1-Premium @ 3.68 GHz + 4x C1-Pro @ 3.15GHz",
-   "l2Cache": "12MB",
+   "l2Cache": "2x 2MB (C1-Ultra) + 4x 1MB (C1-Premium) + 4x 1MB (C1-Pro)",
    "l3Cache": "16MB"
   },
-  "slc": "N/A",
+  "slc": "16MB",
   "geekbench6": {
    "single": "3950",
    "multi": "15221"

@@ -168,6 +168,88 @@ function formatGpuSpec(specString) {
     `;
 }
 
+/**
+ * Cache spec parser
+ * Turns strings like "1MB (X4) + 3x 512 KB (A720), 2x 256KB (4x A510)" into parts
+ * ({ count, kb, label }) so they can be shown one per line with a total.
+ * Returns null when any part can't be read, so the raw text is shown instead.
+ */
+const CACHE_LABEL_SHORTHANDS = { TP: 'Taishan Prime', TL: 'Taishan Large', TM: 'Taishan Medium', TLi: 'Taishan Little' };
+
+function parseCacheSpec(value) {
+    if (typeof value !== 'string') return null;
+    const text = value.trim();
+    if (!/\d\s*(KB|MB)/i.test(text)) return null;
+
+    // Split on "+" or "," outside parentheses, and before an "Nx" that follows a ")"
+    const pieces = [];
+    let depth = 0, current = '';
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (ch === '(') depth++;
+        if (ch === ')') depth = Math.max(0, depth - 1);
+        const missingPlus = depth === 0 && ch === ' ' && /\)\s*$/.test(current) && /^\s*\d+x\s/i.test(text.slice(i));
+        if (depth === 0 && (ch === '+' || ch === ',' || missingPlus)) {
+            pieces.push(current);
+            current = '';
+            continue;
+        }
+        current += ch;
+    }
+    pieces.push(current);
+
+    const parts = [];
+    for (const raw of pieces.map(p => p.trim()).filter(Boolean)) {
+        const m = raw.match(/^(?:(\d+)\s*x\s*)?(\d+(?:\.\d+)?)\s*(KB|MB)\b\s*(?:L[23]\b)?\s*(?:\((.*)\))?\s*(.*)$/i);
+        if (!m) return null;
+        const [, count, size, unit, inner, trailing] = m;
+        let label = [inner, trailing].filter(Boolean).join(' ').trim();
+        if (CACHE_LABEL_SHORTHANDS[label]) label = CACHE_LABEL_SHORTHANDS[label];
+        // "(4x A510)" means one cache shared by those cores
+        const shared = label.match(/^(\d+)\s*x\s*(.+)$/i);
+        if (shared) {
+            const cores = CACHE_LABEL_SHORTHANDS[shared[2]] || shared[2];
+            label = `${t('cache_shared_by')} ${shared[1]}× ${cores}`;
+        }
+        parts.push({
+            count: count ? parseInt(count) : 1,
+            kb: parseFloat(size) * (unit.toUpperCase() === 'MB' ? 1024 : 1),
+            label
+        });
+    }
+    return parts.length ? parts : null;
+}
+
+function formatCacheSize(kb) {
+    if (kb >= 1024) return `${parseFloat((kb / 1024).toFixed(2))} MB`;
+    return `${parseFloat(kb.toFixed(1))} KB`;
+}
+
+// Total size in KB, or null when the value can't be read
+function cacheTotalKb(value) {
+    const parts = parseCacheSpec(value);
+    return parts ? parts.reduce((sum, p) => sum + p.count * p.kb, 0) : null;
+}
+
+function formatCacheSpec(value) {
+    const parts = parseCacheSpec(value);
+    if (!parts) return formatValue(value);
+    // A single plain size: just tidy the spacing
+    if (parts.length === 1 && parts[0].count === 1 && !parts[0].label) {
+        return escapeHtml(formatCacheSize(parts[0].kb));
+    }
+    const rows = parts.map(p => `
+        <div class="cache-part">
+            <span class="cache-size">${p.count > 1 ? `${p.count}× ` : ''}${formatCacheSize(p.kb)}</span>
+            ${p.label ? `<span class="cache-label">${escapeHtml(p.label)}</span>` : ''}
+        </div>`).join('');
+    const total = parts.reduce((sum, p) => sum + p.count * p.kb, 0);
+    const showTotal = parts.length > 1 || parts[0].count > 1;
+    return `<div class="cache-parts">${rows}${showTotal ? `<div class="cache-total">${t('cache_total')} ${formatCacheSize(total)}</div>` : ''}</div>`;
+}
+
+const CACHE_KEYS = ['cpu.l2Cache', 'cpu.l3Cache', 'slc'];
+
 // Current active series
 let currentSeries = 'a-series';
 let isWelcomeState = false; // Will be set to true on load if renderWelcomePage is called
@@ -353,7 +435,7 @@ function renderTable(dataRaw, isSearch, fullData) {
                 ${variantSwitcherHtml}
                 ${quickHtmlOut}
                 <div class="chip-card-action-bar">
-                    <span class="view-specs-text">${t('view_full_specs') || 'View Full Specs'}</span>
+                    <span class="view-specs-text">${t('view_full_specs') || 'View full specs'}</span>
                     <span class="material-icons-round expand-icon" id="icon-expand-${index}">expand_more</span>
                 </div>
                 <div class="chip-card-body" id="card-body-${index}"></div>
@@ -500,8 +582,14 @@ async function hydrateDieshots() {
             <div class="dieshot-thumbs">
                 ${shots.map(shot => `
                     <button type="button" class="dieshot-thumb" data-action="openDieshot" data-shot-id="${escapeHtml(shot.id)}">
-                        <img src="assets/dieshots/${encodeURIComponent(shot.id)}.webp" alt="${escapeHtml(shot.title)} die shot" loading="lazy" decoding="async">
-                        <span class="dieshot-thumb-label">${escapeHtml(shot.title)}</span>
+                        <span class="dieshot-thumb-media">
+                            <img src="assets/dieshots/${encodeURIComponent(shot.id)}.webp" alt="${escapeHtml(shot.title)} die shot" loading="lazy" decoding="async">
+                        </span>
+                        <span class="dieshot-thumb-info">
+                            <span class="dieshot-thumb-title">${escapeHtml(shot.title)}</span>
+                            ${shot.desc ? `<span class="dieshot-thumb-desc">${escapeHtml(shot.desc)}</span>` : ''}
+                            <span class="dieshot-thumb-hint"><span class="material-icons-round">zoom_in</span>${escapeHtml(t('dieshot_zoom'))}</span>
+                        </span>
                     </button>`).join('')}
             </div>`;
     });
@@ -592,7 +680,8 @@ function generateMobileDetails(chip) {
             if (activeManufacturer === 'Global') activeManufacturer = chip.manufacturer || 'Global';
 
             const isKirinHidden = (row.key === 'dsp' || row.key === 'codename') && activeManufacturer === 'HiSilicon';
-            return val && val !== '-' && val !== 'N/A' && !duplicateKeys.includes(row.key) && !isKirinHidden;
+            // Part number is already in the card header
+            return val && val !== '-' && val !== 'N/A' && !duplicateKeys.includes(row.key) && row.key !== 'partNumber' && !isKirinHidden;
         });
 
         if (visibleRows.length === 0) return;
@@ -606,7 +695,8 @@ function generateMobileDetails(chip) {
             if (row.key === 'partNumber') return;
 
             const val = getNestedValue(chip, row.key);
-            const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val) : formatValue(val);
+            const formattedVal = row.key === 'cpu.specs' ? formatCpuSpecs(val)
+                : CACHE_KEYS.includes(row.key) ? formatCacheSpec(val) : formatValue(val);
             const extraStyle = row.key === 'cpu.specs' ? ' style="grid-column: 1 / -1;"' : '';
 
             let labelHtml = t(row.label);
@@ -683,6 +773,11 @@ const changelogData = [
                 "Shared compare links now use your theme, so the embed card matches your colours (pride themes included, gradients and all)",
                 "Searching now shows binned variants, grouped under their main chip with the variant switcher",
                 "Binned variants now show the die shot of the chip they're cut from",
+                "Redesigned the compare table: chip names stay pinned while you scroll, specs stack neatly on phones, the better value is highlighted, CPUs show a core and clock summary, and you can hide identical rows",
+                "New look across the whole site, matching the Language & Theme card: softer cards, specs shown as tiles, and a gold outline for whatever's selected",
+                "Compare page: picked chips take up less space, and once you pick one you get quick picks for the chip before/after it and its closest rivals",
+                "CPU caches are now broken down one part per line with a total, so they're easier to read and compare",
+                "Compare page: new total cache row (L2 + L3 + SLC) with bars, and cache wins now show how much bigger",
                 "Fixed the Language & Theme button on the compare page doing nothing",
                 "Fixed square corners on the credits box in the trans theme",
                 "A few new easter eggs to find 👀"
@@ -1583,7 +1678,7 @@ function renderWelcomePage() {
             <div class="welcome-credits" style="margin: 0 auto 48px; padding: 24px 32px; background: var(--md-sys-color-surface-variant); border: 2px solid var(--md-sys-color-primary); border-radius: 24px; text-align: center; max-width: 800px; box-shadow: 0 16px 40px -8px rgba(0,0,0,0.15);">
                 <h3 style="display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--md-sys-color-on-surface);">
                     <span class="material-icons-round" style="color: var(--md-sys-color-primary); font-size: 28px;">volunteer_activism</span> 
-                    ${t('translation_credits') || 'Translation Credits 💖'}
+                    ${t('translation_credits') || 'Translation credits 💖'}
                 </h3>
                 <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 24px; font-size: 16px;">
                     ${t('translation_desc') || 'Massive thanks to our community translators! Want to help translate ReptDoc into your language?'}
@@ -2102,7 +2197,8 @@ function initCompareSearch(id) {
                 const chipsWithMeta = info.data.map(chip => ({
                     ...chip,
                     manufacturer: info.manufacturer, // Ensure manufacturer is set
-                    seriesLabel: info.label
+                    seriesLabel: info.label,
+                    seriesKey: key
                 }));
                 window.allChipsFlat = window.allChipsFlat.concat(chipsWithMeta);
             });
@@ -2242,7 +2338,349 @@ window.clearChip = function (slot) {
 }
 
 
+const COMPARE_CATEGORY_ICONS = {
+    category_basic: 'info',
+    category_cpu: 'memory',
+    category_gpu: 'videogame_asset',
+    category_npu: 'psychology',
+    category_connectivity: 'cell_tower',
+    category_memory: 'sd_card',
+    category_arch: 'architecture'
+};
+
+function isEmptySpecValue(v) {
+    return !v || ['-', 'n/a', 'unknown', 'unspecified', 'not specified'].includes(String(v).trim().toLowerCase());
+}
+
+// Comparable numbers for the few specs where "better" is unambiguous.
+// Returns null when a value can't be parsed cleanly, so nothing is highlighted.
+const compareRules = {
+    releaseDate: {
+        better: 'higher', tag: 'cmp_newer', parse: v => {
+            const m = String(v).match(/^(\d{4})(?:\.(Q[1-4]|\d{1,2}))?/i);
+            if (!m) return null;
+            let month = 0;
+            if (m[2]) month = /^q/i.test(m[2]) ? parseInt(m[2].slice(1)) * 3 - 2 : parseInt(m[2]);
+            return parseInt(m[1]) * 12 + month;
+        }
+    },
+    process: {
+        better: 'lower', tag: 'cmp_smaller_node', parse: v => {
+            const s = String(v);
+            const nm = s.match(/(\d+(?:\.\d+)?)\s*nm/i);
+            if (nm) return parseFloat(nm[1]);
+            const n = s.match(/\bN(\d)\b/);
+            return n ? parseFloat(n[1]) : null;
+        }
+    },
+    'cpu.l2Cache': { better: 'higher', tag: 'cmp_larger', parse: v => cacheTotalKb(v) },
+    'cpu.l3Cache': { better: 'higher', tag: 'cmp_larger', parse: v => cacheTotalKb(v) },
+    slc: { better: 'higher', tag: 'cmp_larger', parse: v => cacheTotalKb(v) }
+};
+
+// Returns 1 or 2 for the winning slot, 0 for no clear winner.
+function getSpecWinner(key, v1, v2) {
+    const rule = compareRules[key];
+    if (!rule || isEmptySpecValue(v1) || isEmptySpecValue(v2)) return 0;
+    const n1 = rule.parse(v1);
+    const n2 = rule.parse(v2);
+    if (n1 === null || n2 === null || n1 === n2) return 0;
+    const firstWins = rule.better === 'higher' ? n1 > n2 : n1 < n2;
+    return firstWins ? 1 : 2;
+}
+
+// "2x 4.93 GHz (Everest) + 4x 2.64 GHz (Sawtooth)" -> "6 cores · 4.93 GHz max"
+function getCpuSummary(specString) {
+    if (typeof specString !== 'string') return '';
+    const clusters = specString.split('+');
+    let cores = 0;
+    let maxGhz = 0;
+    for (const c of clusters) {
+        const count = c.trim().match(/^(\d+)\s*x/i);
+        if (!count) { cores = 0; break; }
+        cores += parseInt(count[1]);
+    }
+    const clockRe = /(\d+(?:\.\d+)?)\s*(GHz|MHz)/gi;
+    let m;
+    while ((m = clockRe.exec(specString)) !== null) {
+        const ghz = parseFloat(m[1]) / (m[2].toLowerCase() === 'mhz' ? 1000 : 1);
+        if (ghz > maxGhz) maxGhz = ghz;
+    }
+    const parts = [];
+    if (cores) parts.push(`${cores} ${t('cmp_cores')}`);
+    if (maxGhz) parts.push(`${t('cmp_up_to')} ${parseFloat(maxGhz.toFixed(2))} GHz`);
+    return parts.join(' · ');
+}
+
+function renderCompareCell(slot, key, value, winner, extra) {
+    const isWin = winner === slot;
+    let inner;
+    if (value === null) {
+        inner = '<span class="cmp-empty">—</span>';
+    } else if (key === 'cpu.specs' && typeof value === 'string' && !isEmptySpecValue(value)) {
+        const summary = getCpuSummary(value);
+        inner = (summary ? `<div class="cmp-cpu-summary">${escapeHtml(summary)}</div>` : '') + formatCpuSpecs(value);
+    } else if (CACHE_KEYS.includes(key) && cacheTotalKb(value) !== null) {
+        inner = formatCacheSpec(value);
+    } else {
+        const empty = isEmptySpecValue(value);
+        inner = `<span class="${empty ? 'cmp-empty' : 'cmp-text'}">${formatValue(value)}</span>`;
+    }
+    const tag = isWin ? renderWinTag(t(compareRules[key].tag), extra) : '';
+    return `<div class="cmp-val cmp-slot-${slot}${isWin ? ' is-win' : ''}">${inner}${tag}</div>`;
+}
+
+function renderWinTag(text, extra) {
+    return `<span class="cmp-win-tag"><span class="material-icons-round">check</span>${text}${extra ? ` · ${extra}` : ''}</span>`;
+}
+
+// "+586%" for how much bigger the winner is
+function percentMore(win, lose) {
+    if (!win || !lose) return '';
+    return `+${Math.round((win / lose - 1) * 100)}%`;
+}
+
+// L2 + L3 + SLC in KB. "N/A" or a missing field counts as none; unknown parts make the total a lower bound.
+function totalCacheKb(chip) {
+    let kb = 0, known = 0, complete = true;
+    CACHE_KEYS.forEach(key => {
+        const v = getNestedValue(chip, key);
+        const parsed = cacheTotalKb(v);
+        if (parsed !== null) {
+            kb += parsed;
+            known++;
+        } else if (!['n/a', '-'].includes(String(v).trim().toLowerCase())) { // missing field = no such cache
+            complete = false;
+        }
+    });
+    return known ? { kb, complete } : null;
+}
+
+function renderTotalCacheRow(chip1, chip2) {
+    const t1 = chip1 ? totalCacheKb(chip1) : null;
+    const t2 = chip2 ? totalCacheKb(chip2) : null;
+    if (!t1 && !t2) return '';
+    const max = Math.max(t1 ? t1.kb : 0, t2 ? t2.kb : 0);
+    // Only call a winner when both totals are complete
+    let winner = 0;
+    if (t1 && t2 && t1.complete && t2.complete && t1.kb !== t2.kb) winner = t1.kb > t2.kb ? 1 : 2;
+
+    const cell = (slot, total, other) => {
+        if (!total) return `<div class="cmp-val cmp-slot-${slot}"><span class="cmp-empty">${t('value_unknown')}</span></div>`;
+        const isWin = winner === slot;
+        const pct = max ? Math.max(4, (total.kb / max) * 100) : 0;
+        return `<div class="cmp-val cmp-slot-${slot}${isWin ? ' is-win' : ''}">
+            <span class="cmp-text cache-grand-total">${total.complete ? '' : '≥ '}${formatCacheSize(total.kb)}</span>
+            <div class="cache-bar"><span style="width: ${pct}%"></span></div>
+            ${isWin ? renderWinTag(t('cmp_larger'), percentMore(total.kb, other.kb)) : ''}
+        </div>`;
+    };
+    return `
+        <div class="cmp-row cmp-row-total">
+            <div class="cmp-label">${t('cache_total_all')}</div>
+            ${cell(1, t1, t2)}
+            ${cell(2, t2, t1)}
+        </div>`;
+}
+
+function renderCompareHeadChip(slot, chip) {
+    if (!chip) {
+        return `<button class="cmp-head-chip cmp-slot-${slot} is-placeholder" data-action="focusCompareSearch" data-slot="${slot}">
+            <span class="material-icons-round">add</span>
+            <span class="cmp-head-name">${t('select_soc')}</span>
+        </button>`;
+    }
+    return `
+        <div class="cmp-head-chip cmp-slot-${slot}">
+            <span class="cmp-head-logo">${getBrandLogoGlobal(chip.manufacturer, '22px')}</span>
+            <span class="cmp-head-text">
+                <span class="cmp-head-name">${escapeHtml(chip.name)}</span>
+                ${chip.partNumber || chip.codename ? `<span class="cmp-head-sub">${escapeHtml(chip.partNumber || chip.codename)}</span>` : ''}
+            </span>
+            <button class="cmp-head-remove" data-action="clearChip" data-slot="${slot}" title="${t('remove')}" aria-label="${t('remove')} ${escapeHtml(chip.name)}">
+                <span class="material-icons-round">close</span>
+            </button>
+        </div>`;
+}
+
+// Picked chips live in the pinned header, so only show the search card for empty slots
+function syncSelectorCards() {
+    let empty = 0;
+    [1, 2].forEach(slot => {
+        const card = document.getElementById(`selector-${slot}`);
+        if (!card) return;
+        const filled = !!comparisonState[slot];
+        card.classList.toggle('has-chip', filled);
+        if (!filled) empty++;
+    });
+    const grid = document.querySelector('.selectors-grid');
+    if (grid) grid.dataset.empty = empty;
+}
+
+window.focusCompareSearch = function (slot) {
+    const input = document.getElementById(`input-chip-${slot}`);
+    if (!input) return;
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    input.focus({ preventScroll: true });
+};
+
+window.toggleCompareDiffOnly = function () {
+    window.compareDiffOnly = !window.compareDiffOnly;
+    const sheet = document.querySelector('.cmp-sheet');
+    if (sheet) sheet.classList.toggle('diff-only', window.compareDiffOnly);
+    const sw = document.querySelector('.cmp-diff-toggle');
+    if (sw) sw.setAttribute('aria-checked', window.compareDiffOnly ? 'true' : 'false');
+};
+
+// Market class of each series, so rivals are matched flagship vs flagship
+const SERIES_TIERS = {
+    'a-series': 'flagship', 'snapdragon-8': 'flagship', 'dimensity-9000': 'flagship',
+    'dimensity-1000': 'flagship', 'kirin-9000': 'flagship', 'exynos-2000': 'flagship',
+    'exynos-9': 'flagship', 'exynos-8': 'flagship', 'tensor': 'flagship', 'xiaomi': 'flagship',
+    'helio-x': 'flagship', 'kirin-past': 'flagship', 'exynos-5': 'flagship', 'exynos-4': 'flagship',
+    'exynos-3': 'flagship',
+    'snapdragon-7': 'upper', 'dimensity-8000': 'upper', 'kirin-800': 'upper',
+    'exynos-1000': 'upper', 'exynos-900': 'upper', 'dimensity-900': 'upper',
+    'snapdragon-6': 'mid', 'dimensity-7000': 'mid', 'dimensity-800': 'mid', 'dimensity-700': 'mid',
+    'kirin-700': 'mid', 'kirin-600': 'mid', 'exynos-800': 'mid', 'exynos-7': 'mid',
+    'helio-g': 'mid', 'helio-p': 'mid', 'unisoc': 'mid',
+    'snapdragon-4': 'entry', 'snapdragon-2': 'entry', 'dimensity-6000': 'entry', 'helio-a': 'entry',
+    'm-series': 'pc', 'snapdragon-x': 'pc', 'loongson-3a': 'pc', 'kirin-tablet': 'tablet'
+};
+
+// Chips filed under a series of a different class
+const CHIP_TIER_OVERRIDES = {
+    'Exynos 7872': 'mid', 'Exynos 7 Octa 7420': 'flagship', 'Exynos 7 Octa 5433': 'flagship',
+    'Xiaomi Surge S1': 'mid', 'MediaTek Dimensity 1080': 'mid'
+};
+const chipTier = c => CHIP_TIER_OVERRIDES[c.name] || SERIES_TIERS[c.seriesKey];
+
+// Rough lineup position from the name: Extreme/Ultra > Pro/Max/Elite/+ > base > cut-down (8s, 9600m, 2400e, 9010L, Lite)
+function variantRank(name) {
+    if (/\b(Extreme|Ultra)\b/i.test(name)) return 2;
+    if (/\b(Pro|Max|Elite)\b|\+/i.test(name)) return 1;
+    if (/\d[seml]\b|\bLite\b/i.test(name)) return -1;
+    return 0;
+}
+
+// Strongest first: Geekbench 6 multi-core when both have a different score, else the name
+function compareStrength(a, b) {
+    const sa = a.geekbench6 ? parseInt(a.geekbench6.multi) || 0 : 0;
+    const sb = b.geekbench6 ? parseInt(b.geekbench6.multi) || 0 : 0;
+    if (sa && sb && sa !== sb) return sb - sa;
+    return variantRank(b.name) - variantRank(a.name);
+}
+
+// Which brands to suggest first when several are equally close
+const RIVAL_BRAND_ORDER = ['Qualcomm', 'MediaTek', 'Apple Silicon', 'Exynos', 'HiSilicon', 'Google', 'Xiaomi', 'Unisoc'];
+const brandOrder = m => {
+    const i = RIVAL_BRAND_ORDER.indexOf(m);
+    return i === -1 ? RIVAL_BRAND_ORDER.length : i;
+};
+
+// Suggestions for the empty slot once the other one is filled:
+// the chip before/after it in its series, plus close rivals from other brands
+function getQuickPicks(chip) {
+    const all = window.allChipsFlat || [];
+    const picks = [];
+    const add = (c, label) => {
+        if (c && c !== chip && !picks.some(p => p.chip === c)) picks.push({ chip: c, label });
+    };
+
+    // Older/newer in the series: skip binned variants of the same chip and mid-cycle
+    // cut-downs, and prefer the chip in the same spot of the previous/next generation
+    // (Kirin 9050 -> 9030, Kirin 9050 Pro -> 9030 Pro)
+    const parseDate = compareRules.releaseDate.parse;
+    const dateOf = c => c.releaseDate ? parseDate(c.releaseDate) : null;
+    const myDate = dateOf(chip);
+    if (myDate !== null) {
+        const family = c => c.binnedOf || c.name;
+        const sameSeries = all.filter(c => c.seriesKey === chip.seriesKey && dateOf(c) !== null
+            && family(c) !== family(chip));
+        // Lower is closer: lineup position (Extreme/Pro/base/cut-down), binned or not,
+        // and time apart (6 months weighs as much as one lineup step)
+        const cost = c => Math.abs(variantRank(c.name) - variantRank(chip.name))
+            + (variantRank(c.name) < 0 && variantRank(chip.name) >= 0 ? 2 : 0) // full chip -> cut-down
+            + (!c.binnedOf !== !chip.binnedOf ? 1 : 0)
+            + Math.abs(dateOf(c) - myDate) / 6;
+        const nearest = (older) => {
+            const side = sameSeries.filter(c => older ? dateOf(c) < myDate : dateOf(c) > myDate);
+            const recent = side.filter(c => Math.abs(dateOf(c) - myDate) <= 24);
+            const pool = recent.length ? recent : side;
+            return pool.sort((a, b) => cost(a) - cost(b))[0];
+        };
+        add(nearest(true), t('cmp_pick_predecessor'));
+        add(nearest(false), t('cmp_pick_successor'));
+    }
+
+    // Rivals: an explicit "rivals" list in the data wins
+    if (Array.isArray(chip.rivals) && chip.rivals.length) {
+        chip.rivals.forEach(name => add(all.find(c => c.name === name), t('cmp_pick_rival')));
+        return picks;
+    }
+
+    // Otherwise: same class (flagship vs flagship), same generation, same spot in the
+    // lineup — e.g. a brand's top chip meets the other brands' top chips
+    const tier = chipTier(chip);
+    if (!tier || myDate === null) return picks;
+
+    const sameClass = all.filter(c => chipTier(c) === tier && dateOf(c) !== null);
+    // A brand's latest generation around our chip's launch (its newest chip then, plus
+    // anything from the 6 months before it), strongest first
+    const lineup = (brand, back, ahead) => {
+        const out = sameClass.filter(c => c.manufacturer === brand
+            && dateOf(c) > myDate - back && dateOf(c) <= myDate + ahead);
+        if (!out.length) return [];
+        const newest = Math.max(...out.map(dateOf));
+        return out.filter(c => dateOf(c) >= newest - 6).sort(compareStrength);
+    };
+    const brands = [...new Set(sameClass.map(c => c.manufacturer))]
+        .filter(m => m !== chip.manufacturer)
+        .sort((x, y) => brandOrder(x) - brandOrder(y));
+
+    // Widen the window for older chips with fewer contemporaries
+    for (const [back, ahead] of [[12, 3], [24, 6]]) {
+        const myRank = Math.max(0, lineup(chip.manufacturer, back, ahead).indexOf(chip));
+        const rivals = brands
+            .map(brand => lineup(brand, back, ahead))
+            .filter(theirs => theirs.length)
+            .map(theirs => theirs[Math.min(myRank, theirs.length - 1)]);
+        if (rivals.length >= 2 || back === 24) {
+            rivals.slice(0, 2).forEach(c => add(c, t('cmp_pick_rival')));
+            break;
+        }
+    }
+    return picks;
+}
+
+function renderQuickPicks() {
+    [1, 2].forEach(slot => {
+        const box = document.getElementById(`picks-chip-${slot}`);
+        if (!box) return;
+        const other = comparisonState[slot === 1 ? 2 : 1];
+        const picks = (!comparisonState[slot] && other && window.allChipsFlat) ? getQuickPicks(other) : [];
+        if (!picks.length) {
+            box.innerHTML = '';
+            return;
+        }
+        box.innerHTML = `
+            <div class="quick-picks-label">${t('cmp_quick_picks')} ${escapeHtml(other.name)}</div>
+            <div class="quick-picks-row">
+                ${picks.map(p => `
+                    <button class="quick-pick" data-action="selectChip" data-slot="${slot}" data-index="${window.allChipsFlat.indexOf(p.chip)}">
+                        <span class="quick-pick-logo">${getBrandLogoGlobal(p.chip.manufacturer, '18px')}</span>
+                        <span class="quick-pick-text">
+                            <span class="quick-pick-name">${escapeHtml(p.chip.name)}</span>
+                            <span class="quick-pick-tag">${p.label}</span>
+                        </span>
+                    </button>`).join('')}
+            </div>`;
+    });
+}
+
 function updateComparisonTable() {
+    syncSelectorCards();
+    renderQuickPicks();
     const container = document.getElementById('comparison-table-wrapper');
     const chip1 = comparisonState[1];
     const chip2 = comparisonState[2];
@@ -2252,43 +2690,75 @@ function updateComparisonTable() {
         return;
     }
 
-    let html = '<table class="comparison-table">';
-    html += `<thead><tr><th>${t('specs')}</th>`;
-    html += `<th>${chip1 ? escapeHtml(chip1.name) : t('select_soc')}</th>`;
-    html += `<th>${chip2 ? escapeHtml(chip2.name) : t('select_soc')}</th>`;
-    html += '</tr></thead><tbody>';
+    const bothSelected = chip1 && chip2;
+    let groupsHtml = '';
 
     tableStructure.forEach(group => {
         // Skip benchmarks in table - we'll render them separately
         if (group.category === "category_benchmarks") return;
 
-        html += `<tr><td colspan="3" class="comparison-category">${t(group.category)}</td></tr>`;
+        let rowsHtml = '';
+        let allSame = true;
 
         group.rows.forEach(row => {
-            let v1 = chip1 ? getNestedValue(chip1, row.key) : '-';
-            let v2 = chip2 ? getNestedValue(chip2, row.key) : '-';
+            let v1 = chip1 ? getNestedValue(chip1, row.key) : null;
+            let v2 = chip2 ? getNestedValue(chip2, row.key) : null;
 
-            if (v1 === undefined || v1 === 'undefined') v1 = 'unknown';
-            if (v2 === undefined || v2 === 'undefined') v2 = 'unknown';
+            if (v1 === 'undefined') v1 = 'unknown';
+            if (v2 === 'undefined') v2 = 'unknown';
 
-            if ((!v1 || v1 === '-' || v1 === 'N/A' || v1 === 'unknown') && (!v2 || v2 === '-' || v2 === 'N/A' || v2 === 'unknown')) return;
+            if ((v1 === null || isEmptySpecValue(v1)) && (v2 === null || isEmptySpecValue(v2))) return;
 
-            let labelHtml = t(row.label);
+            const same = bothSelected && String(v1).trim().toLowerCase() === String(v2).trim().toLowerCase();
+            if (!same) allSame = false;
+            const winner = bothSelected ? getSpecWinner(row.key, v1, v2) : 0;
 
-            html += `<tr>`;
-            html += `<td class="feature-label">${labelHtml}</td>`;
-            html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v1) : formatValue(v1)}</td>`;
-            html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v2) : formatValue(v2)}</td>`;
-            html += `</tr>`;
+            const extra = winner && CACHE_KEYS.includes(row.key)
+                ? percentMore(cacheTotalKb(winner === 1 ? v1 : v2), cacheTotalKb(winner === 1 ? v2 : v1))
+                : '';
+
+            rowsHtml += `
+                <div class="cmp-row${same ? ' is-same' : ''}">
+                    <div class="cmp-label">${t(row.label)}</div>
+                    ${renderCompareCell(1, row.key, v1, winner, extra)}
+                    ${renderCompareCell(2, row.key, v2, winner, extra)}
+                </div>`;
         });
+
+        if (group.category === 'category_cpu') rowsHtml += renderTotalCacheRow(chip1, chip2);
+
+        if (!rowsHtml) return;
+
+        const icon = COMPARE_CATEGORY_ICONS[group.category] || 'tune';
+        groupsHtml += `
+            <section class="cmp-group${allSame && bothSelected ? ' is-same' : ''}">
+                <h3 class="cmp-group-title"><span class="cmp-group-icon"><span class="material-icons-round">${icon}</span></span>${t(group.category)}</h3>
+                ${rowsHtml}
+            </section>`;
     });
 
-    html += '</tbody></table>';
+    const diffOnly = !!window.compareDiffOnly && bothSelected;
+    const toolbarHtml = bothSelected ? `
+        <div class="cmp-toolbar">
+            <button class="cmp-diff-toggle" role="switch" aria-checked="${diffOnly}" data-action="toggleCompareDiffOnly">
+                <span class="cmp-switch"><span class="cmp-switch-knob"></span></span>
+                ${t('cmp_diff_only')}
+            </button>
+        </div>` : '';
 
-    // Add visual benchmark comparison at the TOP
-    const benchmarkHtml = renderBenchmarkComparison(chip1, chip2);
+    const html = `
+        <div class="cmp-sheet${diffOnly ? ' diff-only' : ''}">
+            <div class="cmp-head">
+                <div class="cmp-head-label">${t('specs')}</div>
+                ${renderCompareHeadChip(1, chip1)}
+                ${renderCompareHeadChip(2, chip2)}
+            </div>
+            ${renderBenchmarkComparison(chip1, chip2)}
+            ${toolbarHtml}
+            ${groupsHtml}
+        </div>`;
 
-    container.innerHTML = benchmarkHtml + html;
+    container.innerHTML = html;
 }
 
 function renderBenchmarkComparison(chip1, chip2) {
@@ -2536,8 +3006,14 @@ document.addEventListener('click', (e) => {
         case 'toggleGpuBenchmark':
             toggleGpuBenchmark();
             break;
+        case 'toggleCompareDiffOnly':
+            toggleCompareDiffOnly();
+            break;
         case 'clearChip':
             clearChip(parseInt(target.dataset.slot));
+            break;
+        case 'focusCompareSearch':
+            focusCompareSearch(parseInt(target.dataset.slot));
             break;
         default:
             break;

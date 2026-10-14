@@ -2,7 +2,7 @@
  {
   "name": "HiSilicon Kirin T93 Pro",
   "partNumber": "Hi3D60 GFCV120",
-  "releaseDate": "2026.5",
+  "releaseDate": "2026.05",
   "process": "SMIC N+3 (6nm+)",
   "geekbench6": {
    "single": "1856",
@@ -26,7 +26,7 @@
  {
   "name": "HiSilicon Kirin X90",
   "partNumber": "Hi9600 GFCV100",
-  "releaseDate": "2025.5",
+  "releaseDate": "2025.05",
   "process": "SMIC N+2 (7nm)",
   "dieSize": "208 mm²",
   "geekbench6": {
