@@ -771,6 +771,7 @@ const changelogData = [
                 "New look across the whole site, matching the Language & Theme card: softer cards, specs shown as tiles, and a gold outline for whatever's selected",
                 "Compare page: picked chips take up less space, and once you pick one you get quick picks for the chip before/after it and its closest rivals",
                 "CPU caches are now broken down one part per line with a total, so they're easier to read and compare",
+                "Compare page: new total cache row (L2 + L3 + SLC) with bars, and cache wins now show how much bigger",
                 "Fixed the Language & Theme button on the compare page doing nothing",
                 "Fixed square corners on the credits box in the trans theme",
                 "A few new easter eggs to find 👀"
@@ -2405,7 +2406,7 @@ function getCpuSummary(specString) {
     return parts.join(' · ');
 }
 
-function renderCompareCell(slot, key, value, winner) {
+function renderCompareCell(slot, key, value, winner, extra) {
     const isWin = winner === slot;
     let inner;
     if (value === null) {
@@ -2419,8 +2420,61 @@ function renderCompareCell(slot, key, value, winner) {
         const empty = isEmptySpecValue(value);
         inner = `<span class="${empty ? 'cmp-empty' : 'cmp-text'}">${formatValue(value)}</span>`;
     }
-    const tag = isWin ? `<span class="cmp-win-tag"><span class="material-icons-round">check</span>${t(compareRules[key].tag)}</span>` : '';
+    const tag = isWin ? renderWinTag(t(compareRules[key].tag), extra) : '';
     return `<div class="cmp-val cmp-slot-${slot}${isWin ? ' is-win' : ''}">${inner}${tag}</div>`;
+}
+
+function renderWinTag(text, extra) {
+    return `<span class="cmp-win-tag"><span class="material-icons-round">check</span>${text}${extra ? ` · ${extra}` : ''}</span>`;
+}
+
+// "+586%" for how much bigger the winner is
+function percentMore(win, lose) {
+    if (!win || !lose) return '';
+    return `+${Math.round((win / lose - 1) * 100)}%`;
+}
+
+// L2 + L3 + SLC in KB. "N/A" or a missing field counts as none; unknown parts make the total a lower bound.
+function totalCacheKb(chip) {
+    let kb = 0, known = 0, complete = true;
+    CACHE_KEYS.forEach(key => {
+        const v = getNestedValue(chip, key);
+        const parsed = cacheTotalKb(v);
+        if (parsed !== null) {
+            kb += parsed;
+            known++;
+        } else if (!['n/a', '-'].includes(String(v).trim().toLowerCase())) { // missing field = no such cache
+            complete = false;
+        }
+    });
+    return known ? { kb, complete } : null;
+}
+
+function renderTotalCacheRow(chip1, chip2) {
+    const t1 = chip1 ? totalCacheKb(chip1) : null;
+    const t2 = chip2 ? totalCacheKb(chip2) : null;
+    if (!t1 && !t2) return '';
+    const max = Math.max(t1 ? t1.kb : 0, t2 ? t2.kb : 0);
+    // Only call a winner when both totals are complete
+    let winner = 0;
+    if (t1 && t2 && t1.complete && t2.complete && t1.kb !== t2.kb) winner = t1.kb > t2.kb ? 1 : 2;
+
+    const cell = (slot, total, other) => {
+        if (!total) return `<div class="cmp-val cmp-slot-${slot}"><span class="cmp-empty">${t('value_unknown')}</span></div>`;
+        const isWin = winner === slot;
+        const pct = max ? Math.max(4, (total.kb / max) * 100) : 0;
+        return `<div class="cmp-val cmp-slot-${slot}${isWin ? ' is-win' : ''}">
+            <span class="cmp-text cache-grand-total">${total.complete ? '' : '≥ '}${formatCacheSize(total.kb)}</span>
+            <div class="cache-bar"><span style="width: ${pct}%"></span></div>
+            ${isWin ? renderWinTag(t('cmp_larger'), percentMore(total.kb, other.kb)) : ''}
+        </div>`;
+    };
+    return `
+        <div class="cmp-row cmp-row-total">
+            <div class="cmp-label">${t('cache_total_all')}</div>
+            ${cell(1, t1, t2)}
+            ${cell(2, t2, t1)}
+        </div>`;
 }
 
 function renderCompareHeadChip(slot, chip) {
@@ -2653,13 +2707,19 @@ function updateComparisonTable() {
             if (!same) allSame = false;
             const winner = bothSelected ? getSpecWinner(row.key, v1, v2) : 0;
 
+            const extra = winner && CACHE_KEYS.includes(row.key)
+                ? percentMore(cacheTotalKb(winner === 1 ? v1 : v2), cacheTotalKb(winner === 1 ? v2 : v1))
+                : '';
+
             rowsHtml += `
                 <div class="cmp-row${same ? ' is-same' : ''}">
                     <div class="cmp-label">${t(row.label)}</div>
-                    ${renderCompareCell(1, row.key, v1, winner)}
-                    ${renderCompareCell(2, row.key, v2, winner)}
+                    ${renderCompareCell(1, row.key, v1, winner, extra)}
+                    ${renderCompareCell(2, row.key, v2, winner, extra)}
                 </div>`;
         });
+
+        if (group.category === 'category_cpu') rowsHtml += renderTotalCacheRow(chip1, chip2);
 
         if (!rowsHtml) return;
 

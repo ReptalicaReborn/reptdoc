@@ -4839,3 +4839,24 @@ button.cmp-head-chip.is-placeholder:hover {
     color: var(--cmp-color);
     background: color-mix(in srgb, var(--cmp-color) 14%, transparent);
 }
+
+/* ---------- Compare: total cache bar ---------- */
+.cache-grand-total {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.cache-bar {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent);
+    overflow: hidden;
+}
+
+.cache-bar > span {
+    display: block;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--cmp-color);
+}
