@@ -68,7 +68,7 @@ export default async (request, context) => {
 
   // Rendered by netlify/functions/compare-card.mjs; needs both chips, else fall back to the logo
   // The sharer's theme (see getThemeParam in script.js) rides along so the card matches it
-  const theme = /^([0-9a-f]{6}\.){4}[0-9a-f]{6}(\.(trans|nb))?$/i.test(url.searchParams.get('theme') || '') ? url.searchParams.get('theme') : null;
+  const theme = /^([0-9a-f]{6}\.){4}[0-9a-f]{6}(\.(trans|nonbinary|gay|lesbian|bisexual|pansexual))?$/i.test(url.searchParams.get('theme') || '') ? url.searchParams.get('theme') : null;
   const image = a && b
     ? escapeHtml(`${url.origin}/og/compare.png?chip1=${encodeURIComponent(a.name)}&chip2=${encodeURIComponent(b.name)}${theme ? `&theme=${theme}` : ''}`)
     : `${url.origin}/favicon.png`;

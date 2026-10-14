@@ -303,8 +303,8 @@ window.toggleTheme = function (clickedElement) {
 
     if (isTransPride) {
         applyTransPrideTheme();
-    } else if (isNonbinaryPrideActive()) {
-        applyNonbinaryPrideTheme();
+    } else if (getActivePrideKey()) {
+        applyPrideTheme(getActivePrideKey());
     } else {
         const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
         if (isAccentEnabled) {
@@ -328,7 +328,7 @@ function applyTransPrideTheme() {
     const transWhite = '#FFFFFF';
 
     // Only one pride theme at a time
-    document.documentElement.classList.remove('nonbinary-pride-theme');
+    removePrideTheme();
     // Add the class for CSS animations and decorations
     document.documentElement.classList.add('trans-pride-theme');
 
@@ -478,50 +478,116 @@ function applyTransPrideTheme() {
 }
 
 /**
- * Non-binary pride theme, from the flag colors: Yellow (#FCF434), White (#FFFFFF),
- * Purple (#9C59D1) and Black (#2C2C2C). Selected as the 'nonbinary-pride' accent preset.
+ * Flag-based pride themes, selected as the '<key>-pride' accent preset. Each one lists its
+ * flag stripes (color, weight) plus the palette used for dark and light mode.
+ * Keep the stripes/gradients in sync with PRIDE in netlify/functions/compare-card.mjs.
  */
-function isNonbinaryPrideActive() {
-    return localStorage.getItem('reptdoc_accent_enabled') === 'true' &&
-        localStorage.getItem('reptdoc_accent') === 'nonbinary-pride';
+const PRIDE_THEMES = {
+    nonbinary: {
+        label: 'Non-binary',
+        stripes: [['#FCF434', 1], ['#FFFFFF', 1], ['#9C59D1', 1], ['#2C2C2C', 1]],
+        bar: ['#FCF434', '#9C59D1'],
+        text: ['#FCF434', '#FFFFFF', '#9C59D1', '#C9A6EE'],
+        dark: { primary: '#FCF434', tint: '#9C59D1', tertiary: '#C9A6EE', glow: '#FCF434' },
+        light: { primary: '#7A6D00', container: '#FFF9A8', onContainer: '#211E00', secondary: '#E9DDF6', bg: '#FAF7FF', edge1: '#FFFBC9', edge2: '#EADCF8', tertiary: '#7A3FB5', sidebar: '#F3EDF9', thead: '#EEE6F6', row: '#F3EDF9', crumbs: '#F6F0FB' },
+        metaDark: '#0A0810', metaLight: '#FAF7FF',
+    },
+    gay: {
+        label: 'Gay',
+        stripes: [['#078D70', 1], ['#26CEAA', 1], ['#98E8C1', 1], ['#FFFFFF', 1], ['#7BADE2', 1], ['#5049CC', 1], ['#3D1A78', 1]],
+        bar: ['#26CEAA', '#5049CC'],
+        text: ['#26CEAA', '#98E8C1', '#7BADE2', '#9A94FF'],
+        dark: { primary: '#98E8C1', tint: '#26CEAA', tertiary: '#7BADE2', glow: '#5049CC' },
+        light: { primary: '#00705A', container: '#C6F3DF', onContainer: '#00201A', secondary: '#DCE3F8', bg: '#F4FBF8', edge1: '#D8F5EA', edge2: '#DDDFF8', tertiary: '#3D4FB8', sidebar: '#EBF5F1', thead: '#E4F0EC', row: '#EBF5F1', crumbs: '#EEF7F3' },
+        metaDark: '#08100E', metaLight: '#F4FBF8',
+    },
+    lesbian: {
+        label: 'Lesbian',
+        stripes: [['#D52D00', 1], ['#EF7627', 1], ['#FF9A56', 1], ['#FFFFFF', 1], ['#D162A4', 1], ['#B55690', 1], ['#A30262', 1]],
+        bar: ['#FF9A56', '#D162A4'],
+        text: ['#FF9A56', '#FFFFFF', '#D162A4', '#F08CC4'],
+        dark: { primary: '#FF9A56', tint: '#D162A4', tertiary: '#F08CC4', glow: '#EF7627' },
+        light: { primary: '#B33C00', container: '#FFDCC8', onContainer: '#3A0F00', secondary: '#F7DDEA', bg: '#FFF7F2', edge1: '#FFE6D6', edge2: '#F8DCEB', tertiary: '#A30262', sidebar: '#FAF0EA', thead: '#F5E8E2', row: '#FAF0EA', crumbs: '#FDF3EE' },
+        metaDark: '#100A07', metaLight: '#FFF7F2',
+    },
+    bisexual: {
+        label: 'Bisexual',
+        stripes: [['#D60270', 2], ['#9B4F96', 1], ['#0038A8', 2]],
+        bar: ['#D60270', '#0038A8'],
+        text: ['#FF5FAE', '#C58AD0', '#6F9BFF'],
+        dark: { primary: '#FF5FAE', tint: '#9B4F96', tertiary: '#7FA6FF', glow: '#0038A8' },
+        light: { primary: '#B0015C', container: '#FFD8EA', onContainer: '#3E0021', secondary: '#E6DAF2', bg: '#FCF6FB', edge1: '#FFE0EF', edge2: '#DCE4FA', tertiary: '#0038A8', sidebar: '#F6EEF5', thead: '#F0E6EF', row: '#F6EEF5', crumbs: '#F9F1F8' },
+        metaDark: '#0D080D', metaLight: '#FCF6FB',
+    },
+    pansexual: {
+        label: 'Pansexual',
+        stripes: [['#FF218C', 1], ['#FFD800', 1], ['#21B1FF', 1]],
+        bar: ['#FF218C', '#FFD800', '#21B1FF'],
+        text: ['#FF5FAE', '#FFD800', '#21B1FF'],
+        dark: { primary: '#FFD800', tint: '#21B1FF', tertiary: '#FF6FB0', glow: '#FF218C' },
+        light: { primary: '#7A6500', container: '#FFF0A0', onContainer: '#211A00', secondary: '#D6EEFB', bg: '#FFFBF0', edge1: '#FFE3F0', edge2: '#DAF0FF', tertiary: '#0A7BB5', sidebar: '#F8F4E8', thead: '#F2EDDD', row: '#F8F4E8', crumbs: '#FBF7EA' },
+        metaDark: '#0B0A07', metaLight: '#FFFBF0',
+    },
+};
+
+// CSS linear-gradient with hard stripes following the flag, e.g. for the sidebar stripe or preset swatch
+function prideFlagGradient(key, direction) {
+    const stripes = PRIDE_THEMES[key].stripes;
+    const total = stripes.reduce((sum, s) => sum + s[1], 0);
+    let at = 0;
+    const stops = stripes.map(([color, weight]) => {
+        const from = (at / total) * 100;
+        at += weight;
+        return `${color} ${from}%, ${color} ${(at / total) * 100}%`;
+    });
+    return `linear-gradient(${direction || 'to right'}, ${stops.join(', ')})`;
 }
 
-function applyNonbinaryPrideTheme() {
+// Key of the pride theme chosen in settings (and enabled), or null
+function getActivePrideKey() {
+    if (localStorage.getItem('reptdoc_accent_enabled') !== 'true') return null;
+    const accent = localStorage.getItem('reptdoc_accent') || '';
+    const key = accent.replace(/-pride$/, '');
+    return accent.endsWith('-pride') && PRIDE_THEMES[key] ? key : null;
+}
+
+function applyPrideTheme(key) {
+    const cfg = PRIDE_THEMES[key];
+    if (!cfg) return;
     const root = document.documentElement;
     const isLight = localStorage.getItem('theme') === 'light';
+    const L = cfg.light;
 
-    const nbYellow = '#FCF434';
-    const nbWhite = '#FFFFFF';
-    const nbPurple = '#9C59D1';
-    const nbBlack = '#2C2C2C';
-    const nbLilac = '#C9A6EE'; // purple lightened to stay readable on dark backgrounds
-
-    document.documentElement.classList.remove('trans-pride-theme');
-    document.documentElement.classList.add('nonbinary-pride-theme');
+    // Only one pride theme at a time
+    root.classList.remove('trans-pride-theme');
+    Object.keys(PRIDE_THEMES).forEach(k => root.classList.remove(`${k}-pride-theme`));
+    root.classList.add(`${key}-pride-theme`);
 
     if (!isLight) {
         const mixBaseDark = '#050505';
-        const rgbYellow = 'rgb(252, 244, 52)';
-        const rgbPurple = 'rgb(156, 89, 209)';
+        // mixColors() reads rgb(...) strings
+        const toRgb = (hex) => hexToRgba(hex, 1).replace('rgba', 'rgb').replace(', 1)', ')');
+        const primary = toRgb(cfg.dark.primary);
+        const tint = toRgb(cfg.dark.tint);
 
-        root.style.setProperty('--md-sys-color-primary', rgbYellow);
-        root.style.setProperty('--md-sys-color-on-primary', '#2B2800');
-        root.style.setProperty('--md-sys-color-primary-container', mixColors(rgbYellow, 25, mixBaseDark));
-        root.style.setProperty('--md-sys-color-on-primary-container', mixColors(rgbYellow, 90, '#ffffff'));
-        root.style.setProperty('--md-sys-color-surface-container', mixColors(rgbPurple, 10, mixBaseDark));
-        root.style.setProperty('--md-sys-color-surface-container-low', mixColors(rgbPurple, 6, mixBaseDark));
-        root.style.setProperty('--md-sys-color-surface-container-high', mixColors(rgbPurple, 15, mixBaseDark));
-        root.style.setProperty('--md-sys-color-surface-container-highest', mixColors(rgbPurple, 22, mixBaseDark));
-        root.style.setProperty('--md-sys-color-secondary-container', mixColors(rgbPurple, 28, mixBaseDark));
-        root.style.setProperty('--md-sys-color-on-secondary-container', mixColors(rgbPurple, 85, '#FFFFFF'));
-        root.style.setProperty('--md-sys-color-outline', mixColors(rgbYellow, 20, '#938F99'));
-        root.style.setProperty('--md-sys-color-outline-variant', mixColors(rgbPurple, 18, '#49454F'));
+        root.style.setProperty('--md-sys-color-primary', cfg.dark.primary);
+        root.style.setProperty('--md-sys-color-on-primary', '#1A1A1A');
+        root.style.setProperty('--md-sys-color-primary-container', mixColors(primary, 25, mixBaseDark));
+        root.style.setProperty('--md-sys-color-on-primary-container', mixColors(primary, 90, '#ffffff'));
+        root.style.setProperty('--md-sys-color-surface-container', mixColors(tint, 10, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-low', mixColors(tint, 6, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-high', mixColors(tint, 15, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-highest', mixColors(tint, 22, mixBaseDark));
+        root.style.setProperty('--md-sys-color-secondary-container', mixColors(tint, 28, mixBaseDark));
+        root.style.setProperty('--md-sys-color-on-secondary-container', mixColors(tint, 85, '#FFFFFF'));
+        root.style.setProperty('--md-sys-color-outline', mixColors(primary, 20, '#938F99'));
+        root.style.setProperty('--md-sys-color-outline-variant', mixColors(tint, 18, '#49454F'));
 
-        const tintedBg = mixColors(rgbPurple, 5, mixBaseDark);
+        const tintedBg = mixColors(tint, 5, mixBaseDark);
         root.style.setProperty('--md-sys-color-background', tintedBg);
         root.style.setProperty('--md-sys-color-surface', tintedBg);
-        root.style.setProperty('--gradient-surface', `radial-gradient(circle at top left, ${mixColors(rgbYellow, 10, mixBaseDark)}, ${tintedBg} 50%, ${mixColors(rgbPurple, 16, mixBaseDark)} 100%)`);
-        root.style.setProperty('--md-sys-color-tertiary', nbLilac);
+        root.style.setProperty('--gradient-surface', `radial-gradient(circle at top left, ${mixColors(toRgb(cfg.dark.glow), 12, mixBaseDark)}, ${tintedBg} 50%, ${mixColors(tint, 16, mixBaseDark)} 100%)`);
+        root.style.setProperty('--md-sys-color-tertiary', cfg.dark.tertiary);
     }
 
     let styleTag = document.getElementById('dynamic-theme-styles');
@@ -531,84 +597,87 @@ function applyNonbinaryPrideTheme() {
         (document.head || document.documentElement).appendChild(styleTag);
     }
 
-    const textGradient = `linear-gradient(135deg, ${nbYellow}, ${nbWhite}, ${nbPurple}, ${nbLilac}, ${nbYellow})`;
+    const cls = `.${key}-pride-theme`;
+    const textGradient = `linear-gradient(135deg, ${[...cfg.text, cfg.text[0]].join(', ')})`;
+    const barGradient = `linear-gradient(90deg, ${cfg.bar.join(', ')})`;
+    const buttonGradient = `linear-gradient(135deg, ${cfg.bar.join(', ')})`;
     styleTag.innerHTML = `
-        /* Non-binary Pride Light Mode */
+        /* ${cfg.label} Pride Light Mode */
         body.light-mode {
-            --md-sys-color-primary: #7A6D00;
+            --md-sys-color-primary: ${L.primary};
             --md-sys-color-on-primary: #FFFFFF;
-            --md-sys-color-primary-container: #FFF9A8;
-            --md-sys-color-on-primary-container: #211E00;
-            --md-sys-color-secondary-container: #E9DDF6;
-            --md-sys-color-background: #FAF7FF;
-            --md-sys-color-surface: #FAF7FF;
-            --gradient-surface: radial-gradient(circle at top left, #FFFBC9, #FAF7FF 50%, #EADCF8 100%);
-            --md-sys-color-tertiary: #7A3FB5;
+            --md-sys-color-primary-container: ${L.container};
+            --md-sys-color-on-primary-container: ${L.onContainer};
+            --md-sys-color-secondary-container: ${L.secondary};
+            --md-sys-color-background: ${L.bg};
+            --md-sys-color-surface: ${L.bg};
+            --gradient-surface: radial-gradient(circle at top left, ${L.edge1}, ${L.bg} 50%, ${L.edge2} 100%);
+            --md-sys-color-tertiary: ${L.tertiary};
         }
-        body.light-mode .sidebar { background-color: #F3EDF9 !important; }
-        body.light-mode .chip-table thead th { background-color: #EEE6F6 !important; }
-        body.light-mode .chip-table .row-header { background-color: #F3EDF9 !important; }
-        body.light-mode .breadcrumbs { background: #F6F0FB !important; }
+        body.light-mode .sidebar { background-color: ${L.sidebar} !important; }
+        body.light-mode .chip-table thead th { background-color: ${L.thead} !important; }
+        body.light-mode .chip-table .row-header { background-color: ${L.row} !important; }
+        body.light-mode .breadcrumbs { background: ${L.crumbs} !important; }
 
         /* Flag stripe on the sidebar */
-        .nonbinary-pride-theme .sidebar::after {
+        ${cls} .sidebar::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(to right, ${nbYellow} 0%, ${nbYellow} 25%, ${nbWhite} 25%, ${nbWhite} 50%, ${nbPurple} 50%, ${nbPurple} 75%, ${nbBlack} 75%, ${nbBlack} 100%);
+            background: ${prideFlagGradient(key)};
             border-radius: 0 0 var(--shape-corner-xl) 0;
             z-index: 10;
         }
 
-        .nonbinary-pride-theme .logo-area h2,
-        .nonbinary-pride-theme .welcome-title {
+        ${cls} .logo-area h2,
+        ${cls} .welcome-title {
             background: ${textGradient} !important;
             background-size: 300% 300% !important;
             -webkit-background-clip: text !important;
             background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
-            animation: nonbinaryGradientShift 6s ease-in-out infinite !important;
+            animation: prideGradientShift 6s ease-in-out infinite !important;
         }
 
-        .nonbinary-pride-theme .benchmark-bar {
-            background: linear-gradient(90deg, ${nbYellow}, ${nbPurple}) !important;
+        ${cls} .benchmark-bar {
+            background: ${barGradient} !important;
         }
 
-        .nonbinary-pride-theme .nav-item.active {
-            background: linear-gradient(135deg, rgba(252, 244, 52, 0.15), rgba(156, 89, 209, 0.18)) !important;
+        ${cls} .nav-item.active {
+            background: linear-gradient(135deg, ${hexToRgba(cfg.bar[0], 0.15)}, ${hexToRgba(cfg.bar[cfg.bar.length - 1], 0.18)}) !important;
         }
 
-        .nonbinary-pride-theme .btn-contained {
-            background: linear-gradient(135deg, ${nbYellow}, ${nbPurple}) !important;
+        ${cls} .btn-contained {
+            background: ${buttonGradient} !important;
             color: #1A1A2E !important;
         }
-        .nonbinary-pride-theme .btn-contained:hover {
-            box-shadow: 0 8px 24px rgba(156, 89, 209, 0.3), 0 4px 12px rgba(252, 244, 52, 0.3) !important;
+        ${cls} .btn-contained:hover {
+            box-shadow: 0 8px 24px ${hexToRgba(cfg.bar[cfg.bar.length - 1], 0.3)}, 0 4px 12px ${hexToRgba(cfg.bar[0], 0.3)} !important;
         }
 
         /* Gradient border that keeps the rounded corners (border-image would not) */
-        .nonbinary-pride-theme .welcome-credits {
+        ${cls} .welcome-credits {
             border: 2px solid transparent !important;
             border-radius: 24px !important;
             background: linear-gradient(var(--md-sys-color-surface-variant), var(--md-sys-color-surface-variant)) padding-box,
                 ${textGradient} border-box !important;
         }
 
-        .nonbinary-pride-theme .compare-header h1 {
-            background: linear-gradient(135deg, ${nbYellow}, ${nbPurple}) !important;
+        ${cls} .compare-header h1 {
+            background: ${buttonGradient} !important;
             -webkit-background-clip: text !important;
             background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
         }
 
-        .nonbinary-pride-theme ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(${nbYellow}, ${nbPurple}) !important;
+        ${cls} ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(${cfg.bar.join(', ')}) !important;
         }
 
-        @keyframes nonbinaryGradientShift {
+        @keyframes prideGradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -617,12 +686,17 @@ function applyNonbinaryPrideTheme() {
 
     const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
     if (metaThemeColor) {
-        metaThemeColor.content = isLight ? '#FAF7FF' : '#0A0810';
+        metaThemeColor.content = isLight ? cfg.metaLight : cfg.metaDark;
     }
 }
 
-function removeNonbinaryPrideTheme() {
-    document.documentElement.classList.remove('nonbinary-pride-theme');
+function removePrideTheme() {
+    Object.keys(PRIDE_THEMES).forEach(k => document.documentElement.classList.remove(`${k}-pride-theme`));
+}
+
+function hexToRgba(hex, alpha) {
+    const n = parseInt(hex.slice(1), 16);
+    return `rgba(${n >> 16}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
 }
 
 /**
@@ -630,7 +704,7 @@ function removeNonbinaryPrideTheme() {
  */
 function removeTransPrideTheme() {
     document.documentElement.classList.remove('trans-pride-theme');
-    removeNonbinaryPrideTheme();
+    removePrideTheme();
 
     // Remove inline style properties
     const root = document.documentElement;
@@ -688,8 +762,8 @@ function isTransAwarenessDate() {
         return;
     }
 
-    if (isNonbinaryPrideActive()) {
-        applyNonbinaryPrideTheme();
+    if (getActivePrideKey()) {
+        applyPrideTheme(getActivePrideKey());
         return;
     }
 
