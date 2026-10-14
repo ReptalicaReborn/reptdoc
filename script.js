@@ -2427,14 +2427,12 @@ function updateComparisonTable() {
                 ${renderCompareHeadChip(1, chip1)}
                 ${renderCompareHeadChip(2, chip2)}
             </div>
+            ${renderBenchmarkComparison(chip1, chip2)}
             ${toolbarHtml}
             ${groupsHtml}
         </div>`;
 
-    // Add visual benchmark comparison at the TOP
-    const benchmarkHtml = renderBenchmarkComparison(chip1, chip2);
-
-    container.innerHTML = benchmarkHtml + html;
+    container.innerHTML = html;
 }
 
 function renderBenchmarkComparison(chip1, chip2) {
