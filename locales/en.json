@@ -82,5 +82,9 @@
     "filter_all": "All",
     "filter_name": "Name",
     "filter_cpu": "CPU",
-    "filter_gpu": "GPU"
+    "filter_gpu": "GPU",
+    "dieshot": "Die shot",
+    "dieshot_available": "Die shot available",
+    "dieshot_credit": "Die shots by Reptalica",
+    "close": "Close"
 }

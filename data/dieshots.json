@@ -1,0 +1,522 @@
+[
+ {
+  "id": "helio-g99",
+  "title": "Helio G99",
+  "brand": "Mediatek",
+  "desc": "Upper mid-range AP released in 2022, TSMC N6. Popular in budget-to-mid gaming phones, widely adopted by Xiaomi, Redmi, and Realme.",
+  "chips": [
+   "MediaTek Helio G99"
+  ]
+ },
+ {
+  "id": "dimensity-7300",
+  "title": "Dimensity 7300",
+  "brand": "Mediatek",
+  "desc": "Midranger AP released in 2022, manufactured with TSMC N4 process.",
+  "chips": [
+   "MediaTek Dimensity 7300"
+  ]
+ },
+ {
+  "id": "dimensity-8000",
+  "title": "Dimensity 8000",
+  "brand": "Mediatek",
+  "desc": "AP released in 2022, TSMC N5. Binned down version of Dimensity 8100.",
+  "chips": [
+   "MediaTek Dimensity 8000"
+  ]
+ },
+ {
+  "id": "dimensity-8100",
+  "title": "Dimensity 8100",
+  "brand": "Mediatek",
+  "desc": "AP released in 2022, TSMC N5. Used in sub-flagship phones.",
+  "chips": [
+   "MediaTek Dimensity 8100"
+  ]
+ },
+ {
+  "id": "dimensity-8200",
+  "title": "Dimensity 8200",
+  "brand": "Mediatek",
+  "desc": "AP released in 2022, TSMC N4. D8100 ported to N4 with clock speed bump.",
+  "chips": [
+   "MediaTek Dimensity 8200"
+  ]
+ },
+ {
+  "id": "dimensity-700",
+  "title": "Dimensity 700",
+  "brand": "Mediatek",
+  "desc": "Budget 5G SoC released in 2021, TSMC N7. Used in various budget 5G smartphones.",
+  "chips": [
+   "MediaTek Dimensity 700"
+  ]
+ },
+ {
+  "id": "exynos-1080",
+  "title": "Exynos 1080",
+  "brand": "Samsung",
+  "desc": "Mid-range AP released in 2020, Samsung 5nm.",
+  "chips": [
+   "Exynos 1080"
+  ]
+ },
+ {
+  "id": "exynos-1380",
+  "title": "Exynos 1380",
+  "brand": "Samsung",
+  "desc": "Mid-range AP released in 2023, Samsung 5nm. Used in Galaxy A54/A55 and other mid-range phones.",
+  "chips": [
+   "Exynos 1380"
+  ]
+ },
+ {
+  "id": "exynos-1480",
+  "title": "Exynos 1480",
+  "brand": "Samsung",
+  "desc": "AP released in 2024, Samsung SF4. Used in higher end A/M/F series phones.",
+  "chips": [
+   "Exynos 1480"
+  ]
+ },
+ {
+  "id": "exynos-1580",
+  "title": "Exynos 1580",
+  "brand": "Samsung",
+  "desc": "AP released in 2025, Samsung SF4P. Used in higher end A/M/F series phones.",
+  "chips": [
+   "Exynos 1580"
+  ]
+ },
+ {
+  "id": "exynos-2100",
+  "title": "Exynos 2100",
+  "brand": "Samsung",
+  "desc": "Flagship AP released in 2021, Samsung 5nm. Used in Galaxy S21 series.",
+  "chips": [
+   "Exynos 2100"
+  ]
+ },
+ {
+  "id": "exynos-2500",
+  "title": "Exynos 2500",
+  "brand": "Samsung",
+  "desc": "Flagship AP, Samsung SF3. Features RDNA 3.5 based Xclipse GPU.",
+  "chips": [
+   "Exynos 2500"
+  ]
+ },
+ {
+  "id": "exynos-990",
+  "title": "Exynos 990",
+  "brand": "Samsung",
+  "desc": "AP released in 2020, Samsung 8nm. Used in Galaxy S20 series.",
+  "chips": [
+   "Exynos 990"
+  ]
+ },
+ {
+  "id": "exynos-2600",
+  "title": "Exynos 2600",
+  "brand": "Samsung",
+  "desc": "AP released in 2026 with a RDNA 4 based GPU, Samsung SF2. Used in Galaxy S26 series.",
+  "chips": [
+   "Exynos 2600"
+  ]
+ },
+ {
+  "id": "tensor",
+  "title": "Tensor",
+  "brand": "Google",
+  "desc": "Google's first custom SoC, 2021, Samsung 5nm. Used in Pixel 6 series.",
+  "chips": [
+   "Google Tensor G1"
+  ]
+ },
+ {
+  "id": "tensor-g2",
+  "title": "Tensor G2",
+  "brand": "Google",
+  "desc": "SoC released in 2022, Samsung 5nm. Used in Pixel 7 series.",
+  "chips": [
+   "Google Tensor G2"
+  ]
+ },
+ {
+  "id": "tensor-g3",
+  "title": "Tensor G3",
+  "brand": "Google",
+  "desc": "SoC released in 2023, Samsung SF4P. Used in Pixel 8 series.",
+  "chips": [
+   "Google Tensor G3"
+  ]
+ },
+ {
+  "id": "tensor-g5",
+  "title": "Tensor G5",
+  "brand": "Google",
+  "desc": "SoC released in 2025, TSMC N3P. Used in Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold.",
+  "chips": [
+   "Google Tensor G5"
+  ]
+ },
+ {
+  "id": "qualcomm-snapdragon-855",
+  "title": "Snapdragon 855",
+  "brand": "Qualcomm",
+  "desc": "Flagship AP released in 2018, TSMC N7.",
+  "chips": [
+   "Snapdragon 855",
+   "Snapdragon 855+"
+  ]
+ },
+ {
+  "id": "snapdragon-8-gen-1",
+  "title": "Snapdragon 8 Gen 1",
+  "brand": "Qualcomm",
+  "desc": "Flagship AP released in 2021, Samsung 4nm. Known for thermal issues.",
+  "chips": [
+   "Snapdragon 8 Gen 1"
+  ]
+ },
+ {
+  "id": "snapdragon-8plus-gen-1",
+  "title": "Snapdragon 8+ Gen 1",
+  "brand": "Qualcomm",
+  "desc": "Flagship AP released in 2022, TSMC N4. Fixed the 8 Gen 1's thermal issues.",
+  "chips": [
+   "Snapdragon 8+ Gen 1"
+  ]
+ },
+ {
+  "id": "qualcomm-snapdragon-x-elite",
+  "title": "Snapdragon X Elite",
+  "brand": "Qualcomm",
+  "desc": "High-performance ARM PC processor, 2024, TSMC N4. Oryon custom cores for Windows on ARM laptops.",
+  "chips": [
+   "Snapdragon X Elite (X1E-00-1DE)",
+   "Snapdragon X Elite (X1E-84-100)",
+   "Snapdragon X Elite (X1E-80-100)",
+   "Snapdragon X Elite (X1E-78-100)"
+  ]
+ },
+ {
+  "id": "snapdragon-778g",
+  "title": "Snapdragon 778G",
+  "brand": "Qualcomm",
+  "desc": "Upper mid-range AP, 2021, TSMC N5. Featured in Galaxy A52s 5G, Mi 11 Lite 5G NE, and others.",
+  "chips": [
+   "Snapdragon 778G",
+   "Snapdragon 778G+"
+  ]
+ },
+ {
+  "id": "snapdragon-780g",
+  "title": "Snapdragon 780G",
+  "brand": "Qualcomm",
+  "desc": "Upper mid-range AP, 2021, SF5E, mini 888 or sort.",
+  "chips": [
+   "Snapdragon 780G"
+  ]
+ },
+ {
+  "id": "snapdragon-7plus-gen-3-8s-gen-3",
+  "title": "Snapdragon 7+ Gen 3 / 8s Gen 3",
+  "brand": "Qualcomm",
+  "desc": "Shared die between two SKUs, 2024, TSMC N4P. Same silicon, different clocks and branding for mid vs sub-flagship tiers.",
+  "chips": [
+   "Snapdragon 7+ Gen 3",
+   "Snapdragon 8s Gen 3"
+  ]
+ },
+ {
+  "id": "snapdragon-8-elite",
+  "title": "Snapdragon 8 Elite",
+  "brand": "Qualcomm",
+  "desc": "Flagship AP, 2024, TSMC N3E. First Qualcomm chip with Oryon custom cores.",
+  "chips": [
+   "Snapdragon 8 Elite"
+  ]
+ },
+ {
+  "id": "snapdragon-7-gen-3",
+  "title": "Snapdragon 7 Gen 3",
+  "brand": "Qualcomm",
+  "desc": "Mid-range AP released in 2023, TSMC N4.",
+  "chips": [
+   "Snapdragon 7 Gen 3"
+  ]
+ },
+ {
+  "id": "snapdragon-4-gen-2-4",
+  "title": "Snapdragon 4 Gen 2/4",
+  "brand": "Qualcomm",
+  "desc": "Qualcomm Recycling Masterclass™. Samsung 4LPX.",
+  "chips": [
+   "Snapdragon 4 Gen 2",
+   "Snapdragon 4 Gen 4"
+  ]
+ },
+ {
+  "id": "loongson-3a6000",
+  "title": "Loongson 3A6000",
+  "brand": "Loongson",
+  "desc": "Quad-core desktop processor released in 2023, 12nm. Based on LoongArch (LA664).",
+  "chips": [
+   "Loongson 3A6000"
+  ]
+ },
+ {
+  "id": "xiaomi-xring-o1",
+  "title": "XRing O1",
+  "brand": "Xiaomi",
+  "desc": "SoC released in 2025, TSMC N3E. Used in Xiaomi 15S Pro, Pad 7 Ultra, Pad 7S Pro.",
+  "chips": [
+   "Xiaomi XRing o1"
+  ]
+ },
+ {
+  "id": "xiaomi-pinecone-surge-s1",
+  "title": "Pinecone Surge S1",
+  "brand": "Xiaomi",
+  "desc": "Mid-range SoC, 2017, TSMC 28nm HPC+. Xiaomi's first in-house chipset, featured in Mi 5c.",
+  "chips": [
+   "Xiaomi Surge S1"
+  ]
+ },
+ {
+  "id": "huawei-hisilicon-kirin-980",
+  "title": "Kirin 980",
+  "brand": "Huawei",
+  "desc": "Flagship AP, 2018, TSMC N7. Used in Mate 20 series, P30 series, Honor 20 series...",
+  "chips": [
+   "HiSilicon Kirin 980"
+  ]
+ },
+ {
+  "id": "huawei-hisilicon-kirin-9000",
+  "title": "Kirin 9000",
+  "brand": "Huawei",
+  "desc": "Flagship AP, 2020, TSMC N5. Used in Mate 40 Pro. Last Kirin on advanced TSMC nodes before sanctions.",
+  "chips": [
+   "HiSilicon Kirin 9000"
+  ]
+ },
+ {
+  "id": "tsinghua-unigroup-unisoc-t820-t9100",
+  "title": "Unisoc T820 / T9100",
+  "brand": "Unisoc",
+  "desc": "Mid-range 5G SoC, 2022, TSMC N6. Featured in ZTE shitters and some handheld android consoles.",
+  "chips": [
+   "Unisoc T820 / T9100"
+  ]
+ },
+ {
+  "id": "apple-a4",
+  "title": "Apple A4",
+  "brand": "Apple",
+  "desc": "Apple's first in-house SoC, 2010, Samsung 45nm. Single Cortex-A8 core, powered the original iPad and iPhone 4.",
+  "chips": [
+   "A4"
+  ]
+ },
+ {
+  "id": "apple-a5-apl7498",
+  "title": "Apple A5 (APL7498)",
+  "brand": "Apple",
+  "desc": "Special variant for Apple TV 3rd Gen. 32nm node, 1 CPU core and 2 GPU EUs removed vs original A5.",
+  "chips": [
+   "A5"
+  ]
+ },
+ {
+  "id": "apple-a5",
+  "title": "Apple A5",
+  "brand": "Apple",
+  "desc": "Dual-core SoC released in 2011, Samsung 45nm. Powered iPhone 4S, iPad 2, and iPod touch 5th gen.",
+  "chips": [
+   "A5"
+  ]
+ },
+ {
+  "id": "apple-a6",
+  "title": "Apple A6",
+  "brand": "Apple",
+  "desc": "Apple's first custom-designed CPU core (Swift). Released in 2012, Samsung 32nm. Powered iPhone 5.",
+  "chips": [
+   "A6"
+  ]
+ },
+ {
+  "id": "apple-a7",
+  "title": "Apple A7",
+  "brand": "Apple",
+  "desc": "First 64-bit mobile SoC, 2013, Samsung 28nm. Dual-core Cyclone CPU, powered iPhone 5s with Touch ID.",
+  "chips": [
+   "A7"
+  ]
+ },
+ {
+  "id": "apple-a8",
+  "title": "Apple A8",
+  "brand": "Apple",
+  "desc": "SoC released in 2014, TSMC 20nm. Dual-core Typhoon CPU, powered iPhone 6 and iPad mini 4.",
+  "chips": [
+   "A8"
+  ]
+ },
+ {
+  "id": "apple-a9-samsung",
+  "title": "Apple A9 (Samsung)",
+  "brand": "Apple",
+  "desc": "Samsung 14nm variant of the A9. Dual-sourced with TSMC for iPhone 6s, notable for \"chipgate\" battery life controversy.",
+  "chips": [
+   "A9"
+  ]
+ },
+ {
+  "id": "apple-a9-tsmc",
+  "title": "Apple A9 (TSMC)",
+  "brand": "Apple",
+  "desc": "TSMC 16nm variant of the A9. Dual-sourced with Samsung for iPhone 6s, slightly better battery life in \"chipgate\" tests.",
+  "chips": [
+   "A9"
+  ]
+ },
+ {
+  "id": "apple-a10",
+  "title": "Apple A10 Fusion",
+  "brand": "Apple",
+  "desc": "First quad-core Apple SoC famous for being a big or LITTLE SoC, 2016, TSMC 16nm. Powered iPhone 7 and iPad 6th/7th gen.",
+  "chips": [
+   "A10 Fusion"
+  ]
+ },
+ {
+  "id": "apple-a11",
+  "title": "Apple A11 Bionic",
+  "brand": "Apple",
+  "desc": "Apple's first SoC with a Neural Engine, released in 2017, TSMC 10nm. Powered iPhone 8 and the iconic iPhone X.",
+  "chips": [
+   "A11 Bionic"
+  ]
+ },
+ {
+  "id": "apple-a12",
+  "title": "Apple A12 Bionic",
+  "brand": "Apple",
+  "desc": "The industry's first mass-market 7nm SoC, 2018, TSMC N7. Powered iPhone XS, XR, and iPad Air 3rd Gen.",
+  "chips": [
+   "A12 Bionic"
+  ]
+ },
+ {
+  "id": "apple-a12x-z",
+  "title": "Apple A12X / A12Z Bionic",
+  "brand": "Apple",
+  "desc": "High-performance tablet SoC, 2018/2020, TSMC N7. 8-core CPU + 7/8-core GPU. Powered iPad Pro 3rd/4th Gen and brief Mac transition via DTK.",
+  "chips": [
+   "A12X / A12Z Bionic"
+  ]
+ },
+ {
+  "id": "apple-a13",
+  "title": "Apple A13 Bionic",
+  "brand": "Apple",
+  "desc": "Flagship SoC released in 2019, TSMC N7P. Powered iPhone 11 series and the 2nd generation iPhone SE.",
+  "chips": [
+   "A13 Bionic"
+  ]
+ },
+ {
+  "id": "apple-a14",
+  "title": "Apple A14 Bionic",
+  "brand": "Apple",
+  "desc": "The first commercially available 5nm chip, 2020, TSMC N5. Powered the iPhone 12 series and iPad Air 4th Gen.",
+  "chips": [
+   "A14 Bionic"
+  ]
+ },
+ {
+  "id": "apple-a15",
+  "title": "Apple A15 Bionic",
+  "brand": "Apple",
+  "desc": "Released in 2021, TSMC N5P. Featured in iPhone 13/14 series and iPad mini 6th Gen with specialized GPU variants.",
+  "chips": [
+   "A15 Bionic"
+  ]
+ },
+ {
+  "id": "apple-a16",
+  "title": "Apple A16 Bionic",
+  "brand": "Apple",
+  "desc": "Flagship SoC released in 2022, TSMC N4P. Powering the iPhone 14 Pro and iPhone 15 series.",
+  "chips": [
+   "A16 Bionic"
+  ]
+ },
+ {
+  "id": "apple-a17-pro",
+  "title": "Apple A17 Pro",
+  "brand": "Apple",
+  "desc": "Flagship SoC released in 2023, TSMC N3B. First 3nm mobile chip, hardware ray tracing GPU. Powered iPhone 15 Pro series.",
+  "chips": [
+   "A17 Pro"
+  ]
+ },
+ {
+  "id": "apple-a18-pro",
+  "title": "Apple A18 Pro",
+  "brand": "Apple",
+  "desc": "Flagship SoC released in 2024, TSMC N3E. Enhanced Neural Engine for Apple Intelligence. Powered iPhone 16 Pro series.",
+  "chips": [
+   "A18 Pro"
+  ]
+ },
+ {
+  "id": "apple-a19-pro",
+  "title": "Apple A19 Pro",
+  "brand": "Apple",
+  "desc": "Flagship SoC released in 2025, TSMC N3P. The best. Undisputed (just ignore the GPU pls).",
+  "chips": [
+   "A19 Pro"
+  ]
+ },
+ {
+  "id": "apple-m2",
+  "title": "Apple M2",
+  "brand": "Apple",
+  "desc": "Second-gen Apple Silicon, 2022, TSMC N5P. 8-core CPU + 10-core GPU, powered MacBook Air/Pro 13\" and iPad Pro.",
+  "chips": [
+   "M2"
+  ]
+ },
+ {
+  "id": "apple-m2-pro",
+  "title": "Apple M2 Pro",
+  "brand": "Apple",
+  "desc": "Pro-tier Apple Silicon, 2023, TSMC N5P. Up to 12-core CPU + 19-core GPU, powered MacBook Pro 14\"/16\" and Mac mini.",
+  "chips": [
+   "M2 Pro"
+  ]
+ },
+ {
+  "id": "apple-m3",
+  "title": "Apple M3",
+  "brand": "Apple",
+  "desc": "Third-gen Apple Silicon, 2023, TSMC N3B. 8-core CPU + 10-core GPU, powered MacBook Air 15\" and iMac.",
+  "chips": [
+   "M3"
+  ]
+ },
+ {
+  "id": "apple-m4",
+  "title": "Apple M4",
+  "brand": "Apple",
+  "desc": "Fourth-gen Apple Silicon, 2024, TSMC N3E. 10-core CPU + 10-core GPU, powered iPad Pro and MacBook Air.",
+  "chips": [
+   "M4"
+  ]
+ }
+]
