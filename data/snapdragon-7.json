@@ -10,7 +10,7 @@
   "partNumber": "SM7750-AB",
   "releaseDate": "2025.05",
   "process": "TSMC 4nm (N4)",
-  "dieSize": "unknown",
+  "dieSize": "70.35mm²",
   "architecture": "ARMv9.2-A",
   "cpu": {
    "specs": "1x Cortex-A720 @ 2.80 GHz + 4x Cortex-A720 @ 2.40 GHz + 3x Cortex-A520 @ 1.84 GHz",
