@@ -683,6 +683,7 @@ const changelogData = [
                 "Shared compare links now use your theme, so the embed card matches your colours (pride themes included, gradients and all)",
                 "Searching now shows binned variants, grouped under their main chip with the variant switcher",
                 "Binned variants now show the die shot of the chip they're cut from",
+                "Redesigned the compare table: chip names stay pinned while you scroll, specs stack neatly on phones, the better value is highlighted, CPUs show a core and clock summary, and you can hide identical rows",
                 "Fixed the Language & Theme button on the compare page doing nothing",
                 "Fixed square corners on the credits box in the trans theme",
                 "A few new easter eggs to find 👀"
@@ -2242,6 +2243,122 @@ window.clearChip = function (slot) {
 }
 
 
+const COMPARE_CATEGORY_ICONS = {
+    category_basic: 'info',
+    category_cpu: 'memory',
+    category_gpu: 'videogame_asset',
+    category_npu: 'psychology',
+    category_connectivity: 'cell_tower',
+    category_memory: 'sd_card',
+    category_arch: 'architecture'
+};
+
+function isEmptySpecValue(v) {
+    return !v || v === '-' || v === 'N/A' || v === 'unknown';
+}
+
+// Comparable numbers for the few specs where "better" is unambiguous.
+// Returns null when a value can't be parsed cleanly, so nothing is highlighted.
+const compareRules = {
+    releaseDate: {
+        better: 'higher', tag: 'cmp_newer', parse: v => {
+            const m = String(v).match(/^(\d{4})(?:\.(Q[1-4]|\d{1,2}))?/i);
+            if (!m) return null;
+            let month = 0;
+            if (m[2]) month = /^q/i.test(m[2]) ? parseInt(m[2].slice(1)) * 3 - 2 : parseInt(m[2]);
+            return parseInt(m[1]) * 12 + month;
+        }
+    },
+    process: {
+        better: 'lower', tag: 'cmp_smaller_node', parse: v => {
+            const s = String(v);
+            const nm = s.match(/(\d+(?:\.\d+)?)\s*nm/i);
+            if (nm) return parseFloat(nm[1]);
+            const n = s.match(/\bN(\d)\b/);
+            return n ? parseFloat(n[1]) : null;
+        }
+    },
+    'cpu.l2Cache': { better: 'higher', tag: 'cmp_larger', parse: v => parseCacheSize(v) },
+    'cpu.l3Cache': { better: 'higher', tag: 'cmp_larger', parse: v => parseCacheSize(v) },
+    slc: { better: 'higher', tag: 'cmp_larger', parse: v => parseCacheSize(v) }
+};
+
+// Only plain "16 MB" / "512KB" values; anything with per-cluster breakdowns is skipped.
+function parseCacheSize(v) {
+    const m = String(v).trim().match(/^(\d+(?:\.\d+)?)\s*(MB|KB)$/i);
+    if (!m) return null;
+    return parseFloat(m[1]) * (m[2].toUpperCase() === 'MB' ? 1024 : 1);
+}
+
+// Returns 1 or 2 for the winning slot, 0 for no clear winner.
+function getSpecWinner(key, v1, v2) {
+    const rule = compareRules[key];
+    if (!rule || isEmptySpecValue(v1) || isEmptySpecValue(v2)) return 0;
+    const n1 = rule.parse(v1);
+    const n2 = rule.parse(v2);
+    if (n1 === null || n2 === null || n1 === n2) return 0;
+    const firstWins = rule.better === 'higher' ? n1 > n2 : n1 < n2;
+    return firstWins ? 1 : 2;
+}
+
+// "2x 4.93 GHz (Everest) + 4x 2.64 GHz (Sawtooth)" -> "6 cores · 4.93 GHz max"
+function getCpuSummary(specString) {
+    if (typeof specString !== 'string') return '';
+    const clusters = specString.split('+');
+    let cores = 0;
+    let maxGhz = 0;
+    for (const c of clusters) {
+        const count = c.trim().match(/^(\d+)\s*x/i);
+        if (!count) { cores = 0; break; }
+        cores += parseInt(count[1]);
+    }
+    const clockRe = /(\d+(?:\.\d+)?)\s*(GHz|MHz)/gi;
+    let m;
+    while ((m = clockRe.exec(specString)) !== null) {
+        const ghz = parseFloat(m[1]) / (m[2].toLowerCase() === 'mhz' ? 1000 : 1);
+        if (ghz > maxGhz) maxGhz = ghz;
+    }
+    const parts = [];
+    if (cores) parts.push(`${cores} ${t('cmp_cores')}`);
+    if (maxGhz) parts.push(`${t('cmp_up_to')} ${parseFloat(maxGhz.toFixed(2))} GHz`);
+    return parts.join(' · ');
+}
+
+function renderCompareCell(slot, key, value, winner) {
+    const isWin = winner === slot;
+    let inner;
+    if (value === null) {
+        inner = '<span class="cmp-empty">—</span>';
+    } else if (key === 'cpu.specs' && typeof value === 'string' && !isEmptySpecValue(value)) {
+        const summary = getCpuSummary(value);
+        inner = (summary ? `<div class="cmp-cpu-summary">${escapeHtml(summary)}</div>` : '') + formatCpuSpecs(value);
+    } else {
+        const empty = isEmptySpecValue(value);
+        inner = `<span class="${empty ? 'cmp-empty' : 'cmp-text'}">${formatValue(value)}</span>`;
+    }
+    const tag = isWin ? `<span class="cmp-win-tag"><span class="material-icons-round">arrow_upward</span>${t(compareRules[key].tag)}</span>` : '';
+    return `<div class="cmp-val cmp-slot-${slot}${isWin ? ' is-win' : ''}">${inner}${tag}</div>`;
+}
+
+function renderCompareHeadChip(slot, chip) {
+    if (!chip) {
+        return `<div class="cmp-head-chip cmp-slot-${slot} is-placeholder"><span class="cmp-head-name">${t('select_soc')}</span></div>`;
+    }
+    return `
+        <div class="cmp-head-chip cmp-slot-${slot}">
+            <span class="cmp-head-logo">${getBrandLogoGlobal(chip.manufacturer, '20px')}</span>
+            <span class="cmp-head-name">${escapeHtml(chip.name)}</span>
+        </div>`;
+}
+
+window.toggleCompareDiffOnly = function () {
+    window.compareDiffOnly = !window.compareDiffOnly;
+    const sheet = document.querySelector('.cmp-sheet');
+    if (sheet) sheet.classList.toggle('diff-only', window.compareDiffOnly);
+    const sw = document.querySelector('.cmp-diff-toggle');
+    if (sw) sw.setAttribute('aria-checked', window.compareDiffOnly ? 'true' : 'false');
+};
+
 function updateComparisonTable() {
     const container = document.getElementById('comparison-table-wrapper');
     const chip1 = comparisonState[1];
@@ -2252,38 +2369,66 @@ function updateComparisonTable() {
         return;
     }
 
-    let html = '<table class="comparison-table">';
-    html += `<thead><tr><th>${t('specs')}</th>`;
-    html += `<th>${chip1 ? escapeHtml(chip1.name) : t('select_soc')}</th>`;
-    html += `<th>${chip2 ? escapeHtml(chip2.name) : t('select_soc')}</th>`;
-    html += '</tr></thead><tbody>';
+    const bothSelected = chip1 && chip2;
+    let groupsHtml = '';
 
     tableStructure.forEach(group => {
         // Skip benchmarks in table - we'll render them separately
         if (group.category === "category_benchmarks") return;
 
-        html += `<tr><td colspan="3" class="comparison-category">${t(group.category)}</td></tr>`;
+        let rowsHtml = '';
+        let allSame = true;
 
         group.rows.forEach(row => {
-            let v1 = chip1 ? getNestedValue(chip1, row.key) : '-';
-            let v2 = chip2 ? getNestedValue(chip2, row.key) : '-';
+            let v1 = chip1 ? getNestedValue(chip1, row.key) : null;
+            let v2 = chip2 ? getNestedValue(chip2, row.key) : null;
 
-            if (v1 === undefined || v1 === 'undefined') v1 = 'unknown';
-            if (v2 === undefined || v2 === 'undefined') v2 = 'unknown';
+            if (v1 === 'undefined') v1 = 'unknown';
+            if (v2 === 'undefined') v2 = 'unknown';
 
-            if ((!v1 || v1 === '-' || v1 === 'N/A' || v1 === 'unknown') && (!v2 || v2 === '-' || v2 === 'N/A' || v2 === 'unknown')) return;
+            if ((v1 === null || isEmptySpecValue(v1)) && (v2 === null || isEmptySpecValue(v2))) return;
 
-            let labelHtml = t(row.label);
+            const same = bothSelected && String(v1).trim().toLowerCase() === String(v2).trim().toLowerCase();
+            if (!same) allSame = false;
+            const winner = bothSelected ? getSpecWinner(row.key, v1, v2) : 0;
 
-            html += `<tr>`;
-            html += `<td class="feature-label">${labelHtml}</td>`;
-            html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v1) : formatValue(v1)}</td>`;
-            html += `<td class="val-col">${row.key === 'cpu.specs' ? formatCpuSpecs(v2) : formatValue(v2)}</td>`;
-            html += `</tr>`;
+            rowsHtml += `
+                <div class="cmp-row${same ? ' is-same' : ''}">
+                    <div class="cmp-label">${t(row.label)}</div>
+                    ${renderCompareCell(1, row.key, v1, winner)}
+                    ${renderCompareCell(2, row.key, v2, winner)}
+                </div>`;
         });
+
+        if (!rowsHtml) return;
+
+        const icon = COMPARE_CATEGORY_ICONS[group.category] || 'tune';
+        groupsHtml += `
+            <section class="cmp-group${allSame && bothSelected ? ' is-same' : ''}">
+                <h3 class="cmp-group-title"><span class="material-icons-round">${icon}</span>${t(group.category)}</h3>
+                ${rowsHtml}
+            </section>`;
     });
 
-    html += '</tbody></table>';
+    const diffOnly = !!window.compareDiffOnly && bothSelected;
+    const toolbarHtml = bothSelected ? `
+        <div class="cmp-toolbar">
+            <button class="cmp-diff-toggle" role="switch" aria-checked="${diffOnly}" data-action="toggleCompareDiffOnly">
+                <span class="cmp-switch"><span class="cmp-switch-knob"></span></span>
+                ${t('cmp_diff_only')}
+            </button>
+        </div>` : '';
+
+    const html = `
+        <div class="cmp-sheet${diffOnly ? ' diff-only' : ''}">
+            <div class="cmp-head">
+                <div class="cmp-head-label">${t('specs')}</div>
+                ${renderCompareHeadChip(1, chip1)}
+                ${renderCompareHeadChip(2, chip2)}
+            </div>
+            ${toolbarHtml}
+            ${groupsHtml}
+        </div>`;
 
     // Add visual benchmark comparison at the TOP
     const benchmarkHtml = renderBenchmarkComparison(chip1, chip2);
@@ -2535,6 +2680,9 @@ document.addEventListener('click', (e) => {
             break;
         case 'toggleGpuBenchmark':
             toggleGpuBenchmark();
+            break;
+        case 'toggleCompareDiffOnly':
+            toggleCompareDiffOnly();
             break;
         case 'clearChip':
             clearChip(parseInt(target.dataset.slot));
