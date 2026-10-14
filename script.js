@@ -353,7 +353,7 @@ function renderTable(dataRaw, isSearch, fullData) {
                 ${variantSwitcherHtml}
                 ${quickHtmlOut}
                 <div class="chip-card-action-bar">
-                    <span class="view-specs-text">${t('view_full_specs') || 'View Full Specs'}</span>
+                    <span class="view-specs-text">${t('view_full_specs') || 'View full specs'}</span>
                     <span class="material-icons-round expand-icon" id="icon-expand-${index}">expand_more</span>
                 </div>
                 <div class="chip-card-body" id="card-body-${index}"></div>
@@ -685,6 +685,7 @@ const changelogData = [
                 "Binned variants now show the die shot of the chip they're cut from",
                 "Redesigned the compare table: chip names stay pinned while you scroll, specs stack neatly on phones, the better value is highlighted, CPUs show a core and clock summary, and you can hide identical rows",
                 "New look across the whole site, matching the Language & Theme card: softer cards, specs shown as tiles, and a gold outline for whatever's selected",
+                "Compare page: picked chips take up less space, and once you pick one you get quick picks for the chip before/after it and its closest rivals",
                 "Fixed the Language & Theme button on the compare page doing nothing",
                 "Fixed square corners on the credits box in the trans theme",
                 "A few new easter eggs to find 👀"
@@ -1585,7 +1586,7 @@ function renderWelcomePage() {
             <div class="welcome-credits" style="margin: 0 auto 48px; padding: 24px 32px; background: var(--md-sys-color-surface-variant); border: 2px solid var(--md-sys-color-primary); border-radius: 24px; text-align: center; max-width: 800px; box-shadow: 0 16px 40px -8px rgba(0,0,0,0.15);">
                 <h3 style="display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 22px; font-weight: 700; margin-bottom: 12px; color: var(--md-sys-color-on-surface);">
                     <span class="material-icons-round" style="color: var(--md-sys-color-primary); font-size: 28px;">volunteer_activism</span> 
-                    ${t('translation_credits') || 'Translation Credits 💖'}
+                    ${t('translation_credits') || 'Translation credits 💖'}
                 </h3>
                 <p style="color: var(--md-sys-color-on-surface-variant); margin-bottom: 24px; font-size: 16px;">
                     ${t('translation_desc') || 'Massive thanks to our community translators! Want to help translate ReptDoc into your language?'}
@@ -2363,7 +2364,67 @@ window.toggleCompareDiffOnly = function () {
     if (sw) sw.setAttribute('aria-checked', window.compareDiffOnly ? 'true' : 'false');
 };
 
+// Suggestions for the empty slot once the other one is filled:
+// the chip before/after it in its series, plus close rivals from other brands
+function getQuickPicks(chip) {
+    const all = window.allChipsFlat || [];
+    const idx = all.indexOf(chip);
+    const picks = [];
+    const add = (c, label) => {
+        if (c && c !== chip && !picks.some(p => p.chip === c)) picks.push({ chip: c, label });
+    };
+
+    // Series data is listed newest first
+    const prev = all[idx + 1];
+    const next = all[idx - 1];
+    if (prev && prev.seriesLabel === chip.seriesLabel) add(prev, t('cmp_pick_predecessor'));
+    if (next && next.seriesLabel === chip.seriesLabel) add(next, t('cmp_pick_successor'));
+
+    // Rivals: other brands, released within a year, closest Geekbench 6 multi-core score
+    const parseDate = compareRules.releaseDate.parse;
+    const score = c => c.geekbench6 ? parseInt(c.geekbench6.multi) || 0 : 0;
+    const myScore = score(chip);
+    const myDate = chip.releaseDate ? parseDate(chip.releaseDate) : null;
+    if (myScore && myDate !== null) {
+        all.filter(c => {
+            if (c.manufacturer === chip.manufacturer || !score(c) || !c.releaseDate) return false;
+            const d = parseDate(c.releaseDate);
+            return d !== null && Math.abs(d - myDate) <= 12;
+        })
+            .sort((a, b) => Math.abs(Math.log(score(a) / myScore)) - Math.abs(Math.log(score(b) / myScore)))
+            .slice(0, 2)
+            .forEach(c => add(c, t('cmp_pick_rival')));
+    }
+    return picks;
+}
+
+function renderQuickPicks() {
+    [1, 2].forEach(slot => {
+        const box = document.getElementById(`picks-chip-${slot}`);
+        if (!box) return;
+        const other = comparisonState[slot === 1 ? 2 : 1];
+        const picks = (!comparisonState[slot] && other && window.allChipsFlat) ? getQuickPicks(other) : [];
+        if (!picks.length) {
+            box.innerHTML = '';
+            return;
+        }
+        box.innerHTML = `
+            <div class="quick-picks-label">${t('cmp_quick_picks')} ${escapeHtml(other.name)}</div>
+            <div class="quick-picks-row">
+                ${picks.map(p => `
+                    <button class="quick-pick" data-action="selectChip" data-slot="${slot}" data-index="${window.allChipsFlat.indexOf(p.chip)}">
+                        <span class="quick-pick-logo">${getBrandLogoGlobal(p.chip.manufacturer, '18px')}</span>
+                        <span class="quick-pick-text">
+                            <span class="quick-pick-name">${escapeHtml(p.chip.name)}</span>
+                            <span class="quick-pick-tag">${p.label}</span>
+                        </span>
+                    </button>`).join('')}
+            </div>`;
+    });
+}
+
 function updateComparisonTable() {
+    renderQuickPicks();
     const container = document.getElementById('comparison-table-wrapper');
     const chip1 = comparisonState[1];
     const chip2 = comparisonState[2];

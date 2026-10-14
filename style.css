@@ -4506,3 +4506,204 @@ body.light-mode .changelog-content {
         max-width: none;
     }
 }
+
+/* ---------- Compare: compact selector cards ---------- */
+.selector-card,
+body.light-mode .selector-card {
+    padding: 12px;
+    gap: 12px;
+}
+
+.selector-search-box {
+    height: 52px;
+}
+
+.autocomplete-results {
+    top: 72px;
+    left: 12px;
+    right: 12px;
+}
+
+.selected-chip-display {
+    display: none;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+        "icon name remove"
+        "icon detail remove";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 0;
+    padding: 0;
+    text-align: left;
+    height: auto;
+}
+
+.selected-chip-display.active {
+    display: grid;
+}
+
+.selected-chip-icon,
+body.light-mode .selected-chip-icon {
+    grid-area: icon;
+    width: 52px;
+    height: 52px;
+    box-shadow: none;
+}
+
+.selected-chip-icon img,
+.selected-chip-icon svg,
+.selected-chip-icon .material-icons-round {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 30px !important;
+}
+
+.selected-chip-name,
+body.light-mode .selected-chip-name {
+    grid-area: name;
+    align-self: end;
+    font-size: 1.15rem;
+    color: var(--md-sys-color-on-surface);
+    letter-spacing: 0;
+    line-height: 1.25;
+}
+
+.selected-chip-detail {
+    grid-area: detail;
+    align-self: start;
+    margin-top: 0;
+    font-size: 0.8rem;
+    opacity: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.remove-chip-btn {
+    grid-area: remove;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+    color: var(--md-sys-color-error);
+    cursor: pointer;
+}
+
+.remove-chip-btn:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+body.light-mode .remove-chip-btn {
+    color: #BA1A1A;
+}
+
+/* ---------- Compare: quick picks ---------- */
+.quick-picks:empty {
+    display: none;
+}
+
+.quick-picks-label {
+    margin: 0 4px 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.quick-picks-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+.quick-pick {
+    height: auto;
+    min-height: 56px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 8px 10px;
+    border-radius: var(--ui-radius-tile);
+    border: 2px solid transparent;
+    background: var(--ui-tile-bg);
+    color: var(--md-sys-color-on-surface);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+body.light-mode .quick-pick {
+    border-color: var(--ui-tile-border);
+}
+
+.quick-pick:hover,
+body.light-mode .quick-pick:hover {
+    background: var(--ui-selected-bg);
+    border-color: var(--md-sys-color-primary);
+}
+
+.quick-pick-logo {
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+.quick-pick-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.quick-pick-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.quick-pick-tag {
+    font-size: 0.75rem;
+    color: var(--md-sys-color-primary);
+    font-weight: 500;
+}
+
+/* ---------- Top bar buttons (Share, Language & Theme) ---------- */
+.top-bar .btn-contained {
+    background: var(--ui-section-bg) !important;
+    border: 1px solid var(--ui-section-border) !important;
+    color: var(--md-sys-color-on-surface) !important;
+    box-shadow: none !important;
+}
+
+.top-bar .btn-contained .material-icons-round {
+    color: var(--md-sys-color-primary);
+}
+
+.top-bar .btn-contained:hover {
+    background: var(--ui-selected-bg) !important;
+    border-color: var(--md-sys-color-primary) !important;
+}
+
+/* ---------- Welcome: Compare stays the main button, the rest go tonal ---------- */
+.welcome-actions .btn-contained:not([data-action="goToComparePage"]) {
+    background: var(--ui-tile-bg) !important;
+    border: 1px solid var(--ui-section-border) !important;
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+.welcome-actions .btn-contained:not([data-action="goToComparePage"]) .material-icons-round {
+    color: var(--md-sys-color-primary);
+}
+
+.welcome-actions .btn-contained:not([data-action="goToComparePage"]):hover {
+    background: var(--ui-selected-bg) !important;
+    border-color: var(--md-sys-color-primary) !important;
+}
