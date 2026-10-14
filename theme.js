@@ -439,10 +439,11 @@ function applyTransPrideTheme() {
 
         /* Welcome credits border gradient */
         .trans-pride-theme .welcome-credits {
-            border-image: linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) 1 !important;
-            border-style: solid !important;
-            border-width: 2px !important;
-            border-radius: 0 !important;
+            /* border-image ignores border-radius, so paint the gradient as a clipped background instead */
+            border: 2px solid transparent !important;
+            border-radius: 24px !important;
+            background: linear-gradient(var(--md-sys-color-surface-variant), var(--md-sys-color-surface-variant)) padding-box,
+                linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) border-box !important;
         }
 
         /* Comparison header gradient */
