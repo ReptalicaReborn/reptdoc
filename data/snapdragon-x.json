@@ -1,6 +1,7 @@
 [
  {
   "name": "Snapdragon X2 Elite Extreme (X2E-96-100)",
+  "codename": "Glymur",
   "geekbench6": {
    "single": "4080",
    "multi": "23491"
@@ -22,6 +23,7 @@
  },
  {
   "name": "Snapdragon X2 Elite (X2E-88-100)",
+  "codename": "Glymur",
   "geekbench6": {
    "single": "3838",
    "multi": "20320"
@@ -47,6 +49,7 @@
  },
  {
   "name": "Snapdragon X2 Elite (X2E-80-100)",
+  "codename": "Glymur",
   "geekbench6": {
    "single": "3770",
    "multi": "15971"

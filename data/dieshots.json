@@ -202,6 +202,17 @@
   ]
  },
  {
+  "id": "qualcomm-snapdragon-x2-elite",
+  "title": "Snapdragon X2 Elite",
+  "brand": "Qualcomm",
+  "desc": "Second-gen Snapdragon X PC processor (Glymur), 2025, TSMC N3P. 12 Oryon-P + 6 Oryon-M cores with 16 + 16 + 12 MB L2, 6x 1.5 MB SLC and an Adreno X2-90 GPU.",
+  "chips": [
+   "Snapdragon X2 Elite Extreme (X2E-96-100)",
+   "Snapdragon X2 Elite (X2E-88-100)",
+   "Snapdragon X2 Elite (X2E-80-100)"
+  ]
+ },
+ {
   "id": "snapdragon-778g",
   "title": "Snapdragon 778G",
   "brand": "Qualcomm",
@@ -265,6 +276,15 @@
   "desc": "Quad-core desktop processor released in 2023, 12nm. Based on LoongArch (LA664).",
   "chips": [
    "Loongson 3A6000"
+  ]
+ },
+ {
+  "id": "xiaomi-xring-o3",
+  "title": "XRing O3",
+  "brand": "Xiaomi",
+  "desc": "SoC released in 2026, TSMC N3P, 138.35 mm². 2x C1-Ultra + 4x C1-Premium + 4x C1-Pro, 16 MB L3 + 16 MB SLC, Mali G2-Ultra-NX MC16 and a quad-core NPU.",
+  "chips": [
+   "Xiaomi XRing o3"
   ]
  },
  {
