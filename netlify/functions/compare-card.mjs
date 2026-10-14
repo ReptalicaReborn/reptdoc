@@ -16,7 +16,15 @@ const SERIES_KEYS = [
   'tensor', 'loongson-3a', 'unisoc', 'xiaomi',
 ];
 
-const COLORS = { bg: '#12100E', panel: '#1E1B17', text: '#EDE0D4', muted: '#9C9387', accent: '#E6C275', bar: '#3A342C' };
+const DEFAULT_COLORS = { bg: '#12100E', text: '#EDE0D4', muted: '#9C9387', accent: '#E6C275', bar: '#3A342C' };
+let COLORS = DEFAULT_COLORS;
+
+// "bg.text.muted.accent.bar" as 6-digit hex; anything malformed falls back to the default look
+function parseTheme(param) {
+  if (!/^([0-9a-f]{6}\.){4}[0-9a-f]{6}$/i.test(param || '')) return DEFAULT_COLORS;
+  const [bg, text, muted, accent, bar] = param.split('.').map((c) => `#${c}`);
+  return { bg, text, muted, accent, bar };
+}
 
 let assetsPromise = null;
 let indexPromise = null;
@@ -157,6 +165,7 @@ export default async (request) => {
     const a = name1 && index.get(name1.toLowerCase());
     const b = name2 && index.get(name2.toLowerCase());
     if (!a || !b) return new Response('Unknown chip', { status: 404 });
+    COLORS = parseTheme(url.searchParams.get('theme'));
     const svg = await satori(card(a, b), { width: 1200, height: 630, fonts: assets.fonts });
     const png = new Resvg(svg).render().asPng();
     return new Response(png, {

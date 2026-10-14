@@ -1826,9 +1826,30 @@ function syncURLWithState() {
     window.history.replaceState({ path: newURL }, '', newURL);
 }
 
+// Snapshot of the active theme as "bg.text.muted.accent.bar" (hex, no #), so the
+// server-rendered embed card (netlify/functions/compare-card.mjs) can match it
+function getThemeParam() {
+    const probe = document.createElement('span');
+    probe.style.display = 'none';
+    document.body.appendChild(probe);
+    const hex = (cssVar) => {
+        probe.style.color = `var(${cssVar})`;
+        const m = getComputedStyle(probe).color.match(/\d+(\.\d+)?/g);
+        if (!m || m.length < 3) return null;
+        return m.slice(0, 3).map(n => Math.round(parseFloat(n)).toString(16).padStart(2, '0')).join('');
+    };
+    const parts = ['--md-sys-color-background', '--md-sys-color-on-surface', '--md-sys-color-on-surface-variant',
+        '--md-sys-color-primary', '--md-sys-color-surface-container-highest'].map(hex);
+    probe.remove();
+    return parts.every(Boolean) ? parts.join('.') : null;
+}
+
 function copyComparisonLink() {
-    // Current URL is kept in sync with state
-    const url = window.location.href;
+    // Current URL is kept in sync with state; the theme is only added to the copied link
+    const shareUrl = new URL(window.location.href);
+    const theme = getThemeParam();
+    if (theme) shareUrl.searchParams.set('theme', theme);
+    const url = shareUrl.toString();
     const btn = document.getElementById('share-comparison');
     const icon = btn ? btn.querySelector('.material-icons-round') : null;
 
