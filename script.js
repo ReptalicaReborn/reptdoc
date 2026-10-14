@@ -1132,6 +1132,8 @@ function showSettingsModal() {
     let displaySavedAccent = savedAccent;
     if (savedAccent === 'trans-pride') {
         displaySavedAccent = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
+    } else if (savedAccent === 'nonbinary-pride') {
+        displaySavedAccent = 'linear-gradient(to bottom, #FCF434 0%, #FCF434 25%, #FFFFFF 25%, #FFFFFF 50%, #9C59D1 50%, #9C59D1 75%, #2C2C2C 75%, #2C2C2C 100%)';
     } else if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') {
         displaySavedAccent = '#000000';
     } else if (!isLightMode && savedAccent === '#000000') {
@@ -1212,7 +1214,7 @@ function showSettingsModal() {
                 <div class="setting-item accent-presets" style="display: flex; flex-wrap: wrap; gap: 14px; padding: 12px 16px 20px 16px; justify-content: center; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s; margin-top: -12px;">
                     <div class="custom-color-picker" title="Pick a custom color">
                         <div id="accent-preview" style="background: ${displaySavedAccent.startsWith('linear-gradient') ? displaySavedAccent : displaySavedAccent}; background-color: ${displaySavedAccent.startsWith('linear-gradient') ? 'transparent' : displaySavedAccent};"></div>
-                        <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
+                        <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' || savedAccent === 'nonbinary-pride' ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
                         <span class="material-icons-round picker-icon" style="font-size: 16px;">palette</span>
                     </div>
                     <button class="accent-preset" data-color="#4CAF50" style="background: #4CAF50; flex-shrink: 0;" title="Green"></button>
@@ -1224,6 +1226,7 @@ function showSettingsModal() {
                     <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
                     <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
                     <button class="accent-preset" data-color="trans-pride" style="background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="Trans Pride Theme 🏳️‍⚧️"></button>
+                    <button class="accent-preset" data-color="nonbinary-pride" style="background: linear-gradient(to bottom, #FCF434 0%, #FCF434 25%, #FFFFFF 25%, #FFFFFF 50%, #9C59D1 50%, #9C59D1 75%, #2C2C2C 75%, #2C2C2C 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="Non-binary Pride Theme"></button>
                 </div>
             </div>
         </div>
@@ -1254,6 +1257,9 @@ function showSettingsModal() {
             if (saved === 'trans-pride') {
                 applyTransPrideTheme();
                 localStorage.setItem('reptdoc_trans_pride', 'true');
+            } else if (saved === 'nonbinary-pride') {
+                applyNonbinaryPrideTheme();
+                localStorage.setItem('reptdoc_trans_pride', 'false');
             } else {
                 applyCustomAccent(accentPicker.value);
                 localStorage.setItem('reptdoc_trans_pride', 'false');
@@ -1286,6 +1292,11 @@ function showSettingsModal() {
                 localStorage.setItem('reptdoc_trans_pride', 'true');
                 accentPreview.style.background = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
                 applyTransPrideTheme();
+            } else if (color === 'nonbinary-pride') {
+                localStorage.setItem('reptdoc_trans_pride', 'false');
+                accentPreview.style.background = 'linear-gradient(to bottom, #FCF434 0%, #FCF434 25%, #FFFFFF 25%, #FFFFFF 50%, #9C59D1 50%, #9C59D1 75%, #2C2C2C 75%, #2C2C2C 100%)';
+                removeTransPrideTheme();
+                applyNonbinaryPrideTheme();
             } else {
                 localStorage.setItem('reptdoc_trans_pride', 'false');
                 const isLight = document.body.classList.contains('light-mode');
@@ -1842,8 +1853,9 @@ function getThemeParam() {
         '--md-sys-color-primary', '--md-sys-color-surface-container-highest'].map(hex);
     probe.remove();
     if (!parts.every(Boolean)) return null;
-    // Trans pride gets the flag gradients on the card
-    return parts.join('.') + (document.documentElement.classList.contains('trans-pride-theme') ? '.trans' : '');
+    // Pride themes get the flag gradients on the card
+    const root = document.documentElement.classList;
+    return parts.join('.') + (root.contains('trans-pride-theme') ? '.trans' : root.contains('nonbinary-pride-theme') ? '.nb' : '');
 }
 
 function copyComparisonLink() {

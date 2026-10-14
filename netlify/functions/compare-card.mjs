@@ -16,18 +16,21 @@ const SERIES_KEYS = [
   'tensor', 'loongson-3a', 'unisoc', 'xiaomi',
 ];
 
-const DEFAULT_COLORS = { bg: '#12100E', text: '#EDE0D4', muted: '#9C9387', accent: '#E6C275', bar: '#3A342C', trans: false };
+const DEFAULT_COLORS = { bg: '#12100E', text: '#EDE0D4', muted: '#9C9387', accent: '#E6C275', bar: '#3A342C', pride: null };
 const TRANS_BLUE = '#55CDFC', TRANS_PINK = '#F7A8B8', TRANS_WHITE = '#FFFFFF';
+const NB_YELLOW = '#FCF434', NB_PURPLE = '#9C59D1';
+const NB_GRADIENT = `linear-gradient(90deg, ${NB_YELLOW}, ${NB_PURPLE})`;
+const NB_FLAG = `linear-gradient(90deg, ${NB_YELLOW} 0%, ${NB_YELLOW} 25%, #FFFFFF 25%, #FFFFFF 50%, ${NB_PURPLE} 50%, ${NB_PURPLE} 75%, #2C2C2C 75%, #2C2C2C 100%)`;
 const TRANS_GRADIENT = `linear-gradient(90deg, ${TRANS_BLUE}, ${TRANS_PINK})`;
 const TRANS_FLAG = `linear-gradient(90deg, ${TRANS_BLUE} 0%, ${TRANS_BLUE} 20%, ${TRANS_PINK} 20%, ${TRANS_PINK} 40%, ${TRANS_WHITE} 40%, ${TRANS_WHITE} 60%, ${TRANS_PINK} 60%, ${TRANS_PINK} 80%, ${TRANS_BLUE} 80%, ${TRANS_BLUE} 100%)`;
 let COLORS = DEFAULT_COLORS;
 
-// "bg.text.muted.accent.bar[.trans]" as 6-digit hex; anything malformed falls back to the default look
+// "bg.text.muted.accent.bar[.trans|.nb]" as 6-digit hex; anything malformed falls back to the default look
 function parseTheme(param) {
-  if (!/^([0-9a-f]{6}\.){4}[0-9a-f]{6}(\.trans)?$/i.test(param || '')) return DEFAULT_COLORS;
+  if (!/^([0-9a-f]{6}\.){4}[0-9a-f]{6}(\.(trans|nb))?$/i.test(param || '')) return DEFAULT_COLORS;
   const parts = param.split('.');
   const [bg, text, muted, accent, bar] = parts.slice(0, 5).map((c) => `#${c}`);
-  return { bg, text, muted, accent, bar, trans: parts[5] === 'trans' };
+  return { bg, text, muted, accent, bar, pride: parts[5] || null };
 }
 
 let assetsPromise = null;
@@ -93,8 +96,9 @@ function buildRows(a, b) {
     .filter((r) => r.a !== null || r.b !== null);
 }
 
-// Solid accent, or the trans flag gradient for the trans pride theme
-const fill = (color) => (COLORS.trans ? { backgroundImage: TRANS_GRADIENT } : { backgroundColor: color });
+// Solid accent, or the flag gradient for a pride theme
+const fill = (color) => (COLORS.pride === 'trans' ? { backgroundImage: TRANS_GRADIENT }
+  : COLORS.pride === 'nb' ? { backgroundImage: NB_GRADIENT } : { backgroundColor: color });
 
 const h = (type, style, children) => ({ type, props: { style, children } });
 
@@ -110,7 +114,7 @@ function valueCell(value, other, align) {
   const pct = win ? pctDiff(value, other) : null;
   const number = h('div', { display: 'flex', fontSize: 40, fontWeight: 700, color: win ? COLORS.accent : COLORS.muted },
     value === null ? '—' : value.toLocaleString('en-US'));
-  const badge = pct && h('div', { display: 'flex', fontSize: 22, fontWeight: 700, color: COLORS.trans ? '#1A1A2E' : COLORS.bg, ...fill(COLORS.accent),
+  const badge = pct && h('div', { display: 'flex', fontSize: 22, fontWeight: 700, color: COLORS.pride ? '#1A1A2E' : COLORS.bg, ...fill(COLORS.accent),
     borderRadius: 14, padding: '2px 10px', margin: align === 'left' ? '0 0 0 12px' : '0 12px 0 0' }, pct);
   const parts = align === 'left' ? [number, badge] : [badge, number];
   return h('div', { display: 'flex', alignItems: 'center', width: 290, justifyContent: align === 'left' ? 'flex-start' : 'flex-end' },
@@ -160,7 +164,7 @@ function card(a, b) {
       h('div', { display: 'flex', fontWeight: 700, color: COLORS.accent }, 'ReptDoc'),
       h('div', { display: 'flex' }, 'reptdoc.netlify.app'),
     ]),
-    COLORS.trans && h('div', { display: 'flex', position: 'absolute', left: 0, right: 0, bottom: 0, height: 10, backgroundImage: TRANS_FLAG }, ''),
+    COLORS.pride && h('div', { display: 'flex', position: 'absolute', left: 0, right: 0, bottom: 0, height: 10, backgroundImage: COLORS.pride === 'nb' ? NB_FLAG : TRANS_FLAG }, ''),
   ]);
 }
 
