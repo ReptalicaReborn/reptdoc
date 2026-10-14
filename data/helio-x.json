@@ -8,7 +8,7 @@
   "cpu": {
    "specs": "2x A73 (2.6GHz) + 4x A53 (2.2GHz) + 4x A35 (1.9GHz)",
    "l2Cache": "1MB (A73 cluster) + 512KB (A53 cluster) + 512KB (A35 cluster)",
-   "l3Cache": "75mm²"
+   "l3Cache": "N/A"
   },
   "slc": "N/A",
   "gpu": "PowerVR 7XTP-MT4 (800MHz)",

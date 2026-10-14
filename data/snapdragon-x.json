@@ -80,7 +80,7 @@
   "process": "TSMC 4nm (N4P)",
   "cpu": {
    "specs": "4x Oryon 4.3GHz (dual-core boost) 3.8 GHz (all core) + 4x Oryon 3.8 GHz + 4x Oryon 3.8 GHz",
-   "l2Cache": "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+   "l2Cache": "12MB (cluster 1) + 12MB (cluster 2) + 12MB (cluster 3)"
   },
   "gpu": "Qualcomm Adreno X1-85 1.50 GHz",
   "npu": "Qualcomm Hexagon (45 TOPS)",
@@ -105,7 +105,7 @@
   "process": "TSMC 4nm (N4P)",
   "cpu": {
    "specs": "4x Oryon 4.2GHz (dual-core boost) 3.8 GHz (all core) + 4x Oryon 3.8 GHz + 4x Oryon 3.8 GHz",
-   "l2Cache": "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+   "l2Cache": "12MB (cluster 1) + 12MB (cluster 2) + 12MB (cluster 3)"
   },
   "slc": "6MB",
   "gpu": "Qualcomm Adreno X1-85 1.50 GHz",
@@ -127,7 +127,7 @@
   "process": "TSMC 4nm (N4P)",
   "cpu": {
    "specs": "4x Oryon 4GHz (dual-core boost) 3.4 GHz (all core) + 4x Oryon 3.4 GHz + 4x Oryon 3.4 GHz",
-   "l2Cache": "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+   "l2Cache": "12MB (cluster 1) + 12MB (cluster 2) + 12MB (cluster 3)"
   },
   "slc": "6MB",
   "gpu": "Qualcomm Adreno X1-85 1.25 GHz",
@@ -153,7 +153,7 @@
   "process": "TSMC 4nm (N4P)",
   "cpu": {
    "specs": "4x Oryon 3.4 GHz + 4x Oryon 3.4 GHz + 4x Oryon 3.4 GHz",
-   "l2Cache": "12MB (cluster 1) + 12MB (cluster 1) + 12MB (cluster 1)"
+   "l2Cache": "12MB (cluster 1) + 12MB (cluster 2) + 12MB (cluster 3)"
   },
   "gpu": "Qualcomm Adreno X1-85 1.25 GHz",
   "npu": "Qualcomm Hexagon (45 TOPS)",
