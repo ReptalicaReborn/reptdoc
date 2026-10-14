@@ -85,5 +85,8 @@
     "filter_gpu": "GPU",
     "dieshot": "Die shot",
     "dieshot_available": "Die shot available",
-    "close": "Close"
+    "close": "Close",
+    "accent_colors": "Colors",
+    "accent_pride": "Pride",
+    "accent_custom": "Custom"
 }

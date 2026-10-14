@@ -1114,6 +1114,46 @@ function initSettings() {
     });
 }
 
+const SETTINGS_LANGUAGES = [
+    ['en', 'English', 'English'],
+    ['vi', 'Tiếng Việt', 'Vietnamese'],
+    ['id', 'Bahasa Indonesia', 'Indonesian'],
+    ['tl', 'Tagalog', 'Filipino'],
+    ['km', 'ភាសាខ្មែរ', 'Khmer'],
+    ['ru', 'Русский', 'Russian'],
+    ['ro', 'Română', 'Romanian'],
+    ['de', 'Deutsch', 'German'],
+    ['hu', 'Magyar', 'Hungarian'],
+    ['zh_MO', '简体中文', 'Chinese (Simplified)'],
+    ['hi', 'हिन्दी', 'Hindi'],
+    ['arz', 'العربية (مصر)', 'Arabic (Egypt)'],
+    ['ar_SA', 'العربية (السعودية)', 'Arabic (Saudi Arabia)'],
+    ['bg', 'Български', 'Bulgarian'],
+    ['tr', 'Türkçe', 'Turkish'],
+    ['ml', 'മലയാളം', 'Malayalam'],
+    ['pl', 'Polski', 'Polish'],
+];
+
+const ACCENT_SOLID_PRESETS = [
+    ['#4CAF50', 'Green', '#4CAF50'],
+    ['#2196F3', 'Blue', '#2196F3'],
+    ['#9C27B0', 'Purple', '#9C27B0'],
+    ['#FF5722', 'Deep Orange', '#FF5722'],
+    ['#FFFFFF', 'White', '#FFFFFF'],
+    ['#E91E63', 'Pink', '#E91E63'],
+    ['#FFEB3B', 'Yellow', '#FFEB3B'],
+    ['#B71C1C', 'Deep Red', 'linear-gradient(135deg, #C62828, #B71C1C)'],
+];
+
+const TRANS_FLAG_GRADIENT = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
+
+// [value stored in reptdoc_accent, label, swatch background]
+function getPrideAccentPresets() {
+    return [['trans-pride', 'Trans', TRANS_FLAG_GRADIENT]].concat(
+        Object.keys(PRIDE_THEMES).map(key => [`${key}-pride`, PRIDE_THEMES[key].label, prideFlagGradient(key, 'to bottom')])
+    );
+}
+
 function showSettingsModal() {
     // Create modal if it doesn't exist
     let modal = document.getElementById('settings-modal');
@@ -1128,17 +1168,15 @@ function showSettingsModal() {
     const savedAccent = localStorage.getItem('reptdoc_accent') || '#E6C275';
     const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
     const isLightMode = document.body.classList.contains('light-mode');
+    const pridePresets = getPrideAccentPresets();
+    const isPrideAccent = (value) => pridePresets.some(p => p[0] === value);
 
-    let displaySavedAccent = savedAccent;
-    if (savedAccent === 'trans-pride') {
-        displaySavedAccent = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
-    } else if (savedAccent.endsWith('-pride') && PRIDE_THEMES[savedAccent.slice(0, -6)]) {
-        displaySavedAccent = prideFlagGradient(savedAccent.slice(0, -6), 'to bottom');
-    } else if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') {
-        displaySavedAccent = '#000000';
-    } else if (!isLightMode && savedAccent === '#000000') {
-        displaySavedAccent = '#FFFFFF';
-    }
+    // Swatch shown inside the custom colour picker
+    let pickerSwatch = savedAccent;
+    if (isPrideAccent(savedAccent)) pickerSwatch = pridePresets.find(p => p[0] === savedAccent)[2];
+    else if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') pickerSwatch = '#000000';
+    else if (!isLightMode && savedAccent === '#000000') pickerSwatch = '#FFFFFF';
+    const pickerValue = /^#[0-9a-f]{6}$/i.test(pickerSwatch) ? pickerSwatch : '#55CDFC';
 
     // Determine the trans awareness date label (display-only decorative)
     let transDateLabel = '';
@@ -1151,106 +1189,165 @@ function showSettingsModal() {
         else transDateLabel = 'Transgender Awareness Week 🏳️‍⚧️';
     }
 
+    const languages = SETTINGS_LANGUAGES.slice();
+    if (currentLang === 'de@informal') languages.push(['de@informal', 'Bayerisch', 'Bavarian']);
+
+    const modeOption = (mode, active) => `
+        <button type="button" class="mode-option${active ? ' active' : ''}" data-mode="${mode}" role="radio" aria-checked="${active}">
+            <span class="mode-preview mode-preview-${mode}" aria-hidden="true">
+                <span class="mode-preview-sidebar"></span>
+                <span class="mode-preview-main">
+                    <span class="mode-preview-title"></span>
+                    <span class="mode-preview-line"></span>
+                    <span class="mode-preview-line short"></span>
+                    <span class="mode-preview-pill"></span>
+                </span>
+            </span>
+            <span class="mode-option-label">
+                <span class="material-icons-round">${mode === 'light' ? 'light_mode' : 'dark_mode'}</span>
+                ${escapeHtml(mode === 'light' ? t('light_mode') : t('dark_mode'))}
+                <span class="material-icons-round mode-option-check">check_circle</span>
+            </span>
+        </button>`;
+
+    const swatch = ([value, label, background], extraClass) => `
+        <button type="button" class="accent-preset${extraClass || ''}" data-color="${value}" style="background: ${background};" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}" aria-pressed="false">
+            <span class="material-icons-round accent-preset-check" aria-hidden="true">check</span>
+        </button>`;
+
     modal.innerHTML = `
-        <div class="modal-content settings-content">
-            <div class="modal-header">
-                <h2>${t('settings')}</h2>
-                <button class="btn-icon modal-close-btn" data-action="closeSettings">
+        <div class="modal-content settings-content" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+            <div class="modal-header settings-header">
+                <div class="settings-heading">
+                    <span class="material-icons-round settings-heading-icon" aria-hidden="true">tune</span>
+                    <div>
+                        <h2 id="settings-title">${escapeHtml(t('settings'))}</h2>
+                        <p class="settings-subtitle">${escapeHtml(t('lang_theme_btn'))}</p>
+                    </div>
+                </div>
+                <button class="btn-icon modal-close-btn" data-action="closeSettings" aria-label="${escapeHtml(t('close'))}">
                     <span class="material-icons-round">close</span>
                 </button>
             </div>
-            <div class="modal-body" style="padding-top: 8px;">
-                ${transDateLabel ? `<div style="text-align: center; padding: 10px 16px; background: linear-gradient(135deg, rgba(85, 205, 252, 0.12), rgba(247, 168, 184, 0.12)); border-radius: 14px; font-size: 14px; font-weight: 600; color: var(--md-sys-color-on-surface); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;"><span style="display: inline-block; width: 22px; height: 14px; border-radius: 3px; background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></span>${transDateLabel}</div>` : ''}
-                <div class="setting-item">
-                    <div class="setting-info">
-                        <h3>${t('theme_title') || 'Theme'}</h3>
+            <div class="modal-body settings-body">
+                ${transDateLabel ? `<div class="settings-banner"><span class="settings-banner-flag" style="background: ${TRANS_FLAG_GRADIENT};"></span>${transDateLabel}</div>` : ''}
+
+                <section class="settings-section">
+                    <h3 class="settings-section-title"><span class="material-icons-round" aria-hidden="true">contrast</span>${escapeHtml(t('theme_title'))}</h3>
+                    <div class="mode-picker" role="radiogroup" aria-label="${escapeHtml(t('theme_title'))}">
+                        ${modeOption('dark', !isLightMode)}
+                        ${modeOption('light', isLightMode)}
                     </div>
-                    <div class="setting-control">
-                        <button class="btn-tonal" id="modal-theme-toggle" data-action="toggleTheme" style="height: 36px; padding: 0 20px; border-radius: 999px; background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); display: flex; align-items: center; gap: 8px; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s;">
-                            <span class="material-icons-round" style="font-size: 20px;">${isLightMode ? 'light_mode' : 'dark_mode'}</span>
-                            <span style="font-size: 14px;">${isLightMode ? (t('light_mode') || 'Light') : (t('dark_mode') || 'Dark')}</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="setting-item">
-                    <div class="setting-info">
-                        <h3 style="margin-bottom: 0;">${t('language')}</h3>
-                    </div>
-                    <div class="setting-control">
-                        <select id="lang-select" style="background-color: var(--md-sys-color-surface-container-low); color: var(--md-sys-color-on-surface); border: 1px solid var(--md-sys-color-outline-variant); border-radius: 8px; padding: 6px 12px; font-weight: 500; font-family: inherit; cursor: pointer; outline: none; transition: border-color 0.2s;">
-                            <option value="en" ${currentLang === 'en' ? 'selected' : ''}>English</option>
-                            <option value="vi" ${currentLang === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
-                            <option value="id" ${currentLang === 'id' ? 'selected' : ''}>Bahasa Indonesia</option>
-                            <option value="tl" ${currentLang === 'tl' ? 'selected' : ''}>Tagalog</option>
-                            <option value="km" ${currentLang === 'km' ? 'selected' : ''}>ភាសាខ្មែរ</option>
-                            <option value="ru" ${currentLang === 'ru' ? 'selected' : ''}>Русский</option>
-                            <option value="ro" ${currentLang === 'ro' ? 'selected' : ''}>Română</option>
-                            <option value="de" ${currentLang === 'de' ? 'selected' : ''}>Deutsch</option>
-                            <option value="hu" ${currentLang === 'hu' ? 'selected' : ''}>Magyar</option>
-                            <option value="zh_MO" ${currentLang === 'zh_MO' ? 'selected' : ''}>简体中文</option>
-                            <option value="hi" ${currentLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
-                            <option value="arz" ${currentLang === 'arz' ? 'selected' : ''}>العربية (مصر)</option>
-                            <option value="ar_SA" ${currentLang === 'ar_SA' ? 'selected' : ''}>العربية (السعودية)</option>
-                            <option value="bg" ${currentLang === 'bg' ? 'selected' : ''}>Български</option>
-                            <option value="tr" ${currentLang === 'tr' ? 'selected' : ''}>Türkçe</option>
-                            <option value="ml" ${currentLang === 'ml' ? 'selected' : ''}>മലയാളം</option>
-                            <option value="pl" ${currentLang === 'pl' ? 'selected' : ''}>Polski</option>
-                            ${currentLang === 'de@informal' ? `<option value="de@informal" selected>Bayerisch</option>` : ''}
-                        </select>
-                    </div>
-                </div>
-                <div class="setting-item">
-                    <div class="setting-info">
-                        <h3>${t('accent_color') || 'Accent Color'}</h3>
-                        <p class="setting-desc" style="margin-top: 2px;">${t('accent_color_desc') || 'Customize the primary color to match your style'}</p>
-                    </div>
-                    <div class="setting-control">
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="accent-toggle" ${isAccentEnabled ? 'checked' : ''}>
+                </section>
+
+                <section class="settings-section">
+                    <div class="settings-section-row">
+                        <div>
+                            <h3 class="settings-section-title"><span class="material-icons-round" aria-hidden="true">palette</span>${escapeHtml(t('accent_color'))}</h3>
+                            <p class="setting-desc">${escapeHtml(t('accent_color_desc'))}</p>
+                        </div>
+                        <label class="toggle-switch" title="${escapeHtml(t('accent_color'))}">
+                            <input type="checkbox" id="accent-toggle" ${isAccentEnabled ? 'checked' : ''} aria-label="${escapeHtml(t('accent_color'))}">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
-                </div>
-                <div class="setting-item accent-presets" style="display: flex; flex-wrap: wrap; gap: 14px; padding: 12px 16px 20px 16px; justify-content: center; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s; margin-top: -12px;">
-                    <div class="custom-color-picker" title="Pick a custom color">
-                        <div id="accent-preview" style="background: ${displaySavedAccent.startsWith('linear-gradient') ? displaySavedAccent : displaySavedAccent}; background-color: ${displaySavedAccent.startsWith('linear-gradient') ? 'transparent' : displaySavedAccent};"></div>
-                        <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' || savedAccent.endsWith('-pride') ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
-                        <span class="material-icons-round picker-icon" style="font-size: 16px;">palette</span>
+                    <div class="accent-presets${isAccentEnabled ? '' : ' is-disabled'}">
+                        <div class="swatch-group-label">${escapeHtml(t('accent_colors'))}<span class="swatch-current" id="accent-current"></span></div>
+                        <div class="swatch-row">
+                            <label class="custom-color-picker" title="${escapeHtml(t('accent_custom'))}">
+                                <span id="accent-preview" style="background: ${pickerSwatch};"></span>
+                                <input type="color" id="accent-picker" value="${pickerValue}" ${!isAccentEnabled ? 'disabled' : ''} aria-label="${escapeHtml(t('accent_custom'))}">
+                                <span class="material-icons-round picker-icon" aria-hidden="true">colorize</span>
+                            </label>
+                            ${ACCENT_SOLID_PRESETS.map(p => swatch(p)).join('')}
+                        </div>
+                        <div class="swatch-group-label">${escapeHtml(t('accent_pride'))}</div>
+                        <div class="swatch-row">
+                            ${pridePresets.map(p => swatch(p, ' accent-preset-flag')).join('')}
+                        </div>
                     </div>
-                    <button class="accent-preset" data-color="#4CAF50" style="background: #4CAF50; flex-shrink: 0;" title="Green"></button>
-                    <button class="accent-preset" data-color="#2196F3" style="background: #2196F3; flex-shrink: 0;" title="Blue"></button>
-                    <button class="accent-preset" data-color="#9C27B0" style="background: #9C27B0; flex-shrink: 0;" title="Purple"></button>
-                    <button class="accent-preset" data-color="#FF5722" style="background: #FF5722; flex-shrink: 0;" title="Deep Orange"></button>
-                    <button class="accent-preset" data-color="#FFFFFF" style="background: #FFFFFF; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.3);" title="White"></button>
-                    <button class="accent-preset" data-color="#E91E63" style="background: #E91E63; flex-shrink: 0;" title="Pink"></button>
-                    <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
-                    <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
-                    <button class="accent-preset" data-color="trans-pride" style="background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="Trans Pride Theme 🏳️‍⚧️"></button>
-                    ${Object.keys(PRIDE_THEMES).map(key => `<button class="accent-preset" data-color="${key}-pride" style="background: ${prideFlagGradient(key, 'to bottom')}; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="${PRIDE_THEMES[key].label} Pride Theme"></button>`).join('\n                    ')}
-                </div>
+                </section>
+
+                <section class="settings-section">
+                    <h3 class="settings-section-title"><span class="material-icons-round" aria-hidden="true">translate</span>${escapeHtml(t('language'))}</h3>
+                    <div class="lang-grid" role="radiogroup" aria-label="${escapeHtml(t('language'))}">
+                        ${languages.map(([code, native, english]) => `
+                            <button type="button" class="lang-option${code === currentLang ? ' active' : ''}" data-lang="${code}" role="radio" aria-checked="${code === currentLang}" lang="${code.replace('_', '-').replace('@informal', '')}">
+                                <span class="lang-option-text">
+                                    <span class="lang-option-native">${escapeHtml(native)}</span>
+                                    <span class="lang-option-english">${escapeHtml(english)}</span>
+                                </span>
+                                <span class="material-icons-round lang-option-check" aria-hidden="true">check_circle</span>
+                            </button>`).join('')}
+                    </div>
+                </section>
             </div>
         </div>
     `;
 
     modal.classList.add('active');
 
-    // Handle language change
-    const langSelect = document.getElementById('lang-select');
-    langSelect.addEventListener('change', (e) => window.changeLanguage(e.target.value));
+    // Theme mode tiles
+    const syncModeTiles = () => {
+        const light = document.body.classList.contains('light-mode');
+        modal.querySelectorAll('.mode-option').forEach(btn => {
+            const active = (btn.dataset.mode === 'light') === light;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-checked', active);
+        });
+    };
+    modal.querySelectorAll('.mode-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const wantLight = btn.dataset.mode === 'light';
+            if (wantLight !== document.body.classList.contains('light-mode')) window.toggleTheme(btn);
+            syncModeTiles();
+        });
+    });
+
+    // Language tiles (changeLanguage reloads the page)
+    modal.querySelectorAll('.lang-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.querySelectorAll('.lang-option').forEach(b => {
+                b.classList.toggle('active', b === btn);
+                b.setAttribute('aria-checked', b === btn);
+            });
+            window.changeLanguage(btn.dataset.lang);
+        });
+    });
 
     // Handle accent toggle
     const accentToggle = document.getElementById('accent-toggle');
     const accentPicker = document.getElementById('accent-picker');
     const accentPreview = document.getElementById('accent-preview');
     const accentPresets = modal.querySelector('.accent-presets');
+    const accentCurrent = document.getElementById('accent-current');
+    const customPicker = modal.querySelector('.custom-color-picker');
+
+    // Ring the selected swatch and name it next to the "Colors" label
+    const markSelectedAccent = () => {
+        const enabled = accentToggle.checked;
+        const value = localStorage.getItem('reptdoc_accent') || '';
+        let label = '';
+        let matched = false;
+        modal.querySelectorAll('.accent-preset').forEach(btn => {
+            const selected = enabled && btn.dataset.color.toUpperCase() === value.toUpperCase();
+            btn.classList.toggle('selected', selected);
+            btn.setAttribute('aria-pressed', selected);
+            if (selected) { label = btn.title; matched = true; }
+        });
+        // The site's own gold is the default, not a custom pick
+        const isCustom = enabled && !matched && /^#[0-9a-f]{6}$/i.test(value) && value.toUpperCase() !== '#E6C275';
+        customPicker.classList.toggle('selected', isCustom);
+        if (isCustom) label = `${t('accent_custom')} · ${value.toUpperCase()}`;
+        accentCurrent.textContent = label;
+    };
 
     accentToggle.addEventListener('change', (e) => {
         const enabled = e.target.checked;
         localStorage.setItem('reptdoc_accent_enabled', enabled);
 
         accentPicker.disabled = !enabled;
-        accentPresets.style.opacity = enabled ? '1' : '0.4';
-        accentPresets.style.pointerEvents = enabled ? 'auto' : 'none';
+        accentPresets.classList.toggle('is-disabled', !enabled);
 
         if (enabled) {
             const saved = localStorage.getItem('reptdoc_accent');
@@ -1261,6 +1358,7 @@ function showSettingsModal() {
                 applyPrideTheme(getActivePrideKey());
                 localStorage.setItem('reptdoc_trans_pride', 'false');
             } else {
+                if (!saved) localStorage.setItem('reptdoc_accent', accentPicker.value);
                 applyCustomAccent(accentPicker.value);
                 localStorage.setItem('reptdoc_trans_pride', 'false');
             }
@@ -1269,6 +1367,7 @@ function showSettingsModal() {
             removeTransPrideTheme();
             localStorage.setItem('reptdoc_trans_pride', 'false');
         }
+        markSelectedAccent();
     });
 
     // Handle color picker change
@@ -1276,10 +1375,10 @@ function showSettingsModal() {
         const color = e.target.value;
         localStorage.setItem('reptdoc_accent', color);
         localStorage.setItem('reptdoc_trans_pride', 'false');
-        accentPreview.style.background = 'none';
-        accentPreview.style.backgroundColor = color;
+        accentPreview.style.background = color;
         removeTransPrideTheme();
         applyCustomAccent(color);
+        markSelectedAccent();
     });
 
     // Handle preset buttons
@@ -1290,7 +1389,7 @@ function showSettingsModal() {
 
             if (color === 'trans-pride') {
                 localStorage.setItem('reptdoc_trans_pride', 'true');
-                accentPreview.style.background = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
+                accentPreview.style.background = TRANS_FLAG_GRADIENT;
                 applyTransPrideTheme();
             } else if (color.endsWith('-pride') && PRIDE_THEMES[color.slice(0, -6)]) {
                 const key = color.slice(0, -6);
@@ -1306,20 +1405,28 @@ function showSettingsModal() {
                 else if (!isLight && color === '#000000') displayColor = '#FFFFFF';
 
                 accentPicker.value = (color === '#FFFFFF' || color === '#000000') ? displayColor : color;
-                accentPreview.style.background = 'none';
-                accentPreview.style.backgroundColor = displayColor;
+                accentPreview.style.background = displayColor;
                 removeTransPrideTheme();
                 applyCustomAccent(color);
             }
+            markSelectedAccent();
         });
     });
 
-    // Close on overlay click
+    markSelectedAccent();
+
+    // Close on overlay click or Escape
     modal.onclick = (e) => {
         if (e.target === modal) {
             modal.classList.remove('active');
         }
     };
+    if (!modal.dataset.escBound) {
+        modal.dataset.escBound = 'true';
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) modal.classList.remove('active');
+        });
+    }
 }
 
 function initChangelog() {
