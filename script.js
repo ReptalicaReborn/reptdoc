@@ -199,13 +199,30 @@ window.toggleGpuBenchmark = function () {
 };
 
 
-function renderTable(dataRaw, isSearch) {
+let _cardVariants = {};
+
+function renderTable(dataRaw, isSearch, fullData) {
     const container = document.getElementById('soc-table-container');
+    _cardVariants = {};
 
     const variantGroups = {};
     let renderData;
     if (isSearch) {
-        renderData = [...dataRaw];
+        // Group matches under their base chip so binned variants stay reachable
+        const pool = fullData || dataRaw;
+        const sameSeries = (a, b) => a.seriesKey === b.seriesKey;
+        const seen = new Set();
+        renderData = [];
+        dataRaw.forEach(chip => {
+            const base = chip.binnedOf
+                ? (pool.find(c => c.name === chip.binnedOf && !c.binnedOf && sameSeries(c, chip)) || chip)
+                : chip;
+            if (seen.has(base)) return;
+            seen.add(base);
+            renderData.push(base);
+            variantGroups[base.name + '\u0000' + (base.seriesKey || '')] = base.binnedOf ? [] :
+                pool.filter(c => c.binnedOf === base.name && sameSeries(c, base));
+        });
     } else {
         renderData = [];
         dataRaw.forEach(chip => {
@@ -251,9 +268,10 @@ function renderTable(dataRaw, isSearch) {
     let gridHtml = '<div class="chip-grid">';
 
     renderData.forEach((chip, index) => {
-        const variants = isSearch ? [] : (variantGroups[chip.name] || []);
+        const variants = isSearch ? (variantGroups[chip.name + '\u0000' + (chip.seriesKey || '')] || []) : (variantGroups[chip.name] || []);
         const allChips = [chip, ...variants];
         const hasVariants = variants.length > 0;
+        _cardVariants[`card-${index}`] = allChips;
         const fileManufacturer = manufacturer === 'Global' ? chip.manufacturer : manufacturer;
         const localLogoHtml = getBrandLogoHtml(fileManufacturer);
 
@@ -356,11 +374,8 @@ function renderTable(dataRaw, isSearch) {
 window.switchVariant = function (cardId, variantIndex) {
     const card = document.getElementById(cardId);
     if (!card) return;
-    const allNames = JSON.parse(card.dataset.variants);
     const chipIndex = parseInt(cardId.replace('card-', ''));
-    const seriesData = seriesDataMap[currentSeries].data;
-    const chipName = allNames[variantIndex];
-    const chip = seriesData.find(c => c.name === chipName);
+    const chip = (_cardVariants[cardId] || [])[variantIndex];
     if (!chip) return;
 
     card.querySelectorAll('.variant-chip').forEach((btn, i) => {
@@ -1706,7 +1721,7 @@ function initSearch() {
         _lastFilter = filterBy;
         _lastResults = resultKey;
 
-        renderTable(filteredData, true);
+        renderTable(filteredData, true, dataToFilter);
     }
 
     searchInput.addEventListener('input', () => {
