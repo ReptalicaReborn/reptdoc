@@ -43,7 +43,7 @@
   "name": "MediaTek Dimensity 7300e",
   "binnedOf": "MediaTek Dimensity 7100",
   "partNumber": "MT6858T",
-  "releaseDate": "2026.4",
+  "releaseDate": "2026.04",
   "process": "TSMC N6",
   "dieSize": "Unknown",
   "architecture": "ARMv8.2-A",
@@ -113,7 +113,7 @@
   "name": "MediaTek Dimensity 7360",
   "binnedOf": "MediaTek Dimensity 7300",
   "partNumber": "MT6878",
-  "releaseDate": "2025.9",
+  "releaseDate": "2025.09",
   "process": "TSMC N4",
   "dieSize": "Unknown",
   "geekbench6": {
