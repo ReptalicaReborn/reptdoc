@@ -1841,7 +1841,9 @@ function getThemeParam() {
     const parts = ['--md-sys-color-background', '--md-sys-color-on-surface', '--md-sys-color-on-surface-variant',
         '--md-sys-color-primary', '--md-sys-color-surface-container-highest'].map(hex);
     probe.remove();
-    return parts.every(Boolean) ? parts.join('.') : null;
+    if (!parts.every(Boolean)) return null;
+    // Trans pride gets the flag gradients on the card
+    return parts.join('.') + (document.documentElement.classList.contains('trans-pride-theme') ? '.trans' : '');
 }
 
 function copyComparisonLink() {
