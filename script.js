@@ -475,7 +475,8 @@ async function hydrateDieshots() {
     const { byChip } = await loadDieshots();
     slots.forEach(slot => {
         slot.dataset.ready = 'true';
-        const shots = byChip.get(slot.dataset.chip) || [];
+        // Binned variants share the die of the chip they are cut from, unless they have their own shot
+        const shots = byChip.get(slot.dataset.chip) || (slot.dataset.base && byChip.get(slot.dataset.base)) || [];
         const card = slot.closest('.chip-card');
         const header = card ? card.querySelector('.chip-card-header') : null;
         if (header) {
@@ -555,7 +556,7 @@ document.addEventListener('keydown', (e) => {
 
 function generateMobileDetails(chip) {
     // Filled in by hydrateDieshots() once data/dieshots.json has loaded
-    let html = `<div class="dieshot-slot" data-chip="${escapeHtml(chip.name)}"></div>`;
+    let html = `<div class="dieshot-slot" data-chip="${escapeHtml(chip.name)}"${chip.binnedOf ? ` data-base="${escapeHtml(chip.binnedOf)}"` : ''}></div>`;
     const duplicateKeys = ['releaseDate', 'process', 'cpu.specs', 'cpu', 'gpu'];
 
     tableStructure.forEach(group => {
@@ -1131,6 +1132,8 @@ function showSettingsModal() {
     let displaySavedAccent = savedAccent;
     if (savedAccent === 'trans-pride') {
         displaySavedAccent = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
+    } else if (savedAccent === 'nonbinary-pride') {
+        displaySavedAccent = 'linear-gradient(to bottom, #FCF434 0%, #FCF434 25%, #FFFFFF 25%, #FFFFFF 50%, #9C59D1 50%, #9C59D1 75%, #2C2C2C 75%, #2C2C2C 100%)';
     } else if (isLightMode && savedAccent.toUpperCase() === '#FFFFFF') {
         displaySavedAccent = '#000000';
     } else if (!isLightMode && savedAccent === '#000000') {
@@ -1211,7 +1214,7 @@ function showSettingsModal() {
                 <div class="setting-item accent-presets" style="display: flex; flex-wrap: wrap; gap: 14px; padding: 12px 16px 20px 16px; justify-content: center; align-items: center; opacity: ${isAccentEnabled ? '1' : '0.4'}; pointer-events: ${isAccentEnabled ? 'auto' : 'none'}; transition: opacity 0.3s; margin-top: -12px;">
                     <div class="custom-color-picker" title="Pick a custom color">
                         <div id="accent-preview" style="background: ${displaySavedAccent.startsWith('linear-gradient') ? displaySavedAccent : displaySavedAccent}; background-color: ${displaySavedAccent.startsWith('linear-gradient') ? 'transparent' : displaySavedAccent};"></div>
-                        <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
+                        <input type="color" id="accent-picker" value="${savedAccent === 'trans-pride' || savedAccent === 'nonbinary-pride' ? '#55CDFC' : (displaySavedAccent.startsWith('linear-gradient') ? '#55CDFC' : displaySavedAccent)}" ${!isAccentEnabled ? 'disabled' : ''}>
                         <span class="material-icons-round picker-icon" style="font-size: 16px;">palette</span>
                     </div>
                     <button class="accent-preset" data-color="#4CAF50" style="background: #4CAF50; flex-shrink: 0;" title="Green"></button>
@@ -1223,6 +1226,7 @@ function showSettingsModal() {
                     <button class="accent-preset" data-color="#FFEB3B" style="background: #FFEB3B; flex-shrink: 0;" title="Yellow"></button>
                     <button class="accent-preset" data-color="#B71C1C" style="background: linear-gradient(135deg, #C62828, #B71C1C); flex-shrink: 0;" title="Deep Red"></button>
                     <button class="accent-preset" data-color="trans-pride" style="background: linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="Trans Pride Theme 🏳️‍⚧️"></button>
+                    <button class="accent-preset" data-color="nonbinary-pride" style="background: linear-gradient(to bottom, #FCF434 0%, #FCF434 25%, #FFFFFF 25%, #FFFFFF 50%, #9C59D1 50%, #9C59D1 75%, #2C2C2C 75%, #2C2C2C 100%); flex-shrink: 0; border: 1px solid rgba(255,255,255,0.2);" title="Non-binary Pride Theme"></button>
                 </div>
             </div>
         </div>
@@ -1253,6 +1257,9 @@ function showSettingsModal() {
             if (saved === 'trans-pride') {
                 applyTransPrideTheme();
                 localStorage.setItem('reptdoc_trans_pride', 'true');
+            } else if (saved === 'nonbinary-pride') {
+                applyNonbinaryPrideTheme();
+                localStorage.setItem('reptdoc_trans_pride', 'false');
             } else {
                 applyCustomAccent(accentPicker.value);
                 localStorage.setItem('reptdoc_trans_pride', 'false');
@@ -1285,6 +1292,11 @@ function showSettingsModal() {
                 localStorage.setItem('reptdoc_trans_pride', 'true');
                 accentPreview.style.background = 'linear-gradient(to bottom, #55CDFC 0%, #55CDFC 20%, #F7A8B8 20%, #F7A8B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F7A8B8 60%, #F7A8B8 80%, #55CDFC 80%, #55CDFC 100%)';
                 applyTransPrideTheme();
+            } else if (color === 'nonbinary-pride') {
+                localStorage.setItem('reptdoc_trans_pride', 'false');
+                accentPreview.style.background = 'linear-gradient(to bottom, #FCF434 0%, #FCF434 25%, #FFFFFF 25%, #FFFFFF 50%, #9C59D1 50%, #9C59D1 75%, #2C2C2C 75%, #2C2C2C 100%)';
+                removeTransPrideTheme();
+                applyNonbinaryPrideTheme();
             } else {
                 localStorage.setItem('reptdoc_trans_pride', 'false');
                 const isLight = document.body.classList.contains('light-mode');
@@ -1620,6 +1632,51 @@ function initMobileMenu() {
     });
 }
 
+// Easter egg: typing one of these in a search bar rains bear emoji for 5 seconds
+const BEAR_RAIN_WORDS = ['kazu', 'tnpeach'];
+let bearRainActive = false;
+function maybeBearRain(value) {
+    if (bearRainActive || !BEAR_RAIN_WORDS.includes(value.toLowerCase().trim())) return;
+    bearRainActive = true;
+
+    if (!document.getElementById('bear-rain-style')) {
+        const style = document.createElement('style');
+        style.id = 'bear-rain-style';
+        style.textContent = `
+            .bear-rain { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 100000; }
+            .bear-rain span { position: absolute; top: -60px; line-height: 1; animation: bearFall linear forwards; }
+            @keyframes bearFall {
+                to { transform: translateY(calc(100vh + 120px)) rotate(var(--bear-spin)); }
+            }`;
+        document.head.appendChild(style);
+    }
+
+    const layer = document.createElement('div');
+    layer.className = 'bear-rain';
+    layer.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(layer);
+
+    const spawn = setInterval(() => {
+        const bear = document.createElement('span');
+        bear.textContent = Math.random() < 0.15 ? '🧸' : '🐻';
+        bear.style.left = `${Math.random() * 100}%`;
+        bear.style.fontSize = `${20 + Math.random() * 28}px`;
+        bear.style.animationDuration = `${2 + Math.random() * 2}s`;
+        bear.style.setProperty('--bear-spin', `${(Math.random() - 0.5) * 720}deg`);
+        bear.addEventListener('animationend', () => bear.remove());
+        layer.appendChild(bear);
+    }, 60);
+
+    // Stop spawning after 5 seconds, then let the last bears finish falling
+    setTimeout(() => {
+        clearInterval(spawn);
+        setTimeout(() => {
+            layer.remove();
+            bearRainActive = false;
+        }, 4200);
+    }, 5000);
+}
+
 // Search Logic
 function initSearch() {
     const searchInput = document.getElementById('chip-search');
@@ -1650,6 +1707,7 @@ function initSearch() {
 
     async function doSearch() {
         const query = searchInput.value.toLowerCase().trim();
+        maybeBearRain(query);
 
         if (isWelcomeState) {
             if (currentSeries !== 'global') {
@@ -1825,9 +1883,33 @@ function syncURLWithState() {
     window.history.replaceState({ path: newURL }, '', newURL);
 }
 
+// Snapshot of the active theme as "bg.text.muted.accent.bar" (hex, no #), so the
+// server-rendered embed card (netlify/functions/compare-card.mjs) can match it
+function getThemeParam() {
+    const probe = document.createElement('span');
+    probe.style.display = 'none';
+    document.body.appendChild(probe);
+    const hex = (cssVar) => {
+        probe.style.color = `var(${cssVar})`;
+        const m = getComputedStyle(probe).color.match(/\d+(\.\d+)?/g);
+        if (!m || m.length < 3) return null;
+        return m.slice(0, 3).map(n => Math.round(parseFloat(n)).toString(16).padStart(2, '0')).join('');
+    };
+    const parts = ['--md-sys-color-background', '--md-sys-color-on-surface', '--md-sys-color-on-surface-variant',
+        '--md-sys-color-primary', '--md-sys-color-surface-container-highest'].map(hex);
+    probe.remove();
+    if (!parts.every(Boolean)) return null;
+    // Pride themes get the flag gradients on the card
+    const root = document.documentElement.classList;
+    return parts.join('.') + (root.contains('trans-pride-theme') ? '.trans' : root.contains('nonbinary-pride-theme') ? '.nb' : '');
+}
+
 function copyComparisonLink() {
-    // Current URL is kept in sync with state
-    const url = window.location.href;
+    // Current URL is kept in sync with state; the theme is only added to the copied link
+    const shareUrl = new URL(window.location.href);
+    const theme = getThemeParam();
+    if (theme) shareUrl.searchParams.set('theme', theme);
+    const url = shareUrl.toString();
     const btn = document.getElementById('share-comparison');
     const icon = btn ? btn.querySelector('.material-icons-round') : null;
 
@@ -1869,6 +1951,7 @@ function initCompareSearch(id) {
 
     input.addEventListener('input', (e) => {
         const val = e.target.value.toLowerCase().trim();
+        maybeBearRain(val);
 
         if (val === 'kenzi') {
             alert("are u a gay furry");

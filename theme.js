@@ -303,6 +303,8 @@ window.toggleTheme = function (clickedElement) {
 
     if (isTransPride) {
         applyTransPrideTheme();
+    } else if (isNonbinaryPrideActive()) {
+        applyNonbinaryPrideTheme();
     } else {
         const isAccentEnabled = localStorage.getItem('reptdoc_accent_enabled') === 'true';
         if (isAccentEnabled) {
@@ -325,6 +327,8 @@ function applyTransPrideTheme() {
     const transPink = '#F7A8B8';
     const transWhite = '#FFFFFF';
 
+    // Only one pride theme at a time
+    document.documentElement.classList.remove('nonbinary-pride-theme');
     // Add the class for CSS animations and decorations
     document.documentElement.classList.add('trans-pride-theme');
 
@@ -439,10 +443,11 @@ function applyTransPrideTheme() {
 
         /* Welcome credits border gradient */
         .trans-pride-theme .welcome-credits {
-            border-image: linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) 1 !important;
-            border-style: solid !important;
-            border-width: 2px !important;
-            border-radius: 0 !important;
+            /* border-image ignores border-radius, so paint the gradient as a clipped background instead */
+            border: 2px solid transparent !important;
+            border-radius: 24px !important;
+            background: linear-gradient(var(--md-sys-color-surface-variant), var(--md-sys-color-surface-variant)) padding-box,
+                linear-gradient(135deg, ${transBlue}, ${transPink}, ${transWhite}, ${transPink}, ${transBlue}) border-box !important;
         }
 
         /* Comparison header gradient */
@@ -473,10 +478,159 @@ function applyTransPrideTheme() {
 }
 
 /**
+ * Non-binary pride theme, from the flag colors: Yellow (#FCF434), White (#FFFFFF),
+ * Purple (#9C59D1) and Black (#2C2C2C). Selected as the 'nonbinary-pride' accent preset.
+ */
+function isNonbinaryPrideActive() {
+    return localStorage.getItem('reptdoc_accent_enabled') === 'true' &&
+        localStorage.getItem('reptdoc_accent') === 'nonbinary-pride';
+}
+
+function applyNonbinaryPrideTheme() {
+    const root = document.documentElement;
+    const isLight = localStorage.getItem('theme') === 'light';
+
+    const nbYellow = '#FCF434';
+    const nbWhite = '#FFFFFF';
+    const nbPurple = '#9C59D1';
+    const nbBlack = '#2C2C2C';
+    const nbLilac = '#C9A6EE'; // purple lightened to stay readable on dark backgrounds
+
+    document.documentElement.classList.remove('trans-pride-theme');
+    document.documentElement.classList.add('nonbinary-pride-theme');
+
+    if (!isLight) {
+        const mixBaseDark = '#050505';
+        const rgbYellow = 'rgb(252, 244, 52)';
+        const rgbPurple = 'rgb(156, 89, 209)';
+
+        root.style.setProperty('--md-sys-color-primary', rgbYellow);
+        root.style.setProperty('--md-sys-color-on-primary', '#2B2800');
+        root.style.setProperty('--md-sys-color-primary-container', mixColors(rgbYellow, 25, mixBaseDark));
+        root.style.setProperty('--md-sys-color-on-primary-container', mixColors(rgbYellow, 90, '#ffffff'));
+        root.style.setProperty('--md-sys-color-surface-container', mixColors(rgbPurple, 10, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-low', mixColors(rgbPurple, 6, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-high', mixColors(rgbPurple, 15, mixBaseDark));
+        root.style.setProperty('--md-sys-color-surface-container-highest', mixColors(rgbPurple, 22, mixBaseDark));
+        root.style.setProperty('--md-sys-color-secondary-container', mixColors(rgbPurple, 28, mixBaseDark));
+        root.style.setProperty('--md-sys-color-on-secondary-container', mixColors(rgbPurple, 85, '#FFFFFF'));
+        root.style.setProperty('--md-sys-color-outline', mixColors(rgbYellow, 20, '#938F99'));
+        root.style.setProperty('--md-sys-color-outline-variant', mixColors(rgbPurple, 18, '#49454F'));
+
+        const tintedBg = mixColors(rgbPurple, 5, mixBaseDark);
+        root.style.setProperty('--md-sys-color-background', tintedBg);
+        root.style.setProperty('--md-sys-color-surface', tintedBg);
+        root.style.setProperty('--gradient-surface', `radial-gradient(circle at top left, ${mixColors(rgbYellow, 10, mixBaseDark)}, ${tintedBg} 50%, ${mixColors(rgbPurple, 16, mixBaseDark)} 100%)`);
+        root.style.setProperty('--md-sys-color-tertiary', nbLilac);
+    }
+
+    let styleTag = document.getElementById('dynamic-theme-styles');
+    if (!styleTag) {
+        styleTag = document.createElement('style');
+        styleTag.id = 'dynamic-theme-styles';
+        (document.head || document.documentElement).appendChild(styleTag);
+    }
+
+    const textGradient = `linear-gradient(135deg, ${nbYellow}, ${nbWhite}, ${nbPurple}, ${nbLilac}, ${nbYellow})`;
+    styleTag.innerHTML = `
+        /* Non-binary Pride Light Mode */
+        body.light-mode {
+            --md-sys-color-primary: #7A6D00;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-primary-container: #FFF9A8;
+            --md-sys-color-on-primary-container: #211E00;
+            --md-sys-color-secondary-container: #E9DDF6;
+            --md-sys-color-background: #FAF7FF;
+            --md-sys-color-surface: #FAF7FF;
+            --gradient-surface: radial-gradient(circle at top left, #FFFBC9, #FAF7FF 50%, #EADCF8 100%);
+            --md-sys-color-tertiary: #7A3FB5;
+        }
+        body.light-mode .sidebar { background-color: #F3EDF9 !important; }
+        body.light-mode .chip-table thead th { background-color: #EEE6F6 !important; }
+        body.light-mode .chip-table .row-header { background-color: #F3EDF9 !important; }
+        body.light-mode .breadcrumbs { background: #F6F0FB !important; }
+
+        /* Flag stripe on the sidebar */
+        .nonbinary-pride-theme .sidebar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, ${nbYellow} 0%, ${nbYellow} 25%, ${nbWhite} 25%, ${nbWhite} 50%, ${nbPurple} 50%, ${nbPurple} 75%, ${nbBlack} 75%, ${nbBlack} 100%);
+            border-radius: 0 0 var(--shape-corner-xl) 0;
+            z-index: 10;
+        }
+
+        .nonbinary-pride-theme .logo-area h2,
+        .nonbinary-pride-theme .welcome-title {
+            background: ${textGradient} !important;
+            background-size: 300% 300% !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            animation: nonbinaryGradientShift 6s ease-in-out infinite !important;
+        }
+
+        .nonbinary-pride-theme .benchmark-bar {
+            background: linear-gradient(90deg, ${nbYellow}, ${nbPurple}) !important;
+        }
+
+        .nonbinary-pride-theme .nav-item.active {
+            background: linear-gradient(135deg, rgba(252, 244, 52, 0.15), rgba(156, 89, 209, 0.18)) !important;
+        }
+
+        .nonbinary-pride-theme .btn-contained {
+            background: linear-gradient(135deg, ${nbYellow}, ${nbPurple}) !important;
+            color: #1A1A2E !important;
+        }
+        .nonbinary-pride-theme .btn-contained:hover {
+            box-shadow: 0 8px 24px rgba(156, 89, 209, 0.3), 0 4px 12px rgba(252, 244, 52, 0.3) !important;
+        }
+
+        /* Gradient border that keeps the rounded corners (border-image would not) */
+        .nonbinary-pride-theme .welcome-credits {
+            border: 2px solid transparent !important;
+            border-radius: 24px !important;
+            background: linear-gradient(var(--md-sys-color-surface-variant), var(--md-sys-color-surface-variant)) padding-box,
+                ${textGradient} border-box !important;
+        }
+
+        .nonbinary-pride-theme .compare-header h1 {
+            background: linear-gradient(135deg, ${nbYellow}, ${nbPurple}) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        .nonbinary-pride-theme ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(${nbYellow}, ${nbPurple}) !important;
+        }
+
+        @keyframes nonbinaryGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    `;
+
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (metaThemeColor) {
+        metaThemeColor.content = isLight ? '#FAF7FF' : '#0A0810';
+    }
+}
+
+function removeNonbinaryPrideTheme() {
+    document.documentElement.classList.remove('nonbinary-pride-theme');
+}
+
+/**
  * Remove trans pride theme and restore defaults
  */
 function removeTransPrideTheme() {
     document.documentElement.classList.remove('trans-pride-theme');
+    removeNonbinaryPrideTheme();
 
     // Remove inline style properties
     const root = document.documentElement;
@@ -531,6 +685,11 @@ function isTransAwarenessDate() {
 
     if (isTransPride) {
         applyTransPrideTheme();
+        return;
+    }
+
+    if (isNonbinaryPrideActive()) {
+        applyNonbinaryPrideTheme();
         return;
     }
 
