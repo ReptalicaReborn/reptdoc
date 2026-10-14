@@ -518,7 +518,6 @@ async function openDieshot(shotId) {
                 <div class="dieshot-lightbox-title">${escapeHtml(shot.title)}</div>
                 <div class="dieshot-lightbox-brand">${escapeHtml(shot.brand)}</div>
                 <p>${escapeHtml(shot.desc)}</p>
-                <a class="dieshot-credit" href="https://github.com/ReptalicaReborn/reptalica" target="_blank" rel="noopener">${escapeHtml(t('dieshot_credit'))}</a>
             </figcaption>
         </figure>`;
     box.setAttribute('aria-label', `${shot.title} ${t('dieshot')}`);
