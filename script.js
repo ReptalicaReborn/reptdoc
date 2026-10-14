@@ -1632,6 +1632,51 @@ function initMobileMenu() {
     });
 }
 
+// Easter egg: typing one of these in a search bar rains bear emoji for 5 seconds
+const BEAR_RAIN_WORDS = ['kazu', 'tnpeach'];
+let bearRainActive = false;
+function maybeBearRain(value) {
+    if (bearRainActive || !BEAR_RAIN_WORDS.includes(value.toLowerCase().trim())) return;
+    bearRainActive = true;
+
+    if (!document.getElementById('bear-rain-style')) {
+        const style = document.createElement('style');
+        style.id = 'bear-rain-style';
+        style.textContent = `
+            .bear-rain { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 100000; }
+            .bear-rain span { position: absolute; top: -60px; line-height: 1; animation: bearFall linear forwards; }
+            @keyframes bearFall {
+                to { transform: translateY(calc(100vh + 120px)) rotate(var(--bear-spin)); }
+            }`;
+        document.head.appendChild(style);
+    }
+
+    const layer = document.createElement('div');
+    layer.className = 'bear-rain';
+    layer.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(layer);
+
+    const spawn = setInterval(() => {
+        const bear = document.createElement('span');
+        bear.textContent = Math.random() < 0.15 ? '🧸' : '🐻';
+        bear.style.left = `${Math.random() * 100}%`;
+        bear.style.fontSize = `${20 + Math.random() * 28}px`;
+        bear.style.animationDuration = `${2 + Math.random() * 2}s`;
+        bear.style.setProperty('--bear-spin', `${(Math.random() - 0.5) * 720}deg`);
+        bear.addEventListener('animationend', () => bear.remove());
+        layer.appendChild(bear);
+    }, 60);
+
+    // Stop spawning after 5 seconds, then let the last bears finish falling
+    setTimeout(() => {
+        clearInterval(spawn);
+        setTimeout(() => {
+            layer.remove();
+            bearRainActive = false;
+        }, 4200);
+    }, 5000);
+}
+
 // Search Logic
 function initSearch() {
     const searchInput = document.getElementById('chip-search');
@@ -1662,6 +1707,7 @@ function initSearch() {
 
     async function doSearch() {
         const query = searchInput.value.toLowerCase().trim();
+        maybeBearRain(query);
 
         if (isWelcomeState) {
             if (currentSeries !== 'global') {
@@ -1905,6 +1951,7 @@ function initCompareSearch(id) {
 
     input.addEventListener('input', (e) => {
         const val = e.target.value.toLowerCase().trim();
+        maybeBearRain(val);
 
         if (val === 'kenzi') {
             alert("are u a gay furry");
