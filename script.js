@@ -475,7 +475,8 @@ async function hydrateDieshots() {
     const { byChip } = await loadDieshots();
     slots.forEach(slot => {
         slot.dataset.ready = 'true';
-        const shots = byChip.get(slot.dataset.chip) || [];
+        // Binned variants share the die of the chip they are cut from, unless they have their own shot
+        const shots = byChip.get(slot.dataset.chip) || (slot.dataset.base && byChip.get(slot.dataset.base)) || [];
         const card = slot.closest('.chip-card');
         const header = card ? card.querySelector('.chip-card-header') : null;
         if (header) {
@@ -555,7 +556,7 @@ document.addEventListener('keydown', (e) => {
 
 function generateMobileDetails(chip) {
     // Filled in by hydrateDieshots() once data/dieshots.json has loaded
-    let html = `<div class="dieshot-slot" data-chip="${escapeHtml(chip.name)}"></div>`;
+    let html = `<div class="dieshot-slot" data-chip="${escapeHtml(chip.name)}"${chip.binnedOf ? ` data-base="${escapeHtml(chip.binnedOf)}"` : ''}></div>`;
     const duplicateKeys = ['releaseDate', 'process', 'cpu.specs', 'cpu', 'gpu'];
 
     tableStructure.forEach(group => {
