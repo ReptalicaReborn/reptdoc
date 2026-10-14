@@ -4860,3 +4860,78 @@ button.cmp-head-chip.is-placeholder:hover {
     border-radius: 4px;
     background: var(--cmp-color);
 }
+
+/* ---------- Die shot tile: full width, whole die visible, description beside it ---------- */
+.dieshot-thumbs {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dieshot-thumb {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: none;
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+    border-radius: var(--ui-radius-tile);
+}
+
+.dieshot-thumb:hover,
+.dieshot-thumb:focus-visible {
+    background: var(--ui-selected-bg);
+    transform: none;
+}
+
+.dieshot-thumb-media {
+    flex: 1 1 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: color-mix(in srgb, var(--md-sys-color-on-surface) 4%, transparent);
+}
+
+.dieshot-thumb img {
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: contain;
+    background: none;
+    border-radius: 8px;
+}
+
+.dieshot-thumb-info {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    min-width: 0;
+}
+
+.dieshot-thumb-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+}
+
+.dieshot-thumb-desc {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.dieshot-thumb-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--md-sys-color-primary);
+}
+
+.dieshot-thumb-hint .material-icons-round {
+    font-size: 18px;
+}

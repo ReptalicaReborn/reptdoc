@@ -582,8 +582,14 @@ async function hydrateDieshots() {
             <div class="dieshot-thumbs">
                 ${shots.map(shot => `
                     <button type="button" class="dieshot-thumb" data-action="openDieshot" data-shot-id="${escapeHtml(shot.id)}">
-                        <img src="assets/dieshots/${encodeURIComponent(shot.id)}.webp" alt="${escapeHtml(shot.title)} die shot" loading="lazy" decoding="async">
-                        <span class="dieshot-thumb-label">${escapeHtml(shot.title)}</span>
+                        <span class="dieshot-thumb-media">
+                            <img src="assets/dieshots/${encodeURIComponent(shot.id)}.webp" alt="${escapeHtml(shot.title)} die shot" loading="lazy" decoding="async">
+                        </span>
+                        <span class="dieshot-thumb-info">
+                            <span class="dieshot-thumb-title">${escapeHtml(shot.title)}</span>
+                            ${shot.desc ? `<span class="dieshot-thumb-desc">${escapeHtml(shot.desc)}</span>` : ''}
+                            <span class="dieshot-thumb-hint"><span class="material-icons-round">zoom_in</span>${escapeHtml(t('dieshot_zoom'))}</span>
+                        </span>
                     </button>`).join('')}
             </div>`;
     });
