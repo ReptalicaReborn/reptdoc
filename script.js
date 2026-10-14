@@ -651,6 +651,32 @@ function updateBreadcrumb(manufacturer, seriesName) {
 
 const changelogData = [
     {
+        version: 'v1.2 "Emberthorn"',
+        date: "2026-10-14",
+        changes: {
+            en: [
+                "New pride themes: non-binary, gay, lesbian, bisexual and pansexual join the trans theme, each with its own flag colours in dark and light mode",
+                "Revamped Language & Theme card: preview tiles for dark and light, grouped colour and pride swatches, and a language grid",
+                "Shared compare links now use your theme, so the embed card matches your colours (pride themes included, gradients and all)",
+                "Searching now shows binned variants, grouped under their main chip with the variant switcher",
+                "Binned variants now show the die shot of the chip they're cut from",
+                "Fixed the Language & Theme button on the compare page doing nothing",
+                "Fixed square corners on the credits box in the trans theme",
+                "A few new easter eggs to find 👀"
+            ],
+            vi: [
+                "Chủ đề pride mới: non-binary, gay, lesbian, bisexual và pansexual cùng với chủ đề trans, mỗi chủ đề có màu cờ riêng ở chế độ tối và sáng",
+                "Làm mới thẻ Ngôn ngữ & Giao diện: ô xem trước chế độ tối và sáng, nhóm màu và cờ pride, cùng lưới chọn ngôn ngữ",
+                "Liên kết so sánh khi chia sẻ giờ dùng giao diện của bạn, nên thẻ embed khớp màu của bạn (kể cả chủ đề pride với hiệu ứng chuyển màu)",
+                "Tìm kiếm giờ hiển thị các biến thể binned, gộp dưới chip chính kèm nút chuyển biến thể",
+                "Các biến thể binned giờ hiển thị ảnh die shot của chip gốc",
+                "Sửa nút Ngôn ngữ & Giao diện trên trang so sánh không hoạt động",
+                "Sửa góc vuông của ô cảm ơn trong chủ đề trans",
+                "Thêm vài easter egg mới để bạn tìm 👀"
+            ],
+        }
+    },
+    {
         version: 'v1.1 "Seashore"',
         date: "2026-10-14",
         changes: {
