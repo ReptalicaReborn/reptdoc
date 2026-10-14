@@ -4706,3 +4706,91 @@ body.light-mode .quick-pick:hover {
     background: var(--ui-selected-bg) !important;
     border-color: var(--md-sys-color-primary) !important;
 }
+
+/* ---------- Compare: picked chips only live in the pinned header ---------- */
+.selector-card.has-chip {
+    display: none;
+}
+
+.selectors-grid[data-empty="0"] {
+    display: none;
+}
+
+.selectors-grid[data-empty="1"] {
+    grid-template-columns: 1fr;
+}
+
+/* Both header boxes the same height, whatever the name length */
+.cmp-head {
+    align-items: stretch;
+}
+
+.cmp-head-label {
+    align-self: center;
+}
+
+.cmp-head-chip {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.cmp-head-remove {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.cmp-head-remove:hover {
+    background: var(--ui-hover-bg);
+    color: var(--md-sys-color-on-surface);
+}
+
+.cmp-head-remove .material-icons-round {
+    font-size: 20px;
+}
+
+button.cmp-head-chip.is-placeholder {
+    justify-content: flex-start;
+    gap: 8px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--md-sys-color-primary);
+}
+
+button.cmp-head-chip.is-placeholder:hover {
+    border-color: var(--md-sys-color-primary);
+}
+
+/* Header: two equal halves at every size, no "Specs" label squeezing them */
+.cmp-head {
+    grid-template-columns: 1fr 1fr;
+}
+
+.cmp-head-label {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .cmp-head-logo,
+    body.light-mode .cmp-head-logo {
+        display: none;
+    }
+
+    .cmp-head-chip,
+    body.light-mode .cmp-head-chip {
+        padding: 8px 4px 8px 12px;
+        gap: 4px;
+    }
+
+    .cmp-head-remove {
+        width: 28px;
+        height: 28px;
+    }
+}

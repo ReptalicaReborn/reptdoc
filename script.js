@@ -2344,7 +2344,10 @@ function renderCompareCell(slot, key, value, winner) {
 
 function renderCompareHeadChip(slot, chip) {
     if (!chip) {
-        return `<div class="cmp-head-chip cmp-slot-${slot} is-placeholder"><span class="cmp-head-name">${t('select_soc')}</span></div>`;
+        return `<button class="cmp-head-chip cmp-slot-${slot} is-placeholder" data-action="focusCompareSearch" data-slot="${slot}">
+            <span class="material-icons-round">add</span>
+            <span class="cmp-head-name">${t('select_soc')}</span>
+        </button>`;
     }
     return `
         <div class="cmp-head-chip cmp-slot-${slot}">
@@ -2353,8 +2356,32 @@ function renderCompareHeadChip(slot, chip) {
                 <span class="cmp-head-name">${escapeHtml(chip.name)}</span>
                 ${chip.partNumber || chip.codename ? `<span class="cmp-head-sub">${escapeHtml(chip.partNumber || chip.codename)}</span>` : ''}
             </span>
+            <button class="cmp-head-remove" data-action="clearChip" data-slot="${slot}" title="${t('remove')}" aria-label="${t('remove')} ${escapeHtml(chip.name)}">
+                <span class="material-icons-round">close</span>
+            </button>
         </div>`;
 }
+
+// Picked chips live in the pinned header, so only show the search card for empty slots
+function syncSelectorCards() {
+    let empty = 0;
+    [1, 2].forEach(slot => {
+        const card = document.getElementById(`selector-${slot}`);
+        if (!card) return;
+        const filled = !!comparisonState[slot];
+        card.classList.toggle('has-chip', filled);
+        if (!filled) empty++;
+    });
+    const grid = document.querySelector('.selectors-grid');
+    if (grid) grid.dataset.empty = empty;
+}
+
+window.focusCompareSearch = function (slot) {
+    const input = document.getElementById(`input-chip-${slot}`);
+    if (!input) return;
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    input.focus({ preventScroll: true });
+};
 
 window.toggleCompareDiffOnly = function () {
     window.compareDiffOnly = !window.compareDiffOnly;
@@ -2424,6 +2451,7 @@ function renderQuickPicks() {
 }
 
 function updateComparisonTable() {
+    syncSelectorCards();
     renderQuickPicks();
     const container = document.getElementById('comparison-table-wrapper');
     const chip1 = comparisonState[1];
@@ -2749,6 +2777,9 @@ document.addEventListener('click', (e) => {
             break;
         case 'clearChip':
             clearChip(parseInt(target.dataset.slot));
+            break;
+        case 'focusCompareSearch':
+            focusCompareSearch(parseInt(target.dataset.slot));
             break;
         default:
             break;
