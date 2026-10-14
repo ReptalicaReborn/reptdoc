@@ -1740,47 +1740,53 @@ function initMobileMenu() {
     });
 }
 
-// Easter egg: typing one of these in a search bar rains bear emoji for 5 seconds
-const BEAR_RAIN_WORDS = ['kazu', 'tnpeach'];
-let bearRainActive = false;
-function maybeBearRain(value) {
-    if (bearRainActive || !BEAR_RAIN_WORDS.includes(value.toLowerCase().trim())) return;
-    bearRainActive = true;
+// Easter egg: typing one of these words in a search bar rains emoji for 5 seconds.
+// `rare` shows up now and then among the main emoji.
+const EMOJI_RAINS = [
+    { words: ['kazu', 'tnpeach'], emoji: '🐻', rare: '🧸' },
+    { words: ['cheese', 'cheddar'], emoji: '🧀' },
+];
+let emojiRainActive = false;
+function maybeEmojiRain(value) {
+    const word = value.toLowerCase().trim();
+    const rain = EMOJI_RAINS.find(r => r.words.includes(word));
+    if (emojiRainActive || !rain) return;
+    emojiRainActive = true;
 
-    if (!document.getElementById('bear-rain-style')) {
+    if (!document.getElementById('emoji-rain-style')) {
         const style = document.createElement('style');
-        style.id = 'bear-rain-style';
+        style.id = 'emoji-rain-style';
         style.textContent = `
-            .bear-rain { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 100000; }
-            .bear-rain span { position: absolute; top: -60px; line-height: 1; animation: bearFall linear forwards; }
-            @keyframes bearFall {
-                to { transform: translateY(calc(100vh + 120px)) rotate(var(--bear-spin)); }
+            .emoji-rain { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 100000; }
+            .emoji-rain span { position: absolute; top: -60px; line-height: 1; animation: emojiFall linear forwards; }
+            @keyframes emojiFall {
+                to { transform: translateY(calc(100vh + 120px)) rotate(var(--emoji-spin)); }
             }`;
         document.head.appendChild(style);
     }
 
     const layer = document.createElement('div');
-    layer.className = 'bear-rain';
+    layer.className = 'emoji-rain';
     layer.setAttribute('aria-hidden', 'true');
     document.body.appendChild(layer);
 
     const spawn = setInterval(() => {
-        const bear = document.createElement('span');
-        bear.textContent = Math.random() < 0.15 ? '🧸' : '🐻';
-        bear.style.left = `${Math.random() * 100}%`;
-        bear.style.fontSize = `${20 + Math.random() * 28}px`;
-        bear.style.animationDuration = `${2 + Math.random() * 2}s`;
-        bear.style.setProperty('--bear-spin', `${(Math.random() - 0.5) * 720}deg`);
-        bear.addEventListener('animationend', () => bear.remove());
-        layer.appendChild(bear);
+        const drop = document.createElement('span');
+        drop.textContent = rain.rare && Math.random() < 0.15 ? rain.rare : rain.emoji;
+        drop.style.left = `${Math.random() * 100}%`;
+        drop.style.fontSize = `${20 + Math.random() * 28}px`;
+        drop.style.animationDuration = `${2 + Math.random() * 2}s`;
+        drop.style.setProperty('--emoji-spin', `${(Math.random() - 0.5) * 720}deg`);
+        drop.addEventListener('animationend', () => drop.remove());
+        layer.appendChild(drop);
     }, 60);
 
-    // Stop spawning after 5 seconds, then let the last bears finish falling
+    // Stop spawning after 5 seconds, then let the last drops finish falling
     setTimeout(() => {
         clearInterval(spawn);
         setTimeout(() => {
             layer.remove();
-            bearRainActive = false;
+            emojiRainActive = false;
         }, 4200);
     }, 5000);
 }
@@ -1815,7 +1821,7 @@ function initSearch() {
 
     async function doSearch() {
         const query = searchInput.value.toLowerCase().trim();
-        maybeBearRain(query);
+        maybeEmojiRain(query);
 
         if (isWelcomeState) {
             if (currentSeries !== 'global') {
@@ -2060,7 +2066,7 @@ function initCompareSearch(id) {
 
     input.addEventListener('input', (e) => {
         const val = e.target.value.toLowerCase().trim();
-        maybeBearRain(val);
+        maybeEmojiRain(val);
 
         if (val === 'kenzi') {
             alert("are u a gay furry");
