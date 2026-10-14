@@ -2347,8 +2347,11 @@ function renderCompareHeadChip(slot, chip) {
     }
     return `
         <div class="cmp-head-chip cmp-slot-${slot}">
-            <span class="cmp-head-logo">${getBrandLogoGlobal(chip.manufacturer, '18px')}</span>
-            <span class="cmp-head-name">${escapeHtml(chip.name)}</span>
+            <span class="cmp-head-logo">${getBrandLogoGlobal(chip.manufacturer, '22px')}</span>
+            <span class="cmp-head-text">
+                <span class="cmp-head-name">${escapeHtml(chip.name)}</span>
+                ${chip.partNumber || chip.codename ? `<span class="cmp-head-sub">${escapeHtml(chip.partNumber || chip.codename)}</span>` : ''}
+            </span>
         </div>`;
 }
 
