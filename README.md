@@ -12,7 +12,7 @@ ReptDoc is a lightweight, responsive web application serving as a comprehensive 
   * *Modems & Max Memory Specifications*
 * **Side-by-Side Comparisons:** Use the dedicated comparison tool to pit two SoCs directly against each other.
 * **Benchmark Scores:** Built-in results for core metrics like *Geekbench 6*, *3DMark Wild Life Extreme*, and *Steel Nomad Lite*.
-* **Die Shots:** Annotated die shots (from [Reptalica](https://github.com/ReptalicaReborn/reptalica)) show up in a chip's expanded card and open in an in-site viewer. Shots are listed in `data/dieshots.json` (`chips` must match chip names exactly) with images in `assets/dieshots/`.
+* **Die Shots:** Annotated die shots show up in a chip's expanded card and open in an in-site viewer. Shots are listed in `data/dieshots.json` (`chips` must match chip names exactly) with images in `assets/dieshots/`.
 * **Customizable UI:** Full Dark / Light mode support with personalized accent colors.
 * **Search Functionality:** Quickly pinpoint the exact silicon you are looking for.
 
