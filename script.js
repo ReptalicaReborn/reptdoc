@@ -684,6 +684,7 @@ const changelogData = [
                 "Searching now shows binned variants, grouped under their main chip with the variant switcher",
                 "Binned variants now show the die shot of the chip they're cut from",
                 "Redesigned the compare table: chip names stay pinned while you scroll, specs stack neatly on phones, the better value is highlighted, CPUs show a core and clock summary, and you can hide identical rows",
+                "New look across the whole site, matching the Language & Theme card: softer cards, specs shown as tiles, and a gold outline for whatever's selected",
                 "Fixed the Language & Theme button on the compare page doing nothing",
                 "Fixed square corners on the credits box in the trans theme",
                 "A few new easter eggs to find 👀"

@@ -2245,46 +2245,6 @@ body.light-mode .cpu-cluster:hover {
 }
 
 
-/* Light mode: clean near-white rows with soft pastel tints, instead of
-   mixing the dark accent into the beige containers (looked muddy) */
-body.light-mode #comparison-table-wrapper {
-    background-color: var(--md-sys-color-surface-container-low);
-}
-
-body.light-mode .cmp-head {
-    background-color: color-mix(in srgb, var(--md-sys-color-surface-container-low) 88%, transparent);
-}
-
-body.light-mode .cmp-row,
-body.light-mode .benchmark-comparison {
-    background: color-mix(in srgb, #FFFFFF 75%, var(--md-sys-color-surface-container-lowest));
-}
-
-body.light-mode .cmp-head-chip {
-    background: color-mix(in srgb, var(--cmp-color) 22%, #FFFFFF);
-}
-
-body.light-mode .cmp-val.is-win {
-    background: color-mix(in srgb, var(--cmp-color) 15%, #FFFFFF);
-}
-
-body.light-mode .cmp-head-chip.is-placeholder {
-    background: color-mix(in srgb, #FFFFFF 75%, var(--md-sys-color-surface-container-lowest));
-}
-
-body.light-mode .cmp-head-logo {
-    background: #FFFFFF;
-}
-
-body.light-mode .cmp-val .cpu-cluster {
-    background: var(--md-sys-color-surface-container-lowest);
-}
-
-body.light-mode .cmp-group-icon {
-    background: color-mix(in srgb, var(--md-sys-color-primary) 22%, #FFFFFF);
-    color: var(--md-sys-color-primary);
-}
-
 /* Benchmark Comparison Styles */
 .benchmark-comparison {
     background-color: var(--md-sys-color-surface-container-high);
@@ -3941,4 +3901,548 @@ body.light-mode .custom-color-picker.selected {
 
 .dieshot-lightbox-close:hover {
     background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================================================
+   UNIFIED DESIGN LAYER
+   Brings every page in line with the Language & Theme card: soft filled
+   section cards, tonal tiles inside them, sentence-case titles with gold
+   icons, and "selected" = gold outline + light tint.
+   ========================================================================= */
+:root {
+    --ui-section-bg: var(--md-sys-color-surface-container);
+    --ui-section-border: color-mix(in srgb, var(--md-sys-color-outline-variant) 60%, transparent);
+    --ui-tile-bg: var(--md-sys-color-surface-container-high);
+    --ui-tile-border: transparent;
+    --ui-selected-bg: color-mix(in srgb, var(--md-sys-color-primary) 10%, var(--md-sys-color-surface-container-high));
+    --ui-hover-bg: color-mix(in srgb, var(--md-sys-color-on-surface) 6%, transparent);
+    --ui-radius-section: 20px;
+    --ui-radius-tile: 14px;
+}
+
+body.light-mode {
+    --ui-section-bg: #F7F5F0;
+    --ui-section-border: #E6E2D8;
+    --ui-tile-bg: #FFFFFF;
+    --ui-tile-border: #E6E2D8;
+    --ui-selected-bg: color-mix(in srgb, var(--md-sys-color-primary) 8%, #FFFFFF);
+    --ui-hover-bg: rgba(0, 0, 0, 0.04);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar,
+body.light-mode .sidebar {
+    background-color: var(--ui-section-bg);
+    border-right: 1px solid var(--ui-section-border);
+    box-shadow: none;
+}
+
+.nav-group-header,
+.nav-item {
+    border-radius: var(--ui-radius-tile);
+}
+
+.nav-group-header {
+    padding: 14px 20px;
+}
+
+.nav-group-header:hover {
+    background-color: var(--ui-hover-bg);
+}
+
+.nav-item {
+    height: 48px;
+    border: 2px solid transparent;
+}
+
+.nav-item.nav-top-level {
+    height: 52px;
+    padding: 0 18px;
+}
+
+.nav-item.active {
+    background-color: var(--ui-selected-bg);
+    border-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-surface);
+}
+
+.nav-back-home,
+body.light-mode .nav-back-home {
+    background: var(--ui-tile-bg) !important;
+    border: 1px solid var(--ui-tile-border) !important;
+    color: var(--md-sys-color-on-surface) !important;
+    border-radius: var(--ui-radius-tile) !important;
+    box-shadow: none !important;
+    font-weight: 600;
+}
+
+.nav-back-home .material-icons-round {
+    color: var(--md-sys-color-primary) !important;
+}
+
+.nav-back-home:hover,
+body.light-mode .nav-back-home:hover {
+    background: var(--ui-selected-bg) !important;
+    border-color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-surface) !important;
+    transform: none;
+    box-shadow: none !important;
+}
+
+/* ---------- Top bar ---------- */
+.breadcrumbs,
+body.light-mode .breadcrumbs,
+.search-box,
+body.light-mode .search-box {
+    background: var(--ui-section-bg);
+    border: 1px solid var(--ui-section-border);
+    box-shadow: none;
+}
+
+body.light-mode .search-box:focus-within,
+.search-box:focus-within {
+    background: var(--ui-tile-bg);
+    border-color: var(--md-sys-color-primary);
+}
+
+/* ---------- Chip cards ---------- */
+.chip-card,
+body.light-mode .chip-card {
+    background-color: var(--ui-section-bg);
+    border: 1px solid var(--ui-section-border);
+    border-radius: var(--ui-radius-section);
+    box-shadow: none;
+}
+
+.chip-card:hover,
+body.light-mode .chip-card:hover {
+    background-color: var(--ui-section-bg);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 55%, var(--ui-section-border));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.chip-card:active {
+    transform: scale(0.99);
+}
+
+.chip-card-header {
+    padding: 18px 18px 14px;
+    gap: 14px;
+    border-radius: var(--ui-radius-section) var(--ui-radius-section) 0 0;
+}
+
+.chip-card-header:hover {
+    background-color: transparent;
+}
+
+.chip-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--ui-radius-tile);
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+}
+
+.chip-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.chip-card-subtitle {
+    font-size: 0.8rem;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.chip-card-compare-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--ui-tile-border);
+    background: var(--ui-tile-bg);
+    color: var(--md-sys-color-primary);
+}
+
+.chip-card-compare-btn:hover {
+    background: var(--ui-selected-bg);
+    border-color: var(--md-sys-color-primary);
+    transform: none;
+}
+
+/* Quick specs become tiles: Release + Process side by side, CPU/GPU full width */
+.card-quick-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 16px 12px;
+}
+
+.card-quick-spec-row {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+    min-width: 0;
+    padding: 10px 12px;
+    border-radius: var(--ui-radius-tile);
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+}
+
+.card-quick-spec-cpu {
+    grid-column: 1 / -1;
+}
+
+.card-quick-spec-label,
+.spec-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.card-quick-spec-value {
+    font-size: 0.95rem;
+    text-align: left;
+    color: var(--md-sys-color-on-surface);
+}
+
+/* Clusters inside a tile are plain lines, not boxes in boxes */
+.card-quick-spec-row .cpu-cluster,
+.spec-item .cpu-cluster,
+body.light-mode .card-quick-spec-row .cpu-cluster,
+body.light-mode .spec-item .cpu-cluster {
+    background: none;
+    border: none;
+    padding: 3px 0;
+    font-size: 0.9rem;
+}
+
+.card-quick-spec-row .cpu-cluster:hover,
+.spec-item .cpu-cluster:hover {
+    background: none;
+    transform: none;
+}
+
+.card-quick-spec-row .cpu-cluster-container,
+.spec-item .cpu-cluster-container {
+    gap: 2px;
+    margin-top: 0;
+}
+
+.cluster-badge {
+    box-shadow: none;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* "View full specs" becomes a tonal button */
+.chip-card-action-bar,
+body.light-mode .chip-card-action-bar,
+.chip-card:hover .chip-card-action-bar,
+body.light-mode .chip-card:hover .chip-card-action-bar {
+    margin: 0 16px 16px;
+    padding: 11px 16px;
+    border: 1px solid var(--ui-tile-border);
+    border-radius: var(--ui-radius-tile);
+    background: var(--ui-tile-bg);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.chip-card-action-bar:hover,
+body.light-mode .chip-card-action-bar:hover {
+    background: var(--ui-selected-bg);
+    border-color: var(--md-sys-color-primary);
+}
+
+.view-specs-text {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+}
+
+/* Expanded full specs: tiles in a grid */
+.chip-card-body,
+body.light-mode .chip-card-body {
+    background: transparent;
+    gap: 8px;
+}
+
+.chip-card.expanded .chip-card-body,
+body.light-mode .chip-card.expanded .chip-card-body {
+    padding: 0 16px 16px;
+    border-top: none;
+}
+
+.spec-item {
+    gap: 4px;
+    min-width: 0;
+    padding: 10px 12px;
+    border-radius: var(--ui-radius-tile);
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+}
+
+.spec-value {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.variant-switcher {
+    padding: 0 16px 12px;
+}
+
+.variant-chip {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: var(--ui-tile-bg);
+}
+
+body.light-mode .variant-chip {
+    border-color: var(--ui-tile-border);
+}
+
+.variant-chip.active,
+body.light-mode .variant-chip.active {
+    background: var(--ui-selected-bg);
+    border-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-surface);
+}
+
+/* ---------- Welcome page ---------- */
+.welcome-card,
+body.light-mode .welcome-card {
+    background: var(--ui-section-bg);
+    border: 1px solid var(--ui-section-border);
+    border-radius: var(--ui-radius-section);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.welcome-card:hover,
+body.light-mode .welcome-card:hover {
+    background: var(--ui-section-bg);
+    border-color: var(--md-sys-color-primary);
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+
+.welcome-card-icon {
+    border-radius: 12px;
+}
+
+.welcome-actions .btn-contained {
+    box-shadow: none !important;
+}
+
+.welcome-credits {
+    background: var(--ui-section-bg) !important;
+    border: 1px solid var(--ui-section-border) !important;
+    border-radius: var(--ui-radius-section) !important;
+    box-shadow: none !important;
+    padding: 20px !important;
+}
+
+.welcome-credits h3 {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.welcome-credits > div > div {
+    background: var(--ui-tile-bg) !important;
+    border: 1px solid var(--ui-tile-border) !important;
+    border-radius: var(--ui-radius-tile) !important;
+}
+
+/* ---------- Compare page ---------- */
+.selector-card,
+body.light-mode .selector-card {
+    background: var(--ui-section-bg);
+    border: 1px solid var(--ui-section-border);
+    border-radius: var(--ui-radius-section);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.selector-card:hover,
+body.light-mode .selector-card:hover {
+    background: var(--ui-section-bg);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 55%, var(--ui-section-border));
+    box-shadow: none;
+}
+
+.selector-search-box,
+body.light-mode .selector-search-box {
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+    border-radius: var(--ui-radius-tile);
+}
+
+.selector-search-box:focus-within,
+body.light-mode .selector-search-box:focus-within {
+    background: var(--ui-tile-bg);
+    border-color: var(--md-sys-color-primary);
+}
+
+.selected-chip-icon,
+body.light-mode .selected-chip-icon {
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+    border-radius: var(--ui-radius-tile);
+}
+
+#comparison-table-wrapper,
+body.light-mode #comparison-table-wrapper {
+    background: transparent;
+    border-radius: 0;
+}
+
+.benchmark-comparison,
+body.light-mode .benchmark-comparison {
+    margin: 0 0 4px;
+    background: var(--ui-section-bg);
+    border: 1px solid var(--ui-section-border);
+    border-radius: var(--ui-radius-section);
+}
+
+.benchmark-bar-container,
+body.light-mode .benchmark-bar-container {
+    background: var(--ui-tile-bg);
+}
+
+.cmp-sheet {
+    padding: 0;
+}
+
+.cmp-head {
+    margin: 0;
+    padding: 12px 0;
+    background-color: color-mix(in srgb, var(--md-sys-color-background) 88%, transparent);
+}
+
+.cmp-head-label {
+    padding-left: 16px;
+}
+
+.cmp-head-chip,
+body.light-mode .cmp-head-chip {
+    border-radius: var(--ui-radius-tile);
+    border: 2px solid color-mix(in srgb, var(--cmp-color) 70%, transparent);
+    background: color-mix(in srgb, var(--cmp-color) 10%, var(--ui-tile-bg));
+}
+
+.cmp-head-chip.is-placeholder,
+body.light-mode .cmp-head-chip.is-placeholder {
+    border: 1px dashed var(--ui-section-border);
+    background: var(--ui-tile-bg);
+}
+
+.cmp-head-logo,
+body.light-mode .cmp-head-logo {
+    border-radius: 10px;
+    background: var(--ui-tile-bg);
+}
+
+.cmp-group {
+    gap: 8px;
+    margin-top: 14px;
+    padding: 16px;
+    background: var(--ui-section-bg);
+    border: 1px solid var(--ui-section-border);
+    border-radius: var(--ui-radius-section);
+}
+
+.cmp-group-title {
+    gap: 8px;
+    margin: 0 0 4px;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.cmp-group-icon,
+body.light-mode .cmp-group-icon {
+    width: auto;
+    height: auto;
+    background: none;
+    color: var(--md-sys-color-primary);
+}
+
+.cmp-group-icon .material-icons-round {
+    font-size: 19px;
+}
+
+.cmp-row,
+body.light-mode .cmp-row,
+.cmp-group-title + .cmp-row,
+.cmp-row:last-child {
+    padding: 10px 12px;
+    border-radius: var(--ui-radius-tile);
+    background: var(--ui-tile-bg);
+    border: 1px solid var(--ui-tile-border);
+}
+
+.cmp-label {
+    font-size: 0.85rem;
+}
+
+.cmp-val {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.cmp-val.is-win,
+body.light-mode .cmp-val.is-win {
+    background: color-mix(in srgb, var(--cmp-color) 10%, var(--ui-tile-bg));
+    border-color: var(--cmp-color);
+}
+
+.cmp-val .cpu-cluster,
+body.light-mode .cmp-val .cpu-cluster {
+    background: none;
+    border: none;
+    padding: 3px 0;
+}
+
+.cmp-toolbar {
+    padding-top: 4px;
+}
+
+@media (max-width: 640px) {
+    .cmp-head {
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .cmp-group {
+        padding: 12px;
+    }
+
+    .cmp-row {
+        padding: 10px;
+    }
+
+    .cmp-label {
+        padding-left: 2px;
+    }
+}
+
+/* ---------- Modals ---------- */
+.changelog-content,
+body.light-mode .changelog-content {
+    border-radius: 28px;
+}
+
+@media (max-width: 768px) {
+    .sidebar,
+    body.light-mode .sidebar {
+        background-color: var(--ui-section-bg);
+    }
+
+    .chip-card {
+        max-width: none;
+    }
 }
