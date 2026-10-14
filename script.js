@@ -2336,7 +2336,7 @@ function renderCompareCell(slot, key, value, winner) {
         const empty = isEmptySpecValue(value);
         inner = `<span class="${empty ? 'cmp-empty' : 'cmp-text'}">${formatValue(value)}</span>`;
     }
-    const tag = isWin ? `<span class="cmp-win-tag"><span class="material-icons-round">arrow_upward</span>${t(compareRules[key].tag)}</span>` : '';
+    const tag = isWin ? `<span class="cmp-win-tag"><span class="material-icons-round">check</span>${t(compareRules[key].tag)}</span>` : '';
     return `<div class="cmp-val cmp-slot-${slot}${isWin ? ' is-win' : ''}">${inner}${tag}</div>`;
 }
 
@@ -2346,7 +2346,7 @@ function renderCompareHeadChip(slot, chip) {
     }
     return `
         <div class="cmp-head-chip cmp-slot-${slot}">
-            <span class="cmp-head-logo">${getBrandLogoGlobal(chip.manufacturer, '20px')}</span>
+            <span class="cmp-head-logo">${getBrandLogoGlobal(chip.manufacturer, '18px')}</span>
             <span class="cmp-head-name">${escapeHtml(chip.name)}</span>
         </div>`;
 }
@@ -2405,7 +2405,7 @@ function updateComparisonTable() {
         const icon = COMPARE_CATEGORY_ICONS[group.category] || 'tune';
         groupsHtml += `
             <section class="cmp-group${allSame && bothSelected ? ' is-same' : ''}">
-                <h3 class="cmp-group-title"><span class="material-icons-round">${icon}</span>${t(group.category)}</h3>
+                <h3 class="cmp-group-title"><span class="cmp-group-icon"><span class="material-icons-round">${icon}</span></span>${t(group.category)}</h3>
                 ${rowsHtml}
             </section>`;
     });

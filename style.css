@@ -308,26 +308,6 @@ body.light-mode .quick-spec-value {
 }
 
 /* Comparison Table */
-body.light-mode #comparison-table-wrapper {
-    background-color: var(--md-sys-color-surface-container-lowest);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    border-color: #C4C7D0;
-}
-
-body.light-mode .cmp-head {
-    background-color: #F8F9FB;
-    border-bottom-color: rgba(0, 0, 0, 0.08);
-}
-
-body.light-mode .cmp-group {
-    background-color: #FFFFFF;
-}
-
-body.light-mode .benchmark-comparison {
-    background-color: #FBFBFB;
-    border-bottom-color: rgba(0, 0, 0, 0.06);
-}
-
 body.light-mode .benchmark-bar-container {
     background-color: rgba(0, 0, 0, 0.05);
 }
@@ -1937,15 +1917,11 @@ body.light-mode .cpu-cluster:hover {
 /* Comparison Table Wrapper */
 #comparison-table-wrapper {
     margin-top: 24px;
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 5%, var(--md-sys-color-surface-container));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 20%, var(--md-sys-color-outline-variant));
-    border-radius: var(--shape-corner-xl);
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: 28px;
     overflow: hidden;
     /* clip (unlike hidden) doesn't create a scroll container, so the sticky chip header works */
     overflow: clip;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 #comparison-table-wrapper:empty {
@@ -1953,13 +1929,16 @@ body.light-mode .cpu-cluster:hover {
     margin-top: 0;
 }
 
-/* Comparison Sheet */
+/* Comparison Sheet - Material You segmented lists */
 .cmp-sheet {
     --cmp-a: var(--md-sys-color-primary);
     --cmp-b: var(--md-sys-color-tertiary);
     --cmp-label-w: minmax(140px, 22%);
-    padding-bottom: 8px;
+    padding: 0 16px 16px;
 }
+
+.cmp-slot-1 { --cmp-color: var(--cmp-a); --cmp-on-color: var(--md-sys-color-on-primary); }
+.cmp-slot-2 { --cmp-color: var(--cmp-b); --cmp-on-color: var(--md-sys-color-on-tertiary); }
 
 .cmp-head,
 .cmp-row {
@@ -1974,43 +1953,50 @@ body.light-mode .cpu-cluster:hover {
     top: 0;
     z-index: 5;
     align-items: center;
+    margin: 0 -16px;
     padding: 12px 16px;
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 8%, var(--md-sys-color-surface-container));
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    background-color: color-mix(in srgb, var(--md-sys-color-surface-container-low) 88%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .cmp-head-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--md-sys-color-on-surface-variant);
 }
 
 .cmp-head-chip {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     min-width: 0;
-    padding: 8px 12px;
-    border-radius: var(--shape-corner-l);
-    font-weight: 700;
+    min-height: 48px;
+    padding: 6px 16px 6px 8px;
+    border-radius: 24px;
+    font-weight: 600;
     font-size: 15px;
     color: var(--md-sys-color-on-surface);
-    background: color-mix(in srgb, var(--cmp-color) 14%, transparent);
-    border: 1px solid color-mix(in srgb, var(--cmp-color) 40%, transparent);
+    background: color-mix(in srgb, var(--cmp-color) 24%, var(--md-sys-color-surface-container-high));
 }
 
 .cmp-head-chip.is-placeholder {
+    padding-left: 16px;
     font-weight: 500;
     color: var(--md-sys-color-on-surface-variant);
-    border-style: dashed;
-    background: transparent;
+    background: var(--md-sys-color-surface-container-high);
 }
 
 .cmp-head-logo {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--md-sys-color-surface-container-lowest);
 }
 
 .cmp-head-name {
@@ -2021,62 +2007,69 @@ body.light-mode .cpu-cluster:hover {
     line-height: 1.25;
 }
 
-.cmp-slot-1 { --cmp-color: var(--cmp-a); }
-.cmp-slot-2 { --cmp-color: var(--cmp-b); }
-
 .cmp-toolbar {
     display: flex;
     justify-content: flex-end;
-    padding: 12px 16px 0;
+    padding-top: 8px;
 }
 
 .cmp-diff-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 4px;
-    background: none;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 8px 0 16px;
     border: none;
+    border-radius: 24px;
+    background: none;
     cursor: pointer;
     font: inherit;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--md-sys-color-on-surface);
+    transition: background-color 0.2s;
 }
 
+.cmp-diff-toggle:hover {
+    background: color-mix(in srgb, var(--md-sys-color-on-surface) 8%, transparent);
+}
+
+/* Same shape as the M3 switch in Settings (.toggle-switch) */
 .cmp-switch {
     position: relative;
-    width: 36px;
-    height: 20px;
-    border-radius: 999px;
-    background: var(--md-sys-color-surface-container-highest, var(--md-sys-color-outline-variant));
-    border: 2px solid var(--md-sys-color-outline);
+    flex: 0 0 52px;
+    width: 52px;
+    height: 32px;
     box-sizing: border-box;
-    transition: background-color 0.2s, border-color 0.2s;
+    border-radius: 16px;
+    background-color: var(--md-sys-color-surface-container-highest);
+    border: 2px solid var(--md-sys-color-outline);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .cmp-switch-knob {
     position: absolute;
     top: 50%;
-    left: 3px;
-    width: 10px;
-    height: 10px;
+    left: 6px;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
     border-radius: 50%;
-    background: var(--md-sys-color-outline);
-    transform: translateY(-50%);
-    transition: left 0.2s, width 0.2s, height 0.2s, background-color 0.2s;
+    background-color: var(--md-sys-color-outline);
+    transition: left 0.3s var(--motion-easing-emphasized), width 0.3s, height 0.3s, margin-top 0.3s, background-color 0.3s;
 }
 
 .cmp-diff-toggle[aria-checked="true"] .cmp-switch {
-    background: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary);
     border-color: var(--md-sys-color-primary);
 }
 
 .cmp-diff-toggle[aria-checked="true"] .cmp-switch-knob {
-    left: 18px;
-    width: 12px;
-    height: 12px;
-    background: var(--md-sys-color-on-primary);
+    left: 22px;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background-color: var(--md-sys-color-on-primary);
 }
 
 .cmp-sheet.diff-only .cmp-row.is-same,
@@ -2085,97 +2078,105 @@ body.light-mode .cpu-cluster:hover {
 }
 
 .cmp-group {
-    margin: 16px 16px 0;
-    border: 1px solid var(--md-sys-color-outline-variant);
-    border-radius: var(--shape-corner-l);
-    background: color-mix(in srgb, var(--md-sys-color-surface-container-high) 60%, transparent);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 20px;
 }
 
 .cmp-group-title {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin: 0;
-    padding: 12px 16px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--md-sys-color-primary);
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    gap: 12px;
+    margin: 0 0 9px;
+    padding-left: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
 }
 
-.cmp-group-title .material-icons-round {
-    font-size: 18px;
+.cmp-group-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
 }
 
+.cmp-group-icon .material-icons-round {
+    font-size: 20px;
+}
+
+/* Rows are tonal list items with large outer and small inner corners */
 .cmp-row {
-    padding: 12px 16px;
-    align-items: start;
-    border-bottom: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 60%, transparent);
+    padding: 14px 16px 14px 20px;
+    align-items: center;
+    border-radius: 6px;
+    background: var(--md-sys-color-surface-container-high);
+}
+
+.cmp-group-title + .cmp-row {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
 }
 
 .cmp-row:last-child {
-    border-bottom: none;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 
 .cmp-label {
-    align-self: center;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--md-sys-color-on-surface-variant);
 }
 
 .cmp-val {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
     min-width: 0;
-    padding: 8px 10px 8px 12px;
-    border-radius: 0 var(--shape-corner-m) var(--shape-corner-m) 0;
-    border-left: 3px solid color-mix(in srgb, var(--cmp-color) 45%, transparent);
-    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--md-sys-color-on-surface);
     overflow-wrap: anywhere;
+    transition: background-color 0.2s;
 }
 
 .cmp-val.is-win {
-    background: color-mix(in srgb, var(--cmp-color) 12%, transparent);
-    border-left-color: var(--cmp-color);
+    background: color-mix(in srgb, var(--cmp-color) 22%, var(--md-sys-color-surface-container-high));
 }
 
 .cmp-empty {
-    color: var(--md-sys-color-on-surface-variant);
-    opacity: 0.7;
-}
-
-.cmp-row.is-same .cmp-text {
     color: var(--md-sys-color-on-surface-variant);
 }
 
 .cmp-win-tag {
     display: inline-flex;
     align-items: center;
-    gap: 2px;
-    padding: 2px 8px 2px 4px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--cmp-color);
-    background: color-mix(in srgb, var(--cmp-color) 18%, transparent);
+    gap: 4px;
+    height: 24px;
+    padding: 0 10px 0 6px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cmp-on-color);
+    background: var(--cmp-color);
 }
 
 .cmp-win-tag .material-icons-round {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .cmp-cpu-summary {
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 600;
     color: var(--cmp-color);
 }
 
@@ -2185,15 +2186,22 @@ body.light-mode .cpu-cluster:hover {
 }
 
 .cmp-val .cpu-cluster {
-    padding: 8px 10px;
-    font-size: 13px;
+    padding: 10px 12px;
+    font-size: 14px;
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+    border: none;
+    border-radius: 16px;
+    background: var(--md-sys-color-surface-container-highest);
 }
 
 /* Phones: label gets its own line so both values get half the width each */
 @media (max-width: 640px) {
+    .cmp-sheet {
+        padding: 0 12px 12px;
+    }
+
     .cmp-head,
     .cmp-row {
         grid-template-columns: 1fr 1fr;
@@ -2201,6 +2209,7 @@ body.light-mode .cpu-cluster:hover {
     }
 
     .cmp-head {
+        margin: 0 -12px;
         padding: 10px 12px;
     }
 
@@ -2210,39 +2219,38 @@ body.light-mode .cpu-cluster:hover {
 
     .cmp-head-chip {
         font-size: 14px;
-        padding: 6px 10px;
+        padding: 6px 12px 6px 6px;
     }
 
-    .cmp-toolbar {
-        padding: 8px 12px 0;
-    }
-
-    .cmp-group {
-        margin: 12px 12px 0;
+    .cmp-head-logo {
+        width: 30px;
+        height: 30px;
     }
 
     .cmp-row {
-        row-gap: 6px;
-        padding: 10px 12px;
+        row-gap: 4px;
+        padding: 12px 8px 10px;
+        align-items: start;
     }
 
     .cmp-label {
         grid-column: 1 / -1;
-        font-size: 12px;
+        padding-left: 12px;
+        font-size: 13px;
     }
 
     .cmp-val {
-        font-size: 13px;
-        padding: 6px 8px 6px 10px;
+        font-size: 14px;
     }
 }
 
 
 /* Benchmark Comparison Styles */
 .benchmark-comparison {
-    background-color: var(--md-sys-color-surface-container);
+    background-color: var(--md-sys-color-surface-container-high);
+    margin: 16px 16px 4px;
     padding: 24px;
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     gap: 32px;
