@@ -2161,16 +2161,20 @@ body.light-mode .cpu-cluster:hover {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    height: 24px;
-    padding: 0 10px 0 6px;
+    max-width: 100%;
+    min-height: 24px;
+    padding: 2px 10px 2px 6px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: 600;
+    line-height: 16px;
+    overflow-wrap: normal;
     color: var(--cmp-on-color);
     background: var(--cmp-color);
 }
 
 .cmp-win-tag .material-icons-round {
+    flex-shrink: 0;
     font-size: 16px;
 }
 
