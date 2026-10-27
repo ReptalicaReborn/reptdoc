@@ -25,6 +25,27 @@
   "memory": "16-bit Dual-channel LPDDR5X 4200 (8400 MT/s)"
  },
  {
+  "name": "Snapdragon 7s Gen 5",
+  "binnedOf": "Snapdragon 7s Gen 3",
+  "codename": "volcano",
+  "partNumber": "unknown",
+  "releaseDate": "unknown",
+  "process": "TSMC 4nm (N4P)",
+  "dieSize": "unknown",
+  "architecture": "ARMv9.2-A",
+  "cpu": {
+   "specs": "1x Cortex-A720 @ 2.96 GHz + 3x Cortex-A720 @ 2.71 GHz + 4x Cortex-A520 @ 2.02 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Qualcomm Adreno 810",
+  "npu": "Qualcomm Hexagon NPU",
+  "modem": "Snapdragon X63 5G",
+  "dsp": "Qualcomm Hexagon",
+  "memory": "16-bit Dual-channel LPDDR5 3200"
+ },
+ {
   "name": "Snapdragon 7s Gen 4",
   "binnedOf": "Snapdragon 7s Gen 3",
   "geekbench6": {

@@ -99,6 +99,32 @@
   "memory": "16-bit Quad-channel LPDDR5X 10667"
  },
  {
+  "name": "MediaTek Dimensity 9500m",
+  "binnedOf": "MediaTek Dimensity 9500",
+  "geekbench6": {
+   "single": "3635",
+   "multi": "10941"
+  },
+  "wildlifeExtreme": "7838",
+  "steelNomadLite": "3217",
+  "partNumber": "MT6993",
+  "releaseDate": "2025.09",
+  "process": "TSMC 3nm (N3P)",
+  "dieSize": "140.79mm²",
+  "architecture": "ARMv9.3-A",
+  "cpu": {
+   "specs": "1x C1-Ultra @ 4.21 GHz + 3x C1-Premium @ 3.50 GHz + 4x C1-Pro @ 2.70 GHz",
+   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 3x 512 KB (C1-Pro)",
+   "l3Cache": "16 MB"
+  },
+  "slc": "10 MB",
+  "gpu": "ARM Mali-G1 Ultra MC11 (1716 MHz)",
+  "modem": "MediaTek M90 5G",
+  "npu": "MediaTek NPU 990",
+  "dsp": "MediaTek Imagiq 1190",
+  "memory": "16-bit Quad-channel LPDDR5X 10667"
+ },
+ {
   "name": "MediaTek Dimensity 9400+",
   "binnedOf": "MediaTek Dimensity 9400",
   "geekbench6": {
