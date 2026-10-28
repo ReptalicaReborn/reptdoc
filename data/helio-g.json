@@ -55,7 +55,7 @@
   },
   "wildlifeExtreme": "347",
   "partNumber": "Unknown",
-  "releaseDate": "Unknown",
+  "releaseDate": "2026.09",
   "process": "TSMC 6nm (N6)",
   "dieSize": "Unknown",
   "architecture": "ARMv8.2-A",
@@ -68,7 +68,7 @@
   "gpu": "ARM Mali-G57 MC2 (950 MHz)",
   "npu": "Unknown",
   "modem": "Integrated 4G LTE Cat-13",
-  "memory": "LPDDR4X 2133 MHz / LPDDR5X"
+  "memory": "LPDDR4X 2133 MHz / LPDDR5X 5500 MT/s"
  },
  {
   "name": "MediaTek Helio G99",
