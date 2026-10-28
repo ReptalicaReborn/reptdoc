@@ -48,6 +48,29 @@
   "memory": "LPDDR4X 2133 MHz"
  },
  {
+  "name": "MediaTek Helio G99+",
+  "geekbench6": {
+   "single": "732",
+   "multi": "1984"
+  },
+  "wildlifeExtreme": "347",
+  "partNumber": "Unknown",
+  "releaseDate": "Unknown",
+  "process": "TSMC 6nm (N6)",
+  "dieSize": "Unknown",
+  "architecture": "ARMv8.2-A",
+  "cpu": {
+   "specs": "2x Cortex-A76 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
+   "l2Cache": "256 KB (A76), 128 KB (A55)",
+   "l3Cache": "1 MB"
+  },
+  "slc": "Unknown",
+  "gpu": "ARM Mali-G57 MC2 (950 MHz)",
+  "npu": "Unknown",
+  "modem": "Integrated 4G LTE Cat-13",
+  "memory": "LPDDR4X 2133 MHz / LPDDR5X"
+ },
+ {
   "name": "MediaTek Helio G99",
   "geekbench6": {
    "single": "732",
