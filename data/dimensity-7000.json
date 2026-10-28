@@ -1,5 +1,28 @@
 [
  {
+  "name": "MediaTek Dimensity 7550",
+  "binnedOf": "MediaTek Dimensity 7500",
+  "partNumber": "MT6881",
+  "releaseDate": "2026.10",
+  "process": "TSMC N4",
+  "dieSize": "Unknown",
+  "architecture": "ARMv9.3-A",
+  "geekbench6": {
+   "single": "1255",
+   "multi": "3569"
+  },
+  "cpu": {
+   "specs": "4x C1-Pro @ 2.6 GHz + 4x C1-Nano @ 2.0 GHz",
+   "l2Cache": "Unknown",
+   "l3Cache": "Unknown"
+  },
+  "slc": "N/A",
+  "gpu": "ARM Mali-G625 MC2",
+  "npu": "MediaTek NPU 850",
+  "modem": "MediaTek 5G R17 Modem",
+  "memory": "16-bit Dual-channel LPDDR5 6400"
+ },
+ {
   "name": "MediaTek Dimensity 7500",
   "partNumber": "MT6881",
   "releaseDate": "2026.05",
