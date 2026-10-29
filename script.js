@@ -289,32 +289,46 @@ function renderTable(dataRaw, isSearch, fullData) {
 
     const variantGroups = {};
     let renderData;
+    // Follow binnedOf up to the top chip in the same series (Kirin 8000S -> 8020; the 8020's own
+    // base, the 9010S, lives in another series so the 8020 heads its card). A chip whose base
+    // isn't in the series, or that sits in a binnedOf loop, is its own base.
+    const baseResolver = pool => {
+        const sameSeries = (a, b) => a.seriesKey === b.seriesKey;
+        return chip => {
+            const visited = new Set([chip]);
+            let base = chip;
+            while (base.binnedOf) {
+                const parent = pool.find(c => c.name === base.binnedOf && sameSeries(c, base));
+                if (!parent) break;
+                if (visited.has(parent)) return chip;
+                visited.add(parent);
+                base = parent;
+            }
+            return base;
+        };
+    };
     if (isSearch) {
         // Group matches under their base chip so binned variants stay reachable
         const pool = fullData || dataRaw;
-        const sameSeries = (a, b) => a.seriesKey === b.seriesKey;
+        const baseOf = baseResolver(pool);
         const seen = new Set();
         renderData = [];
         dataRaw.forEach(chip => {
-            const base = chip.binnedOf
-                ? (pool.find(c => c.name === chip.binnedOf && !c.binnedOf && sameSeries(c, chip)) || chip)
-                : chip;
+            const base = baseOf(chip);
             if (seen.has(base)) return;
             seen.add(base);
             renderData.push(base);
-            variantGroups[base.name + '\u0000' + (base.seriesKey || '')] = base.binnedOf ? [] :
-                pool.filter(c => c.binnedOf === base.name && sameSeries(c, base));
+            variantGroups[base.name + '\u0000' + (base.seriesKey || '')] =
+                pool.filter(c => c !== base && baseOf(c) === base);
         });
     } else {
+        const baseOf = baseResolver(dataRaw);
         renderData = [];
         dataRaw.forEach(chip => {
-            if (chip.binnedOf) {
-                if (!variantGroups[chip.binnedOf]) variantGroups[chip.binnedOf] = [];
-                variantGroups[chip.binnedOf].push(chip);
-            } else {
-                renderData.push(chip);
-                if (!variantGroups[chip.name]) variantGroups[chip.name] = [];
-            }
+            const base = baseOf(chip);
+            if (!variantGroups[base.name]) variantGroups[base.name] = [];
+            if (base === chip) renderData.push(chip);
+            else variantGroups[base.name].push(chip);
         });
     }
 
