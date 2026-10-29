@@ -25,6 +25,44 @@
   "memory": "LPDDR5X"
  },
  {
+  "name": "HiSilicon Kirin 8020A",
+  "binnedOf": "HiSilicon Kirin 8020",
+  "partNumber": "unknown",
+  "releaseDate": "unknown",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x Taishan Prime @ 2.29 GHz + 2x Taishan Large @ 2.05 GHz + 3x Taishan Little @ 1.31 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Huawei Maleoon 920C 2CUs",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Modem",
+  "memory": "LPDDR5X"
+ },
+ {
+  "name": "HiSilicon Kirin 8000S",
+  "binnedOf": "HiSilicon Kirin 8020",
+  "partNumber": "unknown",
+  "releaseDate": "unknown",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "unknown",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "2x Taishan Large @ 2.05 GHz + 3x Taishan Little @ 1.31 GHz",
+   "l2Cache": "unknown",
+   "l3Cache": "unknown"
+  },
+  "slc": "unknown",
+  "gpu": "Huawei Maleoon 920C 1CU",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Modem",
+  "memory": "LPDDR5X"
+ },
+ {
   "name": "HiSilicon Kirin 8000",
   "partNumber": "Hi6290V110",
   "releaseDate": "2023.12",

@@ -121,6 +121,27 @@
   "memory": "16-bit Quad-channel LPDDR5X 9600"
  },
  {
+  "name": "HiSilicon Kirin 9025",
+  "binnedOf": "HiSilicon Kirin 9020",
+  "wildlifeExtreme": "1894",
+  "steelNomadLite": "548",
+  "partNumber": "unknown",
+  "releaseDate": "2026.10",
+  "process": "SMIC N+2 (7nm)",
+  "dieSize": "140.5 mm²",
+  "architecture": "ARMv8-A compatible",
+  "cpu": {
+   "specs": "1x 2.6 GHz (Taishan Prime) + 3x 2.15 GHz (Taishan Large) + 4x 1.6 GHz (Taishan Little)",
+   "l2Cache": "1 MB (TP) + 3x 1 MB (TL) + 1 MB (4x Little)",
+   "l3Cache": "10 MB"
+  },
+  "slc": "8 MB",
+  "gpu": "Huawei Maleoon 920 4CUs (840 MHz)",
+  "npu": "Da Vinci",
+  "modem": "Balong 5G Integrated Modem",
+  "memory": "16-bit Quad-channel LPDDR5X 8533"
+ },
+ {
   "name": "HiSilicon Kirin 9020",
   "geekbench6": {
    "single": "1477",
