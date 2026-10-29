@@ -394,7 +394,7 @@
   "architecture": "ARMv8.2-A",
   "cpu": {
    "specs": "1x 2.58 GHz (A76) + 3x 2.40 GHz (A76) + 4x 1.84 GHz (A55)",
-   "l2Cache": "512KB (A76) + 3x 256KB (A76) 4x 128KB (A55)",
+   "l2Cache": "512KB (A76) + 3x 256KB (A76) + 4x 128KB (A55)",
    "l3Cache": "2MB"
   },
   "slc": "2MB",

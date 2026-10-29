@@ -38,7 +38,7 @@
   "steelNomadLite": "3390",
   "cpu": {
    "specs": "1x C1-Ultra @ 4.21 GHz + 3x C1-Premium @ 3.50 GHz + 4x C1-Pro @ 2.70 GHz ",
-   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 3x 512 KB (C1-Pro)",
+   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 4x 512 KB (C1-Pro)",
    "l3Cache": "16 MB"
   },
   "slc": "10 MB",
@@ -64,7 +64,7 @@
   "architecture": "ARMv9.2-A",
   "cpu": {
    "specs": "1x Cortex-X925 @ 3.73 GHz + 3x Cortex-X4 @ 3.30 GHz + 4x Cortex-A720 @ 2.40 GHz",
-   "l2Cache": "2 MB (X925), 1 MB (X4), 512 KB (A720)",
+   "l2Cache": "2 MB (X925) + 3x 1 MB (X4) + 4x 512 KB (A720)",
    "l3Cache": "12 MB"
   },
   "slc": "10 MB",
@@ -88,7 +88,7 @@
   "architecture": "ARMv9.3-A",
   "cpu": {
    "specs": "1x C1-Ultra @ 4.21 GHz + 3x C1-Premium @ 3.50 GHz + 4x C1-Pro @ 2.70 GHz",
-   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 3x 512 KB (C1-Pro)",
+   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 4x 512 KB (C1-Pro)",
    "l3Cache": "16 MB"
   },
   "slc": "10 MB",
@@ -114,7 +114,7 @@
   "architecture": "ARMv9.3-A",
   "cpu": {
    "specs": "1x C1-Ultra @ 4.21 GHz + 3x C1-Premium @ 3.50 GHz + 4x C1-Pro @ 2.70 GHz",
-   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 3x 512 KB (C1-Pro)",
+   "l2Cache": "2 MB (C1-Ultra) + 3x 1 MB (C1-Premium) + 4x 512 KB (C1-Pro)",
    "l3Cache": "16 MB"
   },
   "slc": "10 MB",
@@ -140,7 +140,7 @@
   "architecture": "ARMv9.2-A",
   "cpu": {
    "specs": "1x Cortex-X925 @ 3.73 GHz + 3x Cortex-X4 @ 3.30 GHz + 4x Cortex-A720 @ 2.40 GHz",
-   "l2Cache": "2 MB (X925), 1 MB (X4), 512 KB (A720)",
+   "l2Cache": "2 MB (X925) + 3x 1 MB (X4) + 4x 512 KB (A720)",
    "l3Cache": "12 MB"
   },
   "slc": "10 MB",
@@ -166,7 +166,7 @@
   "modem": "MediaTek 5G",
   "cpu": {
    "specs": "1x Cortex-X925 @ 3.63 GHz + 3x Cortex-X4 @ 3.30 GHz + 4x Cortex-A720 @ 2.40 GHz",
-   "l2Cache": "2 MB (X925), 1 MB (X4), 512 KB (A720)",
+   "l2Cache": "2 MB (X925) + 3x 1 MB (X4) + 4x 512 KB (A720)",
    "l3Cache": "12 MB"
   },
   "slc": "10 MB",
@@ -192,7 +192,7 @@
   "modem": "MediaTek 5G",
   "cpu": {
    "specs": "1x Cortex-X4 @ 3.40 GHz + 3x Cortex-X4 @ 2.85 GHz + 4x Cortex-A720 @ 2.00 GHz",
-   "l2Cache": "1 MB (Prime X4), 3x 512 KB (X4), 256 KB (A720)",
+   "l2Cache": "1 MB (Prime X4) + 3x 512 KB (X4) + 4x 256 KB (A720)",
    "l3Cache": "8 MB"
   },
   "slc": "10 MB",
@@ -221,7 +221,7 @@
   "architecture": "ARMv9.2-A",
   "cpu": {
    "specs": "1x Cortex-X4 @ 3.40 GHz + 3x Cortex-X4 @ 2.85 GHz + 4x Cortex-A720 @ 2.00 GHz",
-   "l2Cache": "1 MB (Prime X4), 3x 512 KB (X4), 256 KB (A720)",
+   "l2Cache": "1 MB (Prime X4) + 3x 512 KB (X4) + 4x 256 KB (A720)",
    "l3Cache": "8 MB"
   },
   "slc": "10 MB",
@@ -247,7 +247,7 @@
   "modem": "MediaTek M80 5G",
   "cpu": {
    "specs": "1x Cortex-X4 @ 3.25 GHz + 3x Cortex-X4 @ 2.85 GHz + 4x Cortex-A720 @ 2.00 GHz",
-   "l2Cache": "1 MB (Prime X4), 512 KB (X4), 256 KB (A720)",
+   "l2Cache": "1 MB (Prime X4) + 3x 512 KB (X4) + 4x 256 KB (A720)",
    "l3Cache": "8 MB (Shared)"
   },
   "slc": "10 MB",

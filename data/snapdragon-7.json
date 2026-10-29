@@ -85,7 +85,7 @@
   "dieSize": "89.54 mm²",
   "cpu": {
    "specs": "1x 2.8 GHz (X4) + 4x 2.6 GHz (A720) + 3x 1.9 GHz (A520)",
-   "l2Cache": "1MB (X4) + 4x 256KB (A720) + 128KB (2x A510) + 128KB (A510)",
+   "l2Cache": "1MB (X4) + 4x 256KB (A720) + 128KB (2x A520) + 128KB (A520)",
    "l3Cache": "4MB"
   },
   "slc": "2MB",
@@ -135,7 +135,7 @@
   "architecture": "ARMv9-A",
   "cpu": {
    "specs": "1x Cortex-A715 @ 2.63 GHz + 3x Cortex-A715 @ 2.40 GHz + 4x Cortex-A510 @ 1.80 GHz",
-   "l2Cache": "512KB (A715) + 2x 256KB (A510)",
+   "l2Cache": "512KB (A715) + 2x 256KB (4x A510)",
    "l3Cache": "4 MB"
   },
   "slc": "N/A",
