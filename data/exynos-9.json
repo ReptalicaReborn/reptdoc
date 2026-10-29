@@ -75,8 +75,8 @@
   "architecture": "ARMv8-A",
   "cpu": {
    "specs": "4x Mongoose M2 @ 2.30 GHz + 4x Cortex-A53 @ 1.70 GHz",
-   "l2Cache": "2x 512KB (M2) + 512KB (A53 cluster)",
-   "l3Cache": "2x 1MB (M2) cluster"
+   "l2Cache": "2MB (M2 cluster) + 512KB (A53 cluster)",
+   "l3Cache": "N/A"
   },
   "slc": "N/A",
   "gpu": "ARM Mali-G71 MP20 (546 MHz)",

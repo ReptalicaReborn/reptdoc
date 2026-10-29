@@ -14,8 +14,8 @@
   "architecture": "ARMv8-A compatible",
   "cpu": {
    "specs": "1x 3.1GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
-   "l2Cache": "2MB (Taishan Prime) + 2MB (Taishan Little shared)",
-   "l3Cache": "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
+   "l2Cache": "2MB (Taishan Prime) + 2MB (2x Taishan Little)",
+   "l3Cache": "8MB (Taishan Prime + Performance) + 8MB (4x Taishan Efficiency)"
   },
   "slc": "12MB",
   "gpu": "Huawei Maleoon 955 (6CUs)",
@@ -39,8 +39,8 @@
   "architecture": "ARMv8-A compatible",
   "cpu": {
    "specs": "1x 3GHz (Taishan Prime) + 2x 2.7GHz (Taishan Performance) + 4x 2.2GHz (Taishan Efficiency) + 2x 1.75GHz (Taishan Little)",
-   "l2Cache": "2MB (Taishan Prime) + 2MB (Taishan Little shared)",
-   "l3Cache": "8MB L3 (Taishan Prime + Performance shared) + 8MB L3 (Taishan Efficiency shared)"
+   "l2Cache": "2MB (Taishan Prime) + 2MB (2x Taishan Little)",
+   "l3Cache": "8MB (Taishan Prime + Performance) + 8MB (4x Taishan Efficiency)"
   },
   "slc": "12MB",
   "gpu": "Huawei Maleoon 955A (5CUs)",
