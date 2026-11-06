@@ -8,7 +8,7 @@
   "architecture": "ARMv8.2-A",
   "cpu": {
    "specs": "2x Cortex-A75 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
-   "l2Cache": "512 KB (A75), 128 KB (A55)",
+   "l2Cache": "2x 512 KB (A75) + 6x 128 KB (A55)",
    "l3Cache": "2 MB"
   },
   "slc": "Unknown",
@@ -27,7 +27,7 @@
   "architecture": "ARMv8.2-A",
   "cpu": {
    "specs": "2x Cortex-A75 @ 2.20 GHz + 6x Cortex-A55 @ 2.00 GHz",
-   "l2Cache": "512 KB (A75), 128 KB (A55)",
+   "l2Cache": "2x 512 KB (A75) + 6x 128 KB (A55)",
    "l3Cache": "2 MB"
   },
   "slc": "Unknown",

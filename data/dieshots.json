@@ -269,6 +269,16 @@
   ]
  },
  {
+  "id": "snapdragon-6-gen-1-7s-gen-2",
+  "title": "Snapdragon 6 Gen 1 / 7s Gen 2",
+  "brand": "Qualcomm",
+  "desc": "Shared die between two SKUs, 2022, Samsung 4LPX, 53.9 mm². 4 Cortex-A78 + 4 Cortex-A55 with 2 MB L3, Adreno 710 GPU and an integrated Snapdragon X62 modem.",
+  "chips": [
+   "Snapdragon 6 Gen 1",
+   "Snapdragon 7s Gen 2"
+  ]
+ },
+ {
   "id": "snapdragon-4-gen-2-4",
   "title": "Snapdragon 4 Gen 2/4",
   "brand": "Qualcomm",

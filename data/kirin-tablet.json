@@ -36,7 +36,7 @@
   "wildlifeExtreme": "1000",
   "architecture": "ARMv8-A compatible",
   "cpu": {
-   "specs": "4x Taishan Prime @ 2.32 GHz + 4x Taishan Large @ 2.01 GHz + 1x Taishan Medium @ 2.05 GHz",
+   "specs": "4x Taishan Prime @ 2.32 GHz + 4x Taishan Large @ 2.01 GHz + 2x Taishan Medium @ 2.05 GHz",
    "l2Cache": "4x 1MB (TP) + 4x 1MB (TL) + 2x 512KB (TM)",
    "l3Cache": "16MB"
   },
@@ -150,7 +150,7 @@
   "architecture": "ARMv8-A compatible",
   "cpu": {
    "specs": "1x Taishan Large 2.49GHz + 2x Taishan Large 2.15GHz + 3x Cortex-A510 1.53GHz",
-   "l2Cache": "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+   "l2Cache": "1MB (Taishan Large) + 2x 512KB (Taishan Large) + 2x 256KB (3x A510)",
    "l3Cache": "4 MB"
   },
   "slc": "4 MB",
@@ -169,7 +169,7 @@
   "architecture": "ARMv8-A compatible",
   "cpu": {
    "specs": "1x Taishan Large 2.49GHz + 2x Taishan Large 2.15GHz + 3x Cortex-A510 1.53GHz",
-   "l2Cache": "1MB (Taishan Large) + 3x 512KB (Taishan Large) + 2x 256KB (4x A510)",
+   "l2Cache": "1MB (Taishan Large) + 2x 512KB (Taishan Large) + 2x 256KB (3x A510)",
    "l3Cache": "4 MB"
   },
   "slc": "4 MB",
