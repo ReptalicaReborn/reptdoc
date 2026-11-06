@@ -180,12 +180,12 @@
   "partNumber": "SM7435",
   "releaseDate": "2023.09",
   "process": "Samsung 4nm (4LPX)",
-  "dieSize": "Unknown",
+  "dieSize": "53.9mm²",
   "architecture": "ARMv8.2-A",
   "cpu": {
    "specs": "4x Cortex-A78 @ 2.40 GHz + 4x Cortex-A55 @ 1.95 GHz",
-   "l2Cache": "Unknown",
-   "l3Cache": "Unknown"
+   "l2Cache": "4x 256KB (A78) + 4x 128KB (A55)",
+   "l3Cache": "2MB"
   },
   "slc": "Unknown",
   "gpu": "Adreno 710 (940 MHz)",
